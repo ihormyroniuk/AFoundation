@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		C50134AB230C196A0018D950 /* AFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = C50134A9230C196A0018D950 /* AFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C50A5BBF23390275007E1166 /* Bytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50A5BBE23390275007E1166 /* Bytes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C50134A6230C196A0018D950 /* AFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C50134A9230C196A0018D950 /* AFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFoundation.h; sourceTree = "<group>"; };
 		C50134AA230C196A0018D950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C50A5BBE23390275007E1166 /* Bytes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bytes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		C50134B1230C19730018D950 /* Bytes */ = {
 			isa = PBXGroup;
 			children = (
+				C50A5BBE23390275007E1166 /* Bytes.swift */,
 			);
 			path = Bytes;
 			sourceTree = "<group>";
@@ -103,6 +106,7 @@
 				TargetAttributes = {
 					C50134A5230C196A0018D950 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1100;
 					};
 				};
 			};
@@ -138,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C50A5BBF23390275007E1166 /* Bytes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +274,7 @@
 		C50134AF230C196A0018D950 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -286,6 +292,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.ihormyroniuk.AFoundation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -294,6 +301,7 @@
 		C50134B0230C196A0018D950 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
