@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C50134AB230C196A0018D950 /* AFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = C50134A9230C196A0018D950 /* AFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C50A5BBF23390275007E1166 /* Bytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50A5BBE23390275007E1166 /* Bytes.swift */; };
+		C50D5683233E2DCF00D7E98E /* Array+SplitIntoSubarrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D5682233E2DCF00D7E98E /* Array+SplitIntoSubarrays.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,6 +17,7 @@
 		C50134A9230C196A0018D950 /* AFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFoundation.h; sourceTree = "<group>"; };
 		C50134AA230C196A0018D950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C50A5BBE23390275007E1166 /* Bytes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bytes.swift; sourceTree = "<group>"; };
+		C50D5682233E2DCF00D7E98E /* Array+SplitIntoSubarrays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SplitIntoSubarrays.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,7 @@
 		C50134A8230C196A0018D950 /* AFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				C50D5681233E2DB200D7E98E /* Array */,
 				C50134B1230C19730018D950 /* Bytes */,
 				C50134A9230C196A0018D950 /* AFoundation.h */,
 				C50134AA230C196A0018D950 /* Info.plist */,
@@ -61,6 +64,14 @@
 				C50A5BBE23390275007E1166 /* Bytes.swift */,
 			);
 			path = Bytes;
+			sourceTree = "<group>";
+		};
+		C50D5681233E2DB200D7E98E /* Array */ = {
+			isa = PBXGroup;
+			children = (
+				C50D5682233E2DCF00D7E98E /* Array+SplitIntoSubarrays.swift */,
+			);
+			path = Array;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C50D5683233E2DCF00D7E98E /* Array+SplitIntoSubarrays.swift in Sources */,
 				C50A5BBF23390275007E1166 /* Bytes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
