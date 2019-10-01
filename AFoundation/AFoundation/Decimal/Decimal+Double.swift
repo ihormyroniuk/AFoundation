@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Decimal {
+public extension Decimal {
   
   var double: Double {
     return (self as NSNumber).doubleValue
