@@ -11,7 +11,8 @@ import Foundation
 public extension NumberFormatter {
   
   func number(from string: String?) -> NSNumber? {
-    return nil
+    guard let string = string else { return nil }
+    return number(from: string)
   }
   
 }
