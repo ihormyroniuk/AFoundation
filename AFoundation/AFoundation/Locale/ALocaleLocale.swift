@@ -10,10 +10,6 @@ import Foundation
 
 open class ALocaleLocale: ALocale {
   
-  // MARK: Current
-  
-  public static let current: ALocale = ALocaleLocale(locale: Locale.current)
-  
   // MARK: Locale
   
   public let locale: Locale
@@ -24,7 +20,11 @@ open class ALocaleLocale: ALocale {
     self.locale = locale
   }
   
-  // MARK: AOSGeneralSettings
+  // MARK: Current
+  
+  public static let current: ALocale = ALocaleLocale(locale: Locale.current)
+  
+  // MARK: Language
   
   open var language: ALanguage? = {
     guard let code = Locale.preferredLanguages.first else { return nil }
@@ -44,11 +44,15 @@ open class ALocaleLocale: ALocale {
     return preferredLanguages
   }()
   
+  // MARK: Country
+  
   open var country: ACountry? {
     guard let code = locale.regionCode else { return nil }
     let region = AHardcodedCountriesCodes().regionByCode(code)
     return region
   }
+  
+  // MARK: Currency
   
   open var currency: ACurrency? {
     guard let code = locale.currencyCode else { return nil }

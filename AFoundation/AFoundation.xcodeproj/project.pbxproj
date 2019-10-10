@@ -126,9 +126,9 @@
 		C5096BBD234F7B3200EA793A /* Languages */ = {
 			isa = PBXGroup;
 			children = (
+				C5096BC0234F7B3200EA793A /* ALanguage.swift */,
 				C5096BBE234F7B3200EA793A /* AHardcodedLanguagesCodes.swift */,
 				C5096BBF234F7B3200EA793A /* ALanguagesCodes.swift */,
-				C5096BC0234F7B3200EA793A /* ALanguage.swift */,
 			);
 			path = Languages;
 			sourceTree = "<group>";
@@ -136,9 +136,9 @@
 		C5096BC2234F7B3200EA793A /* Countries */ = {
 			isa = PBXGroup;
 			children = (
+				C5096BC5234F7B3200EA793A /* ACountry.swift */,
 				C5096BC3234F7B3200EA793A /* ACountriesCodes.swift */,
 				C5096BC4234F7B3200EA793A /* AHardcodedCountriesCodes.swift */,
-				C5096BC5234F7B3200EA793A /* ACountry.swift */,
 			);
 			path = Countries;
 			sourceTree = "<group>";
@@ -146,8 +146,8 @@
 		C5096BC6234F7B3200EA793A /* Currency */ = {
 			isa = PBXGroup;
 			children = (
-				C5096BC7234F7B3200EA793A /* ACurrenciesCodes.swift */,
 				C5096BC8234F7B3200EA793A /* ACurrency.swift */,
+				C5096BC7234F7B3200EA793A /* ACurrenciesCodes.swift */,
 				C5096BC9234F7B3200EA793A /* AHardcodedCurrenciesCodes.swift */,
 			);
 			path = Currency;
