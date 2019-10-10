@@ -9,6 +9,17 @@
 /* Begin PBXBuildFile section */
 		C50134AB230C196A0018D950 /* AFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = C50134A9230C196A0018D950 /* AFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C502849B234759B800440B1C /* NumberFormatter+Optionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C502849A234759B800440B1C /* NumberFormatter+Optionals.swift */; };
+		C5096BD0234F7B3200EA793A /* AHardcodedLanguagesCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BBE234F7B3200EA793A /* AHardcodedLanguagesCodes.swift */; };
+		C5096BD1234F7B3200EA793A /* ALanguagesCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BBF234F7B3200EA793A /* ALanguagesCodes.swift */; };
+		C5096BD2234F7B3200EA793A /* ALanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BC0234F7B3200EA793A /* ALanguage.swift */; };
+		C5096BD4234F7B3200EA793A /* ACountriesCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BC3234F7B3200EA793A /* ACountriesCodes.swift */; };
+		C5096BD5234F7B3200EA793A /* AHardcodedCountriesCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BC4234F7B3200EA793A /* AHardcodedCountriesCodes.swift */; };
+		C5096BD6234F7B3200EA793A /* ACountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BC5234F7B3200EA793A /* ACountry.swift */; };
+		C5096BD7234F7B3200EA793A /* ACurrenciesCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BC7234F7B3200EA793A /* ACurrenciesCodes.swift */; };
+		C5096BD8234F7B3200EA793A /* ACurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BC8234F7B3200EA793A /* ACurrency.swift */; };
+		C5096BD9234F7B3200EA793A /* AHardcodedCurrenciesCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BC9234F7B3200EA793A /* AHardcodedCurrenciesCodes.swift */; };
+		C5096BE0234F7BD000EA793A /* ALocale.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BDF234F7BD000EA793A /* ALocale.swift */; };
+		C5096BE2234F7E0100EA793A /* ALocaleLocale.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BE1234F7E0100EA793A /* ALocaleLocale.swift */; };
 		C50A5BBF23390275007E1166 /* Bytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50A5BBE23390275007E1166 /* Bytes.swift */; };
 		C50D5683233E2DCF00D7E98E /* Array+SplitIntoSubarrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D5682233E2DCF00D7E98E /* Array+SplitIntoSubarrays.swift */; };
 		C5F503AF2343998400CE5DB9 /* Decimal+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F503AE2343998400CE5DB9 /* Decimal+Double.swift */; };
@@ -19,6 +30,17 @@
 		C50134A9230C196A0018D950 /* AFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFoundation.h; sourceTree = "<group>"; };
 		C50134AA230C196A0018D950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C502849A234759B800440B1C /* NumberFormatter+Optionals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Optionals.swift"; sourceTree = "<group>"; };
+		C5096BBE234F7B3200EA793A /* AHardcodedLanguagesCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHardcodedLanguagesCodes.swift; sourceTree = "<group>"; };
+		C5096BBF234F7B3200EA793A /* ALanguagesCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALanguagesCodes.swift; sourceTree = "<group>"; };
+		C5096BC0234F7B3200EA793A /* ALanguage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALanguage.swift; sourceTree = "<group>"; };
+		C5096BC3234F7B3200EA793A /* ACountriesCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACountriesCodes.swift; sourceTree = "<group>"; };
+		C5096BC4234F7B3200EA793A /* AHardcodedCountriesCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHardcodedCountriesCodes.swift; sourceTree = "<group>"; };
+		C5096BC5234F7B3200EA793A /* ACountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACountry.swift; sourceTree = "<group>"; };
+		C5096BC7234F7B3200EA793A /* ACurrenciesCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACurrenciesCodes.swift; sourceTree = "<group>"; };
+		C5096BC8234F7B3200EA793A /* ACurrency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACurrency.swift; sourceTree = "<group>"; };
+		C5096BC9234F7B3200EA793A /* AHardcodedCurrenciesCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHardcodedCurrenciesCodes.swift; sourceTree = "<group>"; };
+		C5096BDF234F7BD000EA793A /* ALocale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALocale.swift; sourceTree = "<group>"; };
+		C5096BE1234F7E0100EA793A /* ALocaleLocale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALocaleLocale.swift; sourceTree = "<group>"; };
 		C50A5BBE23390275007E1166 /* Bytes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bytes.swift; sourceTree = "<group>"; };
 		C50D5682233E2DCF00D7E98E /* Array+SplitIntoSubarrays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SplitIntoSubarrays.swift"; sourceTree = "<group>"; };
 		C5F503AE2343998400CE5DB9 /* Decimal+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Double.swift"; sourceTree = "<group>"; };
@@ -54,6 +76,7 @@
 		C50134A8230C196A0018D950 /* AFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				C5096BBB234F7B3200EA793A /* Locale */,
 				C50284982347598700440B1C /* Formatters */,
 				C5F503AD2343994D00CE5DB9 /* Decimal */,
 				C50D5681233E2DB200D7E98E /* Array */,
@@ -86,6 +109,48 @@
 				C502849A234759B800440B1C /* NumberFormatter+Optionals.swift */,
 			);
 			path = Numbers;
+			sourceTree = "<group>";
+		};
+		C5096BBB234F7B3200EA793A /* Locale */ = {
+			isa = PBXGroup;
+			children = (
+				C5096BDF234F7BD000EA793A /* ALocale.swift */,
+				C5096BE1234F7E0100EA793A /* ALocaleLocale.swift */,
+				C5096BBD234F7B3200EA793A /* Languages */,
+				C5096BC2234F7B3200EA793A /* Countries */,
+				C5096BC6234F7B3200EA793A /* Currency */,
+			);
+			path = Locale;
+			sourceTree = "<group>";
+		};
+		C5096BBD234F7B3200EA793A /* Languages */ = {
+			isa = PBXGroup;
+			children = (
+				C5096BBE234F7B3200EA793A /* AHardcodedLanguagesCodes.swift */,
+				C5096BBF234F7B3200EA793A /* ALanguagesCodes.swift */,
+				C5096BC0234F7B3200EA793A /* ALanguage.swift */,
+			);
+			path = Languages;
+			sourceTree = "<group>";
+		};
+		C5096BC2234F7B3200EA793A /* Countries */ = {
+			isa = PBXGroup;
+			children = (
+				C5096BC3234F7B3200EA793A /* ACountriesCodes.swift */,
+				C5096BC4234F7B3200EA793A /* AHardcodedCountriesCodes.swift */,
+				C5096BC5234F7B3200EA793A /* ACountry.swift */,
+			);
+			path = Countries;
+			sourceTree = "<group>";
+		};
+		C5096BC6234F7B3200EA793A /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				C5096BC7234F7B3200EA793A /* ACurrenciesCodes.swift */,
+				C5096BC8234F7B3200EA793A /* ACurrency.swift */,
+				C5096BC9234F7B3200EA793A /* AHardcodedCurrenciesCodes.swift */,
+			);
+			path = Currency;
 			sourceTree = "<group>";
 		};
 		C50D5681233E2DB200D7E98E /* Array */ = {
@@ -183,10 +248,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5096BD8234F7B3200EA793A /* ACurrency.swift in Sources */,
+				C5096BE0234F7BD000EA793A /* ALocale.swift in Sources */,
+				C5096BD6234F7B3200EA793A /* ACountry.swift in Sources */,
 				C50D5683233E2DCF00D7E98E /* Array+SplitIntoSubarrays.swift in Sources */,
 				C5F503AF2343998400CE5DB9 /* Decimal+Double.swift in Sources */,
+				C5096BD1234F7B3200EA793A /* ALanguagesCodes.swift in Sources */,
 				C50A5BBF23390275007E1166 /* Bytes.swift in Sources */,
 				C502849B234759B800440B1C /* NumberFormatter+Optionals.swift in Sources */,
+				C5096BD4234F7B3200EA793A /* ACountriesCodes.swift in Sources */,
+				C5096BD0234F7B3200EA793A /* AHardcodedLanguagesCodes.swift in Sources */,
+				C5096BD9234F7B3200EA793A /* AHardcodedCurrenciesCodes.swift in Sources */,
+				C5096BE2234F7E0100EA793A /* ALocaleLocale.swift in Sources */,
+				C5096BD5234F7B3200EA793A /* AHardcodedCountriesCodes.swift in Sources */,
+				C5096BD2234F7B3200EA793A /* ALanguage.swift in Sources */,
+				C5096BD7234F7B3200EA793A /* ACurrenciesCodes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +404,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AFoundation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -355,6 +432,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AFoundation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
