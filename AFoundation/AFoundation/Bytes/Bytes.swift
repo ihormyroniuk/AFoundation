@@ -8,51 +8,49 @@
 
 import Foundation
 
-public typealias Byte = UInt8
-public typealias Bit = Bool
 public typealias Bytes = [UInt8]
 
 public extension Bytes {
-  func byte(_ number: Int) -> Byte? {
-    if number >= count {
-      return nil
+    func byte(_ number: Int) -> Byte? {
+        if number >= count {
+            return nil
+        }
+        return self[number]
     }
-    return self[number]
-  }
   
-  func bytes(_ range: ClosedRange<Int>) -> Bytes? {
-    guard range.upperBound >= 0, range.upperBound < count else {
-      return nil
+    func bytes(_ range: ClosedRange<Int>) -> Bytes? {
+        guard range.upperBound >= 0, range.upperBound < count else {
+            return nil
+        }
+        guard range.lowerBound >= 0, range.lowerBound <= range.upperBound else {
+            return nil
+        }
+        return Array(prefix(through: range.upperBound).suffix(from: range.lowerBound))
     }
-    guard range.lowerBound >= 0, range.lowerBound <= range.upperBound else {
-      return nil
-    }
-    return Array(prefix(through: range.upperBound).suffix(from: range.lowerBound))
-  }
   
-  func bytes(_ range: Range<Int>) -> Bytes? {
-    guard range.upperBound >= 0, range.upperBound <= count else {
-      return nil
+    func bytes(_ range: Range<Int>) -> Bytes? {
+        guard range.upperBound >= 0, range.upperBound <= count else {
+            return nil
+        }
+        guard range.lowerBound >= 0, range.lowerBound < range.upperBound else {
+            return nil
+        }
+        return Array(prefix(through: range.upperBound - 1).suffix(from: range.lowerBound))
     }
-    guard range.lowerBound >= 0, range.lowerBound < range.upperBound else {
-      return nil
+  
+    func bytes(from number: Int) -> Bytes? {
+        return bytes(number..<count)
     }
-    return Array(prefix(through: range.upperBound - 1).suffix(from: range.lowerBound))
-  }
   
-  func bytes(from number: Int) -> Bytes? {
-    return bytes(number..<count)
-  }
-  
-  func bytes(from sequenceNumber: Int, number: Int) -> Bytes? {
-    return bytes(sequenceNumber..<(sequenceNumber + number))
-  }
+    func bytes(from sequenceNumber: Int, number: Int) -> Bytes? {
+        return bytes(sequenceNumber..<(sequenceNumber + number))
+    }
 }
 
 public func +=(left: inout [Byte], right: [Byte]) {
-  left.append(contentsOf: right)
+    left.append(contentsOf: right)
 }
 
 public func +=(left: inout [Byte], right: Byte) {
-  left.append(right)
+    left.append(right)
 }
