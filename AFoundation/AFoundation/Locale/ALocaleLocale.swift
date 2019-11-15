@@ -22,7 +22,7 @@ open class ALocaleLocale: ALocale {
   
   // MARK: Current
   
-  public static let current: ALocale = ALocaleLocale(locale: Locale.current)
+    public static let current: ALocale = ALocaleLocale(locale: Locale.current)
   
   // MARK: Language
   
@@ -46,17 +46,17 @@ open class ALocaleLocale: ALocale {
   
   // MARK: Country
   
-  open var country: ACountry? {
+  open var country: Country? {
     guard let code = locale.regionCode else { return nil }
-    let region = AHardcodedCountriesCodes().regionByCode(code)
+    let region = HardcodedCountriesCodes().regionByCode(code)
     return region
   }
   
   // MARK: Currency
   
-  open var currency: ACurrency? {
+  open var currency: Currency? {
     guard let code = locale.currencyCode else { return nil }
-    let currency = AHardcodedCurrenciesCodes().currencyByCode(code)
+    let currency = HardcodedCurrenciesCodes().currencyByCode(code)
     return currency
   }
   

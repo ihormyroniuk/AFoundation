@@ -10,21 +10,21 @@ import Foundation
 
 public protocol ALocale {
   
-  // MARK: Current
+    // MARK: Current
   
-  static var current: ALocale { get }
+    static var current: ALocale { get }
   
-  // MARK: Language
+    // MARK: Language
   
-  var language: ALanguage? { get }
-  var preferredLanguages: [ALanguage] { get }
+    var language: ALanguage? { get }
+    var preferredLanguages: [ALanguage] { get }
   
-  // MARK: Country
+    // MARK: Country
   
-  var country: ACountry? { get }
+    var country: Country? { get }
   
-  // MARK: Currency
+    // MARK: Currency
   
-  var currency: ACurrency? { get }
+    var currency: Currency? { get }
   
 }
