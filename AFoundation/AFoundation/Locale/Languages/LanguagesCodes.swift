@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ALanguagesCodes {
-  func codeOfLanguage(_ language: ALanguage) -> String?
-  func languageByCode(_ code: String) -> ALanguage?
+protocol LanguagesCodes {
+  func codeOfLanguage(_ language: Language) -> String?
+  func languageByCode(_ code: String) -> Language?
 }
