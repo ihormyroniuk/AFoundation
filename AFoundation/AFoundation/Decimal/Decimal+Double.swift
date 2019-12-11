@@ -10,8 +10,8 @@ import Foundation
 
 public extension Decimal {
   
-  var double: Double {
-    return (self as NSNumber).doubleValue
-  }
+    var double: Double {
+        return (self as NSNumber).doubleValue
+    }
   
 }

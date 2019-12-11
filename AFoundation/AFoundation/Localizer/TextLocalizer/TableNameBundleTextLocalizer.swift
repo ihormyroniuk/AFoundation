@@ -8,23 +8,25 @@
 
 import Foundation
 
-open class StringsFileTextLocalizer: TextLocalizer {
+open class TableNameBundleTextLocalizer: TextLocalizer {
 
     // MARK: Data
 
-    private let stringsFileName: String
+    private let tableName: String?
+    private let bundle: Bundle
 
     // MARK: Initializer
 
-    public init(stringsFileName: String) {
-        self.stringsFileName = stringsFileName
+    public init(tableName: String? = nil, bundle: Bundle = Bundle.main) {
+        self.tableName = tableName
+        self.bundle = bundle
     }
 
     // MARK: Localizator
 
     open func localizeText(_ text: String, arguments: [CVarArg]) -> String? {
         let value = "0\(text)"
-        let localizedString = NSLocalizedString(text, tableName: stringsFileName, bundle: Bundle.main, value: value, comment: "")
+        let localizedString = NSLocalizedString(text, tableName: tableName, bundle: bundle, value: value, comment: "")
         if localizedString == value { return nil }
         let localizedText = String(format: localizedString, arguments: arguments)
         return localizedText
