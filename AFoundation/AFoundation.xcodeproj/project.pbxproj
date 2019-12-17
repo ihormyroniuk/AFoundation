@@ -12,8 +12,8 @@
 		3310125923994C09006B0E03 /* MultipleTextLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3310125823994C09006B0E03 /* MultipleTextLocalizer.swift */; };
 		33107F522391345C00789467 /* CompositeLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33107F512391345C00789467 /* CompositeLocalizer.swift */; };
 		33107F54239134B400789467 /* TableNameBundleTextLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33107F53239134B400789467 /* TableNameBundleTextLocalizer.swift */; };
-		3312F127239FE25300EE4CE9 /* Strings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3312F129239FE25300EE4CE9 /* Strings.strings */; };
-		3312F137239FE40900EE4CE9 /* Stringsdict.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 3312F139239FE40900EE4CE9 /* Stringsdict.stringsdict */; };
+		3312F127239FE25300EE4CE9 /* TableNameBundleTextLocalizerUnitTestingStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3312F129239FE25300EE4CE9 /* TableNameBundleTextLocalizerUnitTestingStrings.strings */; };
+		3312F137239FE40900EE4CE9 /* TableNameBundleTextLocalizerUnitTestingStringsdict.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 3312F139239FE40900EE4CE9 /* TableNameBundleTextLocalizerUnitTestingStringsdict.stringsdict */; };
 		332459032361F24C00DC2051 /* AFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C50134A6230C196A0018D950 /* AFoundation.framework */; };
 		33781E112367237C005072E6 /* Bit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33781E102367237C005072E6 /* Bit.swift */; };
 		33781E132367239A005072E6 /* Byte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33781E122367239A005072E6 /* Byte.swift */; };
@@ -53,8 +53,8 @@
 		3310125823994C09006B0E03 /* MultipleTextLocalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleTextLocalizer.swift; sourceTree = "<group>"; };
 		33107F512391345C00789467 /* CompositeLocalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeLocalizer.swift; sourceTree = "<group>"; };
 		33107F53239134B400789467 /* TableNameBundleTextLocalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableNameBundleTextLocalizer.swift; sourceTree = "<group>"; };
-		3312F128239FE25300EE4CE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Strings.strings; sourceTree = "<group>"; };
-		3312F138239FE40900EE4CE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Stringsdict.stringsdict; sourceTree = "<group>"; };
+		3312F128239FE25300EE4CE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TableNameBundleTextLocalizerUnitTestingStrings.strings; sourceTree = "<group>"; };
+		3312F138239FE40900EE4CE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/TableNameBundleTextLocalizerUnitTestingStringsdict.stringsdict; sourceTree = "<group>"; };
 		332458FE2361F24C00DC2051 /* AFoundationUnitTesting.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AFoundationUnitTesting.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		332459022361F24C00DC2051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33781E102367237C005072E6 /* Bit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bit.swift; sourceTree = "<group>"; };
@@ -109,6 +109,16 @@
 			path = Localizer;
 			sourceTree = "<group>";
 		};
+		3319649823A9080700C993EC /* TableNameBundle */ = {
+			isa = PBXGroup;
+			children = (
+				338BA771239EA58000CE3CCA /* TableNameBundleTextLocalizerUnitTesting.swift */,
+				3312F129239FE25300EE4CE9 /* TableNameBundleTextLocalizerUnitTestingStrings.strings */,
+				3312F139239FE40900EE4CE9 /* TableNameBundleTextLocalizerUnitTestingStringsdict.stringsdict */,
+			);
+			path = TableNameBundle;
+			sourceTree = "<group>";
+		};
 		332458FF2361F24C00DC2051 /* AFoundationUnitTesting */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,9 +148,7 @@
 		338BA76D239EA4F700CE3CCA /* TextLocalizer */ = {
 			isa = PBXGroup;
 			children = (
-				338BA771239EA58000CE3CCA /* TableNameBundleTextLocalizerUnitTesting.swift */,
-				3312F129239FE25300EE4CE9 /* Strings.strings */,
-				3312F139239FE40900EE4CE9 /* Stringsdict.stringsdict */,
+				3319649823A9080700C993EC /* TableNameBundle */,
 				338BA770239EA55A00CE3CCA /* MultipleTextLocalizer */,
 			);
 			path = TextLocalizer;
@@ -150,8 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				330B4223238EB7E40083FCEC /* TextLocalizer.swift */,
-				3310125823994C09006B0E03 /* MultipleTextLocalizer.swift */,
 				33107F53239134B400789467 /* TableNameBundleTextLocalizer.swift */,
+				3310125823994C09006B0E03 /* MultipleTextLocalizer.swift */,
 			);
 			path = TextLocalizer;
 			sourceTree = "<group>";
@@ -382,8 +390,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3312F137239FE40900EE4CE9 /* Stringsdict.stringsdict in Resources */,
-				3312F127239FE25300EE4CE9 /* Strings.strings in Resources */,
+				3312F137239FE40900EE4CE9 /* TableNameBundleTextLocalizerUnitTestingStringsdict.stringsdict in Resources */,
+				3312F127239FE25300EE4CE9 /* TableNameBundleTextLocalizerUnitTestingStrings.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,20 +454,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3312F129239FE25300EE4CE9 /* Strings.strings */ = {
+		3312F129239FE25300EE4CE9 /* TableNameBundleTextLocalizerUnitTestingStrings.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3312F128239FE25300EE4CE9 /* en */,
 			);
-			name = Strings.strings;
+			name = TableNameBundleTextLocalizerUnitTestingStrings.strings;
 			sourceTree = "<group>";
 		};
-		3312F139239FE40900EE4CE9 /* Stringsdict.stringsdict */ = {
+		3312F139239FE40900EE4CE9 /* TableNameBundleTextLocalizerUnitTestingStringsdict.stringsdict */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3312F138239FE40900EE4CE9 /* en */,
 			);
-			name = Stringsdict.stringsdict;
+			name = TableNameBundleTextLocalizerUnitTestingStringsdict.stringsdict;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

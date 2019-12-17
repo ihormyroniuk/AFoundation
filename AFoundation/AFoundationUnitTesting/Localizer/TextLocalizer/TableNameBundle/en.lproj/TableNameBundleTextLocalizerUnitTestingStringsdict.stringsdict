@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>weHaveApples</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>We have %#@apples@.</string>
+		<key>apples</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>u</string>
+			<key>one</key>
+			<string>%u apple</string>
+			<key>other</key>
+			<string>%u apples</string>
+		</dict>
+	</dict>
+	<key>weHaveApplesAndOranges</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>We have %#@apples@ and %#@oranges@.</string>
+		<key>apples</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>u</string>
+			<key>one</key>
+			<string>%u apple</string>
+			<key>other</key>
+			<string>%u apples</string>
+		</dict>
+		<key>oranges</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>u</string>
+			<key>one</key>
+			<string>%u orange</string>
+			<key>other</key>
+			<string>%u oranges</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
