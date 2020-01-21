@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>weHaveApples</key>
+	<key>We have %number% apple(s).</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
 		<string>We have %#@apples@.</string>
@@ -18,7 +18,7 @@
 			<string>%u apples</string>
 		</dict>
 	</dict>
-	<key>weHaveApplesAndOranges</key>
+	<key>We have %number% apple(s) and %number% orange(s).</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
 		<string>We have %#@apples@ and %#@oranges@.</string>

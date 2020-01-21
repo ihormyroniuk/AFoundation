@@ -12,13 +12,15 @@
 		3310125923994C09006B0E03 /* MultipleTextLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3310125823994C09006B0E03 /* MultipleTextLocalizer.swift */; };
 		33107F522391345C00789467 /* CompositeLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33107F512391345C00789467 /* CompositeLocalizer.swift */; };
 		33107F54239134B400789467 /* TableNameBundleTextLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33107F53239134B400789467 /* TableNameBundleTextLocalizer.swift */; };
-		3312F127239FE25300EE4CE9 /* TableNameBundleTextLocalizerUnitTestingStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3312F129239FE25300EE4CE9 /* TableNameBundleTextLocalizerUnitTestingStrings.strings */; };
-		3312F137239FE40900EE4CE9 /* TableNameBundleTextLocalizerUnitTestingStringsdict.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 3312F139239FE40900EE4CE9 /* TableNameBundleTextLocalizerUnitTestingStringsdict.stringsdict */; };
+		3312F127239FE25300EE4CE9 /* TextLocalizerUnitTestingStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3312F129239FE25300EE4CE9 /* TextLocalizerUnitTestingStrings.strings */; };
+		3312F137239FE40900EE4CE9 /* TextLocalizerUnitTestingStringsdict.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 3312F139239FE40900EE4CE9 /* TextLocalizerUnitTestingStringsdict.stringsdict */; };
+		331E9B9E23D5FE0E0094C203 /* MultipleTextLocalizerUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331E9B9D23D5FE0E0094C203 /* MultipleTextLocalizerUnitTesting.swift */; };
+		331E9BA023D604350094C203 /* StringsdictTableNameBundleTextLocalizerUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331E9B9F23D604350094C203 /* StringsdictTableNameBundleTextLocalizerUnitTesting.swift */; };
 		332459032361F24C00DC2051 /* AFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C50134A6230C196A0018D950 /* AFoundation.framework */; };
 		33781E112367237C005072E6 /* Bit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33781E102367237C005072E6 /* Bit.swift */; };
 		33781E132367239A005072E6 /* Byte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33781E122367239A005072E6 /* Byte.swift */; };
 		338668532362FC850071A2C8 /* BytesInitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338668522362FC850071A2C8 /* BytesInitTesting.swift */; };
-		338BA772239EA58000CE3CCA /* TableNameBundleTextLocalizerUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338BA771239EA58000CE3CCA /* TableNameBundleTextLocalizerUnitTesting.swift */; };
+		338BA772239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338BA771239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift */; };
 		C50134AB230C196A0018D950 /* AFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = C50134A9230C196A0018D950 /* AFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C502849B234759B800440B1C /* NumberFormatter+Optionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C502849A234759B800440B1C /* NumberFormatter+Optionals.swift */; };
 		C5096BD0234F7B3200EA793A /* HardcodedLanguagesCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BBE234F7B3200EA793A /* HardcodedLanguagesCodes.swift */; };
@@ -53,14 +55,16 @@
 		3310125823994C09006B0E03 /* MultipleTextLocalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleTextLocalizer.swift; sourceTree = "<group>"; };
 		33107F512391345C00789467 /* CompositeLocalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeLocalizer.swift; sourceTree = "<group>"; };
 		33107F53239134B400789467 /* TableNameBundleTextLocalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableNameBundleTextLocalizer.swift; sourceTree = "<group>"; };
-		3312F128239FE25300EE4CE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TableNameBundleTextLocalizerUnitTestingStrings.strings; sourceTree = "<group>"; };
-		3312F138239FE40900EE4CE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/TableNameBundleTextLocalizerUnitTestingStringsdict.stringsdict; sourceTree = "<group>"; };
+		3312F128239FE25300EE4CE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TextLocalizerUnitTestingStrings.strings; sourceTree = "<group>"; };
+		3312F138239FE40900EE4CE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/TextLocalizerUnitTestingStringsdict.stringsdict; sourceTree = "<group>"; };
+		331E9B9D23D5FE0E0094C203 /* MultipleTextLocalizerUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleTextLocalizerUnitTesting.swift; sourceTree = "<group>"; };
+		331E9B9F23D604350094C203 /* StringsdictTableNameBundleTextLocalizerUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsdictTableNameBundleTextLocalizerUnitTesting.swift; sourceTree = "<group>"; };
 		332458FE2361F24C00DC2051 /* AFoundationUnitTesting.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AFoundationUnitTesting.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		332459022361F24C00DC2051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33781E102367237C005072E6 /* Bit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bit.swift; sourceTree = "<group>"; };
 		33781E122367239A005072E6 /* Byte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Byte.swift; sourceTree = "<group>"; };
 		338668522362FC850071A2C8 /* BytesInitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BytesInitTesting.swift; sourceTree = "<group>"; };
-		338BA771239EA58000CE3CCA /* TableNameBundleTextLocalizerUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableNameBundleTextLocalizerUnitTesting.swift; sourceTree = "<group>"; };
+		338BA771239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsTableNameBundleTextLocalizerUnitTesting.swift; sourceTree = "<group>"; };
 		C50134A6230C196A0018D950 /* AFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C50134A9230C196A0018D950 /* AFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFoundation.h; sourceTree = "<group>"; };
 		C50134AA230C196A0018D950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,9 +116,8 @@
 		3319649823A9080700C993EC /* TableNameBundle */ = {
 			isa = PBXGroup;
 			children = (
-				338BA771239EA58000CE3CCA /* TableNameBundleTextLocalizerUnitTesting.swift */,
-				3312F129239FE25300EE4CE9 /* TableNameBundleTextLocalizerUnitTestingStrings.strings */,
-				3312F139239FE40900EE4CE9 /* TableNameBundleTextLocalizerUnitTestingStringsdict.stringsdict */,
+				338BA771239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift */,
+				331E9B9F23D604350094C203 /* StringsdictTableNameBundleTextLocalizerUnitTesting.swift */,
 			);
 			path = TableNameBundle;
 			sourceTree = "<group>";
@@ -149,7 +152,9 @@
 			isa = PBXGroup;
 			children = (
 				3319649823A9080700C993EC /* TableNameBundle */,
-				338BA770239EA55A00CE3CCA /* MultipleTextLocalizer */,
+				338BA770239EA55A00CE3CCA /* Multiple */,
+				3312F129239FE25300EE4CE9 /* TextLocalizerUnitTestingStrings.strings */,
+				3312F139239FE40900EE4CE9 /* TextLocalizerUnitTestingStringsdict.stringsdict */,
 			);
 			path = TextLocalizer;
 			sourceTree = "<group>";
@@ -173,11 +178,12 @@
 			path = Localizer;
 			sourceTree = "<group>";
 		};
-		338BA770239EA55A00CE3CCA /* MultipleTextLocalizer */ = {
+		338BA770239EA55A00CE3CCA /* Multiple */ = {
 			isa = PBXGroup;
 			children = (
+				331E9B9D23D5FE0E0094C203 /* MultipleTextLocalizerUnitTesting.swift */,
 			);
-			path = MultipleTextLocalizer;
+			path = Multiple;
 			sourceTree = "<group>";
 		};
 		C501349C230C196A0018D950 = {
@@ -390,8 +396,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3312F137239FE40900EE4CE9 /* TableNameBundleTextLocalizerUnitTestingStringsdict.stringsdict in Resources */,
-				3312F127239FE25300EE4CE9 /* TableNameBundleTextLocalizerUnitTestingStrings.strings in Resources */,
+				3312F137239FE40900EE4CE9 /* TextLocalizerUnitTestingStringsdict.stringsdict in Resources */,
+				3312F127239FE25300EE4CE9 /* TextLocalizerUnitTestingStrings.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,7 +415,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				338BA772239EA58000CE3CCA /* TableNameBundleTextLocalizerUnitTesting.swift in Sources */,
+				331E9BA023D604350094C203 /* StringsdictTableNameBundleTextLocalizerUnitTesting.swift in Sources */,
+				331E9B9E23D5FE0E0094C203 /* MultipleTextLocalizerUnitTesting.swift in Sources */,
+				338BA772239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift in Sources */,
 				338668532362FC850071A2C8 /* BytesInitTesting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,20 +462,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3312F129239FE25300EE4CE9 /* TableNameBundleTextLocalizerUnitTestingStrings.strings */ = {
+		3312F129239FE25300EE4CE9 /* TextLocalizerUnitTestingStrings.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3312F128239FE25300EE4CE9 /* en */,
 			);
-			name = TableNameBundleTextLocalizerUnitTestingStrings.strings;
+			name = TextLocalizerUnitTestingStrings.strings;
 			sourceTree = "<group>";
 		};
-		3312F139239FE40900EE4CE9 /* TableNameBundleTextLocalizerUnitTestingStringsdict.stringsdict */ = {
+		3312F139239FE40900EE4CE9 /* TextLocalizerUnitTestingStringsdict.stringsdict */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3312F138239FE40900EE4CE9 /* en */,
 			);
-			name = TableNameBundleTextLocalizerUnitTestingStringsdict.stringsdict;
+			name = TextLocalizerUnitTestingStringsdict.stringsdict;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -515,6 +523,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -563,7 +572,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -579,6 +588,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -621,7 +631,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

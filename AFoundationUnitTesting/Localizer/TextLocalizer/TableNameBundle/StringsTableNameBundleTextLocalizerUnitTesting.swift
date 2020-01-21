@@ -9,48 +9,48 @@
 import XCTest
 import AFoundation
 
-class TableNameBundleTextLocalizerUnitTesting: XCTestCase {
+class StringsTableNameBundleTextLocalizerUnitTesting: XCTestCase {
 
     private lazy var bundle = Bundle(for: self.classForCoder)
-    private let stringsTableName = "TableNameBundleTextLocalizerUnitTestingStrings"
-    private let stringsdictTableName = "TableNameBundleTextLocalizerUnitTestingStringsdict"
+    private let stringsTableName = "TextLocalizerUnitTestingStrings"
+    private let stringsdictTableName = "TextLocalizerUnitTestingStringsdict"
 
-    func testNonEmptyStringCorrectText() {
+    func testSuccessfulTextLocalizationWithoutArguments() {
         let textLocalizer = TableNameBundleTextLocalizer(tableName: stringsTableName, bundle: bundle)
-        let text = "text"
+        let text = "We don't have apples."
 
         let actualLocalizedText = textLocalizer.localizeText(text)
 
-        let expectedLocalizedText = "text"
+        let expectedLocalizedText = "We don't have apples."
         XCTAssert(actualLocalizedText == expectedLocalizedText, "Actual localized text [\(String(describing: actualLocalizedText))] is not equal to [\(expectedLocalizedText)]")
     }
 
-    func testNonEmptyStringCorrectText1Argument() {
+    func testSuccessfulTextLocalizationWithOneArgument() {
         let textLocalizer = TableNameBundleTextLocalizer(tableName: stringsTableName, bundle: bundle)
-        let text = "textWithOneArgument"
-        let argument1 = "argument1"
+        let text = "We have %fruit%."
+        let argument1 = "apples"
 
         let actualLocalizedText = textLocalizer.localizeText(text, argument1)
 
-        let expectedLocalizedText = "argument #1: argument1"
+        let expectedLocalizedText = "We have \(argument1)."
         XCTAssert(actualLocalizedText == expectedLocalizedText, "Actual localized text [\(String(describing: actualLocalizedText))] is not equal to [\(expectedLocalizedText)]")
     }
 
-    func testNonEmptyStringCorrectText1Argument2Argument() {
+    func testSuccessfulTextLocalizationWithTwoArgument() {
         let textLocalizer = TableNameBundleTextLocalizer(tableName: stringsTableName, bundle: bundle)
-        let text = "textWithTwoArguments"
-        let argument1 = "argument1"
-        let argument2 = "argument2"
+        let text = "We have %fruit% and %fruit%."
+        let argument1 = "apples"
+        let argument2 = "oranges"
 
         let actualLocalizedText = textLocalizer.localizeText(text, argument1, argument2)
 
-        let expectedLocalizedText = "argument #1: argument1, argument #2: argument2"
+        let expectedLocalizedText = "We have \(argument1) and \(argument2)."
         XCTAssert(actualLocalizedText == expectedLocalizedText, "Actual localized text [\(String(describing: actualLocalizedText))] is not equal to [\(expectedLocalizedText)]")
     }
 
-    func testNonEmptyStringIncorrectText() {
+    func testUnsuccessfulTextLocalizationWithoutArguments() {
         let textLocalizer = TableNameBundleTextLocalizer(tableName: stringsTableName, bundle: bundle)
-        let text = "text1"
+        let text = "bla bla bla"
 
         let actualLocalizedText = textLocalizer.localizeText(text)
 
@@ -58,27 +58,15 @@ class TableNameBundleTextLocalizerUnitTesting: XCTestCase {
         XCTAssert(actualLocalizedText == expectedLocalizedText, "Actual localized text [\(String(describing: actualLocalizedText))] is not equal to [\(String(describing: expectedLocalizedText))]")
     }
 
-    func testStringsdict() {
-        let textLocalizer = TableNameBundleTextLocalizer(tableName: stringsdictTableName, bundle: bundle)
-        let text = "weHaveApples"
-        let number = 1
+    func testUnsuccessfulTextLocalizationWithOneArgument() {
+        let textLocalizer = TableNameBundleTextLocalizer(tableName: stringsTableName, bundle: bundle)
+        let text = "bla %bla% bla"
+        let argument1 = "bla"
 
-        let actualLocalizedText = textLocalizer.localizeText(text, number)
+        let actualLocalizedText = textLocalizer.localizeText(text, argument1)
 
-        let expectedLocalizedText = "We have 1 apple."
+        let expectedLocalizedText: String? = nil
         XCTAssert(actualLocalizedText == expectedLocalizedText, "Actual localized text [\(String(describing: actualLocalizedText))] is not equal to [\(String(describing: expectedLocalizedText))]")
     }
-
-    func testStringsdict2() {
-        let textLocalizer = TableNameBundleTextLocalizer(tableName: stringsdictTableName, bundle: bundle)
-        let text = "weHaveApplesAndOranges"
-        let applesNumber = 1
-        let orangesNumber = 2
-
-        let actualLocalizedText = textLocalizer.localizeText(text, applesNumber, orangesNumber)
-
-        let expectedLocalizedText = "We have 1 apple and 2 oranges."
-        XCTAssert(actualLocalizedText == expectedLocalizedText, "Actual localized text [\(String(describing: actualLocalizedText))] is not equal to [\(String(describing: expectedLocalizedText))]")
-    }
-
+    
 }
