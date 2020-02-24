@@ -113,15 +113,6 @@
 			path = Localizer;
 			sourceTree = "<group>";
 		};
-		3319649823A9080700C993EC /* TableNameBundle */ = {
-			isa = PBXGroup;
-			children = (
-				338BA771239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift */,
-				331E9B9F23D604350094C203 /* StringsdictTableNameBundleTextLocalizerUnitTesting.swift */,
-			);
-			path = TableNameBundle;
-			sourceTree = "<group>";
-		};
 		332458FF2361F24C00DC2051 /* AFoundationUnitTesting */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,8 +142,9 @@
 		338BA76D239EA4F700CE3CCA /* TextLocalizer */ = {
 			isa = PBXGroup;
 			children = (
-				3319649823A9080700C993EC /* TableNameBundle */,
-				338BA770239EA55A00CE3CCA /* Multiple */,
+				338BA771239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift */,
+				331E9B9F23D604350094C203 /* StringsdictTableNameBundleTextLocalizerUnitTesting.swift */,
+				331E9B9D23D5FE0E0094C203 /* MultipleTextLocalizerUnitTesting.swift */,
 				3312F129239FE25300EE4CE9 /* TextLocalizerUnitTestingStrings.strings */,
 				3312F139239FE40900EE4CE9 /* TextLocalizerUnitTestingStringsdict.stringsdict */,
 			);
@@ -176,14 +168,6 @@
 				33107F512391345C00789467 /* CompositeLocalizer.swift */,
 			);
 			path = Localizer;
-			sourceTree = "<group>";
-		};
-		338BA770239EA55A00CE3CCA /* Multiple */ = {
-			isa = PBXGroup;
-			children = (
-				331E9B9D23D5FE0E0094C203 /* MultipleTextLocalizerUnitTesting.swift */,
-			);
-			path = Multiple;
 			sourceTree = "<group>";
 		};
 		C501349C230C196A0018D950 = {
