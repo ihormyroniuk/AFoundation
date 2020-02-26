@@ -13,10 +13,13 @@ class StringsTableNameBundleTextLocalizerUnitTesting: XCTestCase {
 
     private lazy var bundle = Bundle(for: self.classForCoder)
     private let stringsTableName = "TextLocalizerUnitTestingStrings"
-    private let stringsdictTableName = "TextLocalizerUnitTestingStringsdict"
+    private var textTableNameBundleTextLocalizer: TableNameBundleTextLocalizer {
+        let textLocalizer = TableNameBundleTextLocalizer(tableName: stringsTableName, bundle: bundle)
+        return textLocalizer
+    }
 
     func testSuccessfulTextLocalizationWithoutArguments() {
-        let textLocalizer = TableNameBundleTextLocalizer(tableName: stringsTableName, bundle: bundle)
+        let textLocalizer = textTableNameBundleTextLocalizer
         let text = "We don't have apples."
 
         let actualLocalizedText = textLocalizer.localizeText(text)
@@ -26,7 +29,7 @@ class StringsTableNameBundleTextLocalizerUnitTesting: XCTestCase {
     }
 
     func testSuccessfulTextLocalizationWithOneArgument() {
-        let textLocalizer = TableNameBundleTextLocalizer(tableName: stringsTableName, bundle: bundle)
+        let textLocalizer = textTableNameBundleTextLocalizer
         let text = "We have %fruit%."
         let argument1 = "apples"
 
@@ -37,7 +40,7 @@ class StringsTableNameBundleTextLocalizerUnitTesting: XCTestCase {
     }
 
     func testSuccessfulTextLocalizationWithTwoArgument() {
-        let textLocalizer = TableNameBundleTextLocalizer(tableName: stringsTableName, bundle: bundle)
+        let textLocalizer = textTableNameBundleTextLocalizer
         let text = "We have %fruit% and %fruit%."
         let argument1 = "apples"
         let argument2 = "oranges"
@@ -49,7 +52,7 @@ class StringsTableNameBundleTextLocalizerUnitTesting: XCTestCase {
     }
 
     func testUnsuccessfulTextLocalizationWithoutArguments() {
-        let textLocalizer = TableNameBundleTextLocalizer(tableName: stringsTableName, bundle: bundle)
+        let textLocalizer = textTableNameBundleTextLocalizer
         let text = "bla bla bla"
 
         let actualLocalizedText = textLocalizer.localizeText(text)
@@ -59,7 +62,7 @@ class StringsTableNameBundleTextLocalizerUnitTesting: XCTestCase {
     }
 
     func testUnsuccessfulTextLocalizationWithOneArgument() {
-        let textLocalizer = TableNameBundleTextLocalizer(tableName: stringsTableName, bundle: bundle)
+        let textLocalizer = textTableNameBundleTextLocalizer
         let text = "bla %bla% bla"
         let argument1 = "bla"
 

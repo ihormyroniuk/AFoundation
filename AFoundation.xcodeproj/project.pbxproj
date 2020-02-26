@@ -19,7 +19,6 @@
 		332459032361F24C00DC2051 /* AFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C50134A6230C196A0018D950 /* AFoundation.framework */; };
 		33781E112367237C005072E6 /* Bit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33781E102367237C005072E6 /* Bit.swift */; };
 		33781E132367239A005072E6 /* Byte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33781E122367239A005072E6 /* Byte.swift */; };
-		338668532362FC850071A2C8 /* BytesInitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338668522362FC850071A2C8 /* BytesInitTesting.swift */; };
 		338BA772239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338BA771239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift */; };
 		C50134AB230C196A0018D950 /* AFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = C50134A9230C196A0018D950 /* AFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C502849B234759B800440B1C /* NumberFormatter+Optionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C502849A234759B800440B1C /* NumberFormatter+Optionals.swift */; };
@@ -63,7 +62,6 @@
 		332459022361F24C00DC2051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33781E102367237C005072E6 /* Bit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bit.swift; sourceTree = "<group>"; };
 		33781E122367239A005072E6 /* Byte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Byte.swift; sourceTree = "<group>"; };
-		338668522362FC850071A2C8 /* BytesInitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BytesInitTesting.swift; sourceTree = "<group>"; };
 		338BA771239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsTableNameBundleTextLocalizerUnitTesting.swift; sourceTree = "<group>"; };
 		C50134A6230C196A0018D950 /* AFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C50134A9230C196A0018D950 /* AFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFoundation.h; sourceTree = "<group>"; };
@@ -117,18 +115,9 @@
 			isa = PBXGroup;
 			children = (
 				338BA76C239EA4E000CE3CCA /* Localizer */,
-				338668512362FC4E0071A2C8 /* Bytes */,
 				332459022361F24C00DC2051 /* Info.plist */,
 			);
 			path = AFoundationUnitTesting;
-			sourceTree = "<group>";
-		};
-		338668512362FC4E0071A2C8 /* Bytes */ = {
-			isa = PBXGroup;
-			children = (
-				338668522362FC850071A2C8 /* BytesInitTesting.swift */,
-			);
-			path = Bytes;
 			sourceTree = "<group>";
 		};
 		338BA76C239EA4E000CE3CCA /* Localizer */ = {
@@ -402,7 +391,6 @@
 				331E9BA023D604350094C203 /* StringsdictTableNameBundleTextLocalizerUnitTesting.swift in Sources */,
 				331E9B9E23D5FE0E0094C203 /* MultipleTextLocalizerUnitTesting.swift in Sources */,
 				338BA772239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift in Sources */,
-				338668532362FC850071A2C8 /* BytesInitTesting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
