@@ -8,24 +8,22 @@
 
 import Foundation
 
+private typealias CodeParts = (part1: String, part2: String)
+private let codesPartsSeparator = "-"
+private let englishCodePart1 = "en"
+private let englishAustraliaCodePart2 = "AU"
+private let englishCanadaCodePart2 = "CA"
+private let englishIndiaCodePart2 = "IN"
+private let englishIrelandCodePart2 = "IE"
+private let englishNewZealandCodePart2 = "NZ"
+private let englishSingaporeCodePart2 = "SG"
+private let englishSouthAfricaCodePart2 = "ZA"
+private let englishUKCodePart2 = "GB"
+private let englishUSCodePart2 = "US"
+private let russianCodePart1 = "ru"
+private let ukrainianCodePart1 = "uk"
+
 class HardcodedLanguagesCodes: LanguagesCodes {
-  
-    // MARK: AOSLanguagesCodes
-  
-    private typealias CodeParts = (part1: String, part2: String)
-    private static var codesPartsSeparator = "-"
-    private static var englishCodePart1: String { return "en" }
-    private static var englishAustraliaCodePart2: String { return "AU" }
-    private static var englishCanadaCodePart2: String { return "CA" }
-    private static var englishIndiaCodePart2: String { return "IN" }
-    private static var englishIrelandCodePart2: String { return "IE" }
-    private static var englishNewZealandCodePart2: String { return "NZ" }
-    private static var englishSingaporeCodePart2: String { return "SG" }
-    private static var englishSouthAfricaCodePart2: String { return "ZA" }
-    private static var englishUKCodePart2: String { return "GB" }
-    private static var englishUSCodePart2: String { return "US" }
-    private static var russianCodePart1: String { return "ru" }
-    private static var ukrainianCodePart1: String { return "uk" }
   
     func codeOfLanguage(_ language: Language) -> String? {
         let part1: String?

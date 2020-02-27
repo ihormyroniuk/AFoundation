@@ -21,7 +21,6 @@
 		33781E132367239A005072E6 /* Byte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33781E122367239A005072E6 /* Byte.swift */; };
 		338BA772239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338BA771239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift */; };
 		C50134AB230C196A0018D950 /* AFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = C50134A9230C196A0018D950 /* AFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C502849B234759B800440B1C /* NumberFormatter+Optionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C502849A234759B800440B1C /* NumberFormatter+Optionals.swift */; };
 		C5096BD0234F7B3200EA793A /* HardcodedLanguagesCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BBE234F7B3200EA793A /* HardcodedLanguagesCodes.swift */; };
 		C5096BD1234F7B3200EA793A /* LanguagesCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BBF234F7B3200EA793A /* LanguagesCodes.swift */; };
 		C5096BD2234F7B3200EA793A /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BC0234F7B3200EA793A /* Language.swift */; };
@@ -66,7 +65,6 @@
 		C50134A6230C196A0018D950 /* AFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C50134A9230C196A0018D950 /* AFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFoundation.h; sourceTree = "<group>"; };
 		C50134AA230C196A0018D950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C502849A234759B800440B1C /* NumberFormatter+Optionals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Optionals.swift"; sourceTree = "<group>"; };
 		C5096BBE234F7B3200EA793A /* HardcodedLanguagesCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HardcodedLanguagesCodes.swift; sourceTree = "<group>"; };
 		C5096BBF234F7B3200EA793A /* LanguagesCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagesCodes.swift; sourceTree = "<group>"; };
 		C5096BC0234F7B3200EA793A /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
@@ -182,7 +180,6 @@
 			children = (
 				330B4222238EB6A30083FCEC /* Localizer */,
 				C5096BBB234F7B3200EA793A /* Locale */,
-				C50284982347598700440B1C /* Formatters */,
 				C5F503AD2343994D00CE5DB9 /* Decimal */,
 				C50D5681233E2DB200D7E98E /* Array */,
 				C50134B1230C19730018D950 /* Bytes */,
@@ -200,22 +197,6 @@
 				C50A5BBE23390275007E1166 /* Bytes.swift */,
 			);
 			path = Bytes;
-			sourceTree = "<group>";
-		};
-		C50284982347598700440B1C /* Formatters */ = {
-			isa = PBXGroup;
-			children = (
-				C50284992347599D00440B1C /* Numbers */,
-			);
-			path = Formatters;
-			sourceTree = "<group>";
-		};
-		C50284992347599D00440B1C /* Numbers */ = {
-			isa = PBXGroup;
-			children = (
-				C502849A234759B800440B1C /* NumberFormatter+Optionals.swift */,
-			);
-			path = Numbers;
 			sourceTree = "<group>";
 		};
 		C5096BBB234F7B3200EA793A /* Locale */ = {
@@ -407,7 +388,6 @@
 				33107F54239134B400789467 /* TableNameBundleTextLocalizer.swift in Sources */,
 				C5096BD1234F7B3200EA793A /* LanguagesCodes.swift in Sources */,
 				C50A5BBF23390275007E1166 /* Bytes.swift in Sources */,
-				C502849B234759B800440B1C /* NumberFormatter+Optionals.swift in Sources */,
 				C5096BD4234F7B3200EA793A /* CountriesCodes.swift in Sources */,
 				C5096BD0234F7B3200EA793A /* HardcodedLanguagesCodes.swift in Sources */,
 				C5096BD9234F7B3200EA793A /* HardcodedCurrenciesCodes.swift in Sources */,
