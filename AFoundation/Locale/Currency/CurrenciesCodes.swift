@@ -9,6 +9,6 @@
 import Foundation
 
 protocol CurrenciesCodes {
-  func codeOfCurrency(_ currency: Currency) -> String?
-  func currencyByCode(_ code: String) -> Currency?
+    func codeOfCurrency(_ currency: Currency) -> String?
+    func currencyByCode(_ code: String) -> Currency?
 }

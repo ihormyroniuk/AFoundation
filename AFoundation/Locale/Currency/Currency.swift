@@ -9,7 +9,7 @@
 import Foundation
 
 public enum Currency {
-  case unitedStatesDollar
-  case ukrainianHryvnia
-  case russianRuble
+    case unitedStatesDollar
+    case ukrainianHryvnia
+    case russianRuble
 }

@@ -8,26 +8,26 @@
 
 import Foundation
 
+private let unitedStatesDollarCode = "USD"
+private let ukrainianHryvniaCode = "UAH"
+private let russianRubleCode = "RUB"
+
 class HardcodedCurrenciesCodes: CurrenciesCodes {
   
-  private static var unitedStatesDollar: String { return "USD" }
-  private static var ukrainianHryvnia: String { return "UAH" }
-  private static var russianRuble: String { return "RUB" }
-  
-  func codeOfCurrency(_ currency: Currency) -> String? {
-    switch currency {
-    case .unitedStatesDollar: return HardcodedCurrenciesCodes.unitedStatesDollar
-    case .ukrainianHryvnia: return HardcodedCurrenciesCodes.ukrainianHryvnia
-    case .russianRuble: return HardcodedCurrenciesCodes.russianRuble
+    func codeOfCurrency(_ currency: Currency) -> String? {
+        switch currency {
+        case .unitedStatesDollar: return unitedStatesDollarCode
+        case .ukrainianHryvnia: return ukrainianHryvniaCode
+        case .russianRuble: return russianRubleCode
+        }
     }
-  }
   
-  func currencyByCode(_ code: String) -> Currency? {
-    switch code {
-    case HardcodedCurrenciesCodes.unitedStatesDollar: return .unitedStatesDollar
-    case HardcodedCurrenciesCodes.ukrainianHryvnia: return .ukrainianHryvnia
-    case HardcodedCurrenciesCodes.russianRuble: return .russianRuble
-    default: return nil
+    func currencyByCode(_ code: String) -> Currency? {
+        switch code {
+        case unitedStatesDollarCode: return .unitedStatesDollar
+        case ukrainianHryvniaCode: return .ukrainianHryvnia
+        case russianRubleCode: return .russianRuble
+        default: return nil
+        }
     }
-  }
 }

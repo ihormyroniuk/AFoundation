@@ -9,7 +9,7 @@
 import Foundation
 
 public enum Country {
-  case ukraine
-  case armenia
-  case russia
+    case ukraine
+    case armenia
+    case russia
 }
