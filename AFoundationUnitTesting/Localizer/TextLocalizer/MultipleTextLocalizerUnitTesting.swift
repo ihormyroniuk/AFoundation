@@ -7,14 +7,14 @@
 //
 
 import XCTest
-import AFoundation
+@testable import AFoundation
 
 class MultipleTextLocalizerUnitTesting: XCTestCase {
 
     private lazy var bundle = Bundle(for: self.classForCoder)
     private let stringsTableName = "TextLocalizerUnitTestingStrings"
     private let stringsdictTableName = "TextLocalizerUnitTestingStringsdict"
-    private var textMultipleTextLocalizer: MultipleTextLocalizer {
+    private var multipleTextLocalizer: MultipleTextLocalizer {
         let stringsTextLocalizer = TableNameBundleTextLocalizer(tableName: stringsTableName, bundle: bundle)
         let stringsdictTextLocalizer = TableNameBundleTextLocalizer(tableName: stringsdictTableName, bundle: bundle)
         let textLocalizer = MultipleTextLocalizer(textLocalizers: [stringsTextLocalizer, stringsdictTextLocalizer])
@@ -22,7 +22,7 @@ class MultipleTextLocalizerUnitTesting: XCTestCase {
     }
 
     func testSuccessfulTextLocalizationWithoutArguments() {
-        let textLocalizer = textMultipleTextLocalizer
+        let textLocalizer = multipleTextLocalizer
         let text = "We don't have apples."
 
         let actualLocalizedText = textLocalizer.localizeText(text)
@@ -32,7 +32,7 @@ class MultipleTextLocalizerUnitTesting: XCTestCase {
     }
 
     func testSuccessfulTextLocalizationWithOneArgument() {
-        let textLocalizer = textMultipleTextLocalizer
+        let textLocalizer = multipleTextLocalizer
         let text = "We have %fruit%."
         let argument1 = "apples"
 
@@ -43,7 +43,7 @@ class MultipleTextLocalizerUnitTesting: XCTestCase {
     }
 
     func testSuccessfulTextLocalizationWithTwoArgument() {
-        let textLocalizer = textMultipleTextLocalizer
+        let textLocalizer = multipleTextLocalizer
         let text = "We have %fruit% and %fruit%."
         let argument1 = "apples"
         let argument2 = "oranges"
@@ -55,7 +55,7 @@ class MultipleTextLocalizerUnitTesting: XCTestCase {
     }
 
     func testUnsuccessfulTextLocalizationWithoutArguments() {
-        let textLocalizer = textMultipleTextLocalizer
+        let textLocalizer = multipleTextLocalizer
         let text = "bla bla bla"
 
         let actualLocalizedText = textLocalizer.localizeText(text)
@@ -65,7 +65,7 @@ class MultipleTextLocalizerUnitTesting: XCTestCase {
     }
 
     func testUnsuccessfulTextLocalizationWithOneArgument() {
-        let textLocalizer = textMultipleTextLocalizer
+        let textLocalizer = multipleTextLocalizer
         let text = "bla %bla% bla"
         let argument1 = "bla"
 
@@ -76,7 +76,7 @@ class MultipleTextLocalizerUnitTesting: XCTestCase {
     }
 
     func testSuccessfulTextLocalizationWithOneArgumentOne() {
-        let textLocalizer = textMultipleTextLocalizer
+        let textLocalizer = multipleTextLocalizer
         let text = "We have %number% apple(s)."
         let argument1 = 1
 
@@ -87,7 +87,7 @@ class MultipleTextLocalizerUnitTesting: XCTestCase {
     }
 
     func testSuccessfulTextLocalizationWithOneArgumentOther() {
-        let textLocalizer = textMultipleTextLocalizer
+        let textLocalizer = multipleTextLocalizer
         let text = "We have %number% apple(s)."
         let argument1 = 11
 
@@ -98,7 +98,7 @@ class MultipleTextLocalizerUnitTesting: XCTestCase {
     }
 
     func testSuccessfulTextLocalizationWithTwoArgumentsOneOne() {
-        let textLocalizer = textMultipleTextLocalizer
+        let textLocalizer = multipleTextLocalizer
         let text = "We have %number% apple(s) and %number% orange(s)."
         let argument1 = 1
         let argument2 = 1
@@ -110,7 +110,7 @@ class MultipleTextLocalizerUnitTesting: XCTestCase {
     }
 
     func testSuccessfulTextLocalizationWithTwoArgumentsOtherOne() {
-        let textLocalizer = textMultipleTextLocalizer
+        let textLocalizer = multipleTextLocalizer
         let text = "We have %number% apple(s) and %number% orange(s)."
         let argument1 = 11
         let argument2 = 1
@@ -122,7 +122,7 @@ class MultipleTextLocalizerUnitTesting: XCTestCase {
     }
 
     func testSuccessfulTextLocalizationWithTwoArgumentsOneOther() {
-        let textLocalizer = textMultipleTextLocalizer
+        let textLocalizer = multipleTextLocalizer
         let text = "We have %number% apple(s) and %number% orange(s)."
         let argument1 = 1
         let argument2 = 11
@@ -134,7 +134,7 @@ class MultipleTextLocalizerUnitTesting: XCTestCase {
     }
 
     func testSuccessfulTextLocalizationWithTwoArgumentsOtherOther() {
-        let textLocalizer = textMultipleTextLocalizer
+        let textLocalizer = multipleTextLocalizer
         let text = "We have %number% apple(s) and %number% orange(s)."
         let argument1 = 11
         let argument2 = 11

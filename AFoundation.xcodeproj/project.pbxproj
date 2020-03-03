@@ -15,8 +15,8 @@
 		3312F127239FE25300EE4CE9 /* TextLocalizerUnitTestingStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3312F129239FE25300EE4CE9 /* TextLocalizerUnitTestingStrings.strings */; };
 		3312F137239FE40900EE4CE9 /* TextLocalizerUnitTestingStringsdict.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 3312F139239FE40900EE4CE9 /* TextLocalizerUnitTestingStringsdict.stringsdict */; };
 		331E9B9E23D5FE0E0094C203 /* MultipleTextLocalizerUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331E9B9D23D5FE0E0094C203 /* MultipleTextLocalizerUnitTesting.swift */; };
-		331E9BA023D604350094C203 /* StringsdictTableNameBundleTextLocalizerUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331E9B9F23D604350094C203 /* StringsdictTableNameBundleTextLocalizerUnitTesting.swift */; };
 		332459032361F24C00DC2051 /* AFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C50134A6230C196A0018D950 /* AFoundation.framework */; };
+		33523BB1240E8F48003659B3 /* BytesUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33523BB0240E8F48003659B3 /* BytesUnitTesting.swift */; };
 		33781E112367237C005072E6 /* Bit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33781E102367237C005072E6 /* Bit.swift */; };
 		33781E132367239A005072E6 /* Byte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33781E122367239A005072E6 /* Byte.swift */; };
 		338BA772239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338BA771239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift */; };
@@ -56,9 +56,9 @@
 		3312F128239FE25300EE4CE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TextLocalizerUnitTestingStrings.strings; sourceTree = "<group>"; };
 		3312F138239FE40900EE4CE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/TextLocalizerUnitTestingStringsdict.stringsdict; sourceTree = "<group>"; };
 		331E9B9D23D5FE0E0094C203 /* MultipleTextLocalizerUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleTextLocalizerUnitTesting.swift; sourceTree = "<group>"; };
-		331E9B9F23D604350094C203 /* StringsdictTableNameBundleTextLocalizerUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsdictTableNameBundleTextLocalizerUnitTesting.swift; sourceTree = "<group>"; };
 		332458FE2361F24C00DC2051 /* AFoundationUnitTesting.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AFoundationUnitTesting.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		332459022361F24C00DC2051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33523BB0240E8F48003659B3 /* BytesUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BytesUnitTesting.swift; sourceTree = "<group>"; };
 		33781E102367237C005072E6 /* Bit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bit.swift; sourceTree = "<group>"; };
 		33781E122367239A005072E6 /* Byte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Byte.swift; sourceTree = "<group>"; };
 		338BA771239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsTableNameBundleTextLocalizerUnitTesting.swift; sourceTree = "<group>"; };
@@ -113,9 +113,18 @@
 			isa = PBXGroup;
 			children = (
 				338BA76C239EA4E000CE3CCA /* Localizer */,
+				33523BAF240E8F1F003659B3 /* Bytes */,
 				332459022361F24C00DC2051 /* Info.plist */,
 			);
 			path = AFoundationUnitTesting;
+			sourceTree = "<group>";
+		};
+		33523BAF240E8F1F003659B3 /* Bytes */ = {
+			isa = PBXGroup;
+			children = (
+				33523BB0240E8F48003659B3 /* BytesUnitTesting.swift */,
+			);
+			path = Bytes;
 			sourceTree = "<group>";
 		};
 		338BA76C239EA4E000CE3CCA /* Localizer */ = {
@@ -130,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				338BA771239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift */,
-				331E9B9F23D604350094C203 /* StringsdictTableNameBundleTextLocalizerUnitTesting.swift */,
 				331E9B9D23D5FE0E0094C203 /* MultipleTextLocalizerUnitTesting.swift */,
 				3312F129239FE25300EE4CE9 /* TextLocalizerUnitTestingStrings.strings */,
 				3312F139239FE40900EE4CE9 /* TextLocalizerUnitTestingStringsdict.stringsdict */,
@@ -369,9 +377,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				331E9BA023D604350094C203 /* StringsdictTableNameBundleTextLocalizerUnitTesting.swift in Sources */,
 				331E9B9E23D5FE0E0094C203 /* MultipleTextLocalizerUnitTesting.swift in Sources */,
 				338BA772239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift in Sources */,
+				33523BB1240E8F48003659B3 /* BytesUnitTesting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
