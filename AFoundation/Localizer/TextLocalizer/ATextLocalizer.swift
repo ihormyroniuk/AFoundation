@@ -8,11 +8,11 @@
 
 import Foundation
 
-public protocol TextLocalizer {
+public protocol ATextLocalizer {
     func localizeText(_ text: String, arguments: [CVarArg]) -> String?
 }
 
-public extension TextLocalizer {
+public extension ATextLocalizer {
     func localizeText(_ text: String, _ arguments: CVarArg...) -> String? {
         return self.localizeText(text, arguments: arguments)
     }

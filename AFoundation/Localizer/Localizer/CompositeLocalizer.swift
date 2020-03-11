@@ -10,9 +10,9 @@ import Foundation
 
 open class CompositeLocalizer: Localizer {
 
-    private let textLocalization: TextLocalizer
+    private let textLocalization: ATextLocalizer
 
-    public init(textLocalization: TextLocalizer) {
+    public init(textLocalization: ATextLocalizer) {
         self.textLocalization = textLocalization
     }
 

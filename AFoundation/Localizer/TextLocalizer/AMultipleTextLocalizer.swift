@@ -8,15 +8,15 @@
 
 import Foundation
 
-open class MultipleTextLocalizer: TextLocalizer {
+open class AMultipleTextLocalizer: ATextLocalizer {
 
     // MARK: Data
 
-    private let textLocalizers: [TextLocalizer]
+    private let textLocalizers: [ATextLocalizer]
 
     // MARK: Initializer
 
-    public init(textLocalizers: [TextLocalizer]) {
+    public init(textLocalizers: [ATextLocalizer]) {
         self.textLocalizers = textLocalizers
     }
 

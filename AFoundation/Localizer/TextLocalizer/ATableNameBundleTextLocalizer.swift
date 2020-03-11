@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class TableNameBundleTextLocalizer: TextLocalizer {
+open class ATableNameBundleTextLocalizer: ATextLocalizer {
 
     // MARK: Data
 

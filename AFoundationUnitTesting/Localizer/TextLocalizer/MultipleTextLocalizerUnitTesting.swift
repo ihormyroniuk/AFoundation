@@ -14,10 +14,10 @@ class MultipleTextLocalizerUnitTesting: XCTestCase {
     private lazy var bundle = Bundle(for: self.classForCoder)
     private let stringsTableName = "TextLocalizerUnitTestingStrings"
     private let stringsdictTableName = "TextLocalizerUnitTestingStringsdict"
-    private var multipleTextLocalizer: MultipleTextLocalizer {
-        let stringsTextLocalizer = TableNameBundleTextLocalizer(tableName: stringsTableName, bundle: bundle)
-        let stringsdictTextLocalizer = TableNameBundleTextLocalizer(tableName: stringsdictTableName, bundle: bundle)
-        let textLocalizer = MultipleTextLocalizer(textLocalizers: [stringsTextLocalizer, stringsdictTextLocalizer])
+    private var multipleTextLocalizer: AMultipleTextLocalizer {
+        let stringsTextLocalizer = ATableNameBundleTextLocalizer(tableName: stringsTableName, bundle: bundle)
+        let stringsdictTextLocalizer = ATableNameBundleTextLocalizer(tableName: stringsdictTableName, bundle: bundle)
+        let textLocalizer = AMultipleTextLocalizer(textLocalizers: [stringsTextLocalizer, stringsdictTextLocalizer])
         return textLocalizer
     }
 

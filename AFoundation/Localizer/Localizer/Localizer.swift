@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol Localizer: TextLocalizer {
+public protocol Localizer: ATextLocalizer {
     
 }
