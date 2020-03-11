@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum Currency {
+public enum ACurrency {
     case unitedStatesDollar
     case ukrainianHryvnia
     case russianRuble

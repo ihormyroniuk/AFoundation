@@ -8,17 +8,17 @@
 
 import Foundation
 
-public typealias Bytes = [UInt8]
+public typealias ABytes = [UInt8]
 
-public extension Bytes {
-    func byte(_ number: Int) -> Byte? {
+public extension ABytes {
+    func byte(_ number: Int) -> AByte? {
         if number >= count {
             return nil
         }
         return self[number]
     }
   
-    func bytes(_ range: ClosedRange<Int>) -> Bytes? {
+    func bytes(_ range: ClosedRange<Int>) -> ABytes? {
         guard range.upperBound >= 0, range.upperBound < count else {
             return nil
         }
@@ -28,7 +28,7 @@ public extension Bytes {
         return Array(prefix(through: range.upperBound).suffix(from: range.lowerBound))
     }
   
-    func bytes(_ range: Range<Int>) -> Bytes? {
+    func bytes(_ range: Range<Int>) -> ABytes? {
         guard range.upperBound >= 0, range.upperBound <= count else {
             return nil
         }
@@ -38,19 +38,19 @@ public extension Bytes {
         return Array(prefix(through: range.upperBound - 1).suffix(from: range.lowerBound))
     }
   
-    func bytes(from number: Int) -> Bytes? {
+    func bytes(from number: Int) -> ABytes? {
         return bytes(number..<count)
     }
   
-    func bytes(from sequenceNumber: Int, number: Int) -> Bytes? {
+    func bytes(from sequenceNumber: Int, number: Int) -> ABytes? {
         return bytes(sequenceNumber..<(sequenceNumber + number))
     }
 }
 
-public func +=(left: inout [Byte], right: [Byte]) {
+public func +=(left: inout [AByte], right: [AByte]) {
     left.append(contentsOf: right)
 }
 
-public func +=(left: inout [Byte], right: Byte) {
+public func +=(left: inout [AByte], right: AByte) {
     left.append(right)
 }

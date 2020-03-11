@@ -14,7 +14,7 @@ private let russianRubleCode = "RUB"
 
 class HardcodedCurrenciesCodes: CurrenciesCodes {
   
-    func codeOfCurrency(_ currency: Currency) -> String? {
+    func codeOfCurrency(_ currency: ACurrency) -> String? {
         switch currency {
         case .unitedStatesDollar: return unitedStatesDollarCode
         case .ukrainianHryvnia: return ukrainianHryvniaCode
@@ -22,7 +22,7 @@ class HardcodedCurrenciesCodes: CurrenciesCodes {
         }
     }
   
-    func currencyByCode(_ code: String) -> Currency? {
+    func currencyByCode(_ code: String) -> ACurrency? {
         switch code {
         case unitedStatesDollarCode: return .unitedStatesDollar
         case ukrainianHryvniaCode: return .ukrainianHryvnia

@@ -8,31 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		330B4224238EB7E40083FCEC /* ATextLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B4223238EB7E40083FCEC /* ATextLocalizer.swift */; };
-		330B4226238EBDC00083FCEC /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B4225238EBDC00083FCEC /* Localizer.swift */; };
+		330B4226238EBDC00083FCEC /* ALocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B4225238EBDC00083FCEC /* ALocalizer.swift */; };
 		3310125923994C09006B0E03 /* AMultipleTextLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3310125823994C09006B0E03 /* AMultipleTextLocalizer.swift */; };
-		33107F522391345C00789467 /* CompositeLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33107F512391345C00789467 /* CompositeLocalizer.swift */; };
+		33107F522391345C00789467 /* ACompositeLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33107F512391345C00789467 /* ACompositeLocalizer.swift */; };
 		33107F54239134B400789467 /* ATableNameBundleTextLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33107F53239134B400789467 /* ATableNameBundleTextLocalizer.swift */; };
 		3312F127239FE25300EE4CE9 /* TextLocalizerUnitTestingStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3312F129239FE25300EE4CE9 /* TextLocalizerUnitTestingStrings.strings */; };
 		3312F137239FE40900EE4CE9 /* TextLocalizerUnitTestingStringsdict.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 3312F139239FE40900EE4CE9 /* TextLocalizerUnitTestingStringsdict.stringsdict */; };
 		331E9B9E23D5FE0E0094C203 /* MultipleTextLocalizerUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331E9B9D23D5FE0E0094C203 /* MultipleTextLocalizerUnitTesting.swift */; };
 		332459032361F24C00DC2051 /* AFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C50134A6230C196A0018D950 /* AFoundation.framework */; };
 		33523BB1240E8F48003659B3 /* BytesUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33523BB0240E8F48003659B3 /* BytesUnitTesting.swift */; };
-		33781E112367237C005072E6 /* Bit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33781E102367237C005072E6 /* Bit.swift */; };
-		33781E132367239A005072E6 /* Byte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33781E122367239A005072E6 /* Byte.swift */; };
+		33781E112367237C005072E6 /* ABit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33781E102367237C005072E6 /* ABit.swift */; };
+		33781E132367239A005072E6 /* AByte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33781E122367239A005072E6 /* AByte.swift */; };
 		338BA772239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338BA771239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift */; };
 		C50134AB230C196A0018D950 /* AFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = C50134A9230C196A0018D950 /* AFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C5096BD0234F7B3200EA793A /* HardcodedLanguagesCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BBE234F7B3200EA793A /* HardcodedLanguagesCodes.swift */; };
 		C5096BD1234F7B3200EA793A /* LanguagesCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BBF234F7B3200EA793A /* LanguagesCodes.swift */; };
-		C5096BD2234F7B3200EA793A /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BC0234F7B3200EA793A /* Language.swift */; };
+		C5096BD2234F7B3200EA793A /* ALanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BC0234F7B3200EA793A /* ALanguage.swift */; };
 		C5096BD4234F7B3200EA793A /* CountriesCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BC3234F7B3200EA793A /* CountriesCodes.swift */; };
 		C5096BD5234F7B3200EA793A /* HardcodedCountriesCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BC4234F7B3200EA793A /* HardcodedCountriesCodes.swift */; };
-		C5096BD6234F7B3200EA793A /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BC5234F7B3200EA793A /* Country.swift */; };
+		C5096BD6234F7B3200EA793A /* ACountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BC5234F7B3200EA793A /* ACountry.swift */; };
 		C5096BD7234F7B3200EA793A /* CurrenciesCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BC7234F7B3200EA793A /* CurrenciesCodes.swift */; };
-		C5096BD8234F7B3200EA793A /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BC8234F7B3200EA793A /* Currency.swift */; };
+		C5096BD8234F7B3200EA793A /* ACurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BC8234F7B3200EA793A /* ACurrency.swift */; };
 		C5096BD9234F7B3200EA793A /* HardcodedCurrenciesCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BC9234F7B3200EA793A /* HardcodedCurrenciesCodes.swift */; };
 		C5096BE0234F7BD000EA793A /* ALocale.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BDF234F7BD000EA793A /* ALocale.swift */; };
 		C5096BE2234F7E0100EA793A /* ALocaleLocale.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BE1234F7E0100EA793A /* ALocaleLocale.swift */; };
-		C50A5BBF23390275007E1166 /* Bytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50A5BBE23390275007E1166 /* Bytes.swift */; };
+		C50A5BBF23390275007E1166 /* ABytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50A5BBE23390275007E1166 /* ABytes.swift */; };
 		C50D5683233E2DCF00D7E98E /* Array+SplitIntoSubarrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D5682233E2DCF00D7E98E /* Array+SplitIntoSubarrays.swift */; };
 		C5F503AF2343998400CE5DB9 /* Decimal+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F503AE2343998400CE5DB9 /* Decimal+Double.swift */; };
 /* End PBXBuildFile section */
@@ -49,9 +49,9 @@
 
 /* Begin PBXFileReference section */
 		330B4223238EB7E40083FCEC /* ATextLocalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATextLocalizer.swift; sourceTree = "<group>"; };
-		330B4225238EBDC00083FCEC /* Localizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
+		330B4225238EBDC00083FCEC /* ALocalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALocalizer.swift; sourceTree = "<group>"; };
 		3310125823994C09006B0E03 /* AMultipleTextLocalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMultipleTextLocalizer.swift; sourceTree = "<group>"; };
-		33107F512391345C00789467 /* CompositeLocalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeLocalizer.swift; sourceTree = "<group>"; };
+		33107F512391345C00789467 /* ACompositeLocalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACompositeLocalizer.swift; sourceTree = "<group>"; };
 		33107F53239134B400789467 /* ATableNameBundleTextLocalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATableNameBundleTextLocalizer.swift; sourceTree = "<group>"; };
 		3312F128239FE25300EE4CE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TextLocalizerUnitTestingStrings.strings; sourceTree = "<group>"; };
 		3312F138239FE40900EE4CE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/TextLocalizerUnitTestingStringsdict.stringsdict; sourceTree = "<group>"; };
@@ -59,24 +59,24 @@
 		332458FE2361F24C00DC2051 /* AFoundationUnitTesting.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AFoundationUnitTesting.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		332459022361F24C00DC2051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33523BB0240E8F48003659B3 /* BytesUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BytesUnitTesting.swift; sourceTree = "<group>"; };
-		33781E102367237C005072E6 /* Bit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bit.swift; sourceTree = "<group>"; };
-		33781E122367239A005072E6 /* Byte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Byte.swift; sourceTree = "<group>"; };
+		33781E102367237C005072E6 /* ABit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABit.swift; sourceTree = "<group>"; };
+		33781E122367239A005072E6 /* AByte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AByte.swift; sourceTree = "<group>"; };
 		338BA771239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsTableNameBundleTextLocalizerUnitTesting.swift; sourceTree = "<group>"; };
 		C50134A6230C196A0018D950 /* AFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C50134A9230C196A0018D950 /* AFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFoundation.h; sourceTree = "<group>"; };
 		C50134AA230C196A0018D950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5096BBE234F7B3200EA793A /* HardcodedLanguagesCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HardcodedLanguagesCodes.swift; sourceTree = "<group>"; };
 		C5096BBF234F7B3200EA793A /* LanguagesCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagesCodes.swift; sourceTree = "<group>"; };
-		C5096BC0234F7B3200EA793A /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		C5096BC0234F7B3200EA793A /* ALanguage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALanguage.swift; sourceTree = "<group>"; };
 		C5096BC3234F7B3200EA793A /* CountriesCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesCodes.swift; sourceTree = "<group>"; };
 		C5096BC4234F7B3200EA793A /* HardcodedCountriesCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HardcodedCountriesCodes.swift; sourceTree = "<group>"; };
-		C5096BC5234F7B3200EA793A /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		C5096BC5234F7B3200EA793A /* ACountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACountry.swift; sourceTree = "<group>"; };
 		C5096BC7234F7B3200EA793A /* CurrenciesCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrenciesCodes.swift; sourceTree = "<group>"; };
-		C5096BC8234F7B3200EA793A /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		C5096BC8234F7B3200EA793A /* ACurrency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACurrency.swift; sourceTree = "<group>"; };
 		C5096BC9234F7B3200EA793A /* HardcodedCurrenciesCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HardcodedCurrenciesCodes.swift; sourceTree = "<group>"; };
 		C5096BDF234F7BD000EA793A /* ALocale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALocale.swift; sourceTree = "<group>"; };
 		C5096BE1234F7E0100EA793A /* ALocaleLocale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALocaleLocale.swift; sourceTree = "<group>"; };
-		C50A5BBE23390275007E1166 /* Bytes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bytes.swift; sourceTree = "<group>"; };
+		C50A5BBE23390275007E1166 /* ABytes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABytes.swift; sourceTree = "<group>"; };
 		C50D5682233E2DCF00D7E98E /* Array+SplitIntoSubarrays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SplitIntoSubarrays.swift"; sourceTree = "<group>"; };
 		C5F503AE2343998400CE5DB9 /* Decimal+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Double.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,8 +159,8 @@
 		338BA76F239EA52900CE3CCA /* Localizer */ = {
 			isa = PBXGroup;
 			children = (
-				330B4225238EBDC00083FCEC /* Localizer.swift */,
-				33107F512391345C00789467 /* CompositeLocalizer.swift */,
+				330B4225238EBDC00083FCEC /* ALocalizer.swift */,
+				33107F512391345C00789467 /* ACompositeLocalizer.swift */,
 			);
 			path = Localizer;
 			sourceTree = "<group>";
@@ -200,9 +200,9 @@
 		C50134B1230C19730018D950 /* Bytes */ = {
 			isa = PBXGroup;
 			children = (
-				33781E102367237C005072E6 /* Bit.swift */,
-				33781E122367239A005072E6 /* Byte.swift */,
-				C50A5BBE23390275007E1166 /* Bytes.swift */,
+				33781E102367237C005072E6 /* ABit.swift */,
+				33781E122367239A005072E6 /* AByte.swift */,
+				C50A5BBE23390275007E1166 /* ABytes.swift */,
 			);
 			path = Bytes;
 			sourceTree = "<group>";
@@ -222,7 +222,7 @@
 		C5096BBD234F7B3200EA793A /* Languages */ = {
 			isa = PBXGroup;
 			children = (
-				C5096BC0234F7B3200EA793A /* Language.swift */,
+				C5096BC0234F7B3200EA793A /* ALanguage.swift */,
 				C5096BBE234F7B3200EA793A /* HardcodedLanguagesCodes.swift */,
 				C5096BBF234F7B3200EA793A /* LanguagesCodes.swift */,
 			);
@@ -232,7 +232,7 @@
 		C5096BC2234F7B3200EA793A /* Countries */ = {
 			isa = PBXGroup;
 			children = (
-				C5096BC5234F7B3200EA793A /* Country.swift */,
+				C5096BC5234F7B3200EA793A /* ACountry.swift */,
 				C5096BC3234F7B3200EA793A /* CountriesCodes.swift */,
 				C5096BC4234F7B3200EA793A /* HardcodedCountriesCodes.swift */,
 			);
@@ -242,7 +242,7 @@
 		C5096BC6234F7B3200EA793A /* Currency */ = {
 			isa = PBXGroup;
 			children = (
-				C5096BC8234F7B3200EA793A /* Currency.swift */,
+				C5096BC8234F7B3200EA793A /* ACurrency.swift */,
 				C5096BC7234F7B3200EA793A /* CurrenciesCodes.swift */,
 				C5096BC9234F7B3200EA793A /* HardcodedCurrenciesCodes.swift */,
 			);
@@ -387,27 +387,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5096BD8234F7B3200EA793A /* Currency.swift in Sources */,
+				C5096BD8234F7B3200EA793A /* ACurrency.swift in Sources */,
 				C5096BE0234F7BD000EA793A /* ALocale.swift in Sources */,
-				C5096BD6234F7B3200EA793A /* Country.swift in Sources */,
-				33781E112367237C005072E6 /* Bit.swift in Sources */,
+				C5096BD6234F7B3200EA793A /* ACountry.swift in Sources */,
+				33781E112367237C005072E6 /* ABit.swift in Sources */,
 				C50D5683233E2DCF00D7E98E /* Array+SplitIntoSubarrays.swift in Sources */,
 				C5F503AF2343998400CE5DB9 /* Decimal+Double.swift in Sources */,
 				33107F54239134B400789467 /* ATableNameBundleTextLocalizer.swift in Sources */,
 				C5096BD1234F7B3200EA793A /* LanguagesCodes.swift in Sources */,
-				C50A5BBF23390275007E1166 /* Bytes.swift in Sources */,
+				C50A5BBF23390275007E1166 /* ABytes.swift in Sources */,
 				C5096BD4234F7B3200EA793A /* CountriesCodes.swift in Sources */,
 				C5096BD0234F7B3200EA793A /* HardcodedLanguagesCodes.swift in Sources */,
 				C5096BD9234F7B3200EA793A /* HardcodedCurrenciesCodes.swift in Sources */,
 				330B4224238EB7E40083FCEC /* ATextLocalizer.swift in Sources */,
 				C5096BE2234F7E0100EA793A /* ALocaleLocale.swift in Sources */,
-				33781E132367239A005072E6 /* Byte.swift in Sources */,
+				33781E132367239A005072E6 /* AByte.swift in Sources */,
 				3310125923994C09006B0E03 /* AMultipleTextLocalizer.swift in Sources */,
 				C5096BD5234F7B3200EA793A /* HardcodedCountriesCodes.swift in Sources */,
-				330B4226238EBDC00083FCEC /* Localizer.swift in Sources */,
-				C5096BD2234F7B3200EA793A /* Language.swift in Sources */,
+				330B4226238EBDC00083FCEC /* ALocalizer.swift in Sources */,
+				C5096BD2234F7B3200EA793A /* ALanguage.swift in Sources */,
 				C5096BD7234F7B3200EA793A /* CurrenciesCodes.swift in Sources */,
-				33107F522391345C00789467 /* CompositeLocalizer.swift in Sources */,
+				33107F522391345C00789467 /* ACompositeLocalizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

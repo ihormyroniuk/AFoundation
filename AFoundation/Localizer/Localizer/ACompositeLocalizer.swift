@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class CompositeLocalizer: Localizer {
+open class ACompositeLocalizer: ALocalizer {
 
     private let textLocalization: ATextLocalizer
 

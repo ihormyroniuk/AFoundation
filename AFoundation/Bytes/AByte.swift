@@ -1,5 +1,5 @@
 //
-//  Bit.swift
+//  Byte.swift
 //  AFoundation
 //
 //  Created by Ihor Myroniuk on 10/28/19.
@@ -8,4 +8,4 @@
 
 import Foundation
 
-public typealias Bit = Bool
+public typealias AByte = UInt8

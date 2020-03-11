@@ -11,8 +11,8 @@ import XCTest
 
 class BytesUnitTesting: XCTestCase {
 
-    private var testBytes: Bytes {
-        let bytes: Bytes = [0x55, 0x01, 0x03, 0x73, 0x99]
+    private var testBytes: ABytes {
+        let bytes: ABytes = [0x55, 0x01, 0x03, 0x73, 0x99]
         return bytes
     }
 
@@ -21,7 +21,7 @@ class BytesUnitTesting: XCTestCase {
 
         bytes += [0x53, 0x41]
 
-        let expectedBytes: Bytes = [0x55, 0x01, 0x03, 0x73, 0x99, 0x53, 0x41]
+        let expectedBytes: ABytes = [0x55, 0x01, 0x03, 0x73, 0x99, 0x53, 0x41]
         assert(bytes == expectedBytes, "Actual bytes [\(bytes)] is not equal to [\(expectedBytes)]")
     }
 
@@ -30,7 +30,7 @@ class BytesUnitTesting: XCTestCase {
 
         bytes += 0x53
 
-        let expectedBytes: Bytes = [0x55, 0x01, 0x03, 0x73, 0x99, 0x53]
+        let expectedBytes: ABytes = [0x55, 0x01, 0x03, 0x73, 0x99, 0x53]
         assert(bytes == expectedBytes, "Actual bytes [\(bytes)] is not equal to [\(expectedBytes)]")
     }
 

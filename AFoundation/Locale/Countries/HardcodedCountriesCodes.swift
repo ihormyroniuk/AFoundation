@@ -16,7 +16,7 @@ class HardcodedCountriesCodes: CountriesCodes {
   
     // MARK: AOSCountriesCodes
   
-    func codeOfRegion(_ region: Country) -> String? {
+    func codeOfRegion(_ region: ACountry) -> String? {
         switch region {
         case .armenia: return armeniaCode
         case .russia: return russiaCode
@@ -24,7 +24,7 @@ class HardcodedCountriesCodes: CountriesCodes {
         }
     }
   
-    func regionByCode(_ code: String) -> Country? {
+    func regionByCode(_ code: String) -> ACountry? {
         switch code {
         case armeniaCode: return .armenia
         case russiaCode: return .russia

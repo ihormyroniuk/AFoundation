@@ -25,7 +25,7 @@ private let ukrainianCodePart1 = "uk"
 
 class HardcodedLanguagesCodes: LanguagesCodes {
   
-    func codeOfLanguage(_ language: Language) -> String? {
+    func codeOfLanguage(_ language: ALanguage) -> String? {
         let part1: String?
         let part2: String?
         switch language {
@@ -80,7 +80,7 @@ class HardcodedLanguagesCodes: LanguagesCodes {
         return "\(part1)\(separator)\(part2)"
     }
   
-    func languageByCode(_ code: String) -> Language? {
+    func languageByCode(_ code: String) -> ALanguage? {
         guard let codeParts = extractCodeParts(code) else { return nil }
         let codePart1 = codeParts.part1
         let codePart2 = codeParts.part2
