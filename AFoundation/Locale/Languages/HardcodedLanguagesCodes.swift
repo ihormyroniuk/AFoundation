@@ -56,16 +56,16 @@ class HardcodedLanguagesCodes: LanguagesCodes {
         case .englishUS:
             part1 = englishCodePart1
             part2 = englishUSCodePart2
-        default :
-            switch language {
-            case .english:
-                part1 = englishCodePart1
-            case .russian:
-                part1 = russianCodePart1
-            case .ukrainian:
-                part1 = ukrainianCodePart1
-            default: return nil
-            }
+        case .english:
+            part1 = englishCodePart1
+            guard let countryCode = Locale.current.regionCode else { return nil }
+            part2 = countryCode
+        case .russian:
+            part1 = russianCodePart1
+            guard let countryCode = Locale.current.regionCode else { return nil }
+            part2 = countryCode
+        case .ukrainian:
+            part1 = ukrainianCodePart1
             guard let countryCode = Locale.current.regionCode else { return nil }
             part2 = countryCode
         }
