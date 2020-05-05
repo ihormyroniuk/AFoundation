@@ -34,6 +34,7 @@
 		C5096BE2234F7E0100EA793A /* ALocaleLocale.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BE1234F7E0100EA793A /* ALocaleLocale.swift */; };
 		C50A5BBF23390275007E1166 /* ABytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50A5BBE23390275007E1166 /* ABytes.swift */; };
 		C50D5683233E2DCF00D7E98E /* Array+SplitIntoSubarrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D5682233E2DCF00D7E98E /* Array+SplitIntoSubarrays.swift */; };
+		C552E4032461439A0031D531 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = C552E4022461439A0031D531 /* Json.swift */; };
 		C5F503AF2343998400CE5DB9 /* Decimal+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F503AE2343998400CE5DB9 /* Decimal+Double.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		C5096BE1234F7E0100EA793A /* ALocaleLocale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALocaleLocale.swift; sourceTree = "<group>"; };
 		C50A5BBE23390275007E1166 /* ABytes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABytes.swift; sourceTree = "<group>"; };
 		C50D5682233E2DCF00D7E98E /* Array+SplitIntoSubarrays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SplitIntoSubarrays.swift"; sourceTree = "<group>"; };
+		C552E4022461439A0031D531 /* Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
 		C5F503AE2343998400CE5DB9 /* Decimal+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Double.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,6 +188,7 @@
 		C50134A8230C196A0018D950 /* AFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				C552E401246143770031D531 /* Json */,
 				330B4222238EB6A30083FCEC /* Localizer */,
 				C5096BBB234F7B3200EA793A /* Locale */,
 				C5F503AD2343994D00CE5DB9 /* Decimal */,
@@ -255,6 +258,14 @@
 				C50D5682233E2DCF00D7E98E /* Array+SplitIntoSubarrays.swift */,
 			);
 			path = Array;
+			sourceTree = "<group>";
+		};
+		C552E401246143770031D531 /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				C552E4022461439A0031D531 /* Json.swift */,
+			);
+			path = Json;
 			sourceTree = "<group>";
 		};
 		C5F503AD2343994D00CE5DB9 /* Decimal */ = {
@@ -388,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5096BD8234F7B3200EA793A /* ACurrency.swift in Sources */,
+				C552E4032461439A0031D531 /* Json.swift in Sources */,
 				C5096BE0234F7BD000EA793A /* ALocale.swift in Sources */,
 				C5096BD6234F7B3200EA793A /* ACountry.swift in Sources */,
 				33781E112367237C005072E6 /* ABit.swift in Sources */,
