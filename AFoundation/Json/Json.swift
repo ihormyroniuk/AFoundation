@@ -28,10 +28,20 @@ public extension JSONSerialization {
         return array
     }
     
+    class func objectsArray(with data: Data, options opt: JSONSerialization.ReadingOptions = []) throws -> JsonObjectsArray {
+        let json = try JSONSerialization.jsonObject(with: data, options: [])
+        guard let array = json as? JsonObjectsArray else {
+            let error = JsonParsingErrorJsonIsNotObjectsArray(json: json)
+            throw error
+        }
+        return array
+    }
+    
 }
 
 public typealias JsonObject = [String: Any]
 public typealias JsonArray = [Any]
+public typealias JsonObjectsArray = [JsonObject]
 public typealias JsonStringsArray = [String]
 
 public extension JsonObject {
@@ -105,6 +115,16 @@ public struct JsonParsingErrorJsonIsNotObject: Error {
 }
 
 public struct JsonParsingErrorJsonIsNotArray: Error {
+    
+    private let json: Any
+    
+    init(json: Any) {
+        self.json = json
+    }
+    
+}
+
+public struct JsonParsingErrorJsonIsNotObjectsArray: Error {
     
     private let json: Any
     
