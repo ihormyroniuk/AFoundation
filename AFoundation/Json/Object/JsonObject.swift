@@ -11,33 +11,19 @@ import Foundation
 public typealias JsonObject = [String: Any]
 
 public extension JsonObject {
-    
-    func stringsArrayForKey(_ key: String) throws -> JsonStringsArray {
+
+    func objectForKey(_ key: String) throws -> JsonObject {
         let value = self[key]
-        guard let stringsArray = value as? JsonStringsArray else {
+        guard let object = value as? JsonObject else {
             if self[key] == nil {
                 let error = JsonParsingErrorObjectKeyIsMissing(object: self, key: key)
                 throw error
             } else {
-                let error = JsonParsingErrorObjectValueForKeyIsNotStringsArray(object: self, key: key, value: value!)
+                let error = JsonParsingErrorObjectValueForKeyIsNotObject(object: self, key: key, value: value!)
                 throw error
             }
         }
-        return stringsArray
-    }
-    
-}
-
-public struct JsonParsingErrorObjectValueForKeyIsNotStringsArray: Error {
-    
-    private let object: JsonObject
-    private let key: String
-    private let value: Any
-    
-    init(object: JsonObject, key: String, value: Any) {
-        self.object = object
-        self.key = key
-        self.value = value
+        return object
     }
     
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct JsonParsingErrorObjectValueForKeyIsNotBool: Error {
+public struct JsonParsingErrorObjectValueForKeyIsNotBool: JsonParsingError {
     
     private let object: JsonObject
     private let key: String

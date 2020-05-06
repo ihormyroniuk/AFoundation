@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct JsonParsingErrorObjectValueForKeyIsNotString: Error {
+public struct JsonParsingErrorObjectValueForKeyIsNotString: JsonParsingError {
     
     private let object: JsonObject
     private let key: String
