@@ -10,4 +10,6 @@ import Foundation
 
 public struct InternalError: Error {
     
+    public init() { }
+    
 }
