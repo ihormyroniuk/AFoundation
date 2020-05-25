@@ -48,6 +48,7 @@
 		C552E4222461825D0031D531 /* JsonParsingErrorObjectValueForKeyIsNotNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = C552E4212461825D0031D531 /* JsonParsingErrorObjectValueForKeyIsNotNumber.swift */; };
 		C552E424246182CE0031D531 /* JsonParsingErrorObjectValueForKeyIsNotString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C552E423246182CE0031D531 /* JsonParsingErrorObjectValueForKeyIsNotString.swift */; };
 		C552E427246186C20031D531 /* JsonBoolUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C552E426246186C20031D531 /* JsonBoolUnitTesting.swift */; };
+		C55D8174247C72070082346B /* InternalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55D8173247C72070082346B /* InternalError.swift */; };
 		C5F503AF2343998400CE5DB9 /* Decimal+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F503AE2343998400CE5DB9 /* Decimal+Double.swift */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +107,7 @@
 		C552E4212461825D0031D531 /* JsonParsingErrorObjectValueForKeyIsNotNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParsingErrorObjectValueForKeyIsNotNumber.swift; sourceTree = "<group>"; };
 		C552E423246182CE0031D531 /* JsonParsingErrorObjectValueForKeyIsNotString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParsingErrorObjectValueForKeyIsNotString.swift; sourceTree = "<group>"; };
 		C552E426246186C20031D531 /* JsonBoolUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonBoolUnitTesting.swift; sourceTree = "<group>"; };
+		C55D8173247C72070082346B /* InternalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalError.swift; sourceTree = "<group>"; };
 		C5F503AE2343998400CE5DB9 /* Decimal+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Double.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,6 +217,7 @@
 		C50134A8230C196A0018D950 /* AFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				C55D8172247C71FC0082346B /* Error */,
 				C552E401246143770031D531 /* Json */,
 				330B4222238EB6A30083FCEC /* Localizer */,
 				C5096BBB234F7B3200EA793A /* Locale */,
@@ -361,6 +364,14 @@
 				C552E426246186C20031D531 /* JsonBoolUnitTesting.swift */,
 			);
 			path = Bool;
+			sourceTree = "<group>";
+		};
+		C55D8172247C71FC0082346B /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				C55D8173247C72070082346B /* InternalError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		C5F503AD2343994D00CE5DB9 /* Decimal */ = {
@@ -511,6 +522,7 @@
 				C552E424246182CE0031D531 /* JsonParsingErrorObjectValueForKeyIsNotString.swift in Sources */,
 				C552E41324617F5E0031D531 /* JsonArraySerrialization.swift in Sources */,
 				C5096BD4234F7B3200EA793A /* CountriesCodes.swift in Sources */,
+				C55D8174247C72070082346B /* InternalError.swift in Sources */,
 				C552E40A24617C820031D531 /* JsonObject.swift in Sources */,
 				C5096BD0234F7B3200EA793A /* HardcodedLanguagesCodes.swift in Sources */,
 				C5096BD9234F7B3200EA793A /* HardcodedCurrenciesCodes.swift in Sources */,
