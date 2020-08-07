@@ -1,4 +1,4 @@
-# AUIKit
+# AFoundation
 
 AFoundation is an advanced extension for [Foundation](https://developer.apple.com/documentation/foundation) framework. It contains source code, principles and best practices for building efficient, reliable and maintable code.
 
