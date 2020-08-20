@@ -13,20 +13,10 @@ public extension JSONSerialization {
     class func object(with data: Data, options opt: JSONSerialization.ReadingOptions = []) throws -> JsonObject {
         let json = try JSONSerialization.jsonObject(with: data, options: [])
         guard let object = json as? JsonObject else {
-            let error = JsonParsingErrorJsonIsNotObject(json: json)
+            let error = JsonSerializationErrorJsonIsNotObject(json: json)
             throw error
         }
         return object
-    }
-    
-}
-
-public struct JsonParsingErrorJsonIsNotObject: Error {
-    
-    private let json: Any
-    
-    init(json: Any) {
-        self.json = json
     }
     
 }

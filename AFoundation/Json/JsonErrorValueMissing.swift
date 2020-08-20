@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct JsonParsingErrorObjectKeyIsMissing: JsonParsingError {
+public struct JsonErrorValueMissing: JsonError {
     
     let object: JsonObject
     let key: String

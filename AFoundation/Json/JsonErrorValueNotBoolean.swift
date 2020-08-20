@@ -1,14 +1,14 @@
 //
-//  JsonParsingErrorObjectValueForKeyIsNotString.swift
+//  JsonParsingErrorObjectValueForKeyIsNotBool.swift
 //  AFoundation
 //
-//  Created by Ihor Myroniuk on 06.05.2020.
+//  Created by Ihor Myroniuk on 05.05.2020.
 //  Copyright © 2020 Ihor Myroniuk. All rights reserved.
 //
 
 import Foundation
 
-public struct JsonParsingErrorObjectValueForKeyIsNotObject: JsonParsingError {
+public struct JsonErrorValueNotBoolean: JsonError {
     
     private let object: JsonObject
     private let key: String

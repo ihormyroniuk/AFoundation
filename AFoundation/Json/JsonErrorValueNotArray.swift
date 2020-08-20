@@ -1,14 +1,14 @@
 //
-//  JsonParsingErrorObjectValueForKeyIsNotString.swift
+//  JsonErrorValueNotArray.swift
 //  AFoundation
 //
-//  Created by Ihor Myroniuk on 05.05.2020.
+//  Created by Ihor Myroniuk on 19.08.2020.
 //  Copyright © 2020 Ihor Myroniuk. All rights reserved.
 //
 
 import Foundation
 
-public struct JsonParsingErrorObjectValueForKeyIsNotString: JsonParsingError {
+public struct JsonErrorValueNotArray: JsonError {
     
     private let object: JsonObject
     private let key: String

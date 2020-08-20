@@ -19,7 +19,7 @@ class JsonBoolUnitTesting: XCTestCase {
         let object: JsonObject = [objectKey: objectValue]
         
         do {
-            let value = try object.boolForKey("key")
+            let value = try object.jsonBoolean("key")
             
             XCTAssert(value == objectValue, "Value \(String(describing: value)) is not equal to object value \(String(describing: objectValue))")
         } catch {
@@ -33,7 +33,7 @@ class JsonBoolUnitTesting: XCTestCase {
         let object: JsonObject = [objectKey: objectValue]
         
         do {
-            let value = try object.boolForKey("key")
+            let value = try object.jsonBoolean("key")
             
             XCTAssert(value == objectValue, "Value \(String(describing: value)) is not equal to object value \(String(describing: objectValue))")
         } catch {
@@ -47,10 +47,10 @@ class JsonBoolUnitTesting: XCTestCase {
         let object: JsonObject = [objectKey: objectValue]
         
         do {
-            let value = try object.boolForKey("anotherKey")
+            let value = try object.jsonBoolean("anotherKey")
             
-            XCTFail("Value is equal to \(value). But error \(JsonParsingErrorObjectValueForKeyIsNotBool.self) must be throwed.")
-        } catch let error as JsonParsingErrorObjectKeyIsMissing {
+            XCTFail("Value is equal to \(value). But error \(JsonErrorValueNotBoolean.self) must be throwed.")
+        } catch _ as JsonErrorValueMissing {
             
         } catch {
             XCTFail("Error \(error) is throwed")

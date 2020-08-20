@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol JsonParsingError: Error {
+public protocol JsonError: Error {
     
 }

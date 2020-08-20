@@ -10,32 +10,22 @@ import Foundation
 
 public extension JSONSerialization {
     
-    class func array(with data: Data, options opt: JSONSerialization.ReadingOptions = []) throws -> JsonArray {
+    class func jsonArray(with data: Data, options opt: JSONSerialization.ReadingOptions = []) throws -> JsonArray {
         let json = try JSONSerialization.jsonObject(with: data, options: [])
         guard let array = json as? JsonArray else {
-            let error = JsonParsingErrorJsonIsNotArray(json: json)
+            let error = JsonSerializationErrorDataIsNotJsonArray(json: json)
             throw error
         }
         return array
     }
     
-    class func objectsArray(with data: Data, options opt: JSONSerialization.ReadingOptions = []) throws -> JsonObjectsArray {
+    class func objectsArray(with data: Data, options opt: JSONSerialization.ReadingOptions = []) throws -> JsonArrayObjects {
         let json = try JSONSerialization.jsonObject(with: data, options: [])
-        guard let array = json as? JsonObjectsArray else {
+        guard let array = json as? JsonArrayObjects else {
             let error = JsonParsingErrorJsonIsNotObjectsArray(json: json)
             throw error
         }
         return array
-    }
-    
-}
-
-public struct JsonParsingErrorJsonIsNotArray: Error {
-    
-    private let json: Any
-    
-    init(json: Any) {
-        self.json = json
     }
     
 }

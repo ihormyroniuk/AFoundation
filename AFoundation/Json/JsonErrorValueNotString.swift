@@ -1,5 +1,5 @@
 //
-//  JsonParsingErrorObjectValueForKeyIsNotNumber.swift
+//  JsonParsingErrorObjectValueForKeyIsNotString.swift
 //  AFoundation
 //
 //  Created by Ihor Myroniuk on 05.05.2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct JsonParsingErrorObjectValueForKeyIsNotNumber: JsonParsingError {
+public struct JsonErrorValueNotString: JsonError {
     
     private let object: JsonObject
     private let key: String
