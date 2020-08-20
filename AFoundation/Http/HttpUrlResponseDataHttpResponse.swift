@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct HttpUrlResponseDataHttpResponse: HttpResponse {
-    let httpVersion: String
-    let statusCode: Int
-    let reasonPhrase: String
-    let headerFields: [String: String]?
-    let messageBody: Data?
+public struct HttpUrlResponseDataHttpResponse: HttpResponse {
+    public let httpVersion: String
+    public let statusCode: Int
+    public let reasonPhrase: String
+    public let headerFields: [String: String]?
+    public let messageBody: Data?
     
-    init(httpUrlResponse: HTTPURLResponse, data: Data?) throws {
+    public init(httpUrlResponse: HTTPURLResponse, data: Data?) throws {
         httpVersion = ""
         statusCode = httpUrlResponse.statusCode
         reasonPhrase = ""
