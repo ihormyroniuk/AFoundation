@@ -1,14 +1,14 @@
 //
-//  JsonSerializationErrorDataIsNotJsonArray.swift
+//  JsonParsingErrorJsonIsNotObjectsArray.swift
 //  AFoundation
 //
-//  Created by Ihor Myroniuk on 17.08.2020.
+//  Created by Ihor Myroniuk on 31.08.2020.
 //  Copyright © 2020 Ihor Myroniuk. All rights reserved.
 //
 
 import Foundation
 
-public struct JsonSerializationErrorDataIsNotJsonArray: Error {
+public struct JsonSerializationErrorNotArrayObjects: Error {
     
     private let json: Any
     

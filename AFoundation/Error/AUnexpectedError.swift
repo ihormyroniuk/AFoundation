@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct InternalError: Error {
+public struct AUnexpectedError: Error {
     
     public init() { }
     

@@ -8,11 +8,11 @@
 
 import Foundation
 
-public struct JsonErrorNotArrayNumbers: JsonError {
+public struct AJsonErrorNotArrayNumbers: LocalizedError {
     
-    private let array: JsonArray
+    private let array: AJsonArray
     
-    init(array: JsonArray) {
+    init(array: AJsonArray) {
         self.array = array
     }
     

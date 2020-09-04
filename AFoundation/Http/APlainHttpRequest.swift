@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct PlainHttpRequest: HttpRequest {
+public struct APlainHttpRequest: AHttpRequest {
     public let method: String
     public let requestUri: URL
     public let httpVersion: String

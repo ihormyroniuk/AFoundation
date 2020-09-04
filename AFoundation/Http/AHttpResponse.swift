@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol HttpResponse {
+public protocol AHttpResponse {
     var httpVersion: String { get }
     var statusCode: Int { get }
     var reasonPhrase: String { get }

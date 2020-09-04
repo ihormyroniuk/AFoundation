@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct HttpUrlResponseDataHttpResponse: HttpResponse {
+public struct AHttpUrlResponseDataHttpResponse: AHttpResponse {
     public let httpVersion: String
     public let statusCode: Int
     public let reasonPhrase: String

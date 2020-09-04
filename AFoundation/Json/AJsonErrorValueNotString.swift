@@ -8,13 +8,13 @@
 
 import Foundation
 
-public struct JsonErrorValueNotString: JsonError {
+public struct AJsonErrorValueNotString: LocalizedError {
     
-    private let object: JsonObject
+    private let object: AJsonObject
     private let key: String
     private let value: Any
     
-    init(object: JsonObject, key: String, value: Any) {
+    init(object: AJsonObject, key: String, value: Any) {
         self.object = object
         self.key = key
         self.value = value

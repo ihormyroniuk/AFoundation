@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct JsonSerializationErrorJsonIsNotObject: Error {
+public struct AJsonSerializationErrorNotObject: LocalizedError {
     
     private let json: Any
     

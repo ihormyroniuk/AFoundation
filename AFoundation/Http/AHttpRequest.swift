@@ -8,10 +8,21 @@
 
 import Foundation
 
-public protocol HttpRequest {
+public protocol AHttpRequest {
     var method: String { get }
     var requestUri: URL { get }
     var httpVersion: String { get }
     var headerFields: [String: String]? { get }
     var messageBody: Data? { get }
+}
+
+extension AHttpRequest {
+    
+    func urlRequest() -> URLRequest {
+        var urlRequest = URLRequest(url: requestUri)
+        urlRequest.allHTTPHeaderFields = headerFields
+        urlRequest.httpBody = messageBody
+        return urlRequest
+    }
+    
 }
