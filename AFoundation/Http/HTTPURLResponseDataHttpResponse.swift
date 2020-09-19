@@ -17,9 +17,9 @@ public struct HTTPURLResponseDataHttpResponse: HttpResponse {
     public let messageBody: Data?
     
     public init(httpUrlResponse: HTTPURLResponse, data: Data?) {
-        httpVersion = ""
+        httpVersion = "HTTP/1.1"
         statusCode = httpUrlResponse.statusCode
-        reasonPhrase = ""
+        reasonPhrase = HTTPURLResponse.localizedString(forStatusCode: httpUrlResponse.statusCode)
         headerFields = httpUrlResponse.allHeaderFields as? [String: String]
         messageBody = data
     }

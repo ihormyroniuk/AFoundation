@@ -8,11 +8,11 @@
 
 import Foundation
 
-open class ACompositeLocalizer: ALocalizer {
+open class CompositeLocalizer: Localizer {
 
-    private let textLocalization: ATextLocalizer
+    private let textLocalization: TextLocalizer
 
-    public init(textLocalization: ATextLocalizer) {
+    public init(textLocalization: TextLocalizer) {
         self.textLocalization = textLocalization
     }
 

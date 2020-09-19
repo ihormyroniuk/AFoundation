@@ -13,13 +13,13 @@ class StringsTableNameBundleTextLocalizerUnitTesting: XCTestCase {
 
     private lazy var bundle = Bundle(for: self.classForCoder)
     private let stringsTableName = "TextLocalizerUnitTestingStrings"
-    private var stringsTableNameBundleTextLocalizer: ATableNameBundleTextLocalizer {
-        let textLocalizer = ATableNameBundleTextLocalizer(tableName: stringsTableName, bundle: bundle)
+    private var stringsTableNameBundleTextLocalizer: TableNameBundleTextLocalizer {
+        let textLocalizer = TableNameBundleTextLocalizer(tableName: stringsTableName, bundle: bundle)
         return textLocalizer
     }
     private let stringsdictTableName = "TextLocalizerUnitTestingStringsdict"
-    private var stringsdictTableNameBundleTextLocalizer: ATableNameBundleTextLocalizer {
-        let textLocalizer = ATableNameBundleTextLocalizer(tableName: stringsdictTableName, bundle: bundle)
+    private var stringsdictTableNameBundleTextLocalizer: TableNameBundleTextLocalizer {
+        let textLocalizer = TableNameBundleTextLocalizer(tableName: stringsdictTableName, bundle: bundle)
         return textLocalizer
     }
 
