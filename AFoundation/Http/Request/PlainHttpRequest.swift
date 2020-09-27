@@ -13,10 +13,10 @@ public struct PlainHttpRequest: HttpRequest {
     public let method: String
     public let requestUri: URL
     public let httpVersion: String
-    public let headerFields: [String : String]?
+    public let headerFields: [String: String]?
     public let messageBody: Data?
     
-    public init(method: String, requestUri: URL, httpVersion: String, headerFields: [String : String]? = nil, messageBody: Data? = nil) {
+    public init(method: String, requestUri: URL, httpVersion: String, headerFields: [String: String]? = nil, messageBody: Data? = nil) {
         self.method = method
         self.requestUri = requestUri
         self.httpVersion = httpVersion

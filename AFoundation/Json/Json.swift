@@ -23,15 +23,3 @@ public typealias JsonObject = [JsonString: JsonValue]
 public typealias JsonArray = [JsonValue]
 public typealias JsonBoolean = Bool
 public typealias JsonNull = NSNull
-
-public struct JsonErrorValueMissing: LocalizedError {
-    
-    let object: JsonObject
-    let key: String
-    
-    init(object: JsonObject, key: String) {
-        self.object = object
-        self.key = key
-    }
-    
-}
