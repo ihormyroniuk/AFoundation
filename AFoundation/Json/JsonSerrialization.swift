@@ -10,7 +10,7 @@ import Foundation
 
 public enum JsonSerialization {
     
-    static func jsonObject(_ data: Data) throws -> JsonObject {
+    public static func jsonObject(_ data: Data) throws -> JsonObject {
         let json = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
         guard let object = json as? JsonObject else {
             let error = JsonSerializationErrorNotObject(json: json)
@@ -19,7 +19,7 @@ public enum JsonSerialization {
         return object
     }
     
-    static func jsonArray(_ data: Data) throws -> JsonArray {
+    public static func jsonArray(_ data: Data) throws -> JsonArray {
         let json = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
         guard let array = json as? JsonArray else {
             let error = JsonSerializationErrorNotArray(json: json)
@@ -28,7 +28,7 @@ public enum JsonSerialization {
         return array
     }
     
-    static func jsonArrayObjects(_ data: Data) throws -> JsonArrayObjects {
+    public static func jsonArrayObjects(_ data: Data) throws -> JsonArrayObjects {
         let json = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
         guard let array = json as? JsonArrayObjects else {
             let error = JsonSerializationErrorNotArrayObjects(json: json)
@@ -37,7 +37,7 @@ public enum JsonSerialization {
         return array
     }
     
-    static func data(_ jsonValue: JsonValue) throws -> Data? {
+    public static func data(_ jsonValue: JsonValue) throws -> Data? {
         let data = try JSONSerialization.data(withJSONObject: jsonObject, options: [.fragmentsAllowed])
         return data
     }
