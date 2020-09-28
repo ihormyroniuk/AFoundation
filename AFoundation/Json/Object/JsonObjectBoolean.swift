@@ -13,7 +13,7 @@ public extension JsonObject {
     func boolean(_ key: JsonString) throws -> Bool {
         let value = self[key]
         guard let boolean = value as? Bool else {
-            if self[key] == nil {
+            if value == nil {
                 let error = JsonErrorValueMissing(object: self, key: key)
                 throw error
             } else {
@@ -26,15 +26,17 @@ public extension JsonObject {
 
     func optionalBoolean(_ key: JsonString) throws -> Bool? {
         let value = self[key]
-        guard let boolean = value as? Bool else {
-            if self[key] == nil {
-                return nil
-            } else {
-                let error = JsonErrorValueNotBoolean(object: self, key: key, value: value!)
-                throw error
-            }
+        if let boolean = value as? JsonBoolean {
+            return boolean
+        } else if value is JsonNull {
+            return nil
+        } else if value == nil {
+            let error = JsonErrorValueMissing(object: self, key: key)
+            throw error
+        } else {
+            let error = JsonErrorValueNotBoolean(object: self, key: key, value: value!)
+            throw error
         }
-        return boolean
     }
     
 }

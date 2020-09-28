@@ -10,7 +10,7 @@ import XCTest
 import Foundation
 @testable import AFoundation
 
-class URLRequestUnitTesting: XCTestCase {
+class URLRequestInitializerUnitTesting: XCTestCase {
 
     func testInitWithoutHeaderFieldsAndMessageBody() {
         let method = "GET"

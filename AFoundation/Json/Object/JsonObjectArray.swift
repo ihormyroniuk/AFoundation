@@ -13,7 +13,7 @@ public extension JsonObject {
     func array(_ key: JsonString) throws -> JsonArray {
         let value = self[key]
         guard let array = value as? JsonArray else {
-            if self[key] == nil {
+            if value == nil {
                 let error = JsonErrorValueMissing(object: self, key: key)
                 throw error
             } else {
@@ -26,15 +26,17 @@ public extension JsonObject {
 
     func optionalArray(_ key: JsonString) throws -> JsonArray? {
         let value = self[key]
-        guard let array = value as? JsonArray else {
-            if self[key] == nil {
-                return nil
-            } else {
-                let error = JsonErrorValueNotArray(object: self, key: key, value: value!)
-                throw error
-            }
+        if let array = value as? JsonArray {
+            return array
+        } else if value is JsonNull {
+            return nil
+        } else if value == nil {
+            let error = JsonErrorValueMissing(object: self, key: key)
+            throw error
+        } else {
+            let error = JsonErrorValueNotArray(object: self, key: key, value: value!)
+            throw error
         }
-        return array
     }
     
 }

@@ -27,9 +27,9 @@ class JsonObjectOptionalNumberUnitTesting: XCTestCase {
         }
     }
     
-    func testMissingNumberValue() {
+    func testNullValue() {
         let key = "key"
-        let value: JsonValue? = nil
+        let value = JsonNull()
         var object = JsonObject()
         object[key] = value;
         
@@ -53,6 +53,23 @@ class JsonObjectOptionalNumberUnitTesting: XCTestCase {
             
             XCTFail("Error \(JsonErrorValueNotNumber.self) has to be thrown, but number \"\(String(describing: actualValue))\" is returned")
         } catch _ as JsonErrorValueNotNumber {
+            
+        } catch {
+            XCTFail("Unexpected error \(error.self) is thrown")
+        }
+    }
+    
+    func testMissingNumberValue() {
+        let key = "key"
+        let value = NSNumber(0)
+        var object = JsonObject()
+        object[key] = value;
+        
+        do {
+            let actualValue = try object.optionalNumber("anotherKey")
+            
+            XCTFail("Error \(JsonErrorValueMissing.self) has to be thrown, but number \"\(String(describing: actualValue))\" is returned")
+        } catch _ as JsonErrorValueMissing {
             
         } catch {
             XCTFail("Unexpected error \(error.self) is thrown")

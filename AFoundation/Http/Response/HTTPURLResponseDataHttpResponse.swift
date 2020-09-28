@@ -10,11 +10,15 @@ import Foundation
 
 public struct HTTPURLResponseDataHttpResponse: HttpResponse {
     
+    //MARK: Data
+    
     public let httpVersion: String
     public let statusCode: Int
     public let reasonPhrase: String
     public let headerFields: [String: String]?
     public let messageBody: Data?
+    
+    //MARK: Initializer
     
     public init(httpUrlResponse: HTTPURLResponse, data: Data?) {
         httpVersion = "HTTP/1.1"

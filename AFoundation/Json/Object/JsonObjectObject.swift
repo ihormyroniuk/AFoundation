@@ -13,7 +13,7 @@ public extension JsonObject {
     func object(_ key: JsonString) throws -> JsonObject {
         let value = self[key]
         guard let object = value as? JsonObject else {
-            if self[key] == nil {
+            if value == nil {
                 let error = JsonErrorValueMissing(object: self, key: key)
                 throw error
             } else {
@@ -26,15 +26,17 @@ public extension JsonObject {
 
     func optionalObject(_ key: JsonString) throws -> JsonObject? {
         let value = self[key]
-        guard let object = value as? JsonObject else {
-            if self[key] == nil {
-                return nil
-            } else {
-                let error = JsonErrorValueNotObject(object: self, key: key, value: value!)
-                throw error
-            }
+        if let object = value as? JsonObject {
+            return object
+        } else if value is JsonNull {
+            return nil
+        } else if value == nil {
+            let error = JsonErrorValueMissing(object: self, key: key)
+            throw error
+        } else {
+            let error = JsonErrorValueNotObject(object: self, key: key, value: value!)
+            throw error
         }
-        return object
     }
     
 }
