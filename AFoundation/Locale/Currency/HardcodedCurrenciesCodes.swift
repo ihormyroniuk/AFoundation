@@ -8,13 +8,13 @@
 
 import Foundation
 
-private let unitedStatesDollarCode = "USD"
-private let ukrainianHryvniaCode = "UAH"
-private let russianRubleCode = "RUB"
-
 class HardcodedCurrenciesCodes: CurrenciesCodes {
+    
+    private let unitedStatesDollarCode = "USD"
+    private let ukrainianHryvniaCode = "UAH"
+    private let russianRubleCode = "RUB"
   
-    func codeOfCurrency(_ currency: ACurrency) -> String? {
+    func codeOfCurrency(_ currency: Currency) -> String? {
         switch currency {
         case .unitedStatesDollar: return unitedStatesDollarCode
         case .ukrainianHryvnia: return ukrainianHryvniaCode
@@ -22,7 +22,7 @@ class HardcodedCurrenciesCodes: CurrenciesCodes {
         }
     }
   
-    func currencyByCode(_ code: String) -> ACurrency? {
+    func currencyByCode(_ code: String) -> Currency? {
         switch code {
         case unitedStatesDollarCode: return .unitedStatesDollar
         case ukrainianHryvniaCode: return .ukrainianHryvnia

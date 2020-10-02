@@ -8,12 +8,6 @@
 
 import Foundation
 
-public typealias JsonArrayStrings = [JsonString]
-public typealias JsonArrayNumbers = [JsonNumber]
-public typealias JsonArrayObjects = [JsonObject]
-public typealias JsonArrayArrays = [JsonArray]
-public typealias JsonArrayBooleans = [JsonBoolean]
-
 public extension JsonArray {
     
     func arrayStrings() throws -> JsonArrayStrings {

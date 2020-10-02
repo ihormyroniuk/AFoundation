@@ -16,15 +16,15 @@ public protocol ALocale {
   
     // MARK: Language
   
-    var language: ALanguage? { get }
-    var preferredLanguages: [ALanguage] { get }
+    var language: Language? { get }
+    var preferredLanguages: [Language] { get }
   
     // MARK: Country
   
-    var country: ACountry? { get }
+    var country: Country? { get }
   
     // MARK: Currency
   
-    var currency: ACurrency? { get }
+    var currency: Currency? { get }
   
 }

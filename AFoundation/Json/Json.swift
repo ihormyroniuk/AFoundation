@@ -10,16 +10,25 @@ import Foundation
 
 public protocol JsonValue { }
 
-extension String: JsonValue { }
-extension NSNumber: JsonValue { }
-extension Bool: JsonValue { }
-extension NSNull: JsonValue { }
-extension JsonObject: JsonValue { }
-extension JsonArray: JsonValue { }
-
 public typealias JsonString = String
+extension JsonString: JsonValue { }
+
 public typealias JsonNumber = NSNumber
+extension JsonNumber: JsonValue { }
+
 public typealias JsonObject = [JsonString: JsonValue]
+extension JsonObject: JsonValue { }
+
 public typealias JsonArray = [JsonValue]
+extension JsonArray: JsonValue { }
+public typealias JsonArrayStrings = [JsonString]
+public typealias JsonArrayNumbers = [JsonNumber]
+public typealias JsonArrayObjects = [JsonObject]
+public typealias JsonArrayArrays = [JsonArray]
+public typealias JsonArrayBooleans = [JsonBoolean]
+
 public typealias JsonBoolean = Bool
+extension JsonBoolean: JsonValue { }
+
 public typealias JsonNull = NSNull
+extension JsonNull: JsonValue { }

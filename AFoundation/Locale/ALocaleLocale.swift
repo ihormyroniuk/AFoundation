@@ -26,15 +26,15 @@ open class ALocaleLocale: ALocale {
   
     // MARK: Language
   
-    open var language: ALanguage? = {
+    open var language: Language? = {
         guard let code = Locale.preferredLanguages.first else { return nil }
         let languagesCodes = HardcodedLanguagesCodes()
         let language = languagesCodes.languageByCode(code)
         return language
     }()
   
-    open var preferredLanguages: [ALanguage] = {
-        var preferredLanguages: [ALanguage] = []
+    open var preferredLanguages: [Language] = {
+        var preferredLanguages: [Language] = []
         let codes = Locale.preferredLanguages
         let languagesCodes = HardcodedLanguagesCodes()
         for code in codes {
@@ -46,7 +46,7 @@ open class ALocaleLocale: ALocale {
   
     // MARK: Country
   
-    open var country: ACountry? {
+    open var country: Country? {
         guard let code = locale.regionCode else { return nil }
         let region = HardcodedCountriesCodes().regionByCode(code)
         return region
@@ -54,7 +54,7 @@ open class ALocaleLocale: ALocale {
   
     // MARK: Currency
   
-    open var currency: ACurrency? {
+    open var currency: Currency? {
         guard let code = locale.currencyCode else { return nil }
         let currency = HardcodedCurrenciesCodes().currencyByCode(code)
         return currency

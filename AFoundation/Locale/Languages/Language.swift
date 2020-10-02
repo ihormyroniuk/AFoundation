@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum ALanguage {
+public enum Language {
     case english
     case englishAustralia
     case englishCanada

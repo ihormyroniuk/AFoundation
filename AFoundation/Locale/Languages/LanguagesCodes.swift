@@ -9,6 +9,6 @@
 import Foundation
 
 protocol LanguagesCodes {
-    func codeOfLanguage(_ language: ALanguage) -> String?
-    func languageByCode(_ code: String) -> ALanguage?
+    func codeOfLanguage(_ language: Language) -> String?
+    func languageByCode(_ code: String) -> Language?
 }
