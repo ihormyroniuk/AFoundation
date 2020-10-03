@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum Country {
+public enum Region {
     case ukraine
     case armenia
     case russia

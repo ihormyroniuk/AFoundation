@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class ALocaleLocale: ALocale {
+open class LocaleLocale: ALocale {
   
     // MARK: Locale
   
@@ -22,7 +22,7 @@ open class ALocaleLocale: ALocale {
   
     // MARK: Current
   
-    public static let current: ALocale = ALocaleLocale(locale: Locale.current)
+    public static let current: ALocale = LocaleLocale(locale: Locale.current)
   
     // MARK: Language
   
@@ -46,9 +46,9 @@ open class ALocaleLocale: ALocale {
   
     // MARK: Country
   
-    open var country: Country? {
+    open var country: Region? {
         guard let code = locale.regionCode else { return nil }
-        let region = HardcodedCountriesCodes().regionByCode(code)
+        let region = HardcodedRegionsCodes().regionByCode(code)
         return region
     }
   

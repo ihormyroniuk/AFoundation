@@ -8,15 +8,13 @@
 
 import Foundation
 
-private let armeniaCode = "AM"
-private let russiaCode = "RU"
-private let ukraineCode = "UA"
-
-class HardcodedCountriesCodes: CountriesCodes {
+class HardcodedRegionsCodes: RegionsCodes {
+    
+    private let armeniaCode = "AM"
+    private let russiaCode = "RU"
+    private let ukraineCode = "UA"
   
-    // MARK: AOSCountriesCodes
-  
-    func codeOfRegion(_ region: Country) -> String? {
+    func codeOfRegion(_ region: Region) -> String? {
         switch region {
         case .armenia: return armeniaCode
         case .russia: return russiaCode
@@ -24,7 +22,7 @@ class HardcodedCountriesCodes: CountriesCodes {
         }
     }
   
-    func regionByCode(_ code: String) -> Country? {
+    func regionByCode(_ code: String) -> Region? {
         switch code {
         case armeniaCode: return .armenia
         case russiaCode: return .russia

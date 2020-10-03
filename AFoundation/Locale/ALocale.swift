@@ -21,7 +21,7 @@ public protocol ALocale {
   
     // MARK: Country
   
-    var country: Country? { get }
+    var country: Region? { get }
   
     // MARK: Currency
   

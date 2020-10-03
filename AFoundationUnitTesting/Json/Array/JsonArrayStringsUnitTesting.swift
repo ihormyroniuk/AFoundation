@@ -18,7 +18,7 @@ class JsonArrayStringsUnitTesting: XCTestCase {
         for string in strings {
             array.append(string)
         }
-        
+
         do {
             let arrayStrings = try array.arrayStrings()
             

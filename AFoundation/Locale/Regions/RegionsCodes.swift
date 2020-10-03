@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol CountriesCodes {
-    func codeOfRegion(_ region: Country) -> String?
-    func regionByCode(_ code: String) -> Country?
+protocol RegionsCodes {
+    func codeOfRegion(_ region: Region) -> String?
+    func regionByCode(_ code: String) -> Region?
 }
