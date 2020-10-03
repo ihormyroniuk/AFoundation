@@ -8,26 +8,22 @@
 
 import Foundation
 
-open class LocaleLocale: ALocale {
+open class LocaleLocale: Locale {
   
     // MARK: Locale
   
-    public let locale: Locale
+    public let locale: Foundation.Locale
   
     // MARK: Initializer
   
-    public init(locale: Locale) {
+    public init(locale: Foundation.Locale) {
         self.locale = locale
     }
-  
-    // MARK: Current
-  
-    public static let current: ALocale = LocaleLocale(locale: Locale.current)
   
     // MARK: Language
   
     open var language: Language? = {
-        guard let code = Locale.preferredLanguages.first else { return nil }
+        guard let code = Foundation.Locale.preferredLanguages.first else { return nil }
         let languagesCodes = HardcodedLanguagesCodes()
         let language = languagesCodes.languageByCode(code)
         return language
@@ -35,7 +31,7 @@ open class LocaleLocale: ALocale {
   
     open var preferredLanguages: [Language] = {
         var preferredLanguages: [Language] = []
-        let codes = Locale.preferredLanguages
+        let codes = Foundation.Locale.preferredLanguages
         let languagesCodes = HardcodedLanguagesCodes()
         for code in codes {
             guard let language = languagesCodes.languageByCode(code) else { continue }

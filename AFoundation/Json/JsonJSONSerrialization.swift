@@ -8,9 +8,9 @@
 
 import Foundation
 
-public enum JsonSerialization {
+public extension JSONSerialization {
     
-    public static func jsonObject(_ data: Data) throws -> JsonObject {
+    static func object(_ data: Data) throws -> JsonObject {
         let json = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
         guard let object = json as? JsonObject else {
             let error = JsonSerializationErrorNotObject(json: json)
@@ -19,7 +19,7 @@ public enum JsonSerialization {
         return object
     }
     
-    public static func jsonArray(_ data: Data) throws -> JsonArray {
+    static func array(_ data: Data) throws -> JsonArray {
         let json = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
         guard let array = json as? JsonArray else {
             let error = JsonSerializationErrorNotArray(json: json)
@@ -28,18 +28,29 @@ public enum JsonSerialization {
         return array
     }
     
-    public static func jsonArrayObjects(_ data: Data) throws -> JsonArrayObjects {
-        let json = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
-        guard let array = json as? JsonArrayObjects else {
-            let error = JsonSerializationErrorNotArrayObjects(json: json)
-            throw error
-        }
-        return array
+//    static func data(_ jsonValue: JsonValue) throws -> Data? {
+//        let data = try JSONSerialization.data(withJSONObject: jsonObject, options: [.fragmentsAllowed])
+//        return data
+//    }
+    
+}
+
+public struct JsonSerializationErrorNotObject: LocalizedError {
+    
+    private let json: Any
+    
+    init(json: Any) {
+        self.json = json
     }
     
-    public static func data(_ jsonValue: JsonValue) throws -> Data? {
-        let data = try JSONSerialization.data(withJSONObject: jsonObject, options: [.fragmentsAllowed])
-        return data
+}
+
+public struct JsonSerializationErrorNotArray: LocalizedError {
+    
+    private let json: Any
+    
+    init(json: Any) {
+        self.json = json
     }
     
 }

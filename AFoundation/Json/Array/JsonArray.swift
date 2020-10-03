@@ -18,6 +18,38 @@ public extension JsonArray {
         return arrayStrings
     }
     
+    func arrayNumbers() throws -> JsonArrayNumbers {
+        guard let arrayNumbers = self as? JsonArrayNumbers else {
+            let error = JsonErrorNotArrayNumbers(array: self)
+            throw error
+        }
+        return arrayNumbers
+    }
+    
+    func arrayObjects() throws -> JsonArrayObjects {
+        guard let arrayObjects = self as? JsonArrayObjects else {
+            let error = JsonErrorNotArrayObjects(array: self)
+            throw error
+        }
+        return arrayObjects
+    }
+    
+    func arrayArrays() throws -> JsonArrayArrays {
+        guard let arrayArrays = self as? JsonArrayArrays else {
+            let error = JsonErrorNotArrayArrays(array: self)
+            throw error
+        }
+        return arrayArrays
+    }
+    
+    func arrayBooleans() throws -> JsonArrayBooleans {
+        guard let arrayBooleans = self as? JsonArrayBooleans else {
+            let error = JsonErrorNotArrayBooleans(array: self)
+            throw error
+        }
+        return arrayBooleans
+    }
+    
 }
 
 public struct JsonErrorNotArrayStrings: LocalizedError {
@@ -26,18 +58,6 @@ public struct JsonErrorNotArrayStrings: LocalizedError {
     
     init(array: JsonArray) {
         self.array = array
-    }
-    
-}
-
-public extension JsonArray {
-    
-    func arrayNumbers() throws -> JsonArrayNumbers {
-        guard let arrayNumbers = self as? JsonArrayNumbers else {
-            let error = JsonErrorNotArrayNumbers(array: self)
-            throw error
-        }
-        return arrayNumbers
     }
     
 }
@@ -52,18 +72,6 @@ public struct JsonErrorNotArrayNumbers: LocalizedError {
     
 }
 
-public extension JsonArray {
-    
-    func arrayObjects() throws -> JsonArrayObjects {
-        guard let arrayObjects = self as? JsonArrayObjects else {
-            let error = JsonErrorNotArrayObjects(array: self)
-            throw error
-        }
-        return arrayObjects
-    }
-    
-}
-
 public struct JsonErrorNotArrayObjects: LocalizedError {
     
     private let array: JsonArray
@@ -74,37 +82,12 @@ public struct JsonErrorNotArrayObjects: LocalizedError {
     
 }
 
-
-public extension JsonArray {
-    
-    func arrayArrays() throws -> JsonArrayArrays {
-        guard let arrayArrays = self as? JsonArrayArrays else {
-            let error = JsonErrorNotArrayArrays(array: self)
-            throw error
-        }
-        return arrayArrays
-    }
-    
-}
-
 public struct JsonErrorNotArrayArrays: LocalizedError {
     
     private let array: JsonArray
     
     init(array: JsonArray) {
         self.array = array
-    }
-    
-}
-
-public extension JsonArray {
-    
-    func arrayBooleans() throws -> JsonArrayBooleans {
-        guard let arrayBooleans = self as? JsonArrayBooleans else {
-            let error = JsonErrorNotArrayBooleans(array: self)
-            throw error
-        }
-        return arrayBooleans
     }
     
 }

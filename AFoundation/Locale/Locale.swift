@@ -8,11 +8,7 @@
 
 import Foundation
 
-public protocol ALocale {
-  
-    // MARK: Current
-  
-    static var current: ALocale { get }
+public protocol Locale {
   
     // MARK: Language
   

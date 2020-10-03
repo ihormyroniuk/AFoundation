@@ -21,7 +21,7 @@ class JsonObjectObjectUnitTesting: XCTestCase {
         do {
             let actualValue = try object.object(key)
             
-            //XCTAssert(actualValue == value, "Object returned unexpected object \"\(String(describing: actualValue))\" while object \"(\(String(describing: value))\" is expected)")
+            XCTAssert(actualValue == value, "Object returned unexpected object \"\(String(describing: actualValue))\" while object \"(\(String(describing: value))\" is expected)")
         } catch {
             XCTFail("Unexpected error \(error) is thrown")
         }

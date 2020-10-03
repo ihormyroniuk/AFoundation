@@ -32,3 +32,11 @@ extension JsonBoolean: JsonValue { }
 
 public typealias JsonNull = NSNull
 extension JsonNull: JsonValue { }
+
+public func ==(lhs: JsonObject, rhs: JsonObject) -> Bool {
+    return NSDictionary(dictionary: lhs).isEqual(to: rhs)
+}
+
+public func ==(lhs: JsonArray, rhs: JsonArray) -> Bool {
+    return NSArray(array: lhs).isEqual(to: rhs)
+}
