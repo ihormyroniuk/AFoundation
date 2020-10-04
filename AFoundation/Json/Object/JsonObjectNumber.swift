@@ -33,10 +33,9 @@ public extension JsonObject {
         } else if value == nil {
             let error = JsonErrorValueMissing(object: self, key: key)
             throw error
-        } else {
-            let error = JsonErrorValueNotNumber(object: self, key: key, value: value!)
-            throw error
         }
+        let error = JsonErrorValueNotNumber(object: self, key: key, value: value!)
+        throw error
     }
     
 }
