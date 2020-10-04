@@ -30,6 +30,8 @@
 		C5096BE0234F7BD000EA793A /* Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BDF234F7BD000EA793A /* Locale.swift */; };
 		C5096BE2234F7E0100EA793A /* LocaleLocale.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BE1234F7E0100EA793A /* LocaleLocale.swift */; };
 		C50D5683233E2DCF00D7E98E /* ArrayChunks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D5682233E2DCF00D7E98E /* ArrayChunks.swift */; };
+		C53B284E252A41E200FAE5E7 /* JsonArrayObjectsUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53B284D252A41E200FAE5E7 /* JsonArrayObjectsUnitTesting.swift */; };
+		C53B2852252A425B00FAE5E7 /* JsonArrayArraysUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53B2851252A425B00FAE5E7 /* JsonArrayArraysUnitTesting.swift */; };
 		C5470E4C251BDEF300DFCA65 /* JsonErrorValueMissing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5470E4B251BDEF300DFCA65 /* JsonErrorValueMissing.swift */; };
 		C54BA8F62527C87B0069583E /* UnexpectedErrorUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54BA8F52527C87B0069583E /* UnexpectedErrorUnitTesting.swift */; };
 		C54BA8FD2527C90F0069583E /* DecimalDoubleUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54BA8FC2527C90F0069583E /* DecimalDoubleUnitTesting.swift */; };
@@ -110,6 +112,8 @@
 		C5096BDF234F7BD000EA793A /* Locale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locale.swift; sourceTree = "<group>"; };
 		C5096BE1234F7E0100EA793A /* LocaleLocale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleLocale.swift; sourceTree = "<group>"; };
 		C50D5682233E2DCF00D7E98E /* ArrayChunks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayChunks.swift; sourceTree = "<group>"; };
+		C53B284D252A41E200FAE5E7 /* JsonArrayObjectsUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonArrayObjectsUnitTesting.swift; sourceTree = "<group>"; };
+		C53B2851252A425B00FAE5E7 /* JsonArrayArraysUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonArrayArraysUnitTesting.swift; sourceTree = "<group>"; };
 		C5470E4B251BDEF300DFCA65 /* JsonErrorValueMissing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonErrorValueMissing.swift; sourceTree = "<group>"; };
 		C54BA8F52527C87B0069583E /* UnexpectedErrorUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnexpectedErrorUnitTesting.swift; sourceTree = "<group>"; };
 		C54BA8FC2527C90F0069583E /* DecimalDoubleUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalDoubleUnitTesting.swift; sourceTree = "<group>"; };
@@ -553,6 +557,8 @@
 				C5A6ABCD252672910005233F /* JsonArrayStringsUnitTesting.swift */,
 				C54EB72D25276F2300981380 /* JsonArrayNumbersUnitTesting.swift */,
 				C54DD5C32528B10F00F58A87 /* JsonArrayBooleansUnitTesting.swift */,
+				C53B284D252A41E200FAE5E7 /* JsonArrayObjectsUnitTesting.swift */,
+				C53B2851252A425B00FAE5E7 /* JsonArrayArraysUnitTesting.swift */,
 			);
 			path = Array;
 			sourceTree = "<group>";
@@ -692,11 +698,13 @@
 				C54D470425164F84004B1467 /* HTTPURLResponseDataHttpResponseUnitTesting.swift in Sources */,
 				C5A6ABCE252672910005233F /* JsonArrayStringsUnitTesting.swift in Sources */,
 				C54DD5CA2528B58800F58A87 /* LocaleLocaleUnitTesting.swift in Sources */,
+				C53B284E252A41E200FAE5E7 /* JsonArrayObjectsUnitTesting.swift in Sources */,
 				331E9B9E23D5FE0E0094C203 /* MultipleTextLocalizerUnitTesting.swift in Sources */,
 				C54D470225164ACA004B1467 /* HttpRequestURLRequestUnitTesting.swift in Sources */,
 				338BA772239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift in Sources */,
 				C54BA8F62527C87B0069583E /* UnexpectedErrorUnitTesting.swift in Sources */,
 				C563FBD02528611200BA1E99 /* HardcodedCurrenciesCodesUnitTesting.swift in Sources */,
+				C53B2852252A425B00FAE5E7 /* JsonArrayArraysUnitTesting.swift in Sources */,
 				C54DD5AC2528A39100F58A87 /* CompositeLocalizerUnitTesting.swift in Sources */,
 				C54D46EF2515EA6F004B1467 /* JsonObjectOptionalArrayUnitTesting.swift in Sources */,
 				C54D46DD25153D3C004B1467 /* JsonObjectObjectUnitTesting.swift in Sources */,

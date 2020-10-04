@@ -28,10 +28,10 @@ public extension JSONSerialization {
         return array
     }
     
-//    static func data(_ jsonValue: JsonValue) throws -> Data? {
-//        let data = try JSONSerialization.data(withJSONObject: jsonObject, options: [.fragmentsAllowed])
-//        return data
-//    }
+    static func data(_ jsonValue: JsonValue) throws -> Data {
+        let data = try JSONSerialization.data(withJSONObject: jsonValue, options: [.fragmentsAllowed])
+        return data
+    }
     
 }
 

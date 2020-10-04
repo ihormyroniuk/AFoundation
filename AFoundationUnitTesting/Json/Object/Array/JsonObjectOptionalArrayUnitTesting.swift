@@ -21,7 +21,7 @@ class JsonObjectOptionalArrayUnitTesting: XCTestCase {
         do {
             let actualValue = try object.optionalArray(key)
             
-            //XCTAssert(actualValue == value, "Object returned unexpected array \"\(String(describing: actualValue))\" while array \"(\(String(describing: value))\" is expected)")
+            XCTAssert(actualValue == value, "Object returned unexpected array \"\(String(describing: actualValue))\" while array \"(\(String(describing: value))\" is expected)")
         } catch {
             XCTFail("Unexpected error \(error) is thrown")
         }

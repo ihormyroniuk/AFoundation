@@ -37,6 +37,16 @@ public func ==(lhs: JsonObject, rhs: JsonObject) -> Bool {
     return NSDictionary(dictionary: lhs).isEqual(to: rhs)
 }
 
+public func ==(lhs: JsonObject?, rhs: JsonObject) -> Bool {
+    guard let lhs = lhs else { return false }
+    return NSDictionary(dictionary: lhs).isEqual(to: rhs)
+}
+
 public func ==(lhs: JsonArray, rhs: JsonArray) -> Bool {
+    return NSArray(array: lhs).isEqual(to: rhs)
+}
+
+public func ==(lhs: JsonArray?, rhs: JsonArray) -> Bool {
+    guard let lhs = lhs else { return false }
     return NSArray(array: lhs).isEqual(to: rhs)
 }
