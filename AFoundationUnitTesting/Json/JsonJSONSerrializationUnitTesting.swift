@@ -13,19 +13,17 @@ import Foundation
 class JsonJSONSerrializationUnitTesting: XCTestCase {
 
     func testObject() {
-        let strings = ["string1", "string2", "string3"]
-        var array = JsonArray()
-        for string in strings {
-            array.append(string)
-        }
-
-        do {
-            let arrayStrings = try array.arrayStrings()
-            
-            XCTAssert(arrayStrings == strings, "Object returned unexpected arraySrings \"\(String(describing: arrayStrings))\" while arraySrings \"(\(String(describing: strings))\" is expected)")
-        } catch {
-            XCTFail("Unexpected error \(error) is thrown")
-        }
+//        let data = Data([0x7b, 0x22, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x22, 0x3a, 0x22, 0x30, 0x22, 0x7d])
+//
+//        do {
+//            let object = try JSONSerialization.object(data)
+//            
+//            var expectedObject = JsonObject()
+//            expectedObject["number"] = NSNumber(0)
+//            XCTAssert(object == expectedObject, "Object returned unexpected arraySrings \"\(String(describing: object))\" while arraySrings \"(\(String(describing: expectedObject))\" is expected)")
+//        } catch {
+//            XCTFail("Unexpected error \(error) is thrown")
+//        }
     }
     
 }

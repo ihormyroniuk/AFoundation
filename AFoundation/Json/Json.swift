@@ -10,28 +10,20 @@ import Foundation
 
 public protocol JsonValue { }
 
+// MARK: String
+
 public typealias JsonString = String
 extension JsonString: JsonValue { }
+
+// MARK: Number
 
 public typealias JsonNumber = NSNumber
 extension JsonNumber: JsonValue { }
 
+// MARK: Object
+
 public typealias JsonObject = [JsonString: JsonValue]
 extension JsonObject: JsonValue { }
-
-public typealias JsonArray = [JsonValue]
-extension JsonArray: JsonValue { }
-public typealias JsonArrayStrings = [JsonString]
-public typealias JsonArrayNumbers = [JsonNumber]
-public typealias JsonArrayObjects = [JsonObject]
-public typealias JsonArrayArrays = [JsonArray]
-public typealias JsonArrayBooleans = [JsonBoolean]
-
-public typealias JsonBoolean = Bool
-extension JsonBoolean: JsonValue { }
-
-public typealias JsonNull = NSNull
-extension JsonNull: JsonValue { }
 
 public func ==(lhs: JsonObject, rhs: JsonObject) -> Bool {
     return NSDictionary(dictionary: lhs).isEqual(to: rhs)
@@ -42,6 +34,16 @@ public func ==(lhs: JsonObject?, rhs: JsonObject) -> Bool {
     return NSDictionary(dictionary: lhs).isEqual(to: rhs)
 }
 
+// MARK: Array
+
+public typealias JsonArray = [JsonValue]
+extension JsonArray: JsonValue { }
+public typealias JsonArrayStrings = [JsonString]
+public typealias JsonArrayNumbers = [JsonNumber]
+public typealias JsonArrayObjects = [JsonObject]
+public typealias JsonArrayArrays = [JsonArray]
+public typealias JsonArrayBooleans = [JsonBoolean]
+
 public func ==(lhs: JsonArray, rhs: JsonArray) -> Bool {
     return NSArray(array: lhs).isEqual(to: rhs)
 }
@@ -50,3 +52,13 @@ public func ==(lhs: JsonArray?, rhs: JsonArray) -> Bool {
     guard let lhs = lhs else { return false }
     return NSArray(array: lhs).isEqual(to: rhs)
 }
+
+// MARK: Boolean
+
+public typealias JsonBoolean = Bool
+extension JsonBoolean: JsonValue { }
+
+// MARK: Null
+
+public typealias JsonNull = NSNull
+extension JsonNull: JsonValue { }
