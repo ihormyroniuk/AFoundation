@@ -9,6 +9,57 @@
 import Foundation
 
 public protocol JsonValue { }
+public extension JsonValue {
+    
+    func string() throws -> JsonString {
+        guard let string = self as? JsonString else {
+            let error = UnexpectedError()
+            throw error
+        }
+        return string
+    }
+    
+    func number() throws -> JsonNumber {
+        guard let number = self as? JsonNumber else {
+            let error = UnexpectedError()
+            throw error
+        }
+        return number
+    }
+    
+    func object() throws -> JsonObject {
+        guard let object = self as? JsonObject else {
+            let error = UnexpectedError()
+            throw error
+        }
+        return object
+    }
+    
+    func array() throws -> JsonArray {
+        guard let array = self as? JsonArray else {
+            let error = UnexpectedError()
+            throw error
+        }
+        return array
+    }
+    
+    func boolean() throws -> JsonBoolean {
+        guard let boolean = self as? JsonBoolean else {
+            let error = UnexpectedError()
+            throw error
+        }
+        return boolean
+    }
+    
+    func null() throws -> JsonNull {
+        guard let null = self as? JsonNull else {
+            let error = UnexpectedError()
+            throw error
+        }
+        return null
+    }
+    
+}
 
 // MARK: String
 
@@ -17,12 +68,12 @@ extension JsonString: JsonValue { }
 
 // MARK: Number
 
-public typealias JsonNumber = NSNumber
+public typealias JsonNumber = Decimal
 extension JsonNumber: JsonValue { }
 
 // MARK: Object
 
-public typealias JsonObject = [JsonString: JsonValue]
+public typealias JsonObject = [String: Any]
 extension JsonObject: JsonValue { }
 
 public func ==(lhs: JsonObject, rhs: JsonObject) -> Bool {
@@ -36,7 +87,7 @@ public func ==(lhs: JsonObject?, rhs: JsonObject) -> Bool {
 
 // MARK: Array
 
-public typealias JsonArray = [JsonValue]
+public typealias JsonArray = [Any]
 extension JsonArray: JsonValue { }
 public typealias JsonArrayStrings = [JsonString]
 public typealias JsonArrayNumbers = [JsonNumber]

@@ -14,7 +14,7 @@ class JsonObjectOptionalNumberUnitTesting: XCTestCase {
 
     func testNumberValue() {
         let key = "key"
-        let value = NSNumber(0)
+        let value = Decimal(0)
         var object = JsonObject()
         object[key] = value;
         
@@ -61,7 +61,7 @@ class JsonObjectOptionalNumberUnitTesting: XCTestCase {
     
     func testMissingNumberValue() {
         let key = "key"
-        let value = NSNumber(0)
+        let value = Decimal(0)
         var object = JsonObject()
         object[key] = value;
         

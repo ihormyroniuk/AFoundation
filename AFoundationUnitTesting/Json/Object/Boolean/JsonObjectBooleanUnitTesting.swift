@@ -46,7 +46,7 @@ class JsonObjectBooleanUnitTesting: XCTestCase {
     
     func testMissingBooleanValue() {
         let key = "key"
-        let value = NSNumber(0)
+        let value = false
         var object = JsonObject()
         object[key] = value;
         

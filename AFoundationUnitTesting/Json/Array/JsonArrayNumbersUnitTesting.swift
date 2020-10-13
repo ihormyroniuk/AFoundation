@@ -13,7 +13,7 @@ import Foundation
 class JsonArrayNumbersUnitTesting: XCTestCase {
 
     func testArrayNumbers() {
-        let numbers = [NSNumber(1), NSNumber(2), NSNumber(3)]
+        let numbers = [Decimal(1), Decimal(2), Decimal(3)]
         var array = JsonArray()
         for number in numbers {
             array.append(number)
@@ -29,7 +29,7 @@ class JsonArrayNumbersUnitTesting: XCTestCase {
     }
     
     func testNotArrayNumbers() {
-        let notNumbers: [JsonValue] = [NSNumber(1), "string2", NSNumber(3)]
+        let notNumbers: [JsonValue] = [Decimal(1), "string2", Decimal(3)]
         var array = JsonArray()
         for notNumber in notNumbers {
             array.append(notNumber)

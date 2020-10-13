@@ -10,47 +10,33 @@ import Foundation
 
 public extension JSONSerialization {
     
-    static func object(_ data: Data) throws -> JsonObject {
+    class func json(_ data: Data) throws -> JsonValue {
         let json = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
-        guard let object = json as? JsonObject else {
-            let error = JsonSerializationErrorNotObject(json: json)
-            throw error
+        if let object = json as? JsonObject {
+            return object
         }
-        return object
+        if let array = json as? JsonArray {
+            return array
+        }
+        if let string = json as? JsonString {
+            return string
+        }
+        if let boolean = json as? JsonBoolean {
+            return boolean
+        }
+        if let number = (json as? NSNumber)?.decimalValue {
+            return number
+        }
+        if let null = json as? JsonNull {
+            return null
+        }
+        let error = UnexpectedError()
+        throw error
     }
     
-    static func array(_ data: Data) throws -> JsonArray {
-        let json = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
-        guard let array = json as? JsonArray else {
-            let error = JsonSerializationErrorNotArray(json: json)
-            throw error
-        }
-        return array
-    }
-    
-    static func data(_ jsonValue: JsonValue) throws -> Data {
+    class func data(_ jsonValue: JsonValue) throws -> Data {
         let data = try JSONSerialization.data(withJSONObject: jsonValue, options: [.fragmentsAllowed])
         return data
-    }
-    
-}
-
-public struct JsonSerializationErrorNotObject: LocalizedError {
-    
-    private let json: Any
-    
-    init(json: Any) {
-        self.json = json
-    }
-    
-}
-
-public struct JsonSerializationErrorNotArray: LocalizedError {
-    
-    private let json: Any
-    
-    init(json: Any) {
-        self.json = json
     }
     
 }
