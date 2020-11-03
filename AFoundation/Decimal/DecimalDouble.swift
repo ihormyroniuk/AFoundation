@@ -11,7 +11,7 @@ import Foundation
 public extension Decimal {
   
     var double: Double {
-        return (self as NSNumber).doubleValue
+        return (self as NSDecimalNumber).doubleValue
     }
   
 }
