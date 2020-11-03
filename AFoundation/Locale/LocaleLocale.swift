@@ -22,27 +22,15 @@ open class LocaleLocale: Locale {
   
     // MARK: Language
   
-    open var language: Language? = {
-        guard let code = Foundation.Locale.preferredLanguages.first else { return nil }
-        let languagesCodes = HardcodedLanguagesCodes()
-        let language = languagesCodes.languageByCode(code)
+    open var language: Language? {
+        guard let code = locale.languageCode else { return nil }
+        let language = HardcodedLanguagesCodes().languageByCode(code)
         return language
-    }()
+    }
   
-    open var preferredLanguages: [Language] = {
-        var preferredLanguages: [Language] = []
-        let codes = Foundation.Locale.preferredLanguages
-        let languagesCodes = HardcodedLanguagesCodes()
-        for code in codes {
-            guard let language = languagesCodes.languageByCode(code) else { continue }
-            preferredLanguages.append(language)
-        }
-        return preferredLanguages
-    }()
+    // MARK: Region
   
-    // MARK: Country
-  
-    open var country: Region? {
+    open var region: Region? {
         guard let code = locale.regionCode else { return nil }
         let region = HardcodedRegionsCodes().regionByCode(code)
         return region

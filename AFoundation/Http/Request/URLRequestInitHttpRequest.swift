@@ -10,7 +10,7 @@ import Foundation
 
 public extension URLRequest {
     
-    init(_ httpRequest: HttpRequest) {
+    init(httpRequest: HttpRequest) {
         self.init(url: httpRequest.requestUri)
         allHTTPHeaderFields = httpRequest.headerFields
         httpBody = httpRequest.messageBody

@@ -13,11 +13,10 @@ public protocol Locale {
     // MARK: Language
   
     var language: Language? { get }
-    var preferredLanguages: [Language] { get }
   
-    // MARK: Country
+    // MARK: Region
   
-    var country: Region? { get }
+    var region: Region? { get }
   
     // MARK: Currency
   

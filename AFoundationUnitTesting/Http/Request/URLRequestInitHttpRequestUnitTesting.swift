@@ -18,7 +18,7 @@ class URLRequestInitHttpRequestUnitTesting: XCTestCase {
         let httpVersion = "HTTP/1.0"
         let httpRequest = PlainHttpRequest(method: method, requestUri: requestUri, httpVersion: httpVersion)
         
-        let urlRequest = URLRequest(httpRequest)
+        let urlRequest = URLRequest(httpRequest: httpRequest)
         
         XCTAssertTrue(urlRequest.url == httpRequest.requestUri, "Unexpected URLRequest object's url \"\(String(describing: urlRequest.url))\" is found while url \"(\(String(describing: httpRequest.requestUri))\" is expected)")
         XCTAssertTrue(urlRequest.httpMethod == httpRequest.method, "Unexpected URLRequest object's httpMethod \"\(String(describing: urlRequest.httpBody))\" is found while httpMethod \"(\(String(describing: httpRequest.method))\" is expected)")
@@ -33,7 +33,7 @@ class URLRequestInitHttpRequestUnitTesting: XCTestCase {
         let headerFields: [String: String] = ["headerField1": "headerField1", "headerField2": "headerField2"]
         let httpRequest = PlainHttpRequest(method: method, requestUri: requestUri, httpVersion: httpVersion, headerFields: headerFields)
         
-        let urlRequest = URLRequest(httpRequest)
+        let urlRequest = URLRequest(httpRequest: httpRequest)
         
         XCTAssertTrue(urlRequest.url == httpRequest.requestUri, "Unexpected URLRequest object's url \"\(String(describing: urlRequest.url))\" is found while url \"(\(String(describing: httpRequest.requestUri))\" is expected)")
         XCTAssertTrue(urlRequest.httpMethod == httpRequest.method, "Unexpected URLRequest object's httpMethod \"\(String(describing: urlRequest.httpBody))\" is found while httpMethod \"(\(String(describing: httpRequest.method))\" is expected)")
@@ -48,7 +48,7 @@ class URLRequestInitHttpRequestUnitTesting: XCTestCase {
         let messageBody = Data([0x00])
         let httpRequest = PlainHttpRequest(method: method, requestUri: requestUri, httpVersion: httpVersion, messageBody: messageBody)
         
-        let urlRequest = URLRequest(httpRequest)
+        let urlRequest = URLRequest(httpRequest: httpRequest)
         
         XCTAssertTrue(urlRequest.url == httpRequest.requestUri, "Unexpected URLRequest object's url \"\(String(describing: urlRequest.url))\" is found while url \"(\(String(describing: httpRequest.requestUri))\" is expected)")
         XCTAssertTrue(urlRequest.httpMethod == httpRequest.method, "Unexpected URLRequest object's httpMethod \"\(String(describing: urlRequest.httpBody))\" is found while httpMethod \"(\(String(describing: httpRequest.method))\" is expected)")
@@ -64,7 +64,7 @@ class URLRequestInitHttpRequestUnitTesting: XCTestCase {
         let messageBody = Data([0x00])
         let httpRequest = PlainHttpRequest(method: method, requestUri: requestUri, httpVersion: httpVersion, headerFields: headerFields, messageBody: messageBody)
         
-        let urlRequest = URLRequest(httpRequest)
+        let urlRequest = URLRequest(httpRequest: httpRequest)
         
         XCTAssertTrue(urlRequest.url == httpRequest.requestUri, "Unexpected URLRequest object's url \"\(String(describing: urlRequest.url))\" is found while url \"(\(String(describing: httpRequest.requestUri))\" is expected)")
         XCTAssertTrue(urlRequest.httpMethod == httpRequest.method, "Unexpected URLRequest object's httpMethod \"\(String(describing: urlRequest.httpBody))\" is found while httpMethod \"(\(String(describing: httpRequest.method))\" is expected)")
