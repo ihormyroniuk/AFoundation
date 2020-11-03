@@ -8,17 +8,17 @@
 
 import Foundation
 
-enum Http {
+public enum Http {
     
-    enum Method {
-        static let options = "OPTIONS"
-        static let get = "GET"
-        static let head = "HEAD"
-        static let post = "POST"
-        static let put = "PUT"
-        static let delete = "DELETE"
-        static let trace = "TRACE"
-        static let connect = "CONNECT"
+    public enum Method {
+        public static let options = "OPTIONS"
+        public static let get = "GET"
+        public static let head = "HEAD"
+        public static let post = "POST"
+        public static let put = "PUT"
+        public static let delete = "DELETE"
+        public static let trace = "TRACE"
+        public static let connect = "CONNECT"
     }
     
 }

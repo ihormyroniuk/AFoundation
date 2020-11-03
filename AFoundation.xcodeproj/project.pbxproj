@@ -504,6 +504,7 @@
 		C5512F052530D85D00387B26 /* AFoundationDemo */ = {
 			isa = PBXGroup;
 			children = (
+				C55CF4DA2551D87A00E61A03 /* AckeeCookbookApi */,
 				C5512F062530D85D00387B26 /* AppDelegate.swift */,
 				C5512F0A2530D85D00387B26 /* ViewController.swift */,
 				C5512F0F2530D85F00387B26 /* Assets.xcassets */,
@@ -540,6 +541,13 @@
 				C558FA382536464A00789E00 /* HttpExchange.swift */,
 			);
 			path = Exchange;
+			sourceTree = "<group>";
+		};
+		C55CF4DA2551D87A00E61A03 /* AckeeCookbookApi */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AckeeCookbookApi;
 			sourceTree = "<group>";
 		};
 		C55D8172247C71FC0082346B /* Error */ = {
