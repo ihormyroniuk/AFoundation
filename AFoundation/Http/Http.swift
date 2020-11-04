@@ -10,6 +10,11 @@ import Foundation
 
 public enum Http {
     
+    public enum Version {
+        public static let http1dot0 = "HTTP/1.0"
+        public static let http1dot1 = "HTTP/1.1"
+    }
+    
     public enum Method {
         public static let options = "OPTIONS"
         public static let get = "GET"
@@ -19,6 +24,11 @@ public enum Http {
         public static let delete = "DELETE"
         public static let trace = "TRACE"
         public static let connect = "CONNECT"
+    }
+    
+    public enum StatusCode {
+        static let ok = 200
+        static let noContent = 204
     }
     
 }
