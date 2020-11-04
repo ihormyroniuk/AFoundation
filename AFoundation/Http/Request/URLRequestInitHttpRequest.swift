@@ -12,6 +12,7 @@ public extension URLRequest {
     
     init(httpRequest: HttpRequest) {
         self.init(url: httpRequest.requestUri)
+        httpMethod = httpRequest.method
         allHTTPHeaderFields = httpRequest.headerFields
         httpBody = httpRequest.messageBody
     }
