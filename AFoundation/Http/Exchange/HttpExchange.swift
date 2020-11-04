@@ -12,5 +12,5 @@ public protocol HttpExchange {
     associatedtype ParsedHttpResponse
     
     func constructHttpRequest() -> HttpRequest
-    func parseHttpResponse(httpResponse: HttpResponse) -> ParsedHttpResponse
+    func parseHttpResponse(httpResponse: HttpResponse) throws -> ParsedHttpResponse
 }

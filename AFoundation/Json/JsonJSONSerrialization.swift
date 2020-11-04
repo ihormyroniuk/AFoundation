@@ -10,7 +10,7 @@ import Foundation
 
 public extension JSONSerialization {
     
-    class func json(_ data: Data) throws -> JsonValue {
+    class func json(data: Data) throws -> JsonValue {
         let json = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
         if let object = json as? JsonObject {
             return object
@@ -34,7 +34,7 @@ public extension JSONSerialization {
         throw error
     }
     
-    class func data(_ jsonValue: JsonValue) throws -> Data {
+    class func data(jsonValue: JsonValue) throws -> Data {
         let data = try JSONSerialization.data(withJSONObject: jsonValue, options: [.fragmentsAllowed])
         return data
     }

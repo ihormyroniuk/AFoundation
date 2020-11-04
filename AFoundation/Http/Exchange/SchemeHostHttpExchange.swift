@@ -23,7 +23,7 @@ open class SchemeHostHttpExchange<ParsedHttpResponse>: HttpExchange {
         fatalError()
     }
     
-    open func parseHttpResponse(httpResponse: HttpResponse) -> ParsedHttpResponse {
+    open func parseHttpResponse(httpResponse: HttpResponse) throws -> ParsedHttpResponse {
         fatalError()
     }
     
