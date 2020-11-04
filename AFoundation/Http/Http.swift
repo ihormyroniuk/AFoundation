@@ -27,8 +27,12 @@ public enum Http {
     }
     
     public enum StatusCode {
-        static let ok = 200
-        static let noContent = 204
+        public static let ok = 200
+        public static let noContent = 204
+    }
+    
+    public enum HeaderField {
+        public static let contentType = "Content-Type"
     }
     
 }
