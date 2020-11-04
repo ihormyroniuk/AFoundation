@@ -14,7 +14,7 @@ open class SchemeHostHttpExchange<ParsedHttpResponse>: HttpExchange {
     public let scheme: String
     public let host: String
     
-    init(scheme: String, host: String) {
+    public init(scheme: String, host: String) {
         self.scheme = scheme
         self.host = host
     }
