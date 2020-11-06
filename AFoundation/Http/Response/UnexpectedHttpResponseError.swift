@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct UnexpectedHttpResponse: Error {
+public struct UnexpectedHttpResponseError: Error {
     
     public let httpRequest: HttpRequest
     public let httpResponse: HttpResponse

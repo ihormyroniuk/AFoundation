@@ -9,7 +9,9 @@
 import Foundation
 
 public enum MediaType {
+    
     public static func json() -> String {
         return "application/json"
     }
+    
 }
