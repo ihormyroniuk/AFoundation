@@ -17,7 +17,7 @@ public extension JsonObject {
                 let error = JsonErrorValueMissing(object: self, key: key)
                 throw error
             } else {
-                let error = JsonErrorValueNotNumber(object: self, key: key, value: value!)
+                let error = JsonErrorValueNotNumber(value: value!)
                 throw error
             }
         }
@@ -34,22 +34,8 @@ public extension JsonObject {
             let error = JsonErrorValueMissing(object: self, key: key)
             throw error
         }
-        let error = JsonErrorValueNotNumber(object: self, key: key, value: value!)
+        let error = JsonErrorValueNotNumber(value: value!)
         throw error
-    }
-    
-}
-
-public struct JsonErrorValueNotNumber: LocalizedError {
-    
-    private let object: JsonObject
-    private let key: String
-    private let value: Any
-    
-    init(object: JsonObject, key: String, value: Any) {
-        self.object = object
-        self.key = key
-        self.value = value
     }
     
 }

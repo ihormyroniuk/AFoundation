@@ -8,6 +8,35 @@
 
 import Foundation
 
+public typealias JsonArray = [Any]
+extension JsonArray: JsonValue { }
+public typealias JsonArrayStrings = [JsonString]
+public typealias JsonArrayNumbers = [JsonNumber]
+public typealias JsonArrayObjects = [JsonObject]
+public typealias JsonArrayArrays = [JsonArray]
+public typealias JsonArrayBooleans = [JsonBoolean]
+
+public func ==(lhs: JsonArray, rhs: JsonArray) -> Bool {
+    return NSArray(array: lhs).isEqual(to: rhs)
+}
+
+public func ==(lhs: JsonArray?, rhs: JsonArray) -> Bool {
+    guard let lhs = lhs else { return false }
+    return NSArray(array: lhs).isEqual(to: rhs)
+}
+
+public extension JsonValue {
+    
+    func array() throws -> JsonArray {
+        guard let array = self as? JsonArray else {
+            let error = UnexpectedError()
+            throw error
+        }
+        return array
+    }
+    
+}
+
 public extension JsonArray {
     
     func arrayStrings() throws -> JsonArrayStrings {
