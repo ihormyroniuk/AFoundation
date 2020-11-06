@@ -96,6 +96,7 @@
 		C598CF2D24EEFA3800EA0C8F /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598CF2C24EEFA3800EA0C8F /* HttpResponse.swift */; };
 		C598CF2F24EEFC1600EA0C8F /* HTTPURLResponseDataHttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598CF2E24EEFC1600EA0C8F /* HTTPURLResponseDataHttpResponse.swift */; };
 		C5A6ABCE252672910005233F /* JsonArrayStringsUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A6ABCD252672910005233F /* JsonArrayStringsUnitTesting.swift */; };
+		C5C726ED2555CF69002A0709 /* UnexpectedHttpResponseStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C726EC2555CF69002A0709 /* UnexpectedHttpResponseStatusCode.swift */; };
 		C5C9ADD02514FEF6008E190D /* JsonObjectStringUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C9ADCF2514FEF6008E190D /* JsonObjectStringUnitTesting.swift */; };
 		C5F503AF2343998400CE5DB9 /* DecimalDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F503AE2343998400CE5DB9 /* DecimalDouble.swift */; };
 /* End PBXBuildFile section */
@@ -205,6 +206,7 @@
 		C598CF2C24EEFA3800EA0C8F /* HttpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
 		C598CF2E24EEFC1600EA0C8F /* HTTPURLResponseDataHttpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPURLResponseDataHttpResponse.swift; sourceTree = "<group>"; };
 		C5A6ABCD252672910005233F /* JsonArrayStringsUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonArrayStringsUnitTesting.swift; sourceTree = "<group>"; };
+		C5C726EC2555CF69002A0709 /* UnexpectedHttpResponseStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnexpectedHttpResponseStatusCode.swift; sourceTree = "<group>"; };
 		C5C9ADCF2514FEF6008E190D /* JsonObjectStringUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonObjectStringUnitTesting.swift; sourceTree = "<group>"; };
 		C5F503AE2343998400CE5DB9 /* DecimalDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalDouble.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -451,6 +453,7 @@
 				C598CF2C24EEFA3800EA0C8F /* HttpResponse.swift */,
 				C598CF2E24EEFC1600EA0C8F /* HTTPURLResponseDataHttpResponse.swift */,
 				C531975B25559BFC004495D6 /* UnexpectedHttpResponseError.swift */,
+				C5C726EC2555CF69002A0709 /* UnexpectedHttpResponseStatusCode.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -978,6 +981,7 @@
 				C55D8174247C72070082346B /* UnexpectedError.swift in Sources */,
 				C531975C25559BFC004495D6 /* UnexpectedHttpResponseError.swift in Sources */,
 				C598CF2D24EEFA3800EA0C8F /* HttpResponse.swift in Sources */,
+				C5C726ED2555CF69002A0709 /* UnexpectedHttpResponseStatusCode.swift in Sources */,
 				C598CF2B24EEF96300EA0C8F /* PlainHttpRequest.swift in Sources */,
 				C54ADD1C25532BFB00132564 /* MediaType.swift in Sources */,
 				C54D46FD2515FAA4004B1467 /* URLRequestInitHttpRequest.swift in Sources */,
