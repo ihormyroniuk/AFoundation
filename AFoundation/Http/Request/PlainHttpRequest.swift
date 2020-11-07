@@ -14,14 +14,14 @@ public struct PlainHttpRequest: HttpRequest {
     public let requestUri: URL
     public let httpVersion: String
     public let headerFields: [String: String]?
-    public let messageBody: Data?
+    public let entityBody: Data?
     
-    public init(method: String, requestUri: URL, httpVersion: String, headerFields: [String: String]? = nil, messageBody: Data? = nil) {
+    public init(method: String, requestUri: URL, httpVersion: String, headerFields: [String: String]?, entityBody: Data?) {
         self.method = method
         self.requestUri = requestUri
         self.httpVersion = httpVersion
         self.headerFields = headerFields
-        self.messageBody = messageBody
+        self.entityBody = entityBody
     }
     
 }

@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+    Implemented based on https://www.iana.org/assignments/media-types/media-types.xhtml
+ */
 public enum MediaType {
     
     public static func json() -> String {

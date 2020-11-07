@@ -14,14 +14,14 @@ public struct HTTPURLResponseDataHttpResponse: HttpResponse {
     public let statusCode: Int
     public let reasonPhrase: String
     public let headerFields: [String: String]?
-    public let messageBody: Data?
+    public let entityBody: Data?
     
     public init(httpUrlResponse: HTTPURLResponse, data: Data?) {
         httpVersion = ""
         statusCode = httpUrlResponse.statusCode
         reasonPhrase = HTTPURLResponse.localizedString(forStatusCode: httpUrlResponse.statusCode)
         headerFields = httpUrlResponse.allHeaderFields as? [String: String]
-        messageBody = data
+        entityBody = data
     }
     
 }

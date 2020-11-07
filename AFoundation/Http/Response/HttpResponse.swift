@@ -8,12 +8,15 @@
 
 import Foundation
 
+/**
+    Implemented based on https://tools.ietf.org/html/rfc2616#section-6
+ */
 public protocol HttpResponse {
     
     var httpVersion: String { get }
     var statusCode: Int { get }
     var reasonPhrase: String { get }
     var headerFields: [String: String]? { get }
-    var messageBody: Data? { get }
+    var entityBody: Data? { get }
     
 }

@@ -14,7 +14,7 @@ public extension URLRequest {
         self.init(url: httpRequest.requestUri)
         httpMethod = httpRequest.method
         allHTTPHeaderFields = httpRequest.headerFields
-        httpBody = httpRequest.messageBody
+        httpBody = httpRequest.entityBody
     }
     
 }

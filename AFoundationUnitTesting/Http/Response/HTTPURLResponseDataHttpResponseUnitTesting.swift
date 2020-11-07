@@ -24,7 +24,7 @@ class HTTPURLResponseDataHttpResponseUnitTesting: XCTestCase {
         
         XCTAssertTrue(httpResponse.statusCode == httpUrlResponse.statusCode, "Unexpected HTTPResponse object's statusCode \"\(String(describing: httpResponse.statusCode))\" is found while statusCode \"(\(String(describing: httpUrlResponse.statusCode))\" is expected)")
         XCTAssertTrue(httpResponse.headerFields == httpUrlResponse.allHeaderFields as? [String: String], "Unexpected HTTPResponse object's headerFields \"\(String(describing: httpResponse.headerFields))\" is found while headerFields \"(\(String(describing: httpUrlResponse.allHeaderFields))\" is expected)")
-        XCTAssertTrue(httpResponse.messageBody == data, "Unexpected HTTPResponse object's data \"\(String(describing: httpResponse.messageBody))\" is found while data \"(\(String(describing: data))\" is expected)")
+        XCTAssertTrue(httpResponse.entityBody == data, "Unexpected HTTPResponse object's data \"\(String(describing: httpResponse.entityBody))\" is found while data \"(\(String(describing: data))\" is expected)")
     }
     
 }
