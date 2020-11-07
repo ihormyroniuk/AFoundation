@@ -19,14 +19,14 @@ open class SchemeHostHttpExchange<ParsedHttpResponse>: HttpExchange {
         self.host = host
     }
     
-    open func constructHttpRequest() -> Result<HttpRequest, Error> {
+    open func constructHttpRequest() throws -> HttpRequest {
         let error = UnexpectedError()
-        return .failure(error)
+        throw error
     }
     
-    open func parseHttpResponse(httpResponse: HttpResponse) -> Result<ParsedHttpResponse, Error> {
+    open func parseHttpResponse(httpResponse: HttpResponse) throws -> ParsedHttpResponse {
         let error = UnexpectedError()
-        return .failure(error)
+        throw error
     }
     
 }

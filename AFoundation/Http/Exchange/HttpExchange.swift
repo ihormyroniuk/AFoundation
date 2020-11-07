@@ -11,6 +11,6 @@ import Foundation
 public protocol HttpExchange {
     associatedtype ParsedHttpResponse
     
-    func constructHttpRequest() -> Result<HttpRequest, Error>
-    func parseHttpResponse(httpResponse: HttpResponse) -> Result<ParsedHttpResponse, Error>
+    func constructHttpRequest() throws -> HttpRequest
+    func parseHttpResponse(httpResponse: HttpResponse) throws -> ParsedHttpResponse
 }
