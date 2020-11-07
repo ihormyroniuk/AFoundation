@@ -80,6 +80,7 @@
 		C5512F132530D85F00387B26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5512F112530D85F00387B26 /* LaunchScreen.storyboard */; };
 		C552E40E24617E230031D531 /* JsonJSONSerrialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C552E40D24617E230031D531 /* JsonJSONSerrialization.swift */; };
 		C558FA392536464A00789E00 /* HttpExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = C558FA382536464A00789E00 /* HttpExchange.swift */; };
+		C55A01982556E77A00B7FFAF /* Nothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55A01972556E77A00B7FFAF /* Nothing.swift */; };
 		C55CF4FB2551DCCD00E61A03 /* DecimalInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CF4FA2551DCCD00E61A03 /* DecimalInt.swift */; };
 		C55CF5002551DCF500E61A03 /* DecimalIntUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CF4FF2551DCF500E61A03 /* DecimalIntUnitTesting.swift */; };
 		C55CF5082551DD8C00E61A03 /* DecimalFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CF5072551DD8C00E61A03 /* DecimalFloat.swift */; };
@@ -190,6 +191,7 @@
 		C5512F142530D85F00387B26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C552E40D24617E230031D531 /* JsonJSONSerrialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonJSONSerrialization.swift; sourceTree = "<group>"; };
 		C558FA382536464A00789E00 /* HttpExchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpExchange.swift; sourceTree = "<group>"; };
+		C55A01972556E77A00B7FFAF /* Nothing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nothing.swift; sourceTree = "<group>"; };
 		C55CF4FA2551DCCD00E61A03 /* DecimalInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalInt.swift; sourceTree = "<group>"; };
 		C55CF4FF2551DCF500E61A03 /* DecimalIntUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalIntUnitTesting.swift; sourceTree = "<group>"; };
 		C55CF5072551DD8C00E61A03 /* DecimalFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFloat.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 		C50134A8230C196A0018D950 /* AFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				C55A01962556E76400B7FFAF /* Nothing */,
 				C54ADD1A25532BE500132564 /* MediaType */,
 				C55CF546255209DD00E61A03 /* Uri */,
 				C55D8172247C71FC0082346B /* Error */,
@@ -681,6 +684,14 @@
 			path = Exchange;
 			sourceTree = "<group>";
 		};
+		C55A01962556E76400B7FFAF /* Nothing */ = {
+			isa = PBXGroup;
+			children = (
+				C55A01972556E77A00B7FFAF /* Nothing.swift */,
+			);
+			path = Nothing;
+			sourceTree = "<group>";
+		};
 		C55CF4DA2551D87A00E61A03 /* AckeeCookbookApi */ = {
 			isa = PBXGroup;
 			children = (
@@ -989,6 +1000,7 @@
 				C5096BD9234F7B3200EA793A /* HardcodedCurrenciesCodes.swift in Sources */,
 				C598CF2924EEF2D200EA0C8F /* HttpRequest.swift in Sources */,
 				330B4224238EB7E40083FCEC /* TextLocalizer.swift in Sources */,
+				C55A01982556E77A00B7FFAF /* Nothing.swift in Sources */,
 				C5096BE2234F7E0100EA793A /* LocaleLocale.swift in Sources */,
 				C549844A2554AED400478585 /* JsonString.swift in Sources */,
 				3310125923994C09006B0E03 /* MultipleTextLocalizer.swift in Sources */,

@@ -11,7 +11,6 @@ import Foundation
 public enum Http {
     
     public enum Version {
-        public static let http1dot0 = "HTTP/1.0"
         public static let http1dot1 = "HTTP/1.1"
     }
     
