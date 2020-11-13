@@ -14,8 +14,10 @@ public enum Uri {
         Implemented based on https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml
      */
     public enum Scheme {
+        
         public static let http = "http"
         public static let https = "https"
+        
     }
     
 }
