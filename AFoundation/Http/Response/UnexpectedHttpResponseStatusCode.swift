@@ -1,5 +1,5 @@
 //
-//  UnexpectedHttpResponseStatusCode.swift
+//  UnexpectedHttpResponsecode.swift
 //  AFoundation
 //
 //  Created by Ihor Myroniuk on 06.11.2020.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-public struct UnexpectedHttpResponseStatusCode: Error {
+public struct UnexpectedHttpResponseCode: Error {
     
-    public let statusCode: Int
+    public let code: Int
     
-    public init(statusCode: Int) {
-        self.statusCode = statusCode
+    public init(code: Int) {
+        self.code = code
     }
     
 }

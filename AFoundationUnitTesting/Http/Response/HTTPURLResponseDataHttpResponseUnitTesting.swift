@@ -14,17 +14,17 @@ class HTTPURLResponseDataHttpResponseUnitTesting: XCTestCase {
 
     func testInit() {
         let url = URL(string: "https://localhost")!
-        let statusCode = 200
-        let httpVersion = "HTTP/1.0"
-        let headerFields: [String: String] = ["headerField1": "headerField1", "headerField2": "headerField2"]
-        let httpUrlResponse = HTTPURLResponse(url: url, statusCode: statusCode, httpVersion: httpVersion, headerFields: headerFields)!
+        let code = 200
+        let version = "HTTP/1.0"
+        let headers: [String: String] = ["headerField1": "headerField1", "headerField2": "headerField2"]
+        let httpUrlResponse = HTTPURLResponse(url: url, statusCode: code, httpVersion: version, headerFields: headers)!
         let data = Data([0x00])
         
         let httpResponse = HTTPURLResponseDataHttpResponse(httpUrlResponse: httpUrlResponse, data: data)
         
-        XCTAssertTrue(httpResponse.statusCode == httpUrlResponse.statusCode, "Unexpected HTTPResponse object's statusCode \"\(String(describing: httpResponse.statusCode))\" is found while statusCode \"(\(String(describing: httpUrlResponse.statusCode))\" is expected)")
-        XCTAssertTrue(httpResponse.headerFields == httpUrlResponse.allHeaderFields as? [String: String], "Unexpected HTTPResponse object's headerFields \"\(String(describing: httpResponse.headerFields))\" is found while headerFields \"(\(String(describing: httpUrlResponse.allHeaderFields))\" is expected)")
-        XCTAssertTrue(httpResponse.entityBody == data, "Unexpected HTTPResponse object's data \"\(String(describing: httpResponse.entityBody))\" is found while data \"(\(String(describing: data))\" is expected)")
+        XCTAssertTrue(httpResponse.code == httpUrlResponse.statusCode, "Unexpected HTTPResponse object's code \"\(String(describing: httpResponse.code))\" is found while code \"(\(String(describing: httpUrlResponse.statusCode))\" is expected)")
+        XCTAssertTrue(httpResponse.headers == httpUrlResponse.allHeaderFields as? [String: String], "Unexpected HTTPResponse object's headers \"\(String(describing: httpResponse.headers))\" is found while headers \"(\(String(describing: httpUrlResponse.allHeaderFields))\" is expected)")
+        XCTAssertTrue(httpResponse.body == data, "Unexpected HTTPResponse object's data \"\(String(describing: httpResponse.body))\" is found while data \"(\(String(describing: data))\" is expected)")
     }
     
 }

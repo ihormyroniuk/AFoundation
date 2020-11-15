@@ -24,7 +24,7 @@ public enum Http {
         public static let delete = "DELETE"
     }
     
-    public enum StatusCode {
+    public enum code {
         public static let ok = 200
         public static let noContent = 204
     }

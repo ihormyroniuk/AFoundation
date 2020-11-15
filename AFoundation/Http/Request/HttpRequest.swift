@@ -14,9 +14,9 @@ import Foundation
 public protocol HttpRequest {
     
     var method: String { get }
-    var requestUri: URL { get }
-    var httpVersion: String { get }
-    var headerFields: [String: String]? { get }
-    var entityBody: Data? { get }
+    var uri: URL { get }
+    var version: String { get }
+    var headers: [String: String]? { get }
+    var body: Data? { get }
     
 }

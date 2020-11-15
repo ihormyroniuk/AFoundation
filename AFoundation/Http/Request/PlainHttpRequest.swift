@@ -11,17 +11,17 @@ import Foundation
 public struct PlainHttpRequest: HttpRequest {
     
     public let method: String
-    public let requestUri: URL
-    public let httpVersion: String
-    public let headerFields: [String: String]?
-    public let entityBody: Data?
+    public let uri: URL
+    public let version: String
+    public let headers: [String: String]?
+    public let body: Data?
     
-    public init(method: String, requestUri: URL, httpVersion: String, headerFields: [String: String]?, entityBody: Data?) {
+    public init(method: String, uri: URL, version: String, headers: [String: String]?, body: Data?) {
         self.method = method
-        self.requestUri = requestUri
-        self.httpVersion = httpVersion
-        self.headerFields = headerFields
-        self.entityBody = entityBody
+        self.uri = uri
+        self.version = version
+        self.headers = headers
+        self.body = body
     }
     
 }

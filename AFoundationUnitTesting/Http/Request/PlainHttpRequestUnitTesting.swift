@@ -12,60 +12,60 @@ import Foundation
 
 class PlainHttpRequestUnitTesting: XCTestCase {
 
-    func testInitWithoutHeaderFieldsAndMessageBody() {
+    func testInitWithoutheadersAndMessageBody() {
         let method = "GET"
         let requestUri = URL(string: "https://localhost")!
-        let httpVersion = "HTTP/1.0"
+        let version = "HTTP/1.0"
         
-        let httpRequest = PlainHttpRequest(method: method, requestUri: requestUri, httpVersion: httpVersion, headerFields: nil, entityBody: nil)
+        let httpRequest = PlainHttpRequest(method: method, uri: requestUri, version: version, headers: nil, body: nil)
         
         XCTAssertTrue(httpRequest.method == method, "Unexpected HTTPRequest object's method \"\(String(describing: httpRequest.method))\" is found while method \"(\(String(describing: method))\" is expected)")
-        XCTAssertTrue(httpRequest.requestUri == requestUri, "Unexpected HTTP request object's request URI \"\(String(describing: httpRequest.requestUri))\" is found while request URI \"\(String(describing: requestUri))\" is expected)")
-        XCTAssertTrue(httpRequest.httpVersion == httpVersion, "Unexpected HTTP request object's HTTP version \"\(String(describing: httpRequest.httpVersion))\" is found while HTTP version \"\(String(describing: httpVersion))\" is expected)")
+        XCTAssertTrue(httpRequest.uri == requestUri, "Unexpected HTTP request object's request URI \"\(String(describing: httpRequest.uri))\" is found while request URI \"\(String(describing: requestUri))\" is expected)")
+        XCTAssertTrue(httpRequest.version == version, "Unexpected HTTP request object's HTTP version \"\(String(describing: httpRequest.version))\" is found while HTTP version \"\(String(describing: version))\" is expected)")
     }
     
     func testInitWithoutMessageBody() {
         let method = "GET"
         let requestUri = URL(string: "https://localhost")!
-        let httpVersion = "HTTP/1.0"
-        let headerFields: [String: String] = ["headerField1": "headerField1", "headerField2": "headerField2"]
+        let version = "HTTP/1.0"
+        let headers: [String: String] = ["headerField1": "headerField1", "headerField2": "headerField2"]
         
-        let httpRequest = PlainHttpRequest(method: method, requestUri: requestUri, httpVersion: httpVersion, headerFields: headerFields, entityBody: nil)
+        let httpRequest = PlainHttpRequest(method: method, uri: requestUri, version: version, headers: headers, body: nil)
         
         XCTAssertTrue(httpRequest.method == method, "Unexpected HTTPRequest object's method \"\(String(describing: httpRequest.method))\" is found while method \"(\(String(describing: method))\" is expected)")
-        XCTAssertTrue(httpRequest.requestUri == requestUri, "Unexpected HTTP request object's request URI \"\(String(describing: httpRequest.requestUri))\" is found while request URI \"\(String(describing: requestUri))\" is expected)")
-        XCTAssertTrue(httpRequest.httpVersion == httpVersion, "Unexpected HTTP request object's HTTP version \"\(String(describing: httpRequest.httpVersion))\" is found while HTTP version \"\(String(describing: httpVersion))\" is expected)")
-        XCTAssertTrue(httpRequest.headerFields == headerFields, "Unexpected HTTP request object's heder fields \"\(String(describing: httpRequest.headerFields))\" is found while header fields \"\(String(describing: headerFields))\" is expected)")
+        XCTAssertTrue(httpRequest.uri == requestUri, "Unexpected HTTP request object's request URI \"\(String(describing: httpRequest.uri))\" is found while request URI \"\(String(describing: requestUri))\" is expected)")
+        XCTAssertTrue(httpRequest.version == version, "Unexpected HTTP request object's HTTP version \"\(String(describing: httpRequest.version))\" is found while HTTP version \"\(String(describing: version))\" is expected)")
+        XCTAssertTrue(httpRequest.headers == headers, "Unexpected HTTP request object's heder fields \"\(String(describing: httpRequest.headers))\" is found while header fields \"\(String(describing: headers))\" is expected)")
     }
     
-    func testInitWithoutHeaderFields() {
+    func testInitWithoutheaders() {
         let method = "GET"
         let requestUri = URL(string: "https://localhost")!
-        let httpVersion = "HTTP/1.0"
-        let entityBody = Data([0x00])
+        let version = "HTTP/1.0"
+        let body = Data([0x00])
         
-        let httpRequest = PlainHttpRequest(method: method, requestUri: requestUri, httpVersion: httpVersion, headerFields: nil, entityBody: entityBody)
+        let httpRequest = PlainHttpRequest(method: method, uri: requestUri, version: version, headers: nil, body: body)
         
         XCTAssertTrue(httpRequest.method == method, "Unexpected HTTPRequest object's method \"\(String(describing: httpRequest.method))\" is found while method \"(\(String(describing: method))\" is expected)")
-        XCTAssertTrue(httpRequest.requestUri == requestUri, "Unexpected HTTP request object's request URI \"\(String(describing: httpRequest.requestUri))\" is found while request URI \"\(String(describing: requestUri))\" is expected)")
-        XCTAssertTrue(httpRequest.httpVersion == httpVersion, "Unexpected HTTP request object's HTTP version \"\(String(describing: httpRequest.httpVersion))\" is found while HTTP version \"\(String(describing: httpVersion))\" is expected)")
-        XCTAssertTrue(httpRequest.entityBody == entityBody, "Unexpected HTTP request object's message body \"\(String(describing: httpRequest.entityBody))\" is found while message body \"\(String(describing: entityBody))\" is expected)")
+        XCTAssertTrue(httpRequest.uri == requestUri, "Unexpected HTTP request object's request URI \"\(String(describing: httpRequest.uri))\" is found while request URI \"\(String(describing: requestUri))\" is expected)")
+        XCTAssertTrue(httpRequest.version == version, "Unexpected HTTP request object's HTTP version \"\(String(describing: httpRequest.version))\" is found while HTTP version \"\(String(describing: version))\" is expected)")
+        XCTAssertTrue(httpRequest.body == body, "Unexpected HTTP request object's message body \"\(String(describing: httpRequest.body))\" is found while message body \"\(String(describing: body))\" is expected)")
     }
     
     func testInit() {
         let method = "GET"
         let requestUri = URL(string: "https://localhost")!
-        let httpVersion = "HTTP/1.0"
-        let headerFields: [String: String] = ["headerField1": "headerField1", "headerField2": "headerField2"]
-        let entityBody = Data([0x00])
+        let version = "HTTP/1.0"
+        let headers: [String: String] = ["headerField1": "headerField1", "headerField2": "headerField2"]
+        let body = Data([0x00])
         
-        let httpRequest = PlainHttpRequest(method: method, requestUri: requestUri, httpVersion: httpVersion, headerFields: headerFields, entityBody: entityBody)
+        let httpRequest = PlainHttpRequest(method: method, uri: requestUri, version: version, headers: headers, body: body)
         
         XCTAssertTrue(httpRequest.method == method, "Unexpected HTTPRequest object's method \"\(String(describing: httpRequest.method))\" is found while method \"(\(String(describing: method))\" is expected)")
-        XCTAssertTrue(httpRequest.requestUri == requestUri, "Unexpected HTTP request object's request URI \"\(String(describing: httpRequest.requestUri))\" is found while request URI \"\(String(describing: requestUri))\" is expected)")
-        XCTAssertTrue(httpRequest.httpVersion == httpVersion, "Unexpected HTTP request object's HTTP version \"\(String(describing: httpRequest.httpVersion))\" is found while HTTP version \"\(String(describing: httpVersion))\" is expected)")
-        XCTAssertTrue(httpRequest.headerFields == headerFields, "Unexpected HTTP request object's heder fields \"\(String(describing: httpRequest.headerFields))\" is found while header fields \"\(String(describing: headerFields))\" is expected)")
-        XCTAssertTrue(httpRequest.entityBody == entityBody, "Unexpected HTTP request object's message body \"\(String(describing: httpRequest.entityBody))\" is found while message body \"\(String(describing: entityBody))\" is expected)")
+        XCTAssertTrue(httpRequest.uri == requestUri, "Unexpected HTTP request object's request URI \"\(String(describing: httpRequest.uri))\" is found while request URI \"\(String(describing: requestUri))\" is expected)")
+        XCTAssertTrue(httpRequest.version == version, "Unexpected HTTP request object's HTTP version \"\(String(describing: httpRequest.version))\" is found while HTTP version \"\(String(describing: version))\" is expected)")
+        XCTAssertTrue(httpRequest.headers == headers, "Unexpected HTTP request object's heder fields \"\(String(describing: httpRequest.headers))\" is found while header fields \"\(String(describing: headers))\" is expected)")
+        XCTAssertTrue(httpRequest.body == body, "Unexpected HTTP request object's message body \"\(String(describing: httpRequest.body))\" is found while message body \"\(String(describing: body))\" is expected)")
     }
     
 }

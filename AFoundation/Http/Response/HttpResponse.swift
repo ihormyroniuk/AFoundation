@@ -13,10 +13,10 @@ import Foundation
  */
 public protocol HttpResponse {
     
-    var httpVersion: String { get }
-    var statusCode: Int { get }
-    var reasonPhrase: String { get }
-    var headerFields: [String: String]? { get }
-    var entityBody: Data? { get }
+    var version: String { get }
+    var code: Int { get }
+    var phrase: String { get }
+    var headers: [String: String]? { get }
+    var body: Data? { get }
     
 }

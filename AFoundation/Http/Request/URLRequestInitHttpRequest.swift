@@ -11,10 +11,10 @@ import Foundation
 public extension URLRequest {
     
     init(httpRequest: HttpRequest) {
-        self.init(url: httpRequest.requestUri)
+        self.init(url: httpRequest.uri)
         httpMethod = httpRequest.method
-        allHTTPHeaderFields = httpRequest.headerFields
-        httpBody = httpRequest.entityBody
+        allHTTPHeaderFields = httpRequest.headers
+        httpBody = httpRequest.body
     }
     
 }

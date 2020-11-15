@@ -10,18 +10,18 @@ import Foundation
 
 public struct HTTPURLResponseDataHttpResponse: HttpResponse {
 
-    public let httpVersion: String
-    public let statusCode: Int
-    public let reasonPhrase: String
-    public let headerFields: [String: String]?
-    public let entityBody: Data?
+    public let version: String
+    public let code: Int
+    public let phrase: String
+    public let headers: [String: String]?
+    public let body: Data?
     
     public init(httpUrlResponse: HTTPURLResponse, data: Data?) {
-        httpVersion = ""
-        statusCode = httpUrlResponse.statusCode
-        reasonPhrase = HTTPURLResponse.localizedString(forStatusCode: httpUrlResponse.statusCode)
-        headerFields = httpUrlResponse.allHeaderFields as? [String: String]
-        entityBody = data
+        version = ""
+        code = httpUrlResponse.statusCode
+        phrase = HTTPURLResponse.localizedString(forStatusCode: httpUrlResponse.statusCode)
+        headers = httpUrlResponse.allHeaderFields as? [String: String]
+        body = data
     }
     
 }
