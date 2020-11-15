@@ -13,6 +13,9 @@ import Foundation
  */
 public enum MediaType {
     
+    /**
+        Implemented based on https://www.iana.org/assignments/media-types/application/json
+     */
     public static let json = "application/json"
     
 }
