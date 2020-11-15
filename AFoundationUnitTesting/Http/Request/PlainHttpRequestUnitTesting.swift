@@ -16,8 +16,9 @@ class PlainHttpRequestUnitTesting: XCTestCase {
         let method = "GET"
         let requestUri = URL(string: "https://localhost")!
         let version = "HTTP/1.0"
+        let body: Data? = nil
         
-        let httpRequest = PlainHttpRequest(method: method, uri: requestUri, version: version, headers: nil, body: nil)
+        let httpRequest = PlainHttpRequest(method: method, uri: requestUri, version: version, headers: nil, body: body)
         
         XCTAssertTrue(httpRequest.method == method, "Unexpected HTTPRequest object's method \"\(String(describing: httpRequest.method))\" is found while method \"(\(String(describing: method))\" is expected)")
         XCTAssertTrue(httpRequest.uri == requestUri, "Unexpected HTTP request object's request URI \"\(String(describing: httpRequest.uri))\" is found while request URI \"\(String(describing: requestUri))\" is expected)")
@@ -29,8 +30,9 @@ class PlainHttpRequestUnitTesting: XCTestCase {
         let requestUri = URL(string: "https://localhost")!
         let version = "HTTP/1.0"
         let headers: [String: String] = ["headerField1": "headerField1", "headerField2": "headerField2"]
+        let body: Data? = nil
         
-        let httpRequest = PlainHttpRequest(method: method, uri: requestUri, version: version, headers: headers, body: nil)
+        let httpRequest = PlainHttpRequest(method: method, uri: requestUri, version: version, headers: headers, body: body)
         
         XCTAssertTrue(httpRequest.method == method, "Unexpected HTTPRequest object's method \"\(String(describing: httpRequest.method))\" is found while method \"(\(String(describing: method))\" is expected)")
         XCTAssertTrue(httpRequest.uri == requestUri, "Unexpected HTTP request object's request URI \"\(String(describing: httpRequest.uri))\" is found while request URI \"\(String(describing: requestUri))\" is expected)")
@@ -42,7 +44,7 @@ class PlainHttpRequestUnitTesting: XCTestCase {
         let method = "GET"
         let requestUri = URL(string: "https://localhost")!
         let version = "HTTP/1.0"
-        let body = Data([0x00])
+        let body: [UInt8] = [0x00]
         
         let httpRequest = PlainHttpRequest(method: method, uri: requestUri, version: version, headers: nil, body: body)
         
@@ -57,7 +59,7 @@ class PlainHttpRequestUnitTesting: XCTestCase {
         let requestUri = URL(string: "https://localhost")!
         let version = "HTTP/1.0"
         let headers: [String: String] = ["headerField1": "headerField1", "headerField2": "headerField2"]
-        let body = Data([0x00])
+        let body: [UInt8] = [0x00]
         
         let httpRequest = PlainHttpRequest(method: method, uri: requestUri, version: version, headers: headers, body: body)
         

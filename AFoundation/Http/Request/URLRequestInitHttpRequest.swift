@@ -14,7 +14,7 @@ public extension URLRequest {
         self.init(url: httpRequest.uri)
         httpMethod = httpRequest.method
         allHTTPHeaderFields = httpRequest.headers
-        httpBody = httpRequest.body
+        if let body = httpRequest.body { httpBody = Data(body) }
     }
     
 }
