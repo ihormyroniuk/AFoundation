@@ -11,12 +11,12 @@ import Foundation
 public struct PlainHttpRequest: HttpRequest {
     
     public let method: String
-    public let uri: URL
+    public let uri: String
     public let version: String
     public let headers: [String: String]?
     public let body: [UInt8]?
     
-    public init(method: String, uri: URL, version: String, headers: [String: String]?, body: [UInt8]?) {
+    public init(method: String, uri: String, version: String, headers: [String: String]?, body: [UInt8]?) {
         self.method = method
         self.uri = uri
         self.version = version
@@ -24,10 +24,32 @@ public struct PlainHttpRequest: HttpRequest {
         self.body = body
     }
     
-    public init(method: String, uri: URL, version: String, headers: [String: String]?, body: Data?) {
-        let bodyArray: [UInt8]?
-        if let body = body { bodyArray = Array(body) } else { bodyArray = nil }
-        self.init(method: method, uri: uri, version: version, headers: headers, body: bodyArray)
+    public init(method: String, uri: String, version: String, headers: [String: String]?, bodyData: Data?) {
+        let body: [UInt8]?
+        if let bodyData = bodyData { body = Array(bodyData) } else { body = nil }
+        self.init(method: method, uri: uri, version: version, headers: headers, body: body)
+    }
+    
+    public init(method: String, uriURL: URL, version: String, headers: [String: String]?, body: [UInt8]?) {
+        let uri = uriURL.absoluteString
+        self.init(method: method, uri: uri, version: version, headers: headers, body: body)
+    }
+    
+    public init(method: String, uriURL: URL, version: String, headers: [String: String]?, bodyData: Data?) {
+        let uri = uriURL.absoluteString
+        let body: [UInt8]?
+        if let bodyData = bodyData { body = Array(bodyData) } else { body = nil }
+        self.init(method: method, uri: uri, version: version, headers: headers, body: body)
+    }
+    
+    // MARK: CustomStringConvertible
+    
+    public var description: String {
+        var description = "\(method) \(uri) \(version)\n"
+        headers?.forEach({ description += "\($0):\($1)\n" })
+        description += "\n"
+        body?.forEach({ description += String(repeating: "0", count: $0.leadingZeroBitCount) + String($0, radix: 2) })
+        return description
     }
     
 }

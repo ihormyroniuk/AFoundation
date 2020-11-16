@@ -11,7 +11,8 @@ import Foundation
 public extension URLRequest {
     
     init(httpRequest: HttpRequest) {
-        self.init(url: httpRequest.uri)
+        let url = URL(string: httpRequest.uri)!
+        self.init(url: url)
         httpMethod = httpRequest.method
         allHTTPHeaderFields = httpRequest.headers
         if let body = httpRequest.body { httpBody = Data(body) }

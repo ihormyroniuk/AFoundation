@@ -14,7 +14,7 @@ import Foundation
 public protocol HttpRequest: CustomStringConvertible {
     
     var method: String { get }
-    var uri: URL { get }
+    var uri: String { get }
     var version: String { get }
     var headers: [String: String]? { get }
     var body: [UInt8]? { get }
