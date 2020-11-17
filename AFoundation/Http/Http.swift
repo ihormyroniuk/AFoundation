@@ -27,6 +27,7 @@ public enum Http {
     public enum Code {
         public static let ok = 200
         public static let noContent = 204
+        public static let badRequest = 400
     }
     
     public enum HeaderField {
