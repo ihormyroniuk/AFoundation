@@ -1,5 +1,5 @@
 //
-//  HttpResponse.swift
+//  PlainHttpResponse.swift
 //  AFoundation
 //
 //  Created by Ihor Myroniuk on 20.08.2020.
@@ -11,17 +11,32 @@ import Foundation
 /**
     Implemented based on https://tools.ietf.org/html/rfc2616#section-6
  */
-public protocol HttpResponse: CustomStringConvertible {
-    
-    var version: String { get }
-    var code: Int { get }
-    var phrase: String { get }
-    var headers: [String: String]? { get }
-    var body: [UInt8]? { get }
-    
-}
+public struct HttpResponse: CustomStringConvertible {
 
-extension HttpResponse {
+    public let version: String
+    public let code: Int
+    public let phrase: String
+    public let headers: [String: String]?
+    public let body: Data?
+    
+    public init(version: String, code: Int, phrase: String, headers: [String: String]?, body: Data?) {
+        self.version = version
+        self.code = code
+        self.phrase = phrase
+        self.headers = headers
+        self.body = body
+    }
+    
+    public init(httpUrlResponse: HTTPURLResponse, data: Data?) {
+        let version = ""
+        let code = httpUrlResponse.statusCode
+        let phrase = ""
+        let headers = httpUrlResponse.allHeaderFields as? [String: String]
+        let body = data
+        self.init(version: version, code: code, phrase: phrase, headers: headers, body: body)
+    }
+    
+    // MARK: CustomStringConvertible
     
     public var description: String {
         var description = "\(version) \(code) \(phrase)\n"

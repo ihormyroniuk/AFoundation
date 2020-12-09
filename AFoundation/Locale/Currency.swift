@@ -1,5 +1,5 @@
 //
-//  AOSHardcodedCurrenciesCodes.swift
+//  AOSCurrency.swift
 //  AOperatingSystem
 //
 //  Created by Ihor Myroniuk on 2/26/19.
@@ -8,13 +8,16 @@
 
 import Foundation
 
-class HardcodedCurrenciesCodes: CurrenciesCodes {
-    
-    private let unitedStatesDollarCode = "USD"
-    private let ukrainianHryvniaCode = "UAH"
-    private let russianRubleCode = "RUB"
+private let unitedStatesDollarCode = "USD"
+private let ukrainianHryvniaCode = "UAH"
+private let russianRubleCode = "RUB"
+
+public enum Currency {
+    case unitedStatesDollar
+    case ukrainianHryvnia
+    case russianRuble
   
-    func codeOfCurrency(_ currency: Currency) -> String? {
+    static func codeOfCurrency(_ currency: Currency) -> String? {
         switch currency {
         case .unitedStatesDollar: return unitedStatesDollarCode
         case .ukrainianHryvnia: return ukrainianHryvniaCode
@@ -22,7 +25,7 @@ class HardcodedCurrenciesCodes: CurrenciesCodes {
         }
     }
   
-    func currencyByCode(_ code: String) -> Currency? {
+    static func byCode(_ code: String) -> Currency? {
         switch code {
         case unitedStatesDollarCode: return .unitedStatesDollar
         case ukrainianHryvniaCode: return .ukrainianHryvnia

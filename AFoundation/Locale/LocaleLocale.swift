@@ -8,11 +8,11 @@
 
 import Foundation
 
-open class LocaleLocale: Locale {
+public struct LocaleLocale: Locale {
   
     // MARK: Locale
   
-    public let locale: Foundation.Locale
+    private let locale: Foundation.Locale
   
     // MARK: Initializer
   
@@ -22,7 +22,7 @@ open class LocaleLocale: Locale {
   
     // MARK: Language
   
-    open var language: Language? {
+    public var language: Language? {
         guard let code = locale.languageCode else { return nil }
         let language = HardcodedLanguagesCodes().languageByCode(code)
         return language
@@ -30,7 +30,7 @@ open class LocaleLocale: Locale {
   
     // MARK: Region
   
-    open var region: Region? {
+    public var region: Region? {
         guard let code = locale.regionCode else { return nil }
         let region = HardcodedRegionsCodes().regionByCode(code)
         return region
@@ -38,9 +38,9 @@ open class LocaleLocale: Locale {
   
     // MARK: Currency
   
-    open var currency: Currency? {
+    public var currency: Currency? {
         guard let code = locale.currencyCode else { return nil }
-        let currency = HardcodedCurrenciesCodes().currencyByCode(code)
+        let currency = Currency.byCode(code)
         return currency
     }
   

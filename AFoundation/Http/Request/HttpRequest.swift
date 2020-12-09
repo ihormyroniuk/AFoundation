@@ -11,17 +11,23 @@ import Foundation
 /**
     Implemented based on https://tools.ietf.org/html/rfc2616#section-5
  */
-public protocol HttpRequest: CustomStringConvertible {
+public struct HttpRequest: CustomStringConvertible {
     
-    var method: String { get }
-    var uri: String { get }
-    var version: String { get }
-    var headers: [String: String]? { get }
-    var body: [UInt8]? { get }
+    public let method: String
+    public let uri: URL
+    public let version: String
+    public let headers: [String: String]?
+    public let body: Data?
     
-}
-
-extension HttpRequest {
+    public init(method: String, uri: URL, version: String, headers: [String: String]?, body: Data?) {
+        self.method = method
+        self.uri = uri
+        self.version = version
+        self.headers = headers
+        self.body = body
+    }
+    
+    // MARK: CustomStringConvertible
     
     public var description: String {
         var description = "\(method) \(uri) \(version)\n"

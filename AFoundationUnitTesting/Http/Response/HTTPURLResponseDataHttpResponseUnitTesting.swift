@@ -20,11 +20,11 @@ class HTTPURLResponseDataHttpResponseUnitTesting: XCTestCase {
         let httpUrlResponse = HTTPURLResponse(url: url, statusCode: code, httpVersion: version, headerFields: headers)!
         let data = Data([0x00])
         
-        let httpResponse = HTTPURLResponseDataHttpResponse(httpUrlResponse: httpUrlResponse, data: data)
+        let httpResponse = HttpResponse(httpUrlResponse: httpUrlResponse, data: data)
         
         XCTAssertTrue(httpResponse.code == httpUrlResponse.statusCode, "Unexpected HTTPResponse object's code \"\(String(describing: httpResponse.code))\" is found while code \"(\(String(describing: httpUrlResponse.statusCode))\" is expected)")
         XCTAssertTrue(httpResponse.headers == httpUrlResponse.allHeaderFields as? [String: String], "Unexpected HTTPResponse object's headers \"\(String(describing: httpResponse.headers))\" is found while headers \"(\(String(describing: httpUrlResponse.allHeaderFields))\" is expected)")
-        XCTAssertTrue(Data(httpResponse.body ?? []) == data, "Unexpected HTTPResponse object's data \"\(String(describing: httpResponse.body))\" is found while data \"(\(String(describing: data))\" is expected)")
+        XCTAssertTrue(httpResponse.body == data, "Unexpected HTTPResponse object's data \"\(String(describing: httpResponse.body))\" is found while data \"(\(String(describing: data))\" is expected)")
     }
     
 }

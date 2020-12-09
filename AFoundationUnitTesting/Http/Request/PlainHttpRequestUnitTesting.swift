@@ -14,11 +14,11 @@ class PlainHttpRequestUnitTesting: XCTestCase {
 
     func testInitWithoutheadersAndMessageBody() {
         let method = "GET"
-        let uri = URL(string: "https://localhost")!.absoluteString
+        let uri = URL(string: "https://localhost")!
         let version = "HTTP/1.0"
         let body: Data? = nil
         
-        let httpRequest = PlainHttpRequest(method: method, uri: uri, version: version, headers: nil, body: body)
+        let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: nil, body: body)
         
         XCTAssertTrue(httpRequest.method == method, "Unexpected HTTPRequest object's method \"\(String(describing: httpRequest.method))\" is found while method \"(\(String(describing: method))\" is expected)")
         XCTAssertTrue(httpRequest.uri == uri, "Unexpected HTTP request object's request URI \"\(String(describing: httpRequest.uri))\" is found while request URI \"\(String(describing: uri))\" is expected)")
@@ -27,12 +27,12 @@ class PlainHttpRequestUnitTesting: XCTestCase {
     
     func testInitWithoutMessageBody() {
         let method = "GET"
-        let uri = URL(string: "https://localhost")!.absoluteString
+        let uri = URL(string: "https://localhost")!
         let version = "HTTP/1.0"
         let headers: [String: String] = ["headerField1": "headerField1", "headerField2": "headerField2"]
         let body: Data? = nil
         
-        let httpRequest = PlainHttpRequest(method: method, uri: uri, version: version, headers: headers, body: body)
+        let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: headers, body: body)
         
         XCTAssertTrue(httpRequest.method == method, "Unexpected HTTPRequest object's method \"\(String(describing: httpRequest.method))\" is found while method \"(\(String(describing: method))\" is expected)")
         XCTAssertTrue(httpRequest.uri == uri, "Unexpected HTTP request object's request URI \"\(String(describing: httpRequest.uri))\" is found while request URI \"\(String(describing: uri))\" is expected)")
@@ -42,11 +42,11 @@ class PlainHttpRequestUnitTesting: XCTestCase {
     
     func testInitWithoutheaders() {
         let method = "GET"
-        let uri = URL(string: "https://localhost")!.absoluteString
+        let uri = URL(string: "https://localhost")!
         let version = "HTTP/1.0"
-        let body: [UInt8] = [0x00]
+        let body = Data([0x00])
         
-        let httpRequest = PlainHttpRequest(method: method, uri: uri, version: version, headers: nil, body: body)
+        let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: nil, body: body)
         
         XCTAssertTrue(httpRequest.method == method, "Unexpected HTTPRequest object's method \"\(String(describing: httpRequest.method))\" is found while method \"(\(String(describing: method))\" is expected)")
         XCTAssertTrue(httpRequest.uri == uri, "Unexpected HTTP request object's request URI \"\(String(describing: httpRequest.uri))\" is found while request URI \"\(String(describing: uri))\" is expected)")
@@ -56,12 +56,12 @@ class PlainHttpRequestUnitTesting: XCTestCase {
     
     func testInit() {
         let method = "GET"
-        let uri = URL(string: "https://localhost")!.absoluteString
+        let uri = URL(string: "https://localhost")!
         let version = "HTTP/1.0"
         let headers: [String: String] = ["headerField1": "headerField1", "headerField2": "headerField2"]
-        let body: [UInt8] = [0x00]
+        let body = Data([0x00])
         
-        let httpRequest = PlainHttpRequest(method: method, uri: uri, version: version, headers: headers, body: body)
+        let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: headers, body: body)
         
         XCTAssertTrue(httpRequest.method == method, "Unexpected HTTPRequest object's method \"\(String(describing: httpRequest.method))\" is found while method \"(\(String(describing: method))\" is expected)")
         XCTAssertTrue(httpRequest.uri == uri, "Unexpected HTTP request object's request URI \"\(String(describing: httpRequest.uri))\" is found while request URI \"\(String(describing: uri))\" is expected)")

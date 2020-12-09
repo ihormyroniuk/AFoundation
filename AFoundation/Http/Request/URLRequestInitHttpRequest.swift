@@ -11,11 +11,11 @@ import Foundation
 public extension URLRequest {
     
     init(httpRequest: HttpRequest) {
-        let url = URL(string: httpRequest.uri)!
+        let url = httpRequest.uri
         self.init(url: url)
         httpMethod = httpRequest.method
         allHTTPHeaderFields = httpRequest.headers
-        if let body = httpRequest.body { httpBody = Data(body) }
+        httpBody = httpRequest.body
     }
     
 }
