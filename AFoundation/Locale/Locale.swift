@@ -8,18 +8,30 @@
 
 import Foundation
 
-public protocol Locale {
-  
+public extension Locale {
+    
     // MARK: Language
   
-    var language: Language? { get }
+    var language: Language? {
+        guard let code = languageCode else { return nil }
+        let language = try? Language(code: code)
+        return language
+    }
   
     // MARK: Region
   
-    var region: Region? { get }
-  
+    var region: Region? {
+        guard let code = regionCode else { return nil }
+        let region = try? Region(code: code)
+        return region
+    }
+    
     // MARK: Currency
   
-    var currency: Currency? { get }
-  
+    var currency: Currency? {
+        guard let code = currencyCode else { return nil }
+        let currency = try? Currency.init(code: code)
+        return currency
+    }
+    
 }

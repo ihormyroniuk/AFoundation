@@ -13,24 +13,50 @@ private let ukrainianHryvniaCode = "UAH"
 private let russianRubleCode = "RUB"
 
 public enum Currency {
+    
     case unitedStatesDollar
     case ukrainianHryvnia
     case russianRuble
-  
-    static func codeOfCurrency(_ currency: Currency) -> String? {
-        switch currency {
-        case .unitedStatesDollar: return unitedStatesDollarCode
-        case .ukrainianHryvnia: return ukrainianHryvniaCode
-        case .russianRuble: return russianRubleCode
-        }
-    }
-  
-    static func byCode(_ code: String) -> Currency? {
+    
+    init(code: String) throws {
         switch code {
-        case unitedStatesDollarCode: return .unitedStatesDollar
-        case ukrainianHryvniaCode: return .ukrainianHryvnia
-        case russianRubleCode: return .russianRuble
-        default: return nil
+        case unitedStatesDollarCode:
+            self = .unitedStatesDollar
+        case ukrainianHryvniaCode:
+            self = .ukrainianHryvnia
+        case russianRubleCode:
+            self = .russianRuble
+        default:
+            let error = CurrencyUnknownCodeInitializationError(code: code)
+            throw error
         }
     }
+    
+    var code: String {
+        switch self {
+        case .unitedStatesDollar:
+            return unitedStatesDollarCode
+        case .ukrainianHryvnia:
+            return ukrainianHryvniaCode
+        case .russianRuble:
+            return russianRubleCode
+        }
+    }
+    
+}
+
+public struct CurrencyUnknownCodeInitializationError: Error, CustomStringConvertible {
+    
+    private let code: String
+    
+    public init(code: String) {
+        self.code = code
+    }
+    
+    // MARK: CustomStringConvertible
+    
+    public var description: String {
+        return "\(Currency.self) can not be initialized with code \(code)"
+    }
+    
 }
