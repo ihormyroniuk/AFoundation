@@ -9,8 +9,11 @@
 import Foundation
 
 public protocol HttpExchange {
-    associatedtype ParsedHttpResponse
     
-    func constructHttpRequest() throws -> HttpRequest
+    associatedtype HttpRequestData
+    func constructHttpRequest(data: HttpRequestData) throws -> HttpRequest
+    
+    associatedtype ParsedHttpResponse
     func parseHttpResponse(httpResponse: HttpResponse) throws -> ParsedHttpResponse
+    
 }

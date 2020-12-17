@@ -27,10 +27,12 @@ public enum Region {
         case ukraineCode:
             self = .ukraine
         default:
-            let error = RegionUnknownCodeInitializationError(code: code)
+            let error = UnknownCodeRegionError(code: code)
             throw error
         }
     }
+    
+    // MARK: Code
     
     var code: String {
         switch self {
@@ -45,7 +47,7 @@ public enum Region {
     
 }
 
-public struct RegionUnknownCodeInitializationError: Error, CustomStringConvertible {
+public struct UnknownCodeRegionError: Error, CustomStringConvertible {
     
     private let code: String
     
@@ -56,7 +58,7 @@ public struct RegionUnknownCodeInitializationError: Error, CustomStringConvertib
     // MARK: CustomStringConvertible
     
     public var description: String {
-        return "\(Region.self) can not be initialized with code \(code)"
+        return "Code \"\(code)\" is unknown to \(Region.self)"
     }
     
 }

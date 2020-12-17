@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct UnexpectedHttpResponseCode: Error, CustomStringConvertible {
+public struct UnexpectedHttpResponseStatusCodeError: Error, CustomStringConvertible {
     
     public let code: Int
     

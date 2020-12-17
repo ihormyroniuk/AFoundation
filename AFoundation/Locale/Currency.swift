@@ -27,10 +27,12 @@ public enum Currency {
         case russianRubleCode:
             self = .russianRuble
         default:
-            let error = CurrencyUnknownCodeInitializationError(code: code)
+            let error = UnknownCodeCurrencyError(code: code)
             throw error
         }
     }
+    
+    // MARK: Code
     
     var code: String {
         switch self {
@@ -45,7 +47,7 @@ public enum Currency {
     
 }
 
-public struct CurrencyUnknownCodeInitializationError: Error, CustomStringConvertible {
+public struct UnknownCodeCurrencyError: Error, CustomStringConvertible {
     
     private let code: String
     
@@ -56,7 +58,7 @@ public struct CurrencyUnknownCodeInitializationError: Error, CustomStringConvert
     // MARK: CustomStringConvertible
     
     public var description: String {
-        return "\(Currency.self) can not be initialized with code \(code)"
+        return "Code \"\(code)\" is unknown to \(Currency.self)"
     }
     
 }

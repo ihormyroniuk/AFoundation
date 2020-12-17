@@ -8,8 +8,7 @@
 
 import Foundation
 
-open class SchemeHostHttpExchange<ParsedHttpResponse>: HttpExchange {
-    public typealias ParsedHttpResponse = ParsedHttpResponse
+open class SchemeHostHttpExchange<HttpRequestData, ParsedHttpResponse>: HttpExchange {
     
     public let scheme: String
     public let host: String
@@ -19,11 +18,13 @@ open class SchemeHostHttpExchange<ParsedHttpResponse>: HttpExchange {
         self.host = host
     }
     
-    open func constructHttpRequest() throws -> HttpRequest {
+    public typealias HttpRequestData = HttpRequestData
+    open func constructHttpRequest(data: HttpRequestData) throws -> HttpRequest {
         let error = UnexpectedError()
         throw error
     }
     
+    public typealias ParsedHttpResponse = ParsedHttpResponse
     open func parseHttpResponse(httpResponse: HttpResponse) throws -> ParsedHttpResponse {
         let error = UnexpectedError()
         throw error

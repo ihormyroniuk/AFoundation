@@ -98,14 +98,14 @@ class CurrencyUnitTesting: XCTestCase {
         let currency: Currency
         do {
             currency = try Currency(code: code)
-        } catch _ as CurrencyUnknownCodeInitializationError {
+        } catch _ as UnknownCodeCurrencyError {
             return
         } catch {
             XCTFail("Unexpected error \(error.self) is thrown")
             return
         }
         
-        XCTFail("Unexpected currency \"\(currency))\" is found while error \(CurrencyUnknownCodeInitializationError.self) has to be thrown")
+        XCTFail("Unexpected currency \"\(currency))\" is found while error \(UnknownCodeCurrencyError.self) has to be thrown")
     }
     
 }
