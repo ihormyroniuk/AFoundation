@@ -11,18 +11,19 @@ import Foundation
 /**
     Implemented based on https://www.iana.org/assignments/media-types/media-types.xhtml
  */
-public enum MediaTypes {
+public enum MediaType {
     
     /**
      Implemented based on https://www.iana.org/assignments/media-types/media-types.xhtml#application
      */
-    public enum application {
+    public enum Application {
         
         /**
             Implemented based on https://www.iana.org/assignments/media-types/application/json
          */
-        public enum json {
-            public static let name = "application/json"
+        public enum Json {
+            public static let name = "json"
+            public static let template = "application/json"
         }
 
     }
