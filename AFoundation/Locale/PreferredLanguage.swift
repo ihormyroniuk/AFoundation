@@ -21,7 +21,7 @@ private let englishCode = "en"
 private let russianCode = "ru"
 private let ukrainianCode = "uk"
 
-public enum PrefferedLanguage {
+public enum PreferredLanguage {
     
     case english
     case englishAustralia

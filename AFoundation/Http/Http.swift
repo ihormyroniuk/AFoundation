@@ -75,6 +75,7 @@ public enum Http {
     }
     
     public enum HeaderField {
+        public static let authorization = "Authorization"
         public static let contentType = "Content-Type"
     }
     

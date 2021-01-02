@@ -11,15 +11,9 @@ import Foundation
 /**
     Implemented based on https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml
  */
-public typealias UriScheme = UniformResourceIdentifierScheme
-public enum UniformResourceIdentifierScheme {
+public enum UriScheme {
     
-    public enum Http {
-        public static let name = "http"
-    }
-    
-    public enum Https {
-        public static let name = "https"
-    }
+    public static let http = "http"
+    public static let https = "https"
     
 }
