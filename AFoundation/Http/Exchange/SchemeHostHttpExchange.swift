@@ -20,14 +20,12 @@ open class SchemeHostHttpExchange<HttpRequestData, ParsedHttpResponse>: HttpExch
     
     public typealias HttpRequestData = HttpRequestData
     open func constructHttpRequest(data: HttpRequestData) throws -> HttpRequest {
-        let error = UnexpectedError()
-        throw error
+        fatalError()
     }
     
     public typealias ParsedHttpResponse = ParsedHttpResponse
     open func parseHttpResponse(httpResponse: HttpResponse) throws -> ParsedHttpResponse {
-        let error = UnexpectedError()
-        throw error
+        fatalError()
     }
     
 }

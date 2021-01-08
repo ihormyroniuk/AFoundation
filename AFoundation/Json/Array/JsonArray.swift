@@ -29,8 +29,7 @@ public extension JsonValue {
     
     func array() throws -> JsonArray {
         guard let array = self as? JsonArray else {
-            let error = UnexpectedError()
-            throw error
+            fatalError()
         }
         return array
     }

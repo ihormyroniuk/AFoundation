@@ -30,8 +30,7 @@ public extension JSONSerialization {
         if let null = json as? JsonNull {
             return null
         }
-        let error = UnexpectedError()
-        throw error
+        fatalError()
     }
     
     class func data(jsonValue: JsonValue) throws -> Data {
