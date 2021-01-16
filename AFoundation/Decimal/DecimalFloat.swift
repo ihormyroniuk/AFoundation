@@ -9,10 +9,31 @@
 import Foundation
 
 public extension Decimal {
+    
+    static let floatMax = Decimal(Double(Float.greatestFiniteMagnitude))
+    static let floatMin = Decimal(Double(Float.leastNormalMagnitude))
   
-    var float: Float {
+    func float() throws -> Float {
+        guard self >= Decimal.floatMin && self <= Decimal.floatMax else {
+            let error = DecimalIsNotFloatConvertibleError(decimal: self)
+            throw error
+        }
         return (self as NSDecimalNumber).floatValue
     }
   
+}
+
+public struct DecimalIsNotFloatConvertibleError: Error, CustomStringConvertible {
+    
+    public let decimal: Decimal
+    
+    public init(decimal: Decimal) {
+        self.decimal = decimal
+    }
+    
+    public var description: String {
+        return "Decimal \(decimal) is not float convertible"
+    }
+    
 }
 

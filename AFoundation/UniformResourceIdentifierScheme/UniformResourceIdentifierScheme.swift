@@ -13,7 +13,12 @@ import Foundation
  */
 public enum UriScheme {
     
-    public static let http = "http"
-    public static let https = "https"
+    public enum Http {
+        public static let name = "http"
+    }
+    
+    public enum Https {
+        public static let name = "http"
+    }
     
 }

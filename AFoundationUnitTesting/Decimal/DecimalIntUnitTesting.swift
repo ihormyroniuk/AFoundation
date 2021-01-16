@@ -16,8 +16,11 @@ class DecimalIntUnitTesting: XCTestCase {
         let int = Int(1)
         let decimal = Decimal(int)
         
-        let decimalInt = decimal.int
-        
+        let decimalInt: Int
+        do { decimalInt = try decimal.int() } catch {
+            XCTFail("Unexpected error \(error) is thrown")
+            return
+        }
         XCTAssertTrue(decimalInt == int, "Unexpected decimal to int \"\(String(describing: int))\" is found while int \"(\(String(describing: decimalInt))\" is expected")
     }
     

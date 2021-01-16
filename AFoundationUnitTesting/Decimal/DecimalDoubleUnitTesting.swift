@@ -13,12 +13,15 @@ import Foundation
 class DecimalDoubleUnitTesting: XCTestCase {
 
     func testDoubleDecimal() {
-        let double = Double(1)
-        let decimal = Decimal(double)
+        let int = Int(1)
+        let decimal = Decimal(int)
         
-        let decimalDouble = decimal.double
-        
-        XCTAssertTrue(decimalDouble == double, "Unexpected decimal to double \"\(String(describing: double))\" is found while double \"(\(String(describing: decimalDouble))\" is expected")
+        let decimalInt: Int
+        do { decimalInt = try decimal.int() } catch {
+            XCTFail("Unexpected error \(error) is thrown")
+            return
+        }
+        XCTAssertTrue(decimalInt == int, "Unexpected decimal to int \"\(String(describing: int))\" is found while int \"(\(String(describing: decimalInt))\" is expected")
     }
     
 }

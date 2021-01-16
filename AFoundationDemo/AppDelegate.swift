@@ -13,14 +13,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let locale = Locale.current
-        print("------------")
-        print(locale.language)
-        print(locale.languageCode)
-        print(locale.region)
-        print(locale.regionCode)
-        print(locale.currency)
-        print(locale.currencyCode)
-        print("------------")
+//        print("------------")
+//        print(locale.language)
+//        print(locale.languageCode)
+//        print(locale.region)
+//        print(locale.regionCode)
+//        print(locale.currency)
+//        print(locale.currencyCode)
+//        print("------------")
+        let jsonString = "{\"titler\": \"Nike shoes\", \"price\": 10.5, \"quantity\": 1}"
+        let jsonData = jsonString.data(using: .utf8)!
+        let productObject: Product
+        do { productObject = try JSONDecoder().decode(Product.self, from: jsonData)
+            return false
+        } catch {
+            print(error)
+        }
         return true
     }
 
