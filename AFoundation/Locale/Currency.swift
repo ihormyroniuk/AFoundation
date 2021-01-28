@@ -27,7 +27,7 @@ public enum Currency {
         case russianRubleCode:
             self = .russianRuble
         default:
-            let error = UnknownCodeCurrencyError(code: code)
+            let error = CurrencyUnknownCodeError(code: code)
             throw error
         }
     }
@@ -47,7 +47,7 @@ public enum Currency {
     
 }
 
-public struct UnknownCodeCurrencyError: Error, CustomStringConvertible {
+public struct CurrencyUnknownCodeError: Error, CustomStringConvertible {
     
     private let code: String
     

@@ -12,12 +12,12 @@ open class TableNameBundleTextLocalizer: TextLocalizer {
 
     // MARK: Data
 
-    private let tableName: String?
+    private let tableName: String
     private let bundle: Bundle
 
     // MARK: Initializer
 
-    public init(tableName: String? = nil, bundle: Bundle = Bundle.main) {
+    public init(tableName: String, bundle: Bundle) {
         self.tableName = tableName
         self.bundle = bundle
     }

@@ -98,14 +98,14 @@ class RegionUnitTesting: XCTestCase {
         let region: Region
         do {
             region = try Region(code: code)
-        } catch _ as UnknownCodeRegionError {
+        } catch _ as RegionUnknownCodeError {
             return
         } catch {
             XCTFail("Unexpected error \(error.self) is thrown")
             return
         }
         
-        XCTFail("Unexpected currency \"\(region))\" is found while error \(UnknownCodeRegionError.self) has to be thrown")
+        XCTFail("Unexpected currency \"\(region))\" is found while error \(RegionUnknownCodeError.self) has to be thrown")
     }
 
 }

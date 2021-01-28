@@ -27,7 +27,7 @@ public enum Region {
         case ukraineCode:
             self = .ukraine
         default:
-            let error = UnknownCodeRegionError(code: code)
+            let error = RegionUnknownCodeError(code: code)
             throw error
         }
     }
@@ -47,7 +47,7 @@ public enum Region {
     
 }
 
-public struct UnknownCodeRegionError: Error, CustomStringConvertible {
+public struct RegionUnknownCodeError: Error, CustomStringConvertible {
     
     private let code: String
     

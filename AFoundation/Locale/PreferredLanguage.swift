@@ -63,7 +63,7 @@ public enum PreferredLanguage {
         case ukrainianCode:
             self = .ukrainian
         default:
-            let error = UnknownCodeLanguageError(code: code)
+            let error = LanguageUnknownCodeError(code: code)
             throw error
         }
     }
@@ -101,7 +101,7 @@ public enum PreferredLanguage {
     
 }
 
-public struct UnknownCodePrefferedLanguageError: Error, CustomStringConvertible {
+public struct PrefferedLanguageUnknownCodeError: Error, CustomStringConvertible {
     
     private let code: String
     
