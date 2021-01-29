@@ -32,8 +32,10 @@ public struct HttpRequest: CustomStringConvertible {
     public var description: String {
         var description = "\(method) \(uri) \(version)\n"
         headers?.forEach({ description += "\($0):\($1)\n" })
-        description += "\n"
-        body?.forEach({ description += String(repeating: "0", count: $0.leadingZeroBitCount) + String($0, radix: 2) })
+        if let body = body, !body.isEmpty {
+            description += "\n"
+            body.forEach({ description += String(repeating: "0", count: $0.leadingZeroBitCount) + String($0, radix: 2) })
+        }
         return description
     }
     

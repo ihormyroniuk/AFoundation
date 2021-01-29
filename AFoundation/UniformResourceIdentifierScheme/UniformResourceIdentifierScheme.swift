@@ -14,11 +14,11 @@ import Foundation
 public enum UriScheme {
     
     public enum Http {
-        public static let name = "http"
+        public static let template = "http"
     }
     
     public enum Https {
-        public static let name = "http"
+        public static let template = "https"
     }
     
 }
