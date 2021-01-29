@@ -11,7 +11,11 @@ import Foundation
 public extension Decimal {
     
     static let floatMax = Decimal(Double(Float.greatestFiniteMagnitude))
-    static let floatMin = Decimal(Double(Float.leastNormalMagnitude))
+    static let floatMin = Decimal(Double(-Float.greatestFiniteMagnitude))
+    
+    init(_ float: Float) {
+        self.init(Double(float))
+    }
   
     func float() throws -> Float {
         guard self >= Decimal.floatMin && self <= Decimal.floatMax else {
@@ -32,7 +36,7 @@ public struct DecimalIsNotFloatConvertibleError: Error, CustomStringConvertible 
     }
     
     public var description: String {
-        return "Decimal \(decimal) is not float convertible"
+        return "Decimal \(decimal) is not \(Float.self) convertible"
     }
     
 }

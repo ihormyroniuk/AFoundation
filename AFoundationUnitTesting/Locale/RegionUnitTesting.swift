@@ -20,9 +20,7 @@ class RegionUnitTesting: XCTestCase {
         let code = armeniaCode
         
         let region: Region
-        do {
-            region = try Region(code: code)
-        } catch {
+        do { region = try Region(code: code) } catch {
             XCTFail("Unexpected error \(error.self) is thrown")
             return
         }
@@ -46,9 +44,7 @@ class RegionUnitTesting: XCTestCase {
         let code = ukraineCode
         
         let region: Region
-        do {
-            region = try Region(code: code)
-        } catch {
+        do { region = try Region(code: code) } catch {
             XCTFail("Unexpected error \(error.self) is thrown")
             return
         }
@@ -72,9 +68,7 @@ class RegionUnitTesting: XCTestCase {
         let code = russiaCode
         
         let region: Region
-        do {
-            region = try Region(code: code)
-        } catch {
+        do { region = try Region(code: code) } catch {
             XCTFail("Unexpected error \(error.self) is thrown")
             return
         }
@@ -96,16 +90,27 @@ class RegionUnitTesting: XCTestCase {
         let code = "UNKNOWNCODE"
         
         let region: Region
-        do {
-            region = try Region(code: code)
-        } catch _ as RegionUnknownCodeError {
-            return
-        } catch {
-            XCTFail("Unexpected error \(error.self) is thrown")
-            return
+        do { region = try Region(code: code) } catch {
+            if error is RegionUnknownCodeError {
+                return
+            } else {
+                XCTFail("Unexpected error \(error.self) is thrown")
+                return
+            }
         }
         
         XCTFail("Unexpected currency \"\(region))\" is found while error \(RegionUnknownCodeError.self) has to be thrown")
     }
-
+    
+    // MARK: RegionUnknownCodeError
+    
+    func testRegionUnknownCodeErrorDescriptionString() {
+        let code = "UNKNOWNCODE"
+        let error = RegionUnknownCodeError(code: code)
+        
+        let errorDescriptionString = "\(error)"
+        
+        let descriptionString = "Code \"\(code)\" is unknown to \(Region.self)"
+        XCTAssertTrue(errorDescriptionString == descriptionString, "Unexpected description string \(errorDescriptionString)) is found but description string \(descriptionString) is expected")
+    }
 }

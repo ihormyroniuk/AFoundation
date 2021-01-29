@@ -11,7 +11,7 @@ import Foundation
 public extension Decimal {
     
     static let doubleMax = Decimal(Double.greatestFiniteMagnitude)
-    static let doubleMin = Decimal(Double.leastNormalMagnitude)
+    static let doubleMin = Decimal(-Double.greatestFiniteMagnitude)
   
     func double() throws -> Double {
         guard self >= Decimal.doubleMin && self <= Decimal.doubleMax else {
@@ -32,7 +32,7 @@ public struct DecimalIsNotDoubleConvertibleError: Error, CustomStringConvertible
     }
     
     public var description: String {
-        return "Decimal \(decimal) is not double convertible"
+        return "Decimal \(decimal) is not \(Double.self) convertible"
     }
     
 }

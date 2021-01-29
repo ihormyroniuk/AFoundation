@@ -20,7 +20,7 @@ public extension URLComponents {
     
 }
 
-public struct URLComponentsConstructUrlError: Error {
+public struct URLComponentsConstructUrlError: Error, CustomStringConvertible {
     
     public let urlComponents: URLComponents
     
@@ -28,4 +28,9 @@ public struct URLComponentsConstructUrlError: Error {
         self.urlComponents = urlComponents
     }
     
+    // MARK: CustomStringConvertible
+    
+    public var description: String {
+        return "Can not construct \(URL.self) using \(URLComponents.self) \(urlComponents)"
+    }
 }

@@ -20,9 +20,7 @@ class LanguageUnitTesting: XCTestCase {
         let code = englishCode
         
         let language: Language
-        do {
-            language = try Language(code: code)
-        } catch {
+        do { language = try Language(code: code) } catch {
             XCTFail("Unexpected error \(error.self) is thrown")
             return
         }
@@ -46,9 +44,7 @@ class LanguageUnitTesting: XCTestCase {
         let code = russianCode
         
         let language: Language
-        do {
-            language = try Language(code: code)
-        } catch {
+        do { language = try Language(code: code) } catch {
             XCTFail("Unexpected error \(error.self) is thrown")
             return
         }
@@ -72,9 +68,7 @@ class LanguageUnitTesting: XCTestCase {
         let code = ukrainianCode
         
         let language: Language
-        do {
-            language = try Language(code: code)
-        } catch {
+        do { language = try Language(code: code) } catch {
             XCTFail("Unexpected error \(error.self) is thrown")
             return
         }
@@ -88,6 +82,36 @@ class LanguageUnitTesting: XCTestCase {
         let code = language.code
         
         XCTAssertTrue(code == ukrainianCode, "Unexpected code \"\(code))\" is found while code \"(\(ukrainianCode))\" is expected")
+    }
+    
+    // MARK: Unknown Code
+    
+    func testInitUnknownCode() {
+        let code = "UNKNOWNCODE"
+        
+        let language: Language
+        do { language = try Language(code: code) } catch {
+            if error is LanguageUnknownCodeError {
+                return
+            } else {
+                XCTFail("Unexpected error \(error.self) is thrown")
+                return
+            }
+        }
+        
+        XCTFail("Unexpected language \"\(language))\" is found while error \(LanguageUnknownCodeError.self) has to be thrown")
+    }
+    
+    // MARK: RegionUnknownCodeError
+    
+    func testLanguageUnknownCodeErrorDescriptionString() {
+        let code = "UNKNOWNCODE"
+        let error = LanguageUnknownCodeError(code: code)
+        
+        let errorDescriptionString = "\(error)"
+        
+        let descriptionString = "Code \"\(code)\" is unknown to \(Language.self)"
+        XCTAssertTrue(errorDescriptionString == descriptionString, "Unexpected description string \(errorDescriptionString)) is found but description string \(descriptionString) is expected")
     }
     
 }

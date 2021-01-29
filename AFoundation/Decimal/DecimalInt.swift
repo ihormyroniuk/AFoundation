@@ -32,7 +32,7 @@ public struct DecimalIsNotIntConvertibleError: Error, CustomStringConvertible {
     }
     
     public var description: String {
-        return "Decimal \(decimal) is not int convertible"
+        return "Decimal \(decimal) is not \(Int.self) convertible"
     }
     
 }

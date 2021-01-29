@@ -20,9 +20,7 @@ class CurrencyUnitTesting: XCTestCase {
         let code = unitedStatesDollarCode
         
         let currency: Currency
-        do {
-            currency = try Currency(code: code)
-        } catch {
+        do { currency = try Currency(code: code) } catch {
             XCTFail("Unexpected error \(error.self) is thrown")
             return
         }
@@ -46,9 +44,7 @@ class CurrencyUnitTesting: XCTestCase {
         let code = ukrainianHryvniaCode
 
         let currency: Currency
-        do {
-            currency = try Currency(code: code)
-        } catch {
+        do { currency = try Currency(code: code) } catch {
             XCTFail("Unexpected error \(error.self) is thrown")
             return
         }
@@ -72,9 +68,7 @@ class CurrencyUnitTesting: XCTestCase {
         let code = russianRubbleCode
         
         let currency: Currency
-        do {
-            currency = try Currency(code: code)
-        } catch {
+        do { currency = try Currency(code: code) } catch {
             XCTFail("Unexpected error \(error.self) is thrown")
             return
         }
@@ -96,16 +90,28 @@ class CurrencyUnitTesting: XCTestCase {
         let code = "UNKNOWNCODE"
         
         let currency: Currency
-        do {
-            currency = try Currency(code: code)
-        } catch _ as LanguageUnknownCodeError {
-            return
-        } catch {
-            XCTFail("Unexpected error \(error.self) is thrown")
-            return
+        do { currency = try Currency(code: code) } catch {
+            if error is CurrencyUnknownCodeError {
+                return
+            } else {
+                XCTFail("Unexpected error \(error.self) is thrown")
+                return
+            }
         }
         
         XCTFail("Unexpected currency \"\(currency))\" is found while error \(LanguageUnknownCodeError.self) has to be thrown")
+    }
+    
+    // MARK: CurrencyUnknownCodeError
+    
+    func testCurrencyUnknownCodeErrorDescriptionString() {
+        let code = "UNKNOWNCODE"
+        let error = CurrencyUnknownCodeError(code: code)
+        
+        let errorDescriptionString = "\(error)"
+        
+        let descriptionString = "Code \"\(code)\" is unknown to \(Currency.self)"
+        XCTAssertTrue(errorDescriptionString == descriptionString, "Unexpected description string \(errorDescriptionString)) is found but description string \(descriptionString) is expected")
     }
     
 }

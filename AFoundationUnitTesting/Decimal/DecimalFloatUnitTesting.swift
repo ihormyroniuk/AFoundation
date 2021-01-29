@@ -7,21 +7,67 @@
 //
 
 import XCTest
-import Foundation
 @testable import AFoundation
 
 class DecimalFloatUnitTesting: XCTestCase {
 
-    func testDoubleDecimal() {
-        let int = Int(1)
-        let decimal = Decimal(int)
+    func testFloatDecimal() {
+        let float = Float(1234567890.87) + Float(66886.8665850087008)
+        let decimal = Decimal(float)
         
-        let decimalInt: Int
-        do { decimalInt = try decimal.int() } catch {
-            XCTFail("Unexpected error \(error) is thrown")
+        let decimalFloat: Float
+        do { decimalFloat = try decimal.float() } catch {
+            XCTFail("Unexpected error \(error.self) is thrown")
             return
         }
-        XCTAssertTrue(decimalInt == int, "Unexpected decimal to int \"\(String(describing: int))\" is found while int \"(\(String(describing: decimalInt))\" is expected")
+        
+        XCTAssertTrue(decimalFloat == float, "Unexpected float \(float)) is found, but float \(decimalFloat) is expected")
+    }
+    
+    func testDecimalGreaterThanFloatMax() {
+        let float = Float.greatestFiniteMagnitude
+        let decimal = Decimal(float) + Decimal(float)
+        
+        let decimalFloat: Float
+        do { decimalFloat = try decimal.float() } catch {
+            if error is DecimalIsNotFloatConvertibleError {
+                return
+            } else {
+                XCTFail("Unexpected error \(error.self) is thrown")
+                return
+            }
+        }
+        
+        XCTFail("Unexpected float \(decimalFloat) is returned, but error \(DecimalIsNotFloatConvertibleError.self) has to be thrown")
+    }
+    
+    func testDecimalLessThanFloatMin() {
+        let float = -Float.greatestFiniteMagnitude
+        let decimal = Decimal(float) + Decimal(float)
+        
+        let decimalFloat: Float
+        do { decimalFloat = try decimal.float() } catch {
+            if error is DecimalIsNotFloatConvertibleError {
+                return
+            } else {
+                XCTFail("Unexpected error \(error.self) is thrown")
+                return
+            }
+        }
+        
+        XCTFail("Unexpected float \(decimalFloat) is returned, but error \(DecimalIsNotFloatConvertibleError.self) has to be thrown")
+    }
+    
+    // MARK: DecimalIsNotFloatConvertibleError
+    
+    func testDecimalIsNotFloatConvertibleErrorDescription() {
+        let decimal = Decimal(1234567890.656557607686)
+        let error = DecimalIsNotFloatConvertibleError(decimal: decimal)
+        
+        let errorDescription = "\(error)"
+        
+        let descriptionString = "Decimal \(decimal) is not \(Float.self) convertible"
+        XCTAssertTrue(errorDescription == descriptionString, "Unexpected description \(errorDescription)) is found but description \(descriptionString) is expected")
     }
     
 }
