@@ -15,9 +15,12 @@ public extension Locale {
     
     // MARK: Initializer
     
-    init(language: Language, region: Region?) {
+    init(language: Language, script: Script?, region: Region?) {
         let languageCode = language.code
         var identifier = languageCode
+        if let scriptCode = script?.code {
+            identifier += "-\(scriptCode)"
+        }
         if let regionCode = region?.code {
             identifier += "_\(regionCode)"
         }
@@ -30,6 +33,14 @@ public extension Locale {
         guard let code = languageCode else { return nil }
         let language = try Language(code: code)
         return language
+    }
+    
+    // MARK: Script
+  
+    func script() throws -> Script? {
+        guard let code = scriptCode else { return nil }
+        let script = try Script(code: code)
+        return script
     }
   
     // MARK: Region

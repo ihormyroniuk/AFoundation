@@ -83,6 +83,8 @@
 		C57C9AB82582D0BC0032AED7 /* AFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C50134A6230C196A0018D950 /* AFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C5820FD425C5A0F20057D5C6 /* PreferredLanguageUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5820FD325C5A0F20057D5C6 /* PreferredLanguageUnitTesting.swift */; };
 		C5820FE925C603C80057D5C6 /* LocaleUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5820FE825C603C80057D5C6 /* LocaleUnitTesting.swift */; };
+		C5820FEF25C60E790057D5C6 /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5820FEE25C60E790057D5C6 /* Script.swift */; };
+		C5820FF325C60F820057D5C6 /* ScriptUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5820FF225C60F820057D5C6 /* ScriptUnitTesting.swift */; };
 		C587DC1525A0DF1700DF1BF9 /* PreferredLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C587DC1425A0DF1700DF1BF9 /* PreferredLanguage.swift */; };
 		C598CF2B24EEF96300EA0C8F /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598CF2A24EEF96300EA0C8F /* HttpRequest.swift */; };
 		C598CF2F24EEFC1600EA0C8F /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598CF2E24EEFC1600EA0C8F /* HttpResponse.swift */; };
@@ -204,6 +206,8 @@
 		C57C6BEE2552DB84005ACBFA /* SchemeHostHttpExchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeHostHttpExchange.swift; sourceTree = "<group>"; };
 		C5820FD325C5A0F20057D5C6 /* PreferredLanguageUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredLanguageUnitTesting.swift; sourceTree = "<group>"; };
 		C5820FE825C603C80057D5C6 /* LocaleUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleUnitTesting.swift; sourceTree = "<group>"; };
+		C5820FEE25C60E790057D5C6 /* Script.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Script.swift; sourceTree = "<group>"; };
+		C5820FF225C60F820057D5C6 /* ScriptUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptUnitTesting.swift; sourceTree = "<group>"; };
 		C587DC1425A0DF1700DF1BF9 /* PreferredLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredLanguage.swift; sourceTree = "<group>"; };
 		C598CF2A24EEF96300EA0C8F /* HttpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		C598CF2E24EEFC1600EA0C8F /* HttpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
@@ -347,6 +351,7 @@
 			children = (
 				C5096BDF234F7BD000EA793A /* Locale.swift */,
 				C5096BC0234F7B3200EA793A /* Language.swift */,
+				C5820FEE25C60E790057D5C6 /* Script.swift */,
 				C5096BC5234F7B3200EA793A /* Region.swift */,
 				C5096BC8234F7B3200EA793A /* Currency.swift */,
 				C587DC1425A0DF1700DF1BF9 /* PreferredLanguage.swift */,
@@ -623,6 +628,7 @@
 			children = (
 				C5820FE825C603C80057D5C6 /* LocaleUnitTesting.swift */,
 				C563FBEA252868C700BA1E99 /* LanguageUnitTesting.swift */,
+				C5820FF225C60F820057D5C6 /* ScriptUnitTesting.swift */,
 				C563FBD72528658B00BA1E99 /* RegionUnitTesting.swift */,
 				C563FBCF2528611200BA1E99 /* CurrencyUnitTesting.swift */,
 				C5820FD325C5A0F20057D5C6 /* PreferredLanguageUnitTesting.swift */,
@@ -848,6 +854,7 @@
 				C53B284E252A41E200FAE5E7 /* JsonArrayObjectsUnitTesting.swift in Sources */,
 				C5820FE925C603C80057D5C6 /* LocaleUnitTesting.swift in Sources */,
 				C55CF50D2551DDC200E61A03 /* DecimalFloatUnitTesting.swift in Sources */,
+				C5820FF325C60F820057D5C6 /* ScriptUnitTesting.swift in Sources */,
 				C55CF5002551DCF500E61A03 /* DecimalIntUnitTesting.swift in Sources */,
 				331E9B9E23D5FE0E0094C203 /* MultipleTextLocalizerUnitTesting.swift in Sources */,
 				C54D470225164ACA004B1467 /* URLRequestInitHttpRequestUnitTesting.swift in Sources */,
@@ -874,6 +881,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C531971D255590A0004495D6 /* JsonNumber.swift in Sources */,
+				C5820FEF25C60E790057D5C6 /* Script.swift in Sources */,
 				C54D46E125153D6D004B1467 /* JsonObjectObject.swift in Sources */,
 				C5096BD8234F7B3200EA793A /* Currency.swift in Sources */,
 				C5096BE0234F7BD000EA793A /* Locale.swift in Sources */,
