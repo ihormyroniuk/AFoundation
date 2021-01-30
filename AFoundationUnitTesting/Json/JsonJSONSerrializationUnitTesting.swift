@@ -93,6 +93,19 @@ class JsonJSONSerrializationUnitTesting: XCTestCase {
         }
     }
     
+//    func testEmptyData() {
+//        let data = Data()
+//
+//        do {
+//            let boolean = try JSONSerialization.json(data: data).boolean()
+//            
+//            let expectedBoolean = true
+//            XCTAssert(boolean == expectedBoolean, "Object returned unexpected boolean \"\(String(describing: boolean))\" while boolean \"(\(String(describing: expectedBoolean))\" is expected)")
+//        } catch {
+//            XCTFail("Unexpected error \(error) is thrown")
+//        }
+//    }
+    
     func testDataString() {
         let string: String = "string"
         
