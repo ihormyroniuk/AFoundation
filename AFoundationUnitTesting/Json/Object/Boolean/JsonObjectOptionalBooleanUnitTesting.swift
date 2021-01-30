@@ -51,8 +51,8 @@ class JsonObjectOptionalBooleanUnitTesting: XCTestCase {
         do {
             let actualValue = try object.optionalBoolean(key)
             
-            XCTFail("Error \(JsonErrorValueNotBoolean.self) has to be thrown, but boolean \"\(String(describing: actualValue))\" is returned")
-        } catch _ as JsonErrorValueNotBoolean {
+            XCTFail("Error \(JsonValueIsNotBooleanError.self) has to be thrown, but boolean \"\(String(describing: actualValue))\" is returned")
+        } catch _ as JsonValueIsNotBooleanError {
             
         } catch {
             XCTFail("Unexpected error \(error.self) is thrown")

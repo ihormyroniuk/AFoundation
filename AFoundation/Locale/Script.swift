@@ -19,7 +19,7 @@ public enum Script {
         case arabicCode:
             self = .arabic
         default:
-            let error = CurrencyUnknownCodeError(code: code)
+            let error = ScriptUnknownCodeError(code: code)
             throw error
         }
     }

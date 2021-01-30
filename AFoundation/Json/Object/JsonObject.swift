@@ -24,7 +24,7 @@ public extension JsonValue {
     
     func object() throws -> JsonObject {
         guard let object = self as? JsonObject else {
-            let error = JsonErrorValueNotObject(value: self)
+            let error = JsonValueIsNotObjectError(value: self)
             throw error
         }
         return object
@@ -32,7 +32,7 @@ public extension JsonValue {
     
 }
 
-public struct JsonErrorValueNotObject: LocalizedError {
+public struct JsonValueIsNotObjectError: LocalizedError {
     
     private let value: Any
     

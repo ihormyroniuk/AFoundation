@@ -36,8 +36,8 @@ class JsonObjectNumberUnitTesting: XCTestCase {
         do {
             let actualValue = try object.number(key)
             
-            XCTFail("Error \(JsonErrorValueNotNumber.self) has to be thrown, but number \"\(String(describing: actualValue))\" is returned")
-        } catch _ as JsonErrorValueNotNumber {
+            XCTFail("Error \(JsonValueIsNotNumberError.self) has to be thrown, but number \"\(String(describing: actualValue))\" is returned")
+        } catch _ as JsonValueIsNotNumberError {
             
         } catch {
             XCTFail("Unexpected error \(error.self) is thrown")

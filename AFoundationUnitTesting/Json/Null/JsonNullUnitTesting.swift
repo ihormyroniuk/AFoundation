@@ -32,8 +32,8 @@ class JsonNullUnitTesting: XCTestCase {
         do {
             let null = try value.null()
             
-            XCTFail("Unexpected null \"\(String(describing: null))\" is found while error \(JsonErrorValueNotNull.self) has to be thrown")
-        } catch _ as JsonErrorValueNotNull {
+            XCTFail("Unexpected null \"\(String(describing: null))\" is found while error \(JsonValueIsNotNullError.self) has to be thrown")
+        } catch _ as JsonValueIsNotNullError {
         
         } catch {
             XCTFail("Unexpected error \(error) is thrown")

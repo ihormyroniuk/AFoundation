@@ -40,9 +40,9 @@ class ScriptUnitTesting: XCTestCase {
     func testInitUnknownCode() {
         let code = "UNKNOWNCODE"
         
-        let script: Language
-        do { script = try Language(code: code) } catch {
-            if error is LanguageUnknownCodeError {
+        let script: Script
+        do { script = try Script(code: code) } catch {
+            if error is ScriptUnknownCodeError {
                 return
             } else {
                 XCTFail("Unexpected error \(error.self) is thrown")

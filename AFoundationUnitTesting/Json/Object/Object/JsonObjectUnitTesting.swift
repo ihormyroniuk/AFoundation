@@ -32,8 +32,8 @@ class JsonObjectUnitTesting: XCTestCase {
         do {
             let object = try value.object()
             
-            XCTFail("Unexpected object \"\(String(describing: object))\" is found while error \(JsonErrorValueNotObject.self) has to be thrown")
-        } catch _ as JsonErrorValueNotObject {
+            XCTFail("Unexpected object \"\(String(describing: object))\" is found while error \(JsonValueIsNotObjectError.self) has to be thrown")
+        } catch _ as JsonValueIsNotObjectError {
         
         } catch {
             XCTFail("Unexpected error \(error) is thrown")

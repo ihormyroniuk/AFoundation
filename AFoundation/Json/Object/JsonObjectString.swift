@@ -17,7 +17,7 @@ public extension JsonObject {
                 let error = JsonErrorValueMissing(object: self, key: key)
                 throw error
             } else {
-                let error = JsonErrorValueNotString(value: value!)
+                let error = JsonValueIsNotStringError(value: value!)
                 throw error
             }
         }
@@ -34,7 +34,7 @@ public extension JsonObject {
             let error = JsonErrorValueMissing(object: self, key: key)
             throw error
         }
-        let error = JsonErrorValueNotString(value: value!)
+        let error = JsonValueIsNotStringError(value: value!)
         throw error
     }
     

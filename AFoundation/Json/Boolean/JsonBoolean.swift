@@ -15,7 +15,7 @@ public extension JsonValue {
     
     func boolean() throws -> JsonBoolean {
         guard let boolean = self as? JsonBoolean else {
-            let error = JsonErrorValueNotBoolean(value: self)
+            let error = JsonValueIsNotBooleanError(value: self)
             throw error
         }
         return boolean
@@ -23,7 +23,7 @@ public extension JsonValue {
 
 }
 
-public struct JsonErrorValueNotBoolean: LocalizedError {
+public struct JsonValueIsNotBooleanError: LocalizedError {
     
     private let value: Any
     

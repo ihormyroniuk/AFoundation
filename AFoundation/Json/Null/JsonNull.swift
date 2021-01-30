@@ -15,7 +15,7 @@ public extension JsonValue {
     
     func null() throws -> JsonNull {
         guard let null = self as? JsonNull else {
-            let error = JsonErrorValueNotNull(value: self)
+            let error = JsonValueIsNotNullError(value: self)
             throw error
         }
         return null
@@ -23,7 +23,7 @@ public extension JsonValue {
     
 }
 
-public struct JsonErrorValueNotNull: LocalizedError {
+public struct JsonValueIsNotNullError: LocalizedError {
     
     private let value: Any
     

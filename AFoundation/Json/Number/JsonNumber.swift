@@ -15,7 +15,7 @@ public extension JsonValue {
     
     func number() throws -> JsonNumber {
         guard let number = self as? JsonNumber else {
-            let error = JsonErrorValueNotNumber(value: self)
+            let error = JsonValueIsNotNumberError(value: self)
             throw error
         }
         return number
@@ -23,7 +23,7 @@ public extension JsonValue {
 
 }
 
-public struct JsonErrorValueNotNumber: LocalizedError {
+public struct JsonValueIsNotNumberError: LocalizedError {
     
     private let value: Any
     

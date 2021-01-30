@@ -32,8 +32,8 @@ class JsonNumberUnitTesting: XCTestCase {
         do {
             let string = try value.number()
             
-            XCTFail("Unexpected number \"\(String(describing: string))\" is found while error \(JsonErrorValueNotNumber.self) has to be thrown")
-        } catch _ as JsonErrorValueNotNumber {
+            XCTFail("Unexpected number \"\(String(describing: string))\" is found while error \(JsonValueIsNotNumberError.self) has to be thrown")
+        } catch _ as JsonValueIsNotNumberError {
         
         } catch {
             XCTFail("Unexpected error \(error) is thrown")

@@ -32,8 +32,8 @@ class JsonBooleanUnitTesting: XCTestCase {
         do {
             let string = try value.boolean()
             
-            XCTFail("Unexpected boolean \"\(String(describing: string))\" is found while error \(JsonErrorValueNotBoolean.self) has to be thrown")
-        } catch _ as JsonErrorValueNotBoolean {
+            XCTFail("Unexpected boolean \"\(String(describing: string))\" is found while error \(JsonValueIsNotBooleanError.self) has to be thrown")
+        } catch _ as JsonValueIsNotBooleanError {
         
         } catch {
             XCTFail("Unexpected error \(error) is thrown")

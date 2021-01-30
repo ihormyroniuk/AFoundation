@@ -17,7 +17,7 @@ public extension JsonObject {
                 let error = JsonErrorValueMissing(object: self, key: key)
                 throw error
             } else {
-                let error = JsonErrorValueNotBoolean(value: value!)
+                let error = JsonValueIsNotBooleanError(value: value!)
                 throw error
             }
         }
@@ -34,7 +34,7 @@ public extension JsonObject {
             let error = JsonErrorValueMissing(object: self, key: key)
             throw error
         }
-        let error = JsonErrorValueNotBoolean(value: value!)
+        let error = JsonValueIsNotBooleanError(value: value!)
         throw error
     }
     
