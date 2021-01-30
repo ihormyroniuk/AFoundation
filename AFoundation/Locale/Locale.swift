@@ -8,7 +8,21 @@
 
 import Foundation
 
+/**
+    Implemented based on https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html
+ */
 public extension Locale {
+    
+    // MARK: Initializer
+    
+    init(language: Language, region: Region?) {
+        let languageCode = language.code
+        var identifier = languageCode
+        if let regionCode = region?.code {
+            identifier += "_\(regionCode)"
+        }
+        self.init(identifier: identifier)
+    }
     
     // MARK: Language
   
