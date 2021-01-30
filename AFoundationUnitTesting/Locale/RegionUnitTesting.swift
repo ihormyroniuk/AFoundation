@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import Foundation
 @testable import AFoundation
 
 class RegionUnitTesting: XCTestCase {

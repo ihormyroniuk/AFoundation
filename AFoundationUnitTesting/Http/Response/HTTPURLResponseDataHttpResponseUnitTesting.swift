@@ -29,7 +29,7 @@ class HTTPURLResponseDataHttpResponseUnitTesting: XCTestCase {
     
     // MARK: Description
     
-    func testDescription() {
+    func testDescriptionEmptyBody() {
         let url = URL(string: "https://localhost")!
         let code = 200
         let version = "HTTP/1.0"
@@ -42,6 +42,26 @@ class HTTPURLResponseDataHttpResponseUnitTesting: XCTestCase {
         let description = httpResponse.description
         
         let expectedDescription = " 200 \n"
+        XCTAssertTrue(description == expectedDescription, "Unexpected description \(description)) is found, but description \(expectedDescription) is expected")
+    }
+    
+    func testDescription() {
+        let code = 200
+        let version = "HTTP/1.0"
+        let headers: [String: String] = ["headerField1": "headerField1"]
+        let data: Data? = Data([0x01])
+        
+        let httpResponse = HttpResponse(version: version, code: code, phrase: "OK", headers: headers, body: data)
+        
+        let description = httpResponse.description
+        
+        let expectedDescription =
+            """
+            HTTP/1.0 200 OK
+            headerField1:headerField1
+            
+            00000001
+            """
         XCTAssertTrue(description == expectedDescription, "Unexpected description \(description)) is found, but description \(expectedDescription) is expected")
     }
     

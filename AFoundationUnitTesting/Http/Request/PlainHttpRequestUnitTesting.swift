@@ -72,7 +72,7 @@ class PlainHttpRequestUnitTesting: XCTestCase {
     
     // MARK: Description
     
-    func testDescription() {
+    func testDescriptionEmptyBody() {
         let method = "GET"
         let uri = URL(string: "https://localhost")!
         let version = "HTTP/1.1"
@@ -84,6 +84,27 @@ class PlainHttpRequestUnitTesting: XCTestCase {
         let description = httpRequest.description
         
         let expectedDescription = "GET https://localhost HTTP/1.1\n"
+        XCTAssertTrue(description == expectedDescription, "Unexpected description \(description)) is found, but description \(expectedDescription) is expected")
+    }
+    
+    func testDescription() {
+        let method = "GET"
+        let uri = URL(string: "https://localhost")!
+        let version = "HTTP/1.1"
+        let headers: [String: String] = ["headerField1": "headerField1"]
+        let body: Data? = Data([0x01])
+        
+        let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: headers, body: body)
+        
+        let description = httpRequest.description
+        
+        let expectedDescription =
+            """
+            GET https://localhost HTTP/1.1
+            headerField1:headerField1
+            
+            00000001
+            """
         XCTAssertTrue(description == expectedDescription, "Unexpected description \(description)) is found, but description \(expectedDescription) is expected")
     }
     
