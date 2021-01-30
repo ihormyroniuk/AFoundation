@@ -29,7 +29,7 @@ public extension JsonValue {
     
     func array() throws -> JsonArray {
         guard let array = self as? JsonArray else {
-            let error = JsonErrorValueNotArrayf()
+            let error = JsonErrorValueNotArray(value: self)
             throw error
         }
         return array
@@ -81,7 +81,13 @@ public extension JsonArray {
     
 }
 
-public struct JsonErrorValueNotArrayf: LocalizedError {
+public struct JsonErrorValueNotArray: LocalizedError {
+    
+    private let value: Any
+    
+    init(value: Any) {
+        self.value = value
+    }
     
 }
 
