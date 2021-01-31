@@ -1,5 +1,5 @@
 //
-//  PlainHttpRequestUnitTesting.swift
+//  HttpRequestUnitTesting.swift
 //  AFoundationUnitTesting
 //
 //  Created by Ihor Myroniuk on 19.09.2020.
@@ -10,7 +10,7 @@ import XCTest
 import Foundation
 @testable import AFoundation
 
-class PlainHttpRequestUnitTesting: XCTestCase {
+class HttpRequestUnitTesting: XCTestCase {
 
     func testInitWithoutheadersAndMessageBody() {
         let method = "GET"

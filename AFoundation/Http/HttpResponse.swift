@@ -72,15 +72,6 @@ public struct HttpResponse: CustomStringConvertible {
         self.body = body
     }
     
-    public init(httpUrlResponse: HTTPURLResponse, data: Data?) {
-        let version = ""
-        let code = httpUrlResponse.statusCode
-        let phrase = ""
-        let headers = httpUrlResponse.allHeaderFields as? [String: String]
-        let body = data
-        self.init(version: version, code: code, phrase: phrase, headers: headers, body: body)
-    }
-    
     // MARK: CustomStringConvertible
     
     public var description: String {

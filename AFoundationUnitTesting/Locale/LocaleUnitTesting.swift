@@ -11,7 +11,6 @@ import XCTest
 
 class LocaleUnitTesting: XCTestCase {
     
-
     func testInitLanguage() {
         let language = Language.english
         
