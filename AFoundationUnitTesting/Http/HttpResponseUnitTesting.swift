@@ -9,7 +9,7 @@
 import XCTest
 @testable import AFoundation
 
-class HTTPURLResponseDataHttpResponseUnitTesting: XCTestCase {
+class HttpResponseUnitTesting: XCTestCase {
     
     func testDescription() {
         let code = 200

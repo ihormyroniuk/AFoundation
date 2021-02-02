@@ -51,8 +51,8 @@ class JsonObjectOptionalArrayUnitTesting: XCTestCase {
         do {
             let actualValue = try object.optionalArray(key)
             
-            XCTFail("Error \(JsonErrorValueNotArray.self) has to be thrown, but array \"\(String(describing: actualValue))\" is returned")
-        } catch _ as JsonErrorValueNotArray {
+            XCTFail("Error \(JsonValueIsNotArrayError.self) has to be thrown, but array \"\(String(describing: actualValue))\" is returned")
+        } catch _ as JsonValueIsNotArrayError {
             
         } catch {
             XCTFail("Unexpected error \(error.self) is thrown")
