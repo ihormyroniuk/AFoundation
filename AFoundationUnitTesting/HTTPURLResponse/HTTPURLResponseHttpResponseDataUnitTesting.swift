@@ -14,16 +14,16 @@ class HTTPURLResponseHttpResponseDataUnitTesting: XCTestCase {
     func testInit() {
         let url = URL(string: "https://localhost")!
         let code = 200
-        let version = "HTTP/1.0"
+        let version = ""
+        let phrase = ""
         let headers: [String: String] = ["headerField1": "headerField1", "headerField2": "headerField2"]
         let httpUrlResponse = HTTPURLResponse(url: url, statusCode: code, httpVersion: version, headerFields: headers)!
         let data = Data([0x00])
         
-        let httpResponse = httpUrlResponse.httpResponse(data: data)
+        let httpUrlResponseHttpResponse = httpUrlResponse.httpResponse(data: data)
         
-        XCTAssertTrue(httpResponse.code == httpUrlResponse.statusCode, "Unexpected HTTPResponse object's code \"\(String(describing: httpResponse.code))\" is found while code \"(\(String(describing: httpUrlResponse.statusCode))\" is expected)")
-        XCTAssertTrue(httpResponse.headers == httpUrlResponse.allHeaderFields as? [String: String], "Unexpected HTTPResponse object's headers \"\(String(describing: httpResponse.headers))\" is found while headers \"(\(String(describing: httpUrlResponse.allHeaderFields))\" is expected)")
-        XCTAssertTrue(httpResponse.body == data, "Unexpected HTTPResponse object's data \"\(String(describing: httpResponse.body))\" is found while data \"(\(String(describing: data))\" is expected)")
+        let httpResponse = Http.Response(version: version, code: code, phrase: phrase, headers: headers, body: data)
+        XCTAssertTrue(httpUrlResponseHttpResponse == httpResponse, "Unexpected HTTPResponse \"\(httpResponse)\" is found while \"(\(httpUrlResponse.statusCode)\" is expected)")
     }
     
     // MARK: Description

@@ -61,7 +61,7 @@ class LocaleUnitTesting: XCTestCase {
     
     func testPreferredLanguages() {
         do {  _ = try Locale.preferredLanguages() } catch {
-//            XCTFail("Unexpected error \(error.self) is thrown")
+            //XCTFail("Unexpected error \(error.self) is thrown")
             return
         }
     }

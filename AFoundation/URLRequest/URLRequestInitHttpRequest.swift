@@ -10,9 +10,9 @@ import Foundation
 
 public extension URLRequest {
     
-    init(httpRequest: HttpRequest) {
-        let url = httpRequest.uri
-        self.init(url: url)
+    init(httpRequest: Http.Request) {
+        let uri = httpRequest.uri
+        self.init(url: uri)
         httpMethod = httpRequest.method
         allHTTPHeaderFields = httpRequest.headers
         httpBody = httpRequest.body

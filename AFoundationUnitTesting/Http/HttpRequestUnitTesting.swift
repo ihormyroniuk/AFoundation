@@ -18,7 +18,7 @@ class HttpRequestUnitTesting: XCTestCase {
         let version = "HTTP/1.0"
         let body: Data? = nil
         
-        let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: nil, body: body)
+        let httpRequest = Http.Request(method: method, uri: uri, version: version, headers: nil, body: body)
         
         XCTAssertTrue(httpRequest.method == method, "Unexpected HTTPRequest object's method \"\(String(describing: httpRequest.method))\" is found while method \"(\(String(describing: method))\" is expected)")
         XCTAssertTrue(httpRequest.uri == uri, "Unexpected HTTP request object's request URI \"\(String(describing: httpRequest.uri))\" is found while request URI \"\(String(describing: uri))\" is expected)")
@@ -32,7 +32,7 @@ class HttpRequestUnitTesting: XCTestCase {
         let headers: [String: String] = ["headerField1": "headerField1", "headerField2": "headerField2"]
         let body: Data? = nil
         
-        let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: headers, body: body)
+        let httpRequest = Http.Request(method: method, uri: uri, version: version, headers: headers, body: body)
         
         XCTAssertTrue(httpRequest.method == method, "Unexpected HTTPRequest object's method \"\(String(describing: httpRequest.method))\" is found while method \"(\(String(describing: method))\" is expected)")
         XCTAssertTrue(httpRequest.uri == uri, "Unexpected HTTP request object's request URI \"\(String(describing: httpRequest.uri))\" is found while request URI \"\(String(describing: uri))\" is expected)")
@@ -46,7 +46,7 @@ class HttpRequestUnitTesting: XCTestCase {
         let version = "HTTP/1.0"
         let body = Data([0x00])
         
-        let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: nil, body: body)
+        let httpRequest = Http.Request(method: method, uri: uri, version: version, headers: nil, body: body)
         
         XCTAssertTrue(httpRequest.method == method, "Unexpected HTTPRequest object's method \"\(String(describing: httpRequest.method))\" is found while method \"(\(String(describing: method))\" is expected)")
         XCTAssertTrue(httpRequest.uri == uri, "Unexpected HTTP request object's request URI \"\(String(describing: httpRequest.uri))\" is found while request URI \"\(String(describing: uri))\" is expected)")
@@ -61,7 +61,7 @@ class HttpRequestUnitTesting: XCTestCase {
         let headers: [String: String] = ["headerField1": "headerField1", "headerField2": "headerField2"]
         let body = Data([0x00])
         
-        let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: headers, body: body)
+        let httpRequest = Http.Request(method: method, uri: uri, version: version, headers: headers, body: body)
         
         XCTAssertTrue(httpRequest.method == method, "Unexpected HTTPRequest object's method \"\(String(describing: httpRequest.method))\" is found while method \"(\(String(describing: method))\" is expected)")
         XCTAssertTrue(httpRequest.uri == uri, "Unexpected HTTP request object's request URI \"\(String(describing: httpRequest.uri))\" is found while request URI \"\(String(describing: uri))\" is expected)")
@@ -79,7 +79,7 @@ class HttpRequestUnitTesting: XCTestCase {
         let headers: [String: String] = [:]
         let body: Data? = nil
         
-        let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: headers, body: body)
+        let httpRequest = Http.Request(method: method, uri: uri, version: version, headers: headers, body: body)
         
         let description = httpRequest.description
         
@@ -94,7 +94,7 @@ class HttpRequestUnitTesting: XCTestCase {
         let headers: [String: String] = ["headerField1": "headerField1"]
         let body: Data? = Data([0x01])
         
-        let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: headers, body: body)
+        let httpRequest = Http.Request(method: method, uri: uri, version: version, headers: headers, body: body)
         
         let description = httpRequest.description
         
