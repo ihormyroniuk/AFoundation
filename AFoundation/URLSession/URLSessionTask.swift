@@ -29,15 +29,5 @@ extension URLSessionTask {
             }
         }
     }
-    
-    public struct URLResponseWithData {
-        let urlResponse: URLResponse
-        let data: Data?
-    }
-    
-    public struct HTTPURLResponseWithData {
-        let httpUrlResponse: HTTPURLResponse
-        let data: Data?
-    }
-    
+
 }

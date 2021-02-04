@@ -10,13 +10,14 @@ import Foundation
 
 public extension URLSession {
     
-    func dataTask(with request: URLRequest, completionHandler: @escaping (Result<URLSessionTask.URLResponseWithData, URLSessionTask.Error>) -> Void) -> URLSessionDataTask {
+    typealias URLResponseWithData = (urlResponse: URLResponse, data: Data?)
+    func dataTask(with request: URLRequest, completionHandler: @escaping (Result<URLResponseWithData, URLSessionTask.Error>) -> Void) -> URLSessionDataTask {
         let dataTask = self.dataTask(with: request) { (data, urlResponse, error) in
             if let error = error {
                 let error = URLSessionTask.Error(error)
                 completionHandler(.failure(error))
             } else if let urlResponse = urlResponse {
-                let urlResponseWithData = URLSessionTask.URLResponseWithData(urlResponse: urlResponse, data: data)
+                let urlResponseWithData = URLResponseWithData(urlResponse: urlResponse, data: data)
                 completionHandler(.success(urlResponseWithData))
             } else {
                 let error = NSError(domain: NSURLErrorDomain, code: NSURLErrorUnknown, userInfo: nil)
@@ -26,14 +27,15 @@ public extension URLSession {
         return dataTask
     }
     
-    func httpDataTask(with request: URLRequest, completionHandler: @escaping (Result<URLSessionTask.HTTPURLResponseWithData, URLSessionTask.Error>) -> Void) -> URLSessionDataTask {
+    typealias HTTPURLResponseWithData = (httpUrlResponse: HTTPURLResponse, data: Data?)
+    func httpDataTask(with request: URLRequest, completionHandler: @escaping (Result<HTTPURLResponseWithData, URLSessionTask.Error>) -> Void) -> URLSessionDataTask {
         let dataTask = self.dataTask(with: request) { (result) in
             switch result {
             case let .success(urlResponseWithData):
                 let urlResponse = urlResponseWithData.urlResponse
                 let data = urlResponseWithData.data
                 if let httpUrlResponse = urlResponse as? HTTPURLResponse {
-                    let urlResponseWithData = URLSessionTask.HTTPURLResponseWithData(httpUrlResponse: httpUrlResponse, data: data)
+                    let urlResponseWithData = HTTPURLResponseWithData(httpUrlResponse: httpUrlResponse, data: data)
                     completionHandler(.success(urlResponseWithData))
                 } else {
                     let error = NSError(domain: NSURLErrorDomain, code: NSURLErrorBadServerResponse, userInfo: nil)
@@ -72,4 +74,8 @@ public extension URLSession {
         return dataTask
     }
     
+}
+
+public struct HttpExchangeURLSessionDataTaskError: Error {
+    let error: Error
 }
