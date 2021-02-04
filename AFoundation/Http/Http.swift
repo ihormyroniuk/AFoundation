@@ -13,6 +13,9 @@ import Foundation
  */
 public enum Http {
     
+    /**
+        Implemented based on https://tools.ietf.org/html/rfc2616#section-3.1
+     */
     public enum Version {
         public static let http1dot1 = "HTTP/1.1"
     }
@@ -53,8 +56,6 @@ public enum Http {
             self.headers = headers
             self.body = body
         }
-        
-        // MARK: CustomStringConvertible
         
         public var description: String {
             var description = "\(method) \(uri) \(version)\n"
@@ -132,8 +133,6 @@ public enum Http {
             self.body = body
         }
         
-        // MARK: CustomStringConvertible
-        
         public var description: String {
             var description = "\(version) \(code) \(phrase)\n"
             headers?.forEach({ description += "\($0):\($1)\n" })
@@ -146,19 +145,19 @@ public enum Http {
         
     }
     
-    open class Exchange<HttpRequestData, ParsedHttpResponse> {
+    open class Exchange<RequestData, ParsedResponse> {
         
-        open func constructHttpRequest(data: HttpRequestData) throws -> Http.Request {
+        open func constructHttpRequest(data: RequestData) throws -> Http.Request {
             fatalError()
         }
         
-        open func parseHttpResponse(httpResponse: Http.Response) throws -> ParsedHttpResponse {
+        open func parseHttpResponse(httpResponse: Http.Response) throws -> ParsedResponse {
             fatalError()
         }
         
     }
 
-    open class SchemeHostExchange<HttpRequestData, ParsedHttpResponse>: Http.Exchange<HttpRequestData, ParsedHttpResponse> {
+    open class SchemeHostExchange<RequestData, ParsedResponse>: Http.Exchange<RequestData, ParsedResponse> {
         
         public let scheme: String
         public let host: String
