@@ -15,23 +15,23 @@ public extension URLSession {
             let httpRequest = try httpExchange.constructHttpRequest(data: data)
             let urlRequest = URLRequest(httpRequest: httpRequest)
             let dataTask = self.dataTask(with: urlRequest) { (data, response, error) in
-                    if let error = error {
-                        let interactionError = DataTaskError(error: error)
-                        completionHandler(.failure(interactionError))
-                    } else if let httpUrlResponse = response as? HTTPURLResponse {
-                        let httpResponse = httpUrlResponse.httpResponse(data: data)
-                        let response: B
-                        do { response = try httpExchange.parseHttpResponse(httpResponse: httpResponse) } catch {
-                            let error = UnexpectedHttpExchangeError(httpRequest: httpRequest, httpResponse: httpResponse, error: error)
-                            completionHandler(.failure(.unexpectedError(error: error)))
-                            return
-                        }
-                        completionHandler(.success(response))
-                    } else {
-                        let error = UnexpectedDataTaskCompletion()
+                if let error = error {
+                    let interactionError = DataTaskError(error: error)
+                    completionHandler(.failure(interactionError))
+                } else if let httpUrlResponse = response as? HTTPURLResponse {
+                    let httpResponse = httpUrlResponse.httpResponse(data: data)
+                    let response: B
+                    do { response = try httpExchange.parseHttpResponse(httpResponse: httpResponse) } catch {
+                        let error = UnexpectedHttpExchangeError(httpRequest: httpRequest, httpResponse: httpResponse, error: error)
                         completionHandler(.failure(.unexpectedError(error: error)))
+                        return
                     }
+                    completionHandler(.success(response))
+                } else {
+                    let error = UnexpectedDataTaskCompletion()
+                    completionHandler(.failure(.unexpectedError(error: error)))
                 }
+            }
             dataTask.resume()
         } catch {
             let interactionError = DataTaskError(error: error)
