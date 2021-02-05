@@ -14,7 +14,7 @@ public extension URLSession {
     func dataTask(with request: URLRequest, completionHandler: @escaping (Result<URLResponseWithData, URLSessionTask.Error>) -> Void) -> URLSessionDataTask {
         let dataTask = self.dataTask(with: request) { (data, urlResponse, error) in
             if let error = error {
-                let error = URLSessionTask.Error(error)
+                let error = URLSessionTask.Error(error as NSError)
                 completionHandler(.failure(error))
             } else if let urlResponse = urlResponse {
                 let urlResponseWithData = URLResponseWithData(urlResponse: urlResponse, data: data)
@@ -48,7 +48,7 @@ public extension URLSession {
         return dataTask
     }
     
-    func httpExchangeDataTask<RequestData, ParsedResponse>(_ httpExchange: Http.Exchange<RequestData, ParsedResponse>, requestData: RequestData, completionHandler: @escaping (Result<ParsedResponse, URLSessionTask.Error>) -> ()) throws -> URLSessionDataTask {
+    func httpExchangeDataTask<RequestData, ParsedResponse>(_ httpExchange: Http.Exchange<RequestData, ParsedResponse>, requestData: RequestData, completionHandler: @escaping (Result<ParsedResponse, Error>) -> ()) throws -> URLSessionDataTask {
         let httpRequest: Http.Request
         do { httpRequest = try httpExchange.constructHttpRequest(data: requestData) } catch {
             fatalError()
@@ -63,7 +63,7 @@ public extension URLSession {
                 let response: ParsedResponse
                 do { response = try httpExchange.parseHttpResponse(httpResponse: httpResponse) } catch {
                     let error = UnexpectedHttpExchangeError(httpRequest: httpRequest, httpResponse: httpResponse, error: error)
-                    completionHandler(.failure(.unexpectedError(error)))
+                    completionHandler(.failure(error))
                     return
                 }
                 completionHandler(.success(response))
@@ -74,8 +74,4 @@ public extension URLSession {
         return dataTask
     }
     
-}
-
-public struct HttpExchangeURLSessionDataTaskError: Error {
-    let error: Error
 }
