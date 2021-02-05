@@ -14,9 +14,9 @@ extension URLSessionTask {
         case notConnectedToInternet(NSError)
         case unknown(NSError)
         case badServerResponse(NSError)
-        case unexpectedError(NSError)
+        case unexpectedError(Swift.Error)
         
-        init(_ error: NSError) {
+        init(_ error: Swift.Error) {
             let nsError = error as NSError
             if nsError.code == NSURLErrorNotConnectedToInternet {
                 self = .notConnectedToInternet(nsError)
@@ -25,7 +25,7 @@ extension URLSessionTask {
             } else if nsError.code == NSURLErrorBadServerResponse {
                 self = .badServerResponse(nsError)
             } else {
-                self = .unexpectedError(nsError)
+                self = .unexpectedError(error)
             }
         }
         
@@ -38,7 +38,7 @@ extension URLSessionTask {
             case let .unknown(error):
                 return error.description
             case let .unexpectedError(error):
-                return error.description
+                return "\(error)"
             }
         }
     }
