@@ -11,24 +11,17 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    let urlSession = URLSession.shared
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let locale = Locale.current
-//        print("------------")
-//        print(locale.language)
-//        print(locale.languageCode)
-//        print(locale.region)
-//        print(locale.regionCode)
-//        print(locale.currency)
-//        print(locale.currencyCode)
-//        print("------------")
-        let jsonString = "{\"titler\": \"Nike shoes\", \"price\": 10.5, \"quantity\": 1}"
-        let jsonData = jsonString.data(using: .utf8)!
-        let productObject: Product
-        do { productObject = try JSONDecoder().decode(Product.self, from: jsonData)
-            return false
-        } catch {
-            print(error)
+        
+        let requestData = Api.Release2.GenerateIntegersRequestData(id: 1, apiKey: "", n: 5, min: -10, max: 10, replacement: true, base: .binary)
+        let httpExchange = Api.Release2().generateIntegers(requestData: requestData)
+        let dataTask = try! urlSession.httpExchangeDataTask(httpExchange) { (result) in
+            
         }
+        dataTask.resume()
+        
         return true
     }
 

@@ -48,11 +48,11 @@ public extension JsonArray {
     }
     
     func arrayNumbers() throws -> JsonArrayNumbers {
-        guard let arrayNumbers = self as? JsonArrayNumbers else {
+        guard let arrayNumbers = self as? [NSNumber] else {
             let error = JsonErrorNotArrayNumbers(array: self)
             throw error
         }
-        return arrayNumbers
+        return arrayNumbers.map({ $0.decimalValue })
     }
     
     func arrayObjects() throws -> JsonArrayObjects {

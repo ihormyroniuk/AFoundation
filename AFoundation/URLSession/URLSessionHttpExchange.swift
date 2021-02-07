@@ -48,9 +48,9 @@ public extension URLSession {
         return dataTask
     }
     
-    func httpExchangeDataTask<RequestData, ParsedResponse>(_ httpExchange: Http.Exchange<RequestData, ParsedResponse>, requestData: RequestData, completionHandler: @escaping (Result<ParsedResponse, URLSessionTask.Error>) -> ()) throws -> URLSessionDataTask {
+    func httpExchangeDataTask<ParsedResponse>(_ httpExchange: Http.Exchange<ParsedResponse>, completionHandler: @escaping (Result<ParsedResponse, URLSessionTask.Error>) -> ()) throws -> URLSessionDataTask {
         let httpRequest: Http.Request
-        do { httpRequest = try httpExchange.constructHttpRequest(data: requestData) } catch {
+        do { httpRequest = try httpExchange.constructHttpRequest() } catch {
             fatalError()
         }
         let urlRequest = URLRequest(httpRequest: httpRequest)
