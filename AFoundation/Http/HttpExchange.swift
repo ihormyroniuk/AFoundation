@@ -11,11 +11,11 @@ import Foundation
 extension Http {
 open class Exchange<ParsedResponse> {
     
-    open func constructHttpRequest() throws -> Http.Request {
+    open func constructRequest() throws -> Http.Request {
         fatalError()
     }
     
-    open func parseHttpResponse(httpResponse: Http.Response) throws -> ParsedResponse {
+    open func parseResponse(_ response: Http.Response) throws -> ParsedResponse {
         fatalError()
     }
     

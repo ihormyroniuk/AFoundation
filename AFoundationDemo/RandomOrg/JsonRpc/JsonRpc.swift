@@ -1,13 +1,15 @@
 //
-//  RandomOrgApi.swift
+//  JsonRpc.swift
 //  AFoundationDemo
 //
-//  Created by Ihor Myroniuk on 05.02.2021.
+//  Created by Ihor Myroniuk on 08.02.2021.
 //  Copyright © 2021 Ihor Myroniuk. All rights reserved.
 //
 
 import Foundation
 
-enum Api {
+extension Api {
+enum JsonRpc {
     
+}
 }

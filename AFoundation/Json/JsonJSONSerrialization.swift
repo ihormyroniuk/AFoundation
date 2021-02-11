@@ -11,27 +11,16 @@ import Foundation
 public extension JSONSerialization {
     
     class func json(data: Data) throws -> JsonValue {
-        let json: Any
-        do { json  = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed]) } catch {
+        let any: Any
+        do { any  = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed]) } catch {
             let error = DataIsNotJsonError(data: data)
             throw error
         }
-        if let object = json as? JsonObject {
-            return object
-        } else if let array = json as? JsonArray {
-            return array
-        } else if let string = json as? JsonString {
-            return string
-        } else if let boolean = json as? JsonBoolean {
-            return boolean
-        } else if let number = (json as? NSNumber)?.decimalValue {
-            return number
-        } else if let null = json as? JsonNull {
-            return null
-        } else {
+        guard let jsonValue = JsonValueFrom(any) else {
             let error = DataIsNotJsonError(data: data)
             throw error
         }
+        return jsonValue
     }
     
     class func data(jsonValue: JsonValue) throws -> Data {

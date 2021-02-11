@@ -25,9 +25,9 @@ public extension JsonValue {
 
 public struct JsonValueIsNotNumberError: LocalizedError {
     
-    private let value: Any
+    private let value: JsonValue
     
-    init(value: Any) {
+    init(value: JsonValue) {
         self.value = value
     }
     

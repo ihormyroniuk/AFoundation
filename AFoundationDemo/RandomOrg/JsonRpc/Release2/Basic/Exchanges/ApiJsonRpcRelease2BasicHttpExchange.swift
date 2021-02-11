@@ -8,10 +8,10 @@
 
 import AFoundation
 
-extension Api.Release2 {
+extension Api.JsonRpc.Release2.Basic {
 class HttpExchange<RequestData, ParsedResponse>: Http.RequestDataExchange<RequestData, ParsedResponse> {
     
-    let scheme = URL.Scheme.https
+    let scheme = Api.JsonRpc.Release2.scheme
     let host = "api.random.org"
     let path = "/json-rpc/2/invoke"
     
@@ -31,11 +31,11 @@ class HttpExchange<RequestData, ParsedResponse>: Http.RequestDataExchange<Reques
         jsonObject["jsonrpc"] = "2.0"
         jsonObject["method"] = method
         jsonObject["params"] = params
-        jsonObject["id"] = id
+        jsonObject["id"] = JsonNumber(id)
         return jsonObject
     }
     
-    func transformNumberBase(_ numberBase: Api.Release2.NumberBase) -> UInt {
+    func transformNumberBase(_ numberBase: NumberBase) -> UInt {
         switch numberBase {
         case .binary:
             return 2
@@ -48,7 +48,7 @@ class HttpExchange<RequestData, ParsedResponse>: Http.RequestDataExchange<Reques
         }
     }
     
-    func parseIntegers(dataArray: JsonArray, _ numberBase: Api.Release2.NumberBase) throws -> [Int] {
+    func parseIntegers(dataArray: JsonArray, _ numberBase: NumberBase) throws -> [Int] {
         var data: [Int] = []
         switch numberBase {
         case .binary:

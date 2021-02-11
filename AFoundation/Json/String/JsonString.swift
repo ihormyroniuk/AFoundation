@@ -23,11 +23,11 @@ public extension JsonValue {
 
 }
 
-public struct JsonValueIsNotStringError: LocalizedError {
+public struct JsonValueIsNotStringError: Error {
     
-    private let value: Any
+    private let value: JsonValue
     
-    init(value: Any) {
+    init(value: JsonValue) {
         self.value = value
     }
     

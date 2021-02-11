@@ -12,7 +12,7 @@ public extension JsonObject {
 
     func number(_ key: JsonString) throws -> JsonNumber {
         let value = self[key]
-        guard let number = value as? NSNumber else {
+        guard let number = value as? JsonNumber else {
             if value == nil {
                 let error = JsonErrorValueMissing(object: self, key: key)
                 throw error
@@ -21,13 +21,13 @@ public extension JsonObject {
                 throw error
             }
         }
-        return number.decimalValue
+        return number
     }
 
     func optionalNumber(_ key: JsonString) throws -> JsonNumber? {
         let value = self[key]
-        if let number = value as? NSNumber {
-            return number.decimalValue
+        if let number = value as? JsonNumber {
+            return number
         } else if value is JsonNull {
             return nil
         } else if value == nil {

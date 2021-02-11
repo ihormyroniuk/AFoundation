@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Api.Release2 {
+extension Api.JsonRpc.Release2.Basic {
 struct GenerateIntegersRequestData {
     
     let id: UInt

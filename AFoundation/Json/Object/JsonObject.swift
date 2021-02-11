@@ -8,7 +8,7 @@
 
 import Foundation
 
-public typealias JsonObject = [String: Any]
+public typealias JsonObject = [JsonString: JsonValue]
 extension JsonObject: JsonValue { }
 
 public func ==(lhs: JsonObject, rhs: JsonObject) -> Bool {
@@ -34,9 +34,9 @@ public extension JsonValue {
 
 public struct JsonValueIsNotObjectError: LocalizedError {
     
-    private let value: Any
+    private let value: JsonValue
     
-    init(value: Any) {
+    init(value: JsonValue) {
         self.value = value
     }
     

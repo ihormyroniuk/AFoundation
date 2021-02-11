@@ -8,21 +8,21 @@
 
 import AFoundation
 
-extension Api.Release2 {
+extension Api.JsonRpc.Release2.Basic {
 class GenerateIntegersHttpExchange: HttpExchange<GenerateIntegersRequestData, GenerateIntegersParsedResponse> {
     
-    override func constructHttpRequest() throws -> Http.Request {
+    override func constructRequest() throws -> Http.Request {
         let method = Http.Request.Method.post
         let uri = try constructUri()
         let version = Http.Version.http1dot1
         let headers = self.headers
         var params = JsonObject()
         params["apiKey"] = requestData.apiKey
-        params["n"] = requestData.n
-        params["min"] = requestData.min
-        params["max"] = requestData.max
+        params["n"] = JsonNumber(requestData.n)
+        params["min"] = JsonNumber(requestData.min)
+        params["max"] = JsonNumber(requestData.max)
         if let replacement = requestData.replacement { params["replacement"] = replacement }
-        if let base = requestData.base { params["base"] = transformNumberBase(base) }
+        if let base = requestData.base { params["base"] = JsonNumber(transformNumberBase(base)) }
         let id = requestData.id
         let requestObject = constructRequestObject(method: "generateIntegers", params: params, id: id)
         let body = try JSONSerialization.data(jsonValue: requestObject)
@@ -30,8 +30,12 @@ class GenerateIntegersHttpExchange: HttpExchange<GenerateIntegersRequestData, Ge
         return request
     }
     
-    override func parseHttpResponse(httpResponse: Http.Response) throws -> GenerateIntegersParsedResponse {
+    override func parseResponse(_ httpResponse: Http.Response) throws -> GenerateIntegersParsedResponse {
         let code = httpResponse.code
+        guard code == Http.Response.Code.ok else {
+            let error = UnexpectedHttpResponseCodeError(code: code)
+            throw error
+        }
         let body = httpResponse.body ?? Data()
         let jsonValue = try JSONSerialization.json(data: body)
         let response = try jsonValue.object()
