@@ -17,13 +17,10 @@ func JsonValueFrom(_ any: Any) -> JsonValue? {
     if let nsString = any as? NSString {
         return nsString as String
     }
-    if let bool = any as? Bool {
-        return bool
-    }
     if let decimal = any as? Decimal {
         return decimal
     }
-    if let nsNumber = any as? NSNumber {
+    if let nsNumber = any as? NSNumber, nsNumber !== kCFBooleanTrue, nsNumber !== kCFBooleanFalse {
         return nsNumber.decimalValue
     }
     if let dictionary = any as? [String: Any] {
@@ -45,6 +42,9 @@ func JsonValueFrom(_ any: Any) -> JsonValue? {
             jsonArray.append(jsonValue)
         }
         return jsonArray
+    }
+    if let bool = any as? Bool {
+        return bool
     }
     if let nsNull = any as? NSNull {
         return nsNull

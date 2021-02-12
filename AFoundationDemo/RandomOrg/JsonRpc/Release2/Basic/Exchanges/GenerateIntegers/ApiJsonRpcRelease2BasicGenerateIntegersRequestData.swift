@@ -6,12 +6,12 @@
 //  Copyright © 2021 Ihor Myroniuk. All rights reserved.
 //
 
-import Foundation
+import AFoundation
 
 extension Api.JsonRpc.Release2.Basic {
 struct GenerateIntegersRequestData {
     
-    let id: UInt
+    let id: JsonValue
     let apiKey: String
     let n: UInt
     let min: Int
@@ -19,7 +19,7 @@ struct GenerateIntegersRequestData {
     let replacement: Bool?
     let base: NumberBase?
     
-    init(id: UInt, apiKey: String, n: UInt, min: Int, max: Int, replacement: Bool, base: NumberBase) {
+    init(id: JsonValue, apiKey: String, n: UInt, min: Int, max: Int, replacement: Bool, base: NumberBase) {
         self.id = id
         self.apiKey = apiKey
         self.n = n

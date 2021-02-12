@@ -109,7 +109,7 @@ class LanguageUnitTesting: XCTestCase {
         
         let errorDescriptionString = "\(error)"
         
-        let descriptionString = "Code \"\(code)\" is unknown to \(Language.self)"
+        let descriptionString = "Could not initialize \(Language.self) with code \(String.self) \"\(code)\""
         XCTAssertTrue(errorDescriptionString == descriptionString, "Unexpected description string \(errorDescriptionString)) is found but description string \(descriptionString) is expected")
     }
     

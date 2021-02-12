@@ -27,12 +27,12 @@ public struct DecimalIsNotDoubleConvertibleError: Error, CustomStringConvertible
     
     public let decimal: Decimal
     
-    public init(decimal: Decimal) {
+    init(decimal: Decimal) {
         self.decimal = decimal
     }
     
     public var description: String {
-        return "Decimal \(decimal) is not \(Double.self) convertible"
+        return "Could not convert \(Decimal.self) \(decimal) to \(Double.self)"
     }
     
 }

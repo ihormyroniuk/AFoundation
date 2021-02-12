@@ -61,7 +61,7 @@ class ScriptUnitTesting: XCTestCase {
         
         let errorDescriptionString = "\(error)"
         
-        let descriptionString = "Code \"\(code)\" is unknown to \(Script.self)"
+        let descriptionString = "Could not initialize \(Script.self) with code \(String.self) \"\(code)\""
         XCTAssertTrue(errorDescriptionString == descriptionString, "Unexpected description \(errorDescriptionString)) is found but description \(descriptionString) is expected")
     }
     

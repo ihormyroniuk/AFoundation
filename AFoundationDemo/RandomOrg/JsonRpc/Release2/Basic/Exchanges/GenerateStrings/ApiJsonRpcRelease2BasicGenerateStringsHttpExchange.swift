@@ -23,12 +23,7 @@ class GenerateStringsHttpExchange: HttpExchange<GenerateStringsRequestData, Gene
         params["characters"] = requestData.characters
         if let replacement = requestData.replacement { params["replacement"] = replacement }
         let id = requestData.id
-        //let requestObject = constructRequestObject(method: "generateStrings", params: params, id: id)
-        var requestObject = JsonObject()
-        requestObject["jsonrpc"] = "2.0"
-        requestObject["method"] = "generateStrings"
-        requestObject["params"] = params
-        requestObject["id"] = ["hh":"hh", "gg":"gg"]
+        let requestObject = constructRequestObject(method: "generateStrings", params: params, id: id)
         let body = try JSONSerialization.data(jsonValue: requestObject)
         let request = Http.Request(method: method, uri: uri, version: version, headers: headers, body: body)
         return request
@@ -51,7 +46,7 @@ class GenerateStringsHttpExchange: HttpExchange<GenerateStringsRequestData, Gene
         let iso8601DateFormatter = ISO8601DateFormatter()
         iso8601DateFormatter.formatOptions = [.withSpaceBetweenDateAndTime]
         let completionTime = iso8601DateFormatter.date(from: completionTimeString)!
-        let id = try response.number("id").uint()
+        let id = try response.value("id")
         let bitsUsed = try resultJsonObject.number("bitsUsed").uint()
         let bitsLeft = try resultJsonObject.number("bitsLeft").uint()
         let requestsLeft = try resultJsonObject.number("requestsLeft").uint()

@@ -65,7 +65,7 @@ class DecimalUIntUnitTesting: XCTestCase {
         
         let errorDescriptionString = "\(error)"
         
-        let descriptionString = "Decimal \(decimal) is not \(UInt.self) convertible"
+        let descriptionString = "Could not convert \(Decimal.self) \(decimal) to \(UInt.self)"
         XCTAssertTrue(errorDescriptionString == descriptionString, "Unexpected description \(errorDescriptionString)) is found but description \(descriptionString) is expected")
     }
     

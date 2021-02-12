@@ -97,6 +97,7 @@
 		C56ECDE62557E7E600969CBC /* URLComponentsConstructURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ECDE52557E7E600969CBC /* URLComponentsConstructURL.swift */; };
 		C57C9AB72582D0BC0032AED7 /* AFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C50134A6230C196A0018D950 /* AFoundation.framework */; };
 		C57C9AB82582D0BC0032AED7 /* AFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C50134A6230C196A0018D950 /* AFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C57EF94025D5E2F700B59996 /* JsonObjectValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57EF93F25D5E2F700B59996 /* JsonObjectValue.swift */; };
 		C57F42BE25D09B6200037AE1 /* JsonRpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57F42BD25D09B6200037AE1 /* JsonRpc.swift */; };
 		C57F42D125D0A1BF00037AE1 /* ApiJsonRpcRelease2Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57F42D025D0A1BF00037AE1 /* ApiJsonRpcRelease2Basic.swift */; };
 		C5820FD425C5A0F20057D5C6 /* PreferredLanguageUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5820FD325C5A0F20057D5C6 /* PreferredLanguageUnitTesting.swift */; };
@@ -243,6 +244,7 @@
 		C563FBEA252868C700BA1E99 /* LanguageUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageUnitTesting.swift; sourceTree = "<group>"; };
 		C5693EC5255070250059ED57 /* Http.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Http.swift; sourceTree = "<group>"; };
 		C56ECDE52557E7E600969CBC /* URLComponentsConstructURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponentsConstructURL.swift; sourceTree = "<group>"; };
+		C57EF93F25D5E2F700B59996 /* JsonObjectValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonObjectValue.swift; sourceTree = "<group>"; };
 		C57F42BD25D09B6200037AE1 /* JsonRpc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonRpc.swift; sourceTree = "<group>"; };
 		C57F42D025D0A1BF00037AE1 /* ApiJsonRpcRelease2Basic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiJsonRpcRelease2Basic.swift; sourceTree = "<group>"; };
 		C5820FD325C5A0F20057D5C6 /* PreferredLanguageUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredLanguageUnitTesting.swift; sourceTree = "<group>"; };
@@ -550,6 +552,7 @@
 			isa = PBXGroup;
 			children = (
 				C531973C25559622004495D6 /* JsonObject.swift */,
+				C57EF93F25D5E2F700B59996 /* JsonObjectValue.swift */,
 				C54D46D02515357D004B1467 /* JsonObjectString.swift */,
 				C54D46D32515367F004B1467 /* JsonObjectNumber.swift */,
 				C54D46E025153D6D004B1467 /* JsonObjectObject.swift */,
@@ -1038,6 +1041,7 @@
 				C55E1DF325D33C0C005D164A /* JsonArrayBooleans.swift in Sources */,
 				33107F54239134B400789467 /* TableNameBundleTextLocalizer.swift in Sources */,
 				C55E1DE925D33B9A005D164A /* JsonArrayObjects.swift in Sources */,
+				C57EF94025D5E2F700B59996 /* JsonObjectValue.swift in Sources */,
 				C54D46EA25154357004B1467 /* JsonArray.swift in Sources */,
 				C55CF548255209EF00E61A03 /* URLScheme.swift in Sources */,
 				C531972F25559322004495D6 /* JsonBoolean.swift in Sources */,

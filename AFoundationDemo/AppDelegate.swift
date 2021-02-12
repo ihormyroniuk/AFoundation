@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFoundation
 
 typealias Ggg = Api.JsonRpc.Release2
 
@@ -23,10 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //
 //        }
         
-        let requestData = Ggg.Basic.GenerateStringsRequestData(id: "bbb", apiKey: "3b887b17-2315-49ae-aa27-ddcddc5ad778", n: 20, lenght: 3, characters: "abcde", replacement: false)
+        let requestData = Ggg.Basic.GenerateStringsRequestData(id: JsonNumber(1), apiKey: "3b887b17-2315-49ae-aa27-ddcddc5ad778", n: 20, lenght: 3, characters: "abcde", replacement: false)
         let httpExchange = Ggg.Basic().generateStrings(requestData: requestData)
         let dataTask = try! urlSession.httpExchangeDataTask(httpExchange) { (result) in
-            
+            print(result)
         }
         
         dataTask.resume()

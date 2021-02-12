@@ -109,7 +109,7 @@ class RegionUnitTesting: XCTestCase {
         
         let errorDescriptionString = "\(error)"
         
-        let descriptionString = "Code \"\(code)\" is unknown to \(Region.self)"
+        let descriptionString = "Could not initialize \(Region.self) with code \(String.self) \"\(code)\""
         XCTAssertTrue(errorDescriptionString == descriptionString, "Unexpected description string \(errorDescriptionString)) is found but description string \(descriptionString) is expected")
     }
 }

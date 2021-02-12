@@ -325,7 +325,7 @@ class PreferredLanguageUnitTesting: XCTestCase {
         
         let errorDescriptionString = "\(error)"
         
-        let descriptionString = "Code \"\(code)\" is unknown to \(PreferredLanguage.self)"
+        let descriptionString = "Could not initialize \(PreferredLanguage.self) with code \(String.self) \"\(code)\""
         XCTAssertTrue(errorDescriptionString == descriptionString, "Unexpected description string \(errorDescriptionString)) is found but description string \(descriptionString) is expected")
     }
     

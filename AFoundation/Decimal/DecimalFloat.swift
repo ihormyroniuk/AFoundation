@@ -31,12 +31,12 @@ public struct DecimalIsNotFloatConvertibleError: Error, CustomStringConvertible 
     
     public let decimal: Decimal
     
-    public init(decimal: Decimal) {
+    init(decimal: Decimal) {
         self.decimal = decimal
     }
     
     public var description: String {
-        return "Decimal \(decimal) is not \(Float.self) convertible"
+        return "Could not convert \(Decimal.self) \(decimal) to \(Float.self)"
     }
     
 }

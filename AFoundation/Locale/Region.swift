@@ -49,16 +49,16 @@ public enum Region {
 
 public struct RegionUnknownCodeError: Error, CustomStringConvertible {
     
-    private let code: String
+    public let code: String
     
-    public init(code: String) {
+    init(code: String) {
         self.code = code
     }
     
     // MARK: CustomStringConvertible
     
     public var description: String {
-        return "Code \"\(code)\" is unknown to \(Region.self)"
+        return "Could not initialize \(Region.self) with code \(String.self) \"\(code)\""
     }
     
 }

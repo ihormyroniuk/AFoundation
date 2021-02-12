@@ -66,7 +66,7 @@ class DecimalFloatUnitTesting: XCTestCase {
         
         let errorDescription = "\(error)"
         
-        let descriptionString = "Decimal \(decimal) is not \(Float.self) convertible"
+        let descriptionString = "Could not convert \(Decimal.self) \(decimal) to \(Float.self)"
         XCTAssertTrue(errorDescription == descriptionString, "Unexpected description \(errorDescription)) is found but description \(descriptionString) is expected")
     }
     

@@ -48,7 +48,7 @@ class GenerateIntegersHttpExchange: HttpExchange<GenerateIntegersRequestData, Ge
         let iso8601DateFormatter = ISO8601DateFormatter()
         iso8601DateFormatter.formatOptions = [.withSpaceBetweenDateAndTime]
         let completionTime = iso8601DateFormatter.date(from: completionTimeString)!
-        let id = try response.number("id").uint()
+        let id = try response.value("id")
         let bitsUsed = try resultJsonObject.number("bitsUsed").uint()
         let bitsLeft = try resultJsonObject.number("bitsLeft").uint()
         let requestsLeft = try resultJsonObject.number("requestsLeft").uint()
