@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let dataTask = try! urlSession.httpExchangeDataTask(httpExchange) { (result) in
 //
 //        }
-        
         let requestData = Ggg.Basic.GenerateStringsRequestData(id: JsonNumber(1), apiKey: "3b887b17-2315-49ae-aa27-ddcddc5ad778", n: 20, lenght: 3, characters: "abcde", replacement: false)
         let httpExchange = Ggg.Basic().generateStrings(requestData: requestData)
         let dataTask = try! urlSession.httpExchangeDataTask(httpExchange) { (result) in
