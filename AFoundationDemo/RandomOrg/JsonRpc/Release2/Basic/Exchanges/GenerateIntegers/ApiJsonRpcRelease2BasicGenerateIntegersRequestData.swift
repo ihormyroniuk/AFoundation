@@ -17,16 +17,14 @@ struct GenerateIntegersRequestData {
     let min: Int
     let max: Int
     let replacement: Bool?
-    let base: NumberBase?
     
-    init(id: JsonValue, apiKey: String, n: UInt, min: Int, max: Int, replacement: Bool, base: NumberBase) {
+    init(id: JsonValue, apiKey: String, n: UInt, min: Int, max: Int, replacement: Bool) {
         self.id = id
         self.apiKey = apiKey
         self.n = n
         self.min = min
         self.max = max
         self.replacement = replacement
-        self.base = base
     }
     
 }

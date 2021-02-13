@@ -28,51 +28,11 @@ class HttpExchange<RequestData, ParsedResponse>: Http.RequestDataExchange<Reques
     
     func constructRequestObject(method: JsonString, params: JsonObject, id: JsonValue) -> JsonObject {
         var jsonObject = JsonObject()
-        jsonObject["jsonrpc"] = "2.0"
+        jsonObject["jsonrpc"] = JsonString(string: "2.0")
         jsonObject["method"] = method
         jsonObject["params"] = params
         jsonObject["id"] = id
         return jsonObject
-    }
-    
-    func transformNumberBase(_ numberBase: NumberBase) -> UInt {
-        switch numberBase {
-        case .binary:
-            return 2
-        case .octal:
-            return 8
-        case .decimal:
-            return 10
-        case .hexadecimal:
-            return 16
-        }
-    }
-    
-    func parseIntegers(dataArray: JsonArray, _ numberBase: NumberBase) throws -> [Int] {
-        var data: [Int] = []
-        switch numberBase {
-        case .binary:
-            let dataStringsArray = try dataArray.arrayStrings()
-            for string in dataStringsArray {
-                let number = Int(string, radix: 2) ?? 0
-                data.append(number)
-            }
-        case .octal:
-            let dataStringsArray = try dataArray.arrayStrings()
-            for string in dataStringsArray {
-                let number = Int(string, radix: 8) ?? 0
-                data.append(number)
-            }
-        case .decimal:
-            data = try dataArray.arrayNumbers().map({ try $0.int() })
-        case .hexadecimal:
-            let dataStringsArray = try dataArray.arrayStrings()
-            for string in dataStringsArray {
-                let number = Int(string, radix: 16) ?? 0
-                data.append(number)
-            }
-        }
-        return data
     }
 }
 }

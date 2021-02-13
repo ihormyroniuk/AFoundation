@@ -14,10 +14,10 @@ class JsonStringUnitTesting: XCTestCase {
 
     func testString() {
         let valueString = "string"
-        let value: JsonValue = valueString
+        let value: JsonString = JsonString(string: valueString)
         
         do {
-            let string = try value.string()
+            let string = try value.string().string
             
             XCTAssert(string == valueString, "Unexpected string \"\(String(describing: string))\" is found while string \"(\(String(describing: valueString))\" is expected")
         } catch {
@@ -27,7 +27,7 @@ class JsonStringUnitTesting: XCTestCase {
     
     func testNotString() {
         let valueNumber = Decimal(1)
-        let value: JsonValue = valueNumber
+        let value: JsonNumber = JsonNumber(decimal: valueNumber)
         
         do {
             let string = try value.string()

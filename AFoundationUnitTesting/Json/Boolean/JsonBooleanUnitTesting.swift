@@ -13,7 +13,7 @@ import Foundation
 class JsonBooleanUnitTesting: XCTestCase {
 
     func testBoolean() {
-        let valueBoolean = false
+        let valueBoolean = JsonBoolean(bool: false)
         let value: JsonValue = valueBoolean
         
         do {
@@ -26,7 +26,7 @@ class JsonBooleanUnitTesting: XCTestCase {
     }
     
     func testNotBoolean() {
-        let valueString = "string"
+        let valueString: JsonString = "string"
         let value: JsonValue = valueString
         
         do {

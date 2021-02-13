@@ -8,40 +8,14 @@
 
 import Foundation
 
-public typealias JsonNull = NSNull
-extension JsonNull: JsonValue { }
-
-public extension JsonValue {
+public class JsonNull: JsonValue {
+    public let null: NSNull = NSNull()
     
-    func null() throws -> JsonNull {
-        guard let null = self as? JsonNull else {
-            let error = JsonValueIsNotNullError(value: self)
-            throw error
-        }
-        return null
-    }
-    
-}
-
-public struct JsonValueIsNotNullError: LocalizedError {
-    
-    private let value: Any
-    
-    init(value: Any) {
-        self.value = value
-    }
-    
-}
-
-public class JsonNull1: JsonValue1 {
-    public let null: NSNull
-    
-    public init(null: NSNull) {
-        self.null = null
+    public override init() {
         super.init()
     }
     
-    public static func == (lhs: JsonNull1, rhs: JsonNull1) -> Bool {
+    public static func == (lhs: JsonNull, rhs: JsonNull) -> Bool {
         return lhs.null == rhs.null
     }
     

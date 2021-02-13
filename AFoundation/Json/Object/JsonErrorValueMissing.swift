@@ -11,21 +11,9 @@ import Foundation
 public struct JsonErrorValueMissing: LocalizedError {
     
     let object: JsonObject
-    let key: String
+    let key: JsonString
     
-    init(object: JsonObject, key: String) {
-        self.object = object
-        self.key = key
-    }
-    
-}
-
-public struct JsonErrorValueMissing1: LocalizedError {
-    
-    let object: JsonObject1
-    let key: JsonString1
-    
-    init(object: JsonObject1, key: JsonString1) {
+    init(object: JsonObject, key: JsonString) {
         self.object = object
         self.key = key
     }

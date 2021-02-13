@@ -17,14 +17,14 @@ class GenerateStringsHttpExchange: HttpExchange<GenerateStringsRequestData, Gene
         let version = Http.Version.http1dot1
         let headers = self.headers
         var params = JsonObject()
-        params["apiKey"] = requestData.apiKey
-        params["n"] = JsonNumber(requestData.n)
-        params["length"] = JsonNumber(requestData.lenght)
-        params["characters"] = requestData.characters
-        if let replacement = requestData.replacement { params["replacement"] = replacement }
+        params["apiKey"] = JsonString(string: requestData.apiKey)
+        params["n"] = JsonNumber(decimal: Decimal(requestData.n))
+        params["length"] = JsonNumber(decimal: Decimal(requestData.lenght))
+        params["characters"] = JsonString(string: requestData.characters)
+        if let replacement = requestData.replacement { params["replacement"] = JsonBoolean(bool: replacement) }
         let id = requestData.id
         let requestObject = constructRequestObject(method: "generateStrings", params: params, id: id)
-        let body = try JSONSerialization.data(jsonValue: requestObject)
+        let body = try JsonSerialization.data(jsonValue: requestObject)
         let request = Http.Request(method: method, uri: uri, version: version, headers: headers, body: body)
         return request
     }
@@ -36,26 +36,24 @@ class GenerateStringsHttpExchange: HttpExchange<GenerateStringsRequestData, Gene
             throw error
         }
         let body = httpResponse.body ?? Data()
-        let jsonValue = try JSONSerialization.json(data: body)
+        let jsonValue = try JsonSerialization.jsonValue(data: body)
         let response = try jsonValue.object()
         
         let resultJsonObject = try response.object("result")
         let random = try resultJsonObject.object("random")
-        let data = try random.array("data").arrayStrings()
+        let data: [String] = []// try random.array("data").arrayStrings()
         let completionTimeString = try random.string("completionTime")
         let iso8601DateFormatter = ISO8601DateFormatter()
         iso8601DateFormatter.formatOptions = [.withSpaceBetweenDateAndTime]
-        let completionTime = iso8601DateFormatter.date(from: completionTimeString)!
+        let completionTime = iso8601DateFormatter.date(from: completionTimeString.string)!
         let id = try response.value("id")
-        let bitsUsed = try resultJsonObject.number("bitsUsed").uint()
-        let bitsLeft = try resultJsonObject.number("bitsLeft").uint()
-        let requestsLeft = try resultJsonObject.number("requestsLeft").uint()
-        let advisoryDelay = try resultJsonObject.number("advisoryDelay").uint()
+        let bitsUsed = try resultJsonObject.number("bitsUsed").decimal.uint()
+        let bitsLeft = try resultJsonObject.number("bitsLeft").decimal.uint()
+        let requestsLeft = try resultJsonObject.number("requestsLeft").decimal.uint()
+        let advisoryDelay = try resultJsonObject.number("advisoryDelay").decimal.uint()
         
         let parsedResponse = GenerateStringsParsedResponse(id: id, data: data, completionTime: completionTime, bitsUsed: bitsUsed, bitsLeft: bitsLeft, requestsLeft: requestsLeft, advisoryDelay: advisoryDelay)
-        
-        let jsonValue1 = try JsonSerialization.jsonValue(data: body)
-        
+       
         return parsedResponse
     }
     

@@ -8,68 +8,42 @@
 
 import Foundation
 
-public typealias JsonObject = [JsonString: JsonValue]
-extension JsonObject: JsonValue { }
-
-public func ==(lhs: JsonObject, rhs: JsonObject) -> Bool {
-    return NSDictionary(dictionary: lhs).isEqual(to: rhs)
-}
-
-public func ==(lhs: JsonObject?, rhs: JsonObject) -> Bool {
-    guard let lhs = lhs else { return false }
-    return NSDictionary(dictionary: lhs).isEqual(to: rhs)
-}
-
-public extension JsonValue {
+public class JsonObject: JsonValue, ExpressibleByDictionaryLiteral {
     
-    func object() throws -> JsonObject {
-        guard let object = self as? JsonObject else {
-            let error = JsonValueIsNotObjectError(value: self)
-            throw error
-        }
-        return object
+    public var dictionary: [JsonString: JsonValue]
+    
+    public init(dictionary: [JsonString: JsonValue]) {
+        self.dictionary = dictionary
+        super.init()
     }
     
-}
-
-public struct JsonValueIsNotObjectError: LocalizedError {
+    // MARK: ExpressibleByDictionaryLiteral
     
-    private let value: JsonValue
+    public typealias Key = JsonString
     
-    init(value: JsonValue) {
-        self.value = value
-    }
+    public typealias Value = JsonValue
     
-}
-
-public class JsonObject1: JsonValue1, ExpressibleByDictionaryLiteral {
-    public typealias Key = JsonString1
-    public typealias Value = JsonValue1
-    
-    required public init(dictionaryLiteral elements: (JsonString1, JsonValue1)...) {
-        var dictionary: [JsonString1: JsonValue1] = [:]
+    required public init(dictionaryLiteral elements: (JsonString, JsonValue)...) {
+        var dictionary: [JsonString: JsonValue] = [:]
         for element in elements {
             dictionary[element.0] = element.1
         }
         self.dictionary = dictionary
     }
     
-    public var dictionary: [JsonString1: JsonValue1]
+    // MARK: Equatable
     
-    public init(dictionary: [JsonString1: JsonValue1]) {
-        self.dictionary = dictionary
-        super.init()
-    }
-    
-    public static func == (lhs: JsonObject1, rhs: JsonObject1) -> Bool {
+    public static func == (lhs: JsonObject, rhs: JsonObject) -> Bool {
         return lhs.dictionary == rhs.dictionary
     }
+    
+    // MARK: Hashable
     
     public override func hash(into hasher: inout Hasher) {
         hasher.combine(dictionary)
     }
     
-    subscript(index: JsonString1) -> JsonValue1? {
+    public subscript(index: JsonString) -> JsonValue? {
         get {
             return dictionary[index]
         }
@@ -78,152 +52,152 @@ public class JsonObject1: JsonValue1, ExpressibleByDictionaryLiteral {
         }
     }
     
-    func value(_ key: JsonString1) throws -> JsonValue1 {
+    public func value(_ key: JsonString) throws -> JsonValue {
         let optionalValue = self[key]
         guard let value = optionalValue else {
-            let error = JsonErrorValueMissing1(object: self, key: key)
+            let error = JsonErrorValueMissing(object: self, key: key)
             throw error
         }
         return value
     }
     
-    func string(_ key: JsonString1) throws -> JsonString1 {
+    public func string(_ key: JsonString) throws -> JsonString {
         let value = self[key]
-        guard let string = value as? JsonString1 else {
+        guard let string = value as? JsonString else {
             if value == nil {
-                let error = JsonErrorValueMissing1(object: self, key: key)
+                let error = JsonErrorValueMissing(object: self, key: key)
                 throw error
             } else {
-                let error = JsonValueIsNotStringError1(value: value!)
+                let error = JsonValueIsNotStringError(value: value!)
                 throw error
             }
         }
         return string
     }
 
-    func optionalString(_ key: JsonString1) throws -> JsonString1? {
+    public func optionalString(_ key: JsonString) throws -> JsonString? {
         let value = self[key]
-        if let string = value as? JsonString1 {
+        if let string = value as? JsonString {
             return string
-        } else if value is JsonNull1 {
+        } else if value is JsonNull {
             return nil
         } else if value == nil {
-            let error = JsonErrorValueMissing1(object: self, key: key)
+            let error = JsonErrorValueMissing(object: self, key: key)
             throw error
         }
-        let error = JsonValueIsNotStringError1(value: value!)
+        let error = JsonValueIsNotStringError(value: value!)
         throw error
     }
     
-    func number(_ key: JsonString1) throws -> JsonNumber1 {
+    public func number(_ key: JsonString) throws -> JsonNumber {
         let value = self[key]
-        guard let number = value as? JsonNumber1 else {
+        guard let number = value as? JsonNumber else {
             if value == nil {
-                let error = JsonErrorValueMissing1(object: self, key: key)
+                let error = JsonErrorValueMissing(object: self, key: key)
                 throw error
             } else {
-                let error = JsonValueIsNotNumberError1(value: value!)
+                let error = JsonValueIsNotNumberError(value: value!)
                 throw error
             }
         }
         return number
     }
 
-    func optionalNumber(_ key: JsonString1) throws -> JsonNumber1? {
+    public func optionalNumber(_ key: JsonString) throws -> JsonNumber? {
         let value = self[key]
-        if let number = value as? JsonNumber1 {
+        if let number = value as? JsonNumber {
             return number
-        } else if value is JsonNull1 {
+        } else if value is JsonNull {
             return nil
         } else if value == nil {
-            let error = JsonErrorValueMissing1(object: self, key: key)
+            let error = JsonErrorValueMissing(object: self, key: key)
             throw error
         }
-        let error = JsonValueIsNotNumberError1(value: value!)
+        let error = JsonValueIsNotNumberError(value: value!)
         throw error
     }
     
-    func object(_ key: JsonString1) throws -> JsonObject1 {
+    public func object(_ key: JsonString) throws -> JsonObject {
         let value = self[key]
-        guard let object = value as? JsonObject1 else {
+        guard let object = value as? JsonObject else {
             if value == nil {
-                let error = JsonErrorValueMissing1(object: self, key: key)
+                let error = JsonErrorValueMissing(object: self, key: key)
                 throw error
             } else {
-                let error = JsonValueIsNotObjectError1(value: value!)
+                let error = JsonValueIsNotObjectError(value: value!)
                 throw error
             }
         }
         return object
     }
 
-    func optionalObject(_ key: JsonString1) throws -> JsonObject1? {
+    public func optionalObject(_ key: JsonString) throws -> JsonObject? {
         let value = self[key]
-        if let object = value as? JsonObject1 {
+        if let object = value as? JsonObject {
             return object
-        } else if value is JsonNull1 {
+        } else if value is JsonNull {
             return nil
         } else if value == nil {
-            let error = JsonErrorValueMissing1(object: self, key: key)
+            let error = JsonErrorValueMissing(object: self, key: key)
             throw error
         }
-        let error = JsonValueIsNotObjectError1(value: value!)
+        let error = JsonValueIsNotObjectError(value: value!)
         throw error
     }
     
-    func array(_ key: JsonString1) throws -> JsonArray1 {
+    public func array(_ key: JsonString) throws -> JsonArray {
         let value = self[key]
-        guard let array = value as? JsonArray1 else {
+        guard let array = value as? JsonArray else {
             if value == nil {
-                let error = JsonErrorValueMissing1(object: self, key: key)
+                let error = JsonErrorValueMissing(object: self, key: key)
                 throw error
             } else {
-                let error = JsonValueIsNotArrayError1(value: value!)
+                let error = JsonValueIsNotArrayError(value: value!)
                 throw error
             }
         }
         return array
     }
 
-    func optionalArray(_ key: JsonString1) throws -> JsonArray1? {
+    public func optionalArray(_ key: JsonString) throws -> JsonArray? {
         let value = self[key]
-        if let array = value as? JsonArray1 {
+        if let array = value as? JsonArray {
             return array
-        } else if value is JsonNull1 {
+        } else if value is JsonNull {
             return nil
         } else if value == nil {
-            let error = JsonErrorValueMissing1(object: self, key: key)
+            let error = JsonErrorValueMissing(object: self, key: key)
             throw error
         }
-        let error = JsonValueIsNotArrayError1(value: value!)
+        let error = JsonValueIsNotArrayError(value: value!)
         throw error
     }
     
-    func boolean(_ key: JsonString1) throws -> JsonBoolean1 {
+    public func boolean(_ key: JsonString) throws -> JsonBoolean {
         let value = self[key]
-        guard let boolean = value as? JsonBoolean1 else {
+        guard let boolean = value as? JsonBoolean else {
             if value == nil {
-                let error = JsonErrorValueMissing1(object: self, key: key)
+                let error = JsonErrorValueMissing(object: self, key: key)
                 throw error
             } else {
-                let error = JsonValueIsNotBooleanError1(value: value!)
+                let error = JsonValueIsNotBooleanError(value: value!)
                 throw error
             }
         }
         return boolean
     }
 
-    func optionalBoolean(_ key: JsonString1) throws -> JsonBoolean1? {
+    public func optionalBoolean(_ key: JsonString) throws -> JsonBoolean? {
         let value = self[key]
-        if let boolean = value as? JsonBoolean1 {
+        if let boolean = value as? JsonBoolean {
             return boolean
-        } else if value is JsonNull1 {
+        } else if value is JsonNull {
             return nil
         } else if value == nil {
-            let error = JsonErrorValueMissing1(object: self, key: key)
+            let error = JsonErrorValueMissing(object: self, key: key)
             throw error
         }
-        let error = JsonValueIsNotBooleanError1(value: value!)
+        let error = JsonValueIsNotBooleanError(value: value!)
         throw error
     }
 }

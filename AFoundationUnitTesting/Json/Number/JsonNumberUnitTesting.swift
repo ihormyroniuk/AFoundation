@@ -13,10 +13,10 @@ class JsonNumberUnitTesting: XCTestCase {
 
     func testNumber() {
         let valueNumber = Decimal(1)
-        let value: JsonValue = valueNumber
+        let value: JsonValue = JsonNumber(decimal: valueNumber)
         
         do {
-            let number = try value.number()
+            let number = try value.number().decimal
             
             XCTAssert(number == valueNumber, "Unexpected number \"\(String(describing: number))\" is found while number \"(\(String(describing: valueNumber))\" is expected")
         } catch {
@@ -26,7 +26,7 @@ class JsonNumberUnitTesting: XCTestCase {
     
     func testNotNumber() {
         let valueString = "string"
-        let value: JsonValue = valueString
+        let value: JsonValue = JsonString(string: valueString)
         
         do {
             let string = try value.number()
