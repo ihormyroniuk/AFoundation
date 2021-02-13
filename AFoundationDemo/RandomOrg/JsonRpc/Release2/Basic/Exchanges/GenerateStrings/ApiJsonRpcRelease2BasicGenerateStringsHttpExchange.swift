@@ -54,6 +54,8 @@ class GenerateStringsHttpExchange: HttpExchange<GenerateStringsRequestData, Gene
         
         let parsedResponse = GenerateStringsParsedResponse(id: id, data: data, completionTime: completionTime, bitsUsed: bitsUsed, bitsLeft: bitsLeft, requestsLeft: requestsLeft, advisoryDelay: advisoryDelay)
         
+        let jsonValue1 = try JsonSerialization.jsonValue(data: body)
+        
         return parsedResponse
     }
     

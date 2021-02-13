@@ -31,6 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         dataTask.resume()
         
+        let jsonValue1 = JsonString1(string: "string1")
+        let jsonValue2 = JsonString1(string: "string2")
+        if jsonValue1 == jsonValue2 {
+            print("sfdsf")
+        } else {
+            print("dsfdsf")
+        }
         return true
     }
 
