@@ -52,34 +52,6 @@ func JsonValueFrom(_ any: Any) -> JsonValue? {
     return nil
 }
 
-
-
-
-
-
-
-
-public enum JsonSerialization {
-    
-    public static func jsonValue(data: Data) throws -> JsonValue1 {
-        let any: Any
-        do { any  = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed]) } catch {
-            let error = DataIsNotJsonError(data: data)
-            throw error
-        }
-        guard let jsonValue = JsonValue1.from(any) else {
-            let error = DataIsNotJsonError(data: data)
-            throw error
-        }
-        return jsonValue
-    }
-    
-    public static func data(jsonValue: JsonValue1) throws -> Data {
-        let data = try JSONSerialization.data(withJSONObject: jsonValue, options: [.fragmentsAllowed])
-        return data
-    }
-    
-}
 /**
     Implemented based on https://www.json.org/json-en.html
  */
@@ -155,106 +127,112 @@ public class JsonValue1: Equatable, Hashable {
         }
         return nil
     }
-}
-
-public class JsonString1: JsonValue1 {
-    public let string: String
     
-    public init(string: String) {
-        self.string = string
-        super.init()
+    func string() throws -> JsonString1 {
+        guard let string = self as? JsonString1 else {
+            let error = JsonValueIsNotStringError1(value: self)
+            throw error
+        }
+        return string
     }
     
-    public static func == (lhs: JsonString1, rhs: JsonString1) -> Bool {
-        return lhs.string == rhs.string
+    func number() throws -> JsonNumber1 {
+        guard let number = self as? JsonNumber1 else {
+            let error = JsonValueIsNotNumberError1(value: self)
+            throw error
+        }
+        return number
     }
     
-    public override func hash(into hasher: inout Hasher) {
-        hasher.combine(string)
-    }
-}
-
-public class JsonNumber1: JsonValue1 {
-    public let decimal: Decimal
-    
-    public init(decimal: Decimal) {
-        self.decimal = decimal
-        super.init()
+    func object() throws -> JsonObject1 {
+        guard let object = self as? JsonObject1 else {
+            let error = JsonValueIsNotObjectError1(value: self)
+            throw error
+        }
+        return object
     }
     
-    public static func == (lhs: JsonNumber1, rhs: JsonNumber1) -> Bool {
-        return lhs.decimal == rhs.decimal
+    func array() throws -> JsonArray1 {
+        guard let array = self as? JsonArray1 else {
+            let error = JsonValueIsNotArrayError1(value: self)
+            throw error
+        }
+        return array
     }
     
-    public override func hash(into hasher: inout Hasher) {
-        hasher.combine(decimal)
-    }
-}
-
-public class JsonObject1: JsonValue1 {
-    public let dictionary: [JsonString1: JsonValue1]
-    
-    public init(dictionary: [JsonString1: JsonValue1]) {
-        self.dictionary = dictionary
-        super.init()
+    func boolean() throws -> JsonBoolean1 {
+        guard let boolean = self as? JsonBoolean1 else {
+            let error = JsonValueIsNotBooleanError1(value: self)
+            throw error
+        }
+        return boolean
     }
     
-    public static func == (lhs: JsonObject1, rhs: JsonObject1) -> Bool {
-        return lhs.dictionary == rhs.dictionary
-    }
-    
-    public override func hash(into hasher: inout Hasher) {
-        hasher.combine(dictionary)
+    func null() throws -> JsonNull1 {
+        guard let null = self as? JsonNull1 else {
+            let error = JsonValueIsNotNullError1(value: self)
+            throw error
+        }
+        return null
     }
 }
 
-public class JsonArray1: JsonValue1 {
-    public let array: [JsonValue1]
+public struct JsonValueIsNotStringError1: Error {
     
-    public init(array: [JsonValue1]) {
-        self.array = array
-        super.init()
+    private let value: JsonValue1
+    
+    init(value: JsonValue1) {
+        self.value = value
     }
     
-    public static func == (lhs: JsonArray1, rhs: JsonArray1) -> Bool {
-        return lhs.array == rhs.array
-    }
-    
-    public override func hash(into hasher: inout Hasher) {
-        hasher.combine(array)
-    }
 }
 
-public class JsonBoolean1: JsonValue1 {
-    public let bool: Bool
+public struct JsonValueIsNotNumberError1: LocalizedError {
     
-    public init(bool: Bool) {
-        self.bool = bool
-        super.init()
+    private let value: JsonValue1
+    
+    init(value: JsonValue1) {
+        self.value = value
     }
     
-    public static func == (lhs: JsonBoolean1, rhs: JsonBoolean1) -> Bool {
-        return lhs.bool == rhs.bool
-    }
-    
-    public override func hash(into hasher: inout Hasher) {
-        hasher.combine(bool)
-    }
 }
 
-public class JsonNull1: JsonValue1 {
-    public let null: NSNull
+public struct JsonValueIsNotObjectError1: LocalizedError {
     
-    public init(null: NSNull) {
-        self.null = null
-        super.init()
+    private let value: JsonValue1
+    
+    init(value: JsonValue1) {
+        self.value = value
     }
     
-    public static func == (lhs: JsonNull1, rhs: JsonNull1) -> Bool {
-        return lhs.null == rhs.null
+}
+
+public struct JsonValueIsNotArrayError1: LocalizedError {
+    
+    private let value: JsonValue1
+    
+    init(value: JsonValue1) {
+        self.value = value
     }
     
-    public override func hash(into hasher: inout Hasher) {
-        hasher.combine(null)
+}
+
+public struct JsonValueIsNotBooleanError1: LocalizedError {
+    
+    private let value: JsonValue1
+    
+    init(value: JsonValue1) {
+        self.value = value
     }
+    
+}
+
+public struct JsonValueIsNotNullError1: LocalizedError {
+    
+    private let value: JsonValue1
+    
+    init(value: JsonValue1) {
+        self.value = value
+    }
+    
 }

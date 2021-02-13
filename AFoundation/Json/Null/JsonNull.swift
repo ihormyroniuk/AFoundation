@@ -32,3 +32,20 @@ public struct JsonValueIsNotNullError: LocalizedError {
     }
     
 }
+
+public class JsonNull1: JsonValue1 {
+    public let null: NSNull
+    
+    public init(null: NSNull) {
+        self.null = null
+        super.init()
+    }
+    
+    public static func == (lhs: JsonNull1, rhs: JsonNull1) -> Bool {
+        return lhs.null == rhs.null
+    }
+    
+    public override func hash(into hasher: inout Hasher) {
+        hasher.combine(null)
+    }
+}

@@ -19,3 +19,15 @@ public struct JsonErrorValueMissing: LocalizedError {
     }
     
 }
+
+public struct JsonErrorValueMissing1: LocalizedError {
+    
+    let object: JsonObject1
+    let key: JsonString1
+    
+    init(object: JsonObject1, key: JsonString1) {
+        self.object = object
+        self.key = key
+    }
+    
+}

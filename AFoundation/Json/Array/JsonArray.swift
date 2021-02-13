@@ -41,3 +41,30 @@ public struct JsonValueIsNotArrayError: LocalizedError {
     }
     
 }
+
+public class JsonArray1: JsonValue1 {
+    public var array: [JsonValue1]
+    
+    public init(array: [JsonValue1]) {
+        self.array = array
+        super.init()
+    }
+    
+    public static func == (lhs: JsonArray1, rhs: JsonArray1) -> Bool {
+        return lhs.array == rhs.array
+    }
+    
+    public override func hash(into hasher: inout Hasher) {
+        hasher.combine(array)
+    }
+    
+    subscript(index: Int) -> JsonValue1 {
+        get {
+            return array[index]
+        }
+        set(newValue) {
+            array[index] = newValue
+        }
+    }
+    
+}

@@ -32,3 +32,20 @@ public struct JsonValueIsNotBooleanError: LocalizedError {
     }
     
 }
+
+public class JsonBoolean1: JsonValue1 {
+    public let bool: Bool
+    
+    public init(bool: Bool) {
+        self.bool = bool
+        super.init()
+    }
+    
+    public static func == (lhs: JsonBoolean1, rhs: JsonBoolean1) -> Bool {
+        return lhs.bool == rhs.bool
+    }
+    
+    public override func hash(into hasher: inout Hasher) {
+        hasher.combine(bool)
+    }
+}

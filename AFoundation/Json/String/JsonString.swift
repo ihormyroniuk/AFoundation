@@ -23,6 +23,35 @@ public extension JsonValue {
 
 }
 
+public class JsonString1: JsonValue1, ExpressibleByStringLiteral {
+    
+    public let string: String
+    
+    public convenience init(string: String) {
+        self.init(stringLiteral: string)
+    }
+    
+    // MARK: ExpressibleByStringLiteral
+    public typealias StringLiteralType = String
+    
+    required public init(stringLiteral string: String) {
+        self.string = string
+        super.init()
+    }
+    
+    // MARK: Equatable
+    
+    public static func == (lhs: JsonString1, rhs: JsonString1) -> Bool {
+        return lhs.string == rhs.string
+    }
+    
+    // MARK: Hashable
+    
+    public override func hash(into hasher: inout Hasher) {
+        hasher.combine(string)
+    }
+}
+
 public struct JsonValueIsNotStringError: Error {
     
     private let value: JsonValue
