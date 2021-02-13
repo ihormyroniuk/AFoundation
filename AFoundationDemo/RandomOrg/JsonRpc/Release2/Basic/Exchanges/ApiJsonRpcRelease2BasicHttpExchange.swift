@@ -27,8 +27,8 @@ class HttpExchange<RequestData, ParsedResponse>: Http.RequestDataExchange<Reques
     var headers: [String: String] = [Http.HeaderField.contentType: MediaType.Application.Json.template]
     
     func constructRequestObject(method: JsonString, params: JsonObject, id: JsonValue) -> JsonObject {
-        var jsonObject = JsonObject()
-        jsonObject["jsonrpc"] = JsonString(string: "2.0")
+        let jsonObject = JsonObject()
+        jsonObject["jsonrpc"] = JsonString("2.0")
         jsonObject["method"] = method
         jsonObject["params"] = params
         jsonObject["id"] = id

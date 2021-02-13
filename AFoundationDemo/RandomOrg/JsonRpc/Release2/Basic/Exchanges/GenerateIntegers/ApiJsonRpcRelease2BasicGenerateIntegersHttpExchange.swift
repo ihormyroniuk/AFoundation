@@ -17,8 +17,8 @@ class GenerateIntegersHttpExchange: HttpExchange<GenerateIntegersRequestData, Ge
         let version = Http.Version.http1dot1
         let headers = self.headers
         var params = JsonObject()
-        params["apiKey"] = JsonString(string: requestData.apiKey)
-        params["n"] = JsonNumber(decimal: Decimal(requestData.n))
+        params["apiKey"] = JsonString(requestData.apiKey)
+        params["n"] = JsonNumber(Decimal(requestData.n))
         params["min"] = JsonNumber(integerLiteral: requestData.min)
         params["max"] = JsonNumber(integerLiteral: requestData.max)
         if let replacement = requestData.replacement { params["replacement"] = JsonBoolean(bool:  replacement) }
