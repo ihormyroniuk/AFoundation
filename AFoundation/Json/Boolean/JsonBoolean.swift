@@ -8,19 +8,18 @@
 
 import Foundation
 
-public class JsonBoolean: JsonValue {
+public class JsonBoolean: Equatable, Hashable {
     public let bool: Bool
     
     public init(bool: Bool) {
         self.bool = bool
-        super.init()
     }
     
     public static func == (lhs: JsonBoolean, rhs: JsonBoolean) -> Bool {
         return lhs.bool == rhs.bool
     }
     
-    public override func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(bool)
     }
 }

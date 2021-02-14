@@ -8,13 +8,12 @@
 
 import Foundation
 
-public final class JsonNumber: JsonValue, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral {
+public final class JsonNumber: Equatable, Hashable, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral {
     
     public let decimal: Decimal
     
     public required init(_ decimal: Decimal) {
         self.decimal = decimal
-        super.init()
     }
     
     // MARK: ExpressibleByFloatLiteral
@@ -23,7 +22,6 @@ public final class JsonNumber: JsonValue, ExpressibleByIntegerLiteral, Expressib
     
     public required init(floatLiteral value: Double) {
         self.decimal = Decimal(value)
-        super.init()
     }
     
     // MARK: ExpressibleByIntegerLiteral
@@ -32,7 +30,6 @@ public final class JsonNumber: JsonValue, ExpressibleByIntegerLiteral, Expressib
     
     public required init(integerLiteral value: Int) {
         self.decimal = Decimal(value)
-        super.init()
     }
     
     // MARK: Equatable
@@ -43,7 +40,7 @@ public final class JsonNumber: JsonValue, ExpressibleByIntegerLiteral, Expressib
     
     // MARK: Hashable
     
-    public override func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(decimal)
     }
 }

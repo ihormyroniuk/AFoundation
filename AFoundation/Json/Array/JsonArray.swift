@@ -8,23 +8,22 @@
 
 import Foundation
 
-public final class JsonArray: JsonValue {
-    public var array: [JsonValue]
+public final class JsonArray: Equatable, Hashable {
+    public var array: [JsonValueContainer]
     
-    public init(array: [JsonValue]) {
+    public init(array: [JsonValueContainer]) {
         self.array = array
-        super.init()
     }
     
     public static func == (lhs: JsonArray, rhs: JsonArray) -> Bool {
         return lhs.array == rhs.array
     }
     
-    public override func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(array)
     }
     
-    subscript(index: Int) -> JsonValue {
+    subscript(index: Int) -> JsonValueContainer {
         get {
             return array[index]
         }

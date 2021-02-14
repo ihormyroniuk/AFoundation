@@ -8,18 +8,14 @@
 
 import Foundation
 
-public class JsonNull: JsonValue {
+public class JsonNull: Equatable, Hashable {
     public let null: NSNull = NSNull()
     
-    public override init() {
-        super.init()
-    }
-    
     public static func == (lhs: JsonNull, rhs: JsonNull) -> Bool {
-        return lhs.null == rhs.null
+        return true
     }
     
-    public override func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(null)
     }
 }

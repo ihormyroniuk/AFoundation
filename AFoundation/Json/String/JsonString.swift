@@ -8,22 +8,20 @@
 
 import Foundation
 
-public final class JsonString: JsonValue, ExpressibleByStringLiteral {
+public struct JsonString: Equatable, Hashable, ExpressibleByStringLiteral {
     
     public let string: String
     
     public init(_ string: String) {
         self.string = string
-        super.init()
     }
     
     // MARK: ExpressibleByStringLiteral
     
     public typealias StringLiteralType = String
     
-    required public init(stringLiteral string: String) {
+    public init(stringLiteral string: String) {
         self.string = string
-        super.init()
     }
     
     // MARK: Equatable
@@ -34,7 +32,7 @@ public final class JsonString: JsonValue, ExpressibleByStringLiteral {
     
     // MARK: Hashable
     
-    public override func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(string)
     }
 }

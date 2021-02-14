@@ -11,7 +11,7 @@ import AFoundation
 extension Api.JsonRpc.Release2.Basic {
 struct GenerateStringsParsedResponse {
     
-    let id: JsonValue
+    let id: JsonValueContainer
     let data: [String]
     let completionTime: Date
     let bitsUsed: UInt

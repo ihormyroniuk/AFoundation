@@ -17,14 +17,16 @@ class GenerateIntegersHttpExchange: HttpExchange<GenerateIntegersRequestData, Ge
         let version = Http.Version.http1dot1
         let headers = self.headers
         var params = JsonObject()
-        params["apiKey"] = JsonString(requestData.apiKey)
-        params["n"] = JsonNumber(Decimal(requestData.n))
-        params["min"] = JsonNumber(integerLiteral: requestData.min)
-        params["max"] = JsonNumber(integerLiteral: requestData.max)
-        if let replacement = requestData.replacement { params["replacement"] = JsonBoolean(bool:  replacement) }
+        params.setString(JsonString(requestData.apiKey), for: "apiKey")
+        params.setNumber(JsonNumber(Decimal(requestData.n)), for: "n")
+        params.setNumber(JsonNumber(integerLiteral: requestData.min), for: "min")
+        params.setNumber(JsonNumber(integerLiteral: requestData.max), for: "max")
+        if let replacement = requestData.replacement {
+            params.setBoolean(JsonBoolean(bool:  replacement), for: "replacement")
+        }
         let id = requestData.id
         let requestObject = constructRequestObject(method: "generateIntegers", params: params, id: id)
-        let body = try JsonSerialization.data(jsonValue: requestObject)
+        let body = try JsonSerialization.data(requestObject)
         let request = Http.Request(method: method, uri: uri, version: version, headers: headers, body: body)
         return request
     }

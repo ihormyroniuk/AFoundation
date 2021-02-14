@@ -17,14 +17,16 @@ class GenerateStringsHttpExchange: HttpExchange<GenerateStringsRequestData, Gene
         let version = Http.Version.http1dot1
         let headers = self.headers
         var params = JsonObject()
-        params["apiKey"] = JsonString(requestData.apiKey)
-        params["n"] = JsonNumber(Decimal(requestData.n))
-        params["length"] = JsonNumber(Decimal(requestData.lenght))
-        params["characters"] = JsonString(requestData.characters)
-        if let replacement = requestData.replacement { params["replacement"] = JsonBoolean(bool: replacement) }
+        params.setString(JsonString(requestData.apiKey), for: "apiKey")
+        params.setNumber(JsonNumber(Decimal(requestData.n)), for: "n")
+        params.setNumber(JsonNumber(Decimal(requestData.lenght)), for: "length")
+        params.setString(JsonString(requestData.characters), for: "characters")
+        if let replacement = requestData.replacement {
+            params.setBoolean(JsonBoolean(bool:  replacement), for: "replacement")
+        }
         let id = requestData.id
         let requestObject = constructRequestObject(method: "generateStrings", params: params, id: id)
-        let body = try JsonSerialization.data(jsonValue: requestObject)
+        let body = try JsonSerialization.data(requestObject)
         let request = Http.Request(method: method, uri: uri, version: version, headers: headers, body: body)
         return request
     }

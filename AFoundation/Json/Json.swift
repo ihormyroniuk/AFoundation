@@ -11,111 +11,95 @@ import Foundation
 /**
     Implemented based on https://www.json.org/json-en.html
  */
-public class JsonValue: Equatable, Hashable {
-    init() {
-        
+public enum JsonValueContainer: Equatable, Hashable {
+    
+    // MARK: String
+    
+    case string(JsonString)
+    
+    init(_ string: JsonString) {
+        self = .string(string)
     }
     
-    public static func == (lhs: JsonValue, rhs: JsonValue) -> Bool {
-        if let lhsJsonString = lhs as? JsonString, let rhsJsonString = rhs as? JsonString {
-            return lhsJsonString == rhsJsonString
-        }
-        if let lhsJsonNumber = lhs as? JsonNumber, let rhsJsonNumber = rhs as? JsonNumber {
-            return lhsJsonNumber == rhsJsonNumber
-        }
-        if let lhsJsonObject = lhs as? JsonObject, let rhsJsonObject = rhs as? JsonObject {
-            return lhsJsonObject == rhsJsonObject
-        }
-        if let lhsJsonArray = lhs as? JsonArray, let rhsJsonArray = rhs as? JsonArray {
-            return lhsJsonArray == rhsJsonArray
-        }
-        if let lhsJsonBoolean = lhs as? JsonBoolean, let rhsJsonBoolean = rhs as? JsonBoolean {
-            return lhsJsonBoolean == rhsJsonBoolean
-        }
-        if let lhsJsonNull = lhs as? JsonNull, let rhsJsonNull = rhs as? JsonNull {
-            return lhsJsonNull == rhsJsonNull
-        }
-        return false
+    // MARK: Number
+    
+    case number(JsonNumber)
+    
+    init(_ number: JsonNumber) {
+        self = .number(number)
     }
     
-    public func hash(into hasher: inout Hasher) { }
+    // MARK: Object
     
-    static func toAny(_ jsonValue: JsonValue) -> Any {
-        if let jsonsString = jsonValue as? JsonString {
-            return jsonsString.string
-        }
-        if let jsonNumber = jsonValue as? JsonNumber {
-            return jsonNumber.decimal
-        }
-        if let jsonObject = jsonValue as? JsonObject {
-            var dictionaryStringAny: [String: Any] = [:]
-            for (jsonString, jsonValue) in jsonObject.dictionary {
-                dictionaryStringAny[jsonString.string] = toAny(jsonValue)
-            }
-            return dictionaryStringAny
-        }
-        if let jsonArray = jsonValue as? JsonArray {
-            var arrayAny: [Any] = []
-            for jsonValue in jsonArray.array {
-                arrayAny.append(toAny(jsonValue))
-            }
-            return arrayAny
-        }
-        if let jsonBoolean = jsonValue as? JsonBoolean {
-            return jsonBoolean.bool
-        }
-        if let jsonNull = jsonValue as? JsonNull {
-            return jsonNull.null
-        }
-        fatalError()
+    case object(JsonObject)
+    
+    init(_ object: JsonObject) {
+        self = .object(object)
     }
     
-    static func from(_ any: Any) -> JsonValue? {
-        if let string = any as? String {
-            return JsonString(string)
+    // MARK: Array
+    
+    case array(JsonArray)
+    
+    init(_ array: JsonArray) {
+        self = .array(array)
+    }
+    
+    // MARK: Array
+    
+    case boolean(JsonBoolean)
+    
+    init(_ boolean: JsonBoolean) {
+        self = .boolean(boolean)
+    }
+    
+    // MARK: Array
+    
+    case null
+    private static let nsNull = NSNull()
+    
+    // MARK: Equatable
+    
+    public static func == (lhs: JsonValueContainer, rhs: JsonValueContainer) -> Bool {
+        switch (lhs, rhs) {
+        case (let .string(lhsString), let .string(rhsString)):
+            return lhsString == rhsString
+        case (let .number(lhsNumber), let .number(rhsNumber)):
+            return lhsNumber == rhsNumber
+        case (let .object(lhsObject), let .object(rhsObject)):
+            return lhsObject == rhsObject
+        case (let .array(lhsArray), let .array(rhsArray)):
+            return lhsArray == rhsArray
+        case (let .boolean(lhsBoolean), let .boolean(rhsBoolean)):
+            return lhsBoolean == rhsBoolean
+        case (.null, .null):
+            return true
+        default:
+            return false
         }
-        if let nsString = any as? NSString {
-            let string = nsString as String
-            return JsonString(string)
+    }
+    
+    // MARK: Hashable
+    
+    public func hash(into hasher: inout Hasher) {
+        switch self {
+        case let .string(string):
+            hasher.combine(string)
+        case let .number(number):
+            hasher.combine(number)
+        case let .object(object):
+            hasher.combine(object)
+        case let .array(array):
+            hasher.combine(array)
+        case let .boolean(boolean):
+            hasher.combine(boolean)
+        case .null:
+            hasher.combine(JsonValueContainer.nsNull)
         }
-        if let decimal = any as? Decimal {
-            return JsonNumber(decimal)
-        }
-        if let nsNumber = any as? NSNumber, nsNumber !== kCFBooleanTrue, nsNumber !== kCFBooleanFalse {
-            let decimal = nsNumber.decimalValue
-            return JsonNumber(decimal)
-        }
-        if let dictionaryStringAny = any as? [String: Any] {
-            var dictionaryJsonStringJsonValue: [JsonString: JsonValue] = [:]
-            for (string, any) in dictionaryStringAny {
-                guard let jsonValue = from(any) else {
-                    return nil
-                }
-                dictionaryJsonStringJsonValue[JsonString( string)] = jsonValue
-            }
-            return JsonObject(dictionary: dictionaryJsonStringJsonValue)
-        }
-        if let arrayAny = any as? [Any] {
-            var arrayJsonValue: [JsonValue] = []
-            for any in arrayAny {
-                guard let jsonValue = from(any) else {
-                    return nil
-                }
-                arrayJsonValue.append(jsonValue)
-            }
-            return JsonArray(array: arrayJsonValue)
-        }
-        if let bool = any as? Bool {
-            return JsonBoolean(bool: bool)
-        }
-        if any is NSNull {
-            return JsonNull()
-        }
-        return nil
     }
     
     public func string() throws -> JsonString {
-        guard let string = self as? JsonString else {
+        guard case .string(let string) = self else {
             let error = JsonValueIsNotStringError(value: self)
             throw error
         }
@@ -123,7 +107,7 @@ public class JsonValue: Equatable, Hashable {
     }
     
     public func number() throws -> JsonNumber {
-        guard let number = self as? JsonNumber else {
+        guard case .number(let number) = self else {
             let error = JsonValueIsNotNumberError(value: self)
             throw error
         }
@@ -131,7 +115,7 @@ public class JsonValue: Equatable, Hashable {
     }
     
     public func object() throws -> JsonObject {
-        guard let object = self as? JsonObject else {
+        guard case .object(let object) = self else {
             let error = JsonValueIsNotObjectError(value: self)
             throw error
         }
@@ -139,7 +123,7 @@ public class JsonValue: Equatable, Hashable {
     }
     
     public func array() throws -> JsonArray {
-        guard let array = self as? JsonArray else {
+        guard case .array(let array) = self else {
             let error = JsonValueIsNotArrayError(value: self)
             throw error
         }
@@ -147,7 +131,7 @@ public class JsonValue: Equatable, Hashable {
     }
     
     public func boolean() throws -> JsonBoolean {
-        guard let boolean = self as? JsonBoolean else {
+        guard case .boolean(let boolean) = self else {
             let error = JsonValueIsNotBooleanError(value: self)
             throw error
         }
@@ -155,19 +139,19 @@ public class JsonValue: Equatable, Hashable {
     }
     
     public func null() throws -> JsonNull {
-        guard let null = self as? JsonNull else {
+        guard case .null = self else {
             let error = JsonValueIsNotNullError(value: self)
             throw error
         }
-        return null
+        return JsonNull()
     }
 }
 
 public struct JsonValueIsNotStringError: Error {
     
-    private let value: JsonValue
+    private let value: JsonValueContainer
     
-    init(value: JsonValue) {
+    init(value: JsonValueContainer) {
         self.value = value
     }
     
@@ -175,9 +159,9 @@ public struct JsonValueIsNotStringError: Error {
 
 public struct JsonValueIsNotNumberError: LocalizedError {
     
-    private let value: JsonValue
+    private let value: JsonValueContainer
     
-    init(value: JsonValue) {
+    init(value: JsonValueContainer) {
         self.value = value
     }
     
@@ -185,9 +169,9 @@ public struct JsonValueIsNotNumberError: LocalizedError {
 
 public struct JsonValueIsNotObjectError: LocalizedError {
     
-    private let value: JsonValue
+    private let value: JsonValueContainer
     
-    init(value: JsonValue) {
+    init(value: JsonValueContainer) {
         self.value = value
     }
     
@@ -195,9 +179,9 @@ public struct JsonValueIsNotObjectError: LocalizedError {
 
 public struct JsonValueIsNotArrayError: LocalizedError {
     
-    private let value: JsonValue
+    private let value: JsonValueContainer
     
-    init(value: JsonValue) {
+    init(value: JsonValueContainer) {
         self.value = value
     }
     
@@ -205,9 +189,9 @@ public struct JsonValueIsNotArrayError: LocalizedError {
 
 public struct JsonValueIsNotBooleanError: LocalizedError {
     
-    private let value: JsonValue
+    private let value: JsonValueContainer
     
-    init(value: JsonValue) {
+    init(value: JsonValueContainer) {
         self.value = value
     }
     
@@ -215,9 +199,9 @@ public struct JsonValueIsNotBooleanError: LocalizedError {
 
 public struct JsonValueIsNotNullError: LocalizedError {
     
-    private let value: JsonValue
+    private let value: JsonValueContainer
     
-    init(value: JsonValue) {
+    init(value: JsonValueContainer) {
         self.value = value
     }
     
