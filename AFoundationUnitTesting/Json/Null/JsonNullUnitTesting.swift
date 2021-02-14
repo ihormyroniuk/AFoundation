@@ -26,7 +26,7 @@ class JsonNullUnitTesting: XCTestCase {
     }
     
     func testNotNull() {
-        let valueString: JsonString = "string"
+        let valueString: String = "string"
         let value: JsonValue = valueString
         
         do {

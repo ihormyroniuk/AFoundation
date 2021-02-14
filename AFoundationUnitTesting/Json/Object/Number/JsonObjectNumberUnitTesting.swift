@@ -13,8 +13,8 @@ import Foundation
 class JsonObjectNumberUnitTesting: XCTestCase {
 
     func testNumberValue() {
-        let key: JsonString = "key"
-        let value: JsonNumber = 0
+        let key: String = "key"
+        let value: Decimal = 0
         let object = JsonObject()
         object[key] = value;
         
@@ -28,8 +28,8 @@ class JsonObjectNumberUnitTesting: XCTestCase {
     }
     
     func testNotNumberValue() {
-        let key: JsonString = "key"
-        let value: JsonString = "string"
+        let key: String = "key"
+        let value: String = "string"
         let object = JsonObject()
         object[key] = value;
         
@@ -45,8 +45,8 @@ class JsonObjectNumberUnitTesting: XCTestCase {
     }
     
     func testMissingNumberValue() {
-        let key: JsonString = "key"
-        let value: JsonNumber = 0
+        let key: String = "key"
+        let value: Decimal = 0
         let object = JsonObject()
         object[key] = value;
         

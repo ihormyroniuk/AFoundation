@@ -8,50 +8,11 @@
 
 import Foundation
 
-public struct JsonObject: Equatable, Hashable, ExpressibleByDictionaryLiteral {
+public typealias JsonObject = [String: JsonValue]
+
+extension Dictionary where Key == String, Value == JsonValue {
     
-    public var dictionary: [JsonString: JsonValueContainer]
-    
-    public init(dictionary: [JsonString: JsonValueContainer]) {
-        self.dictionary = dictionary
-    }
-    
-    // MARK: ExpressibleByDictionaryLiteral
-    
-    public typealias Key = JsonString
-    
-    public typealias Value = JsonValueContainer
-    
-    public init(dictionaryLiteral elements: (JsonString, JsonValueContainer)...) {
-        var dictionary: [JsonString: JsonValueContainer] = [:]
-        for element in elements {
-            dictionary[element.0] = element.1
-        }
-        self.dictionary = dictionary
-    }
-    
-    // MARK: Equatable
-    
-    public static func == (lhs: JsonObject, rhs: JsonObject) -> Bool {
-        return lhs.dictionary == rhs.dictionary
-    }
-    
-    // MARK: Hashable
-    
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(dictionary)
-    }
-    
-    public subscript(index: JsonString) -> JsonValueContainer? {
-        get {
-            return dictionary[index]
-        }
-        set(newValue) {
-            dictionary[index] = newValue
-        }
-    }
-    
-    public func value(_ key: JsonString) throws -> JsonValueContainer {
+    public func value(_ key: String) throws -> JsonValue {
         let optionalValue = self[key]
         guard let value = optionalValue else {
             let error = JsonErrorValueMissing(object: self, key: key)
@@ -60,7 +21,7 @@ public struct JsonObject: Equatable, Hashable, ExpressibleByDictionaryLiteral {
         return value
     }
     
-    public func string(_ key: JsonString) throws -> JsonString {
+    public func string(_ key: String) throws -> String {
         let value = self[key]
         guard case .string(let string) = value else {
             if value == nil {
@@ -74,11 +35,11 @@ public struct JsonObject: Equatable, Hashable, ExpressibleByDictionaryLiteral {
         return string
     }
     
-    public mutating func setString(_ string: JsonString, for key: JsonString) {
-        dictionary[key] = .string(string)
+    public mutating func setString(_ string: String, for key: String) {
+        self[key] = .string(string)
     }
 
-    public func optionalString(_ key: JsonString) throws -> JsonString? {
+    public func optionalString(_ key: String) throws -> String? {
         let value = self[key]
         if case .string(let string) = value {
             return string
@@ -92,7 +53,7 @@ public struct JsonObject: Equatable, Hashable, ExpressibleByDictionaryLiteral {
         throw error
     }
     
-    public func number(_ key: JsonString) throws -> JsonNumber {
+    public func number(_ key: String) throws -> Decimal {
         let value = self[key]
         guard case .number(let number) = value else {
             if value == nil {
@@ -106,11 +67,11 @@ public struct JsonObject: Equatable, Hashable, ExpressibleByDictionaryLiteral {
         return number
     }
     
-    public mutating func setNumber(_ number: JsonNumber, for key: JsonString) {
-        dictionary[key] = .number(number)
+    public mutating func setNumber(_ number: Decimal, for key: String) {
+        self[key] = .number(number)
     }
 
-    public func optionalNumber(_ key: JsonString) throws -> JsonNumber? {
+    public func optionalNumber(_ key: String) throws -> Decimal? {
         let value = self[key]
         if case .number(let number) = value {
             return number
@@ -124,7 +85,7 @@ public struct JsonObject: Equatable, Hashable, ExpressibleByDictionaryLiteral {
         throw error
     }
     
-    public func object(_ key: JsonString) throws -> JsonObject {
+    public func object(_ key: String) throws -> JsonObject {
         let value = self[key]
         guard case .object(let object) = value else {
             if value == nil {
@@ -138,11 +99,11 @@ public struct JsonObject: Equatable, Hashable, ExpressibleByDictionaryLiteral {
         return object
     }
     
-    public mutating func setObject(_ object: JsonObject, for key: JsonString) {
-        dictionary[key] = .object(object)
+    public mutating func setObject(_ object: JsonObject, for key: String) {
+        self[key] = .object(object)
     }
 
-    public func optionalObject(_ key: JsonString) throws -> JsonObject? {
+    public func optionalObject(_ key: String) throws -> JsonObject? {
         let value = self[key]
         if case .object(let object) = value {
             return object
@@ -156,7 +117,7 @@ public struct JsonObject: Equatable, Hashable, ExpressibleByDictionaryLiteral {
         throw error
     }
     
-    public func array(_ key: JsonString) throws -> JsonArray {
+    public func array(_ key: String) throws -> JsonArray {
         let value = self[key]
         guard case .array(let array) = value else {
             if value == nil {
@@ -170,7 +131,7 @@ public struct JsonObject: Equatable, Hashable, ExpressibleByDictionaryLiteral {
         return array
     }
 
-    public func optionalArray(_ key: JsonString) throws -> JsonArray? {
+    public func optionalArray(_ key: String) throws -> JsonArray? {
         let value = self[key]
         if case .array(let array) = value {
             return array
@@ -184,9 +145,9 @@ public struct JsonObject: Equatable, Hashable, ExpressibleByDictionaryLiteral {
         throw error
     }
     
-    public func boolean(_ key: JsonString) throws -> JsonBoolean {
+    public func boolean(_ key: String) throws -> Bool {
         let value = self[key]
-        guard case .boolean(let boolean) = value else {
+        guard case .boolean(let bool) = value else {
             if value == nil {
                 let error = JsonErrorValueMissing(object: self, key: key)
                 throw error
@@ -195,13 +156,13 @@ public struct JsonObject: Equatable, Hashable, ExpressibleByDictionaryLiteral {
                 throw error
             }
         }
-        return boolean
+        return bool
     }
 
-    public func optionalBoolean(_ key: JsonString) throws -> JsonBoolean? {
+    public func optionalBoolean(_ key: String) throws -> Bool? {
         let value = self[key]
-        if case .boolean(let boolean) = value {
-            return boolean
+        if case .boolean(let bool) = value {
+            return bool
         } else if case .null = value {
             return nil
         } else if value == nil {
@@ -212,7 +173,19 @@ public struct JsonObject: Equatable, Hashable, ExpressibleByDictionaryLiteral {
         throw error
     }
     
-    public mutating func setBoolean(_ boolean: JsonBoolean, for key: JsonString) {
-        dictionary[key] = .boolean(boolean)
+    public mutating func setBoolean(_ boolean: Bool, for key: String) {
+        self[key] = .boolean(boolean)
     }
+}
+
+public struct JsonErrorValueMissing: LocalizedError {
+    
+    let object: JsonObject
+    let key: String
+    
+    init(object: JsonObject, key: String) {
+        self.object = object
+        self.key = key
+    }
+    
 }

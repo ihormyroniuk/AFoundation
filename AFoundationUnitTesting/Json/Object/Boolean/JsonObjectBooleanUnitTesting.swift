@@ -13,7 +13,7 @@ import Foundation
 class JsonObjectBooleanUnitTesting: XCTestCase {
 
     func testBooleanValue() {
-        let key: JsonString = "key"
+        let key: String = "key"
         let value: JsonBoolean = JsonBoolean(bool: true)
         let object = JsonObject()
         object[key] = value;
@@ -28,8 +28,8 @@ class JsonObjectBooleanUnitTesting: XCTestCase {
     }
     
     func testNotBooleanValue() {
-        let key: JsonString = "key"
-        let value: JsonString = "string"
+        let key: String = "key"
+        let value: String = "string"
         let object = JsonObject()
         object[key] = value;
         
@@ -45,7 +45,7 @@ class JsonObjectBooleanUnitTesting: XCTestCase {
     }
     
     func testMissingBooleanValue() {
-        let key: JsonString = "key"
+        let key: String = "key"
         let value: JsonBoolean = JsonBoolean(bool: false)
         let object = JsonObject()
         object[key] = value;

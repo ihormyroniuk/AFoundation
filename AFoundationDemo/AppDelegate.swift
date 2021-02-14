@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let dataTask = try! urlSession.httpExchangeDataTask(httpExchange) { (result) in
 //
 //        }
-        let requestData = Ggg.Basic.GenerateStringsRequestData(id: .number(JsonNumber(1)), apiKey: "3b887b17-2315-49ae-aa27-ddcddc5ad778", n: 20, lenght: 3, characters: "abcde", replacement: false)
+        let requestData = Ggg.Basic.GenerateStringsRequestData(id: .number(Decimal(1)), apiKey: "3b887b17-2315-49ae-aa27-ddcddc5ad778", n: 20, lenght: 3, characters: "abcde", replacement: false)
         let httpExchange = Ggg.Basic().generateStrings(requestData: requestData)
         let dataTask = try! urlSession.httpExchangeDataTask(httpExchange) { (result) in
             print(result)
@@ -31,8 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         dataTask.resume()
         
-//        let jsonValue1 = JsonString(string: "string1")
-//        let jsonValue2 = JsonString(string: "string2")
+//        let jsonValue1 = String(string: "string1")
+//        let jsonValue2 = String(string: "string2")
 //        if jsonValue1 == jsonValue2 {
 //            print("sfdsf")
 //        } else {

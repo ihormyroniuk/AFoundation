@@ -13,8 +13,8 @@ import Foundation
 class JsonObjectOptionalStringUnitTesting: XCTestCase {
 //
 //    func testStringValue() {
-//        let key: JsonString = "key"
-//        let value: JsonString = "string"
+//        let key: String = "key"
+//        let value: String = "string"
 //        let object = JsonObject()
 //        object[key] = value;
 //        
@@ -28,7 +28,7 @@ class JsonObjectOptionalStringUnitTesting: XCTestCase {
 //    }
 //    
 //    func testNullValue() {
-//        let key: JsonString = "key"
+//        let key: String = "key"
 //        let value: JsonValue? = JsonNull(null: NSNull())
 //        var object = JsonObject()
 //        object[key] = value;
@@ -43,7 +43,7 @@ class JsonObjectOptionalStringUnitTesting: XCTestCase {
 //    }
 //    
 //    func testNotStringValue() {
-//        let key: JsonString = "key"
+//        let key: String = "key"
 //        let value: JsonBoolean = JsonBoolean(bool: true)
 //        let object = JsonObject()
 //        object[key] = value;
@@ -60,8 +60,8 @@ class JsonObjectOptionalStringUnitTesting: XCTestCase {
 //    }
 //    
 //    func testMissingStringValue() {
-//        let key: JsonString  = "key"
-//        let value: JsonString  = "string"
+//        let key: String  = "key"
+//        let value: String  = "string"
 //        let object = JsonObject()
 //        object[key] = value;
 //        

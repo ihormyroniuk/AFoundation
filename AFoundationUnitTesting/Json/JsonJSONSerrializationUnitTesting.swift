@@ -19,7 +19,7 @@ class JsonJSONSerrializationUnitTesting: XCTestCase {
             let object = try JsonSerialization.jsonValue(data: data).object()
             
             let expectedObject = JsonObject()
-            expectedObject["number"] = JsonNumber(8)
+            expectedObject["number"] = Decimal(8)
             XCTAssert(object == expectedObject, "Object returned unexpected object \"\(String(describing: object))\" while object \"(\(String(describing: expectedObject))\" is expected)")
         } catch {
             XCTFail("Unexpected error \(error) is thrown")
@@ -32,8 +32,8 @@ class JsonJSONSerrializationUnitTesting: XCTestCase {
 //        do {
 //            let array = try JsonSerialization.jsonValue(data: data).array()
 //            
-//            let jsonStringsArray: [JsonValue] = [JsonString(string: "string1"), JsonString(string: "string2")]
-//            var expectedArray: JsonArray = jsonStringsArray
+//            let StringsArray: [JsonValue] = [String(string: "string1"), String(string: "string2")]
+//            var expectedArray: JsonArray = StringsArray
 //            XCTAssert(array == expectedArray, "Object returned unexpected array \"\(String(describing: array))\" while array \"(\(String(describing: expectedArray))\" is expected)")
 //        } catch {
 //            XCTFail("Unexpected error \(error) is thrown")

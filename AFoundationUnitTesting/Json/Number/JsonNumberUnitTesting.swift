@@ -1,5 +1,5 @@
 //
-//  JsonNumberUnitTesting.swift
+//  DecimalUnitTesting.swift
 //  AFoundationUnitTesting
 //
 //  Created by Ihor Myroniuk on 06.11.2020.
@@ -9,11 +9,11 @@
 import XCTest
 @testable import AFoundation
 
-class JsonNumberUnitTesting: XCTestCase {
+class DecimalUnitTesting: XCTestCase {
 
     func testNumber() {
         let valueNumber = Decimal(1)
-        let value: JsonValue = JsonNumber(decimal: valueNumber)
+        let value: JsonValue = Decimal(decimal: valueNumber)
         
         do {
             let number = try value.number().decimal
@@ -26,7 +26,7 @@ class JsonNumberUnitTesting: XCTestCase {
     
     func testNotNumber() {
         let valueString = "string"
-        let value: JsonValue = JsonString(string: valueString)
+        let value: JsonValue = String(string: valueString)
         
         do {
             let string = try value.number()

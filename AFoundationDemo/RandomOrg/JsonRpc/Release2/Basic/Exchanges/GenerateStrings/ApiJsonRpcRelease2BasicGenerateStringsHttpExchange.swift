@@ -17,12 +17,12 @@ class GenerateStringsHttpExchange: HttpExchange<GenerateStringsRequestData, Gene
         let version = Http.Version.http1dot1
         let headers = self.headers
         var params = JsonObject()
-        params.setString(JsonString(requestData.apiKey), for: "apiKey")
-        params.setNumber(JsonNumber(Decimal(requestData.n)), for: "n")
-        params.setNumber(JsonNumber(Decimal(requestData.lenght)), for: "length")
-        params.setString(JsonString(requestData.characters), for: "characters")
+        params.setString(String(requestData.apiKey), for: "apiKey")
+        params.setNumber(Decimal(requestData.n), for: "n")
+        params.setNumber(Decimal(requestData.lenght), for: "length")
+        params.setString(String(requestData.characters), for: "characters")
         if let replacement = requestData.replacement {
-            params.setBoolean(JsonBoolean(bool:  replacement), for: "replacement")
+            params.setBoolean(replacement, for: "replacement")
         }
         let id = requestData.id
         let requestObject = constructRequestObject(method: "generateStrings", params: params, id: id)
@@ -47,12 +47,12 @@ class GenerateStringsHttpExchange: HttpExchange<GenerateStringsRequestData, Gene
         let completionTimeString = try random.string("completionTime")
         let iso8601DateFormatter = ISO8601DateFormatter()
         iso8601DateFormatter.formatOptions = [.withSpaceBetweenDateAndTime]
-        let completionTime = iso8601DateFormatter.date(from: completionTimeString.string)!
+        let completionTime = iso8601DateFormatter.date(from: completionTimeString)!
         let id = try response.value("id")
-        let bitsUsed = try resultJsonObject.number("bitsUsed").decimal.uint()
-        let bitsLeft = try resultJsonObject.number("bitsLeft").decimal.uint()
-        let requestsLeft = try resultJsonObject.number("requestsLeft").decimal.uint()
-        let advisoryDelay = try resultJsonObject.number("advisoryDelay").decimal.uint()
+        let bitsUsed = try resultJsonObject.number("bitsUsed").uint()
+        let bitsLeft = try resultJsonObject.number("bitsLeft").uint()
+        let requestsLeft = try resultJsonObject.number("requestsLeft").uint()
+        let advisoryDelay = try resultJsonObject.number("advisoryDelay").uint()
         
         let parsedResponse = GenerateStringsParsedResponse(id: id, data: data, completionTime: completionTime, bitsUsed: bitsUsed, bitsLeft: bitsLeft, requestsLeft: requestsLeft, advisoryDelay: advisoryDelay)
        

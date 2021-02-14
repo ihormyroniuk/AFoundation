@@ -11,21 +11,21 @@ import Foundation
 /**
     Implemented based on https://www.json.org/json-en.html
  */
-public enum JsonValueContainer: Equatable, Hashable {
+public enum JsonValue: Equatable, Hashable {
     
     // MARK: String
     
-    case string(JsonString)
+    case string(String)
     
-    init(_ string: JsonString) {
+    init(_ string: String) {
         self = .string(string)
     }
     
     // MARK: Number
     
-    case number(JsonNumber)
+    case number(Decimal)
     
-    init(_ number: JsonNumber) {
+    init(_ number: Decimal) {
         self = .number(number)
     }
     
@@ -47,9 +47,9 @@ public enum JsonValueContainer: Equatable, Hashable {
     
     // MARK: Array
     
-    case boolean(JsonBoolean)
+    case boolean(Bool)
     
-    init(_ boolean: JsonBoolean) {
+    init(_ boolean: Bool) {
         self = .boolean(boolean)
     }
     
@@ -59,7 +59,7 @@ public enum JsonValueContainer: Equatable, Hashable {
     
     // MARK: Equatable
     
-    public static func == (lhs: JsonValueContainer, rhs: JsonValueContainer) -> Bool {
+    public static func == (lhs: JsonValue, rhs: JsonValue) -> Bool {
         switch (lhs, rhs) {
         case (let .string(lhsString), let .string(rhsString)):
             return lhsString == rhsString
@@ -69,8 +69,8 @@ public enum JsonValueContainer: Equatable, Hashable {
             return lhsObject == rhsObject
         case (let .array(lhsArray), let .array(rhsArray)):
             return lhsArray == rhsArray
-        case (let .boolean(lhsBoolean), let .boolean(rhsBoolean)):
-            return lhsBoolean == rhsBoolean
+        case (let .boolean(lhsBool), let .boolean(rhsBool)):
+            return lhsBool == rhsBool
         case (.null, .null):
             return true
         default:
@@ -90,14 +90,14 @@ public enum JsonValueContainer: Equatable, Hashable {
             hasher.combine(object)
         case let .array(array):
             hasher.combine(array)
-        case let .boolean(boolean):
-            hasher.combine(boolean)
+        case let .boolean(bool):
+            hasher.combine(bool)
         case .null:
             hasher.combine(NSNull.null)
         }
     }
     
-    public func string() throws -> JsonString {
+    public func string() throws -> String {
         guard case .string(let string) = self else {
             let error = JsonValueIsNotStringError(value: self)
             throw error
@@ -105,7 +105,7 @@ public enum JsonValueContainer: Equatable, Hashable {
         return string
     }
     
-    public func number() throws -> JsonNumber {
+    public func number() throws -> Decimal {
         guard case .number(let number) = self else {
             let error = JsonValueIsNotNumberError(value: self)
             throw error
@@ -129,28 +129,28 @@ public enum JsonValueContainer: Equatable, Hashable {
         return array
     }
     
-    public func boolean() throws -> JsonBoolean {
-        guard case .boolean(let boolean) = self else {
+    public func boolean() throws -> Bool {
+        guard case .boolean(let bool) = self else {
             let error = JsonValueIsNotBooleanError(value: self)
             throw error
         }
-        return boolean
+        return bool
     }
     
-    public func null() throws -> JsonNull {
+    public func null() throws -> NSNull {
         guard case .null = self else {
             let error = JsonValueIsNotNullError(value: self)
             throw error
         }
-        return JsonNull()
+        return NSNull.null
     }
 }
 
 public struct JsonValueIsNotStringError: Error {
     
-    private let value: JsonValueContainer
+    private let value: JsonValue
     
-    init(value: JsonValueContainer) {
+    init(value: JsonValue) {
         self.value = value
     }
     
@@ -158,9 +158,9 @@ public struct JsonValueIsNotStringError: Error {
 
 public struct JsonValueIsNotNumberError: LocalizedError {
     
-    private let value: JsonValueContainer
+    private let value: JsonValue
     
-    init(value: JsonValueContainer) {
+    init(value: JsonValue) {
         self.value = value
     }
     
@@ -168,9 +168,9 @@ public struct JsonValueIsNotNumberError: LocalizedError {
 
 public struct JsonValueIsNotObjectError: LocalizedError {
     
-    private let value: JsonValueContainer
+    private let value: JsonValue
     
-    init(value: JsonValueContainer) {
+    init(value: JsonValue) {
         self.value = value
     }
     
@@ -178,9 +178,9 @@ public struct JsonValueIsNotObjectError: LocalizedError {
 
 public struct JsonValueIsNotArrayError: LocalizedError {
     
-    private let value: JsonValueContainer
+    private let value: JsonValue
     
-    init(value: JsonValueContainer) {
+    init(value: JsonValue) {
         self.value = value
     }
     
@@ -188,9 +188,9 @@ public struct JsonValueIsNotArrayError: LocalizedError {
 
 public struct JsonValueIsNotBooleanError: LocalizedError {
     
-    private let value: JsonValueContainer
+    private let value: JsonValue
     
-    init(value: JsonValueContainer) {
+    init(value: JsonValue) {
         self.value = value
     }
     
@@ -198,9 +198,9 @@ public struct JsonValueIsNotBooleanError: LocalizedError {
 
 public struct JsonValueIsNotNullError: LocalizedError {
     
-    private let value: JsonValueContainer
+    private let value: JsonValue
     
-    init(value: JsonValueContainer) {
+    init(value: JsonValue) {
         self.value = value
     }
     
