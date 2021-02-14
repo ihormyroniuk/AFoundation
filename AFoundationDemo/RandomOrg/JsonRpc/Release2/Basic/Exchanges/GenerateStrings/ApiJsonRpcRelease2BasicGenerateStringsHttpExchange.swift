@@ -43,7 +43,7 @@ class GenerateStringsHttpExchange: HttpExchange<GenerateStringsRequestData, Gene
         
         let resultJsonObject = try response.object("result")
         let random = try resultJsonObject.object("random")
-        let data: [String] = []// try random.array("data").arrayStrings()
+        let data: [String] = try random.array("data").strings()
         let completionTimeString = try random.string("completionTime")
         let iso8601DateFormatter = ISO8601DateFormatter()
         iso8601DateFormatter.formatOptions = [.withSpaceBetweenDateAndTime]
