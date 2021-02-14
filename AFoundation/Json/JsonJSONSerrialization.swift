@@ -98,7 +98,7 @@ public enum JsonSerialization {
             case let .boolean(boolean):
                 return boolean.bool
             case .null:
-                return NSNull()
+                return NSNull.null
             }
         }
         let data = try JSONSerialization.data(withJSONObject: any(jsonValue), options: [.fragmentsAllowed])

@@ -9,13 +9,11 @@
 import Foundation
 
 public class JsonNull: Equatable, Hashable {
-    public let null: NSNull = NSNull()
-    
     public static func == (lhs: JsonNull, rhs: JsonNull) -> Bool {
         return true
     }
     
     public func hash(into hasher: inout Hasher) {
-        hasher.combine(null)
+        hasher.combine(NSNull.null)
     }
 }

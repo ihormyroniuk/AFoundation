@@ -53,10 +53,9 @@ public enum JsonValueContainer: Equatable, Hashable {
         self = .boolean(boolean)
     }
     
-    // MARK: Array
+    // MARK: Null
     
     case null
-    private static let nsNull = NSNull()
     
     // MARK: Equatable
     
@@ -94,7 +93,7 @@ public enum JsonValueContainer: Equatable, Hashable {
         case let .boolean(boolean):
             hasher.combine(boolean)
         case .null:
-            hasher.combine(JsonValueContainer.nsNull)
+            hasher.combine(NSNull.null)
         }
     }
     

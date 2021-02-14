@@ -79,6 +79,7 @@
 		C5636FBD25C6FAA000F95194 /* HTTPURLResponseHttpResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5636FBC25C6FAA000F95194 /* HTTPURLResponseHttpResponseData.swift */; };
 		C5636FC425C6FCCC00F95194 /* HTTPURLResponseHttpResponseDataUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5636FC325C6FCCC00F95194 /* HTTPURLResponseHttpResponseDataUnitTesting.swift */; };
 		C5636FD325C7090A00F95194 /* JsonArrayUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5636FD225C7090A00F95194 /* JsonArrayUnitTesting.swift */; };
+		C563842A25D9752C004361C7 /* NSNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = C563842925D9752C004361C7 /* NSNull.swift */; };
 		C563FBD02528611200BA1E99 /* CurrencyUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C563FBCF2528611200BA1E99 /* CurrencyUnitTesting.swift */; };
 		C563FBD82528658B00BA1E99 /* RegionUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C563FBD72528658B00BA1E99 /* RegionUnitTesting.swift */; };
 		C563FBEB252868C700BA1E99 /* LanguageUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C563FBEA252868C700BA1E99 /* LanguageUnitTesting.swift */; };
@@ -216,6 +217,7 @@
 		C5636FBC25C6FAA000F95194 /* HTTPURLResponseHttpResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPURLResponseHttpResponseData.swift; sourceTree = "<group>"; };
 		C5636FC325C6FCCC00F95194 /* HTTPURLResponseHttpResponseDataUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPURLResponseHttpResponseDataUnitTesting.swift; sourceTree = "<group>"; };
 		C5636FD225C7090A00F95194 /* JsonArrayUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonArrayUnitTesting.swift; sourceTree = "<group>"; };
+		C563842925D9752C004361C7 /* NSNull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNull.swift; sourceTree = "<group>"; };
 		C563FBCF2528611200BA1E99 /* CurrencyUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyUnitTesting.swift; sourceTree = "<group>"; };
 		C563FBD72528658B00BA1E99 /* RegionUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionUnitTesting.swift; sourceTree = "<group>"; };
 		C563FBEA252868C700BA1E99 /* LanguageUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageUnitTesting.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 				C552E401246143770031D531 /* Json */,
 				330B4222238EB6A30083FCEC /* Localizer */,
 				C5096BBB234F7B3200EA793A /* Locale */,
+				C563842825D97506004361C7 /* NSNull */,
 				C5F503AD2343994D00CE5DB9 /* Decimal */,
 				C50134A9230C196A0018D950 /* AFoundation.h */,
 				C50134AA230C196A0018D950 /* Info.plist */,
@@ -692,6 +695,14 @@
 			path = HTTPURLResponse;
 			sourceTree = "<group>";
 		};
+		C563842825D97506004361C7 /* NSNull */ = {
+			isa = PBXGroup;
+			children = (
+				C563842925D9752C004361C7 /* NSNull.swift */,
+			);
+			path = NSNull;
+			sourceTree = "<group>";
+		};
 		C563FBCD252860E400BA1E99 /* Locale */ = {
 			isa = PBXGroup;
 			children = (
@@ -1008,6 +1019,7 @@
 				C5332DC925CC6591005FF4BF /* URLSessionTask.swift in Sources */,
 				C549844A2554AED400478585 /* JsonString.swift in Sources */,
 				3310125923994C09006B0E03 /* MultipleTextLocalizer.swift in Sources */,
+				C563842A25D9752C004361C7 /* NSNull.swift in Sources */,
 				C531974B25559882004495D6 /* JsonNull.swift in Sources */,
 				330B4226238EBDC00083FCEC /* Localizer.swift in Sources */,
 				C5636FBD25C6FAA000F95194 /* HTTPURLResponseHttpResponseData.swift in Sources */,
