@@ -13,8 +13,8 @@ import Foundation
 class JsonNullUnitTesting: XCTestCase {
 
     func testNull() {
-        let valueNull = JsonNull()
-        let value: JsonValue = valueNull
+        let valueNull = NSNull()
+        let value: JsonAnyValue = .null
         
         do {
             let null = try value.null()
@@ -27,7 +27,7 @@ class JsonNullUnitTesting: XCTestCase {
     
     func testNotNull() {
         let valueString: String = "string"
-        let value: JsonValue = valueString
+        let value: JsonAnyValue = valueString
         
         do {
             let null = try value.null()

@@ -11,14 +11,14 @@ import AFoundation
 extension Api.JsonRpc.Release2.Basic {
 struct GenerateIntegersRequestData {
     
-    let id: JsonValue
+    let id: JsonAnyValue
     let apiKey: String
     let n: UInt
     let min: Int
     let max: Int
     let replacement: Bool?
     
-    init(id: JsonValue, apiKey: String, n: UInt, min: Int, max: Int, replacement: Bool) {
+    init(id: JsonAnyValue, apiKey: String, n: UInt, min: Int, max: Int, replacement: Bool) {
         self.id = id
         self.apiKey = apiKey
         self.n = n

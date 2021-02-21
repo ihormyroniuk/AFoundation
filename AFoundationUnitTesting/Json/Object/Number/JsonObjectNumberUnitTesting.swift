@@ -15,8 +15,8 @@ class JsonObjectNumberUnitTesting: XCTestCase {
     func testNumberValue() {
         let key: String = "key"
         let value: Decimal = 0
-        let object = JsonObject()
-        object[key] = value;
+        var object = JsonObject()
+        object.setNumber(value, for: key)
         
         do {
             let actualValue = try object.number(key)
@@ -30,14 +30,14 @@ class JsonObjectNumberUnitTesting: XCTestCase {
     func testNotNumberValue() {
         let key: String = "key"
         let value: String = "string"
-        let object = JsonObject()
-        object[key] = value;
+        var object = JsonObject()
+        object.setString(value, for: key)
         
         do {
             let actualValue = try object.number(key)
             
-            XCTFail("Error \(JsonValueIsNotNumberError.self) has to be thrown, but number \"\(String(describing: actualValue))\" is returned")
-        } catch _ as JsonValueIsNotNumberError {
+            XCTFail("Error \(JsonAnyValueIsNotNumberError.self) has to be thrown, but number \"\(String(describing: actualValue))\" is returned")
+        } catch _ as JsonAnyValueIsNotNumberError {
             
         } catch {
             XCTFail("Unexpected error \(error.self) is thrown")
@@ -47,14 +47,14 @@ class JsonObjectNumberUnitTesting: XCTestCase {
     func testMissingNumberValue() {
         let key: String = "key"
         let value: Decimal = 0
-        let object = JsonObject()
-        object[key] = value;
+        var object = JsonObject()
+        object.setNumber(value, for: key)
         
         do {
             let actualValue = try object.number("anotherKey")
             
-            XCTFail("Error \(JsonErrorValueMissing.self) has to be thrown, but number \"\(String(describing: actualValue))\" is returned")
-        } catch _ as JsonErrorValueMissing {
+            XCTFail("Error \(JsonObjectValueIsMissingError.self) has to be thrown, but number \"\(String(describing: actualValue))\" is returned")
+        } catch _ as JsonObjectValueIsMissingError {
             
         } catch {
             XCTFail("Unexpected error \(error.self) is thrown")

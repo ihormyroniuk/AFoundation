@@ -18,8 +18,8 @@ class JsonJSONSerrializationUnitTesting: XCTestCase {
         do {
             let object = try JsonSerialization.jsonValue(data: data).object()
             
-            let expectedObject = JsonObject()
-            expectedObject["number"] = Decimal(8)
+            var expectedObject = JsonObject()
+            expectedObject.setNumber(Decimal(8), for: "number")
             XCTAssert(object == expectedObject, "Object returned unexpected object \"\(String(describing: object))\" while object \"(\(String(describing: expectedObject))\" is expected)")
         } catch {
             XCTFail("Unexpected error \(error) is thrown")
@@ -44,7 +44,7 @@ class JsonJSONSerrializationUnitTesting: XCTestCase {
         let data = Data([0x22, 0x73, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x22])
 
         do {
-            let string = try JsonSerialization.jsonValue(data: data).string().string
+            let string = try JsonSerialization.jsonValue(data: data).string()
             
             let expectedString = "string"
             XCTAssert(string == expectedString, "Object returned unexpected string \"\(String(describing: string))\" while string \"(\(String(describing: expectedString))\" is expected)")
@@ -57,7 +57,7 @@ class JsonJSONSerrializationUnitTesting: XCTestCase {
         let data = Data([0x37])
 
         do {
-            let number = try JsonSerialization.jsonValue(data: data).number().decimal
+            let number = try JsonSerialization.jsonValue(data: data).number()
             
             let expectedNumber: Decimal = 7
             XCTAssert(number == expectedNumber, "Object returned unexpected number \"\(String(describing: number))\" while number \"(\(String(describing: expectedNumber))\" is expected)")
@@ -70,7 +70,7 @@ class JsonJSONSerrializationUnitTesting: XCTestCase {
         let data = Data([0x6e, 0x75, 0x6c, 0x6c])
 
         do {
-            let null = try JsonSerialization.jsonValue(data: data).null().null
+            let null = try JsonSerialization.jsonValue(data: data).null()
             
             let expectedNull = NSNull()
             XCTAssert(null == expectedNull, "Object returned unexpected null \"\(String(describing: null))\" while null \"(\(String(describing: expectedNull))\" is expected)")
@@ -83,7 +83,7 @@ class JsonJSONSerrializationUnitTesting: XCTestCase {
         let data = Data([0x74, 0x72, 0x75, 0x65])
 
         do {
-            let boolean = try JsonSerialization.jsonValue(data: data).boolean().bool
+            let boolean = try JsonSerialization.jsonValue(data: data).boolean()
             
             let expectedBoolean = true
             XCTAssert(boolean == expectedBoolean, "Object returned unexpected boolean \"\(String(describing: boolean))\" while boolean \"(\(String(describing: expectedBoolean))\" is expected)")

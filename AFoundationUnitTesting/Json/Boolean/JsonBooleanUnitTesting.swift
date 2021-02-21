@@ -13,8 +13,8 @@ import Foundation
 class JsonBooleanUnitTesting: XCTestCase {
 
     func testBoolean() {
-        let valueBoolean = JsonBoolean(bool: false)
-        let value: JsonValue = valueBoolean
+        let valueBoolean = false
+        let value: JsonAnyValue = .boolean(valueBoolean)
         
         do {
             let string = try value.boolean()
@@ -27,13 +27,13 @@ class JsonBooleanUnitTesting: XCTestCase {
     
     func testNotBoolean() {
         let valueString: String = "string"
-        let value: JsonValue = valueString
+        let value: JsonAnyValue = .string(valueString)
         
         do {
             let string = try value.boolean()
             
-            XCTFail("Unexpected boolean \"\(String(describing: string))\" is found while error \(JsonValueIsNotBooleanError.self) has to be thrown")
-        } catch _ as JsonValueIsNotBooleanError {
+            XCTFail("Unexpected boolean \"\(String(describing: string))\" is found while error \(JsonAnyValueIsNotBooleanError.self) has to be thrown")
+        } catch _ as JsonAnyValueIsNotBooleanError {
         
         } catch {
             XCTFail("Unexpected error \(error) is thrown")

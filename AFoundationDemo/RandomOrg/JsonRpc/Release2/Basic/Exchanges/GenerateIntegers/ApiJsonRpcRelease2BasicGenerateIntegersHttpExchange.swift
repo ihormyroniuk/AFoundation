@@ -17,13 +17,11 @@ class GenerateIntegersHttpExchange: HttpExchange<GenerateIntegersRequestData, Ge
         let version = Http.Version.http1dot1
         let headers = self.headers
         var params = JsonObject()
-        params.setString(String(requestData.apiKey), for: "apiKey")
+        params.setString(requestData.apiKey, for: "apiKey")
         params.setNumber(Decimal(requestData.n), for: "n")
         params.setNumber(Decimal(integerLiteral: requestData.min), for: "min")
         params.setNumber(Decimal(integerLiteral: requestData.max), for: "max")
-        if let replacement = requestData.replacement {
-            params.setBoolean(replacement, for: "replacement")
-        }
+        params.setMissableBoolean(requestData.replacement, for: "replacement")
         let id = requestData.id
         let requestObject = constructRequestObject(method: "generateIntegers", params: params, id: id)
         let body = try JsonSerialization.data(requestObject)
@@ -43,7 +41,7 @@ class GenerateIntegersHttpExchange: HttpExchange<GenerateIntegersRequestData, Ge
         
         let resultJsonObject = try response.object("result")
         let random = try resultJsonObject.object("random")
-        let data: [Int] = try random.array("data").numbers()
+        let data: [Int] = try random.array("data").numbers().map({ try $0.int() })
         let completionTimeString = try random.string("completionTime")
         let iso8601DateFormatter = ISO8601DateFormatter()
         iso8601DateFormatter.formatOptions = [.withSpaceBetweenDateAndTime]

@@ -8,177 +8,259 @@
 
 import Foundation
 
-public typealias JsonObject = [String: JsonValue]
+public typealias JsonObject = [String: JsonAnyValue]
 
-extension Dictionary where Key == String, Value == JsonValue {
+public extension JsonObject {
     
-    public func value(_ key: String) throws -> JsonValue {
+    func value(_ key: String) throws -> JsonAnyValue {
         let optionalValue = self[key]
         guard let value = optionalValue else {
-            let error = JsonErrorValueMissing(object: self, key: key)
+            let error = JsonObjectValueIsMissingError(object: self, key: key)
             throw error
         }
         return value
     }
+
+    // MARK: String
     
-    public func string(_ key: String) throws -> String {
-        let value = self[key]
+    func string(_ key: String) throws -> String {
+        let value = try self.value(key)
         guard case .string(let string) = value else {
-            if value == nil {
-                let error = JsonErrorValueMissing(object: self, key: key)
-                throw error
+            let error = JsonAnyValueIsNotStringError(value: value)
+            throw error
+        }
+        return string
+    }
+
+    func nullableString(_ key: String) throws -> String? {
+        let value = try self.value(key)
+        guard case .string(let string) = value else {
+            if case .null = value {
+                return nil
             } else {
-                let error = JsonValueIsNotStringError(value: value!)
+                let error = JsonAnyValueIsNotStringError(value: value)
                 throw error
             }
         }
         return string
     }
     
-    public mutating func setString(_ string: String, for key: String) {
-        self[key] = .string(string)
-    }
-
-    public func optionalString(_ key: String) throws -> String? {
-        let value = self[key]
-        if case .string(let string) = value {
-            return string
-        } else if case .null = value {
+    func missableString(_ key: String) throws -> String? {
+        guard let value = self[key] else {
             return nil
-        } else if value == nil {
-            let error = JsonErrorValueMissing(object: self, key: key)
+        }
+        guard case .string(let string) = value else {
+            let error = JsonAnyValueIsNotStringError(value: value)
             throw error
         }
-        let error = JsonValueIsNotStringError(value: value!)
-        throw error
+        return string
     }
     
-    public func number(_ key: String) throws -> Decimal {
+    func missableNullableString(_ key: String) throws -> String? {
+        guard let value = self[key] else {
+            return nil
+        }
+        guard case .string(let string) = value else {
+            if case .null = value {
+                return nil
+            } else {
+                let error = JsonAnyValueIsNotStringError(value: value)
+                throw error
+            }
+        }
+        return string
+    }
+    
+    mutating func setString(_ string: String, for key: String) {
+        self[key] = .string(string)
+    }
+    
+    mutating func setNullableString(_ string: String?, for key: String) {
+        guard let string = string else {
+            self[key] = .null
+            return
+        }
+        self[key] = .string(string)
+    }
+    
+    mutating func setMissableString(_ string: String?, for key: String) {
+        guard let string = string else {
+            self[key] = nil
+            return
+        }
+        self[key] = .string(string)
+    }
+    
+    // MARK: Number
+    
+    func number(_ key: String) throws -> Decimal {
         let value = self[key]
         guard case .number(let number) = value else {
             if value == nil {
-                let error = JsonErrorValueMissing(object: self, key: key)
+                let error = JsonObjectValueIsMissingError(object: self, key: key)
                 throw error
             } else {
-                let error = JsonValueIsNotNumberError(value: value!)
+                let error = JsonAnyValueIsNotNumberError(value: value!)
                 throw error
             }
         }
         return number
     }
-    
-    public mutating func setNumber(_ number: Decimal, for key: String) {
-        self[key] = .number(number)
-    }
 
-    public func optionalNumber(_ key: String) throws -> Decimal? {
+    func optionalNumber(_ key: String) throws -> Decimal? {
         let value = self[key]
         if case .number(let number) = value {
             return number
         } else if case .null = value {
             return nil
         } else if value == nil {
-            let error = JsonErrorValueMissing(object: self, key: key)
+            let error = JsonObjectValueIsMissingError(object: self, key: key)
             throw error
         }
-        let error = JsonValueIsNotNumberError(value: value!)
+        let error = JsonAnyValueIsNotNumberError(value: value!)
         throw error
     }
     
-    public func object(_ key: String) throws -> JsonObject {
+    mutating func setNumber(_ number: Decimal, for key: String) {
+        self[key] = .number(number)
+    }
+    
+    mutating func setNullableNumber(_ number: Decimal?, for key: String) {
+        guard let number = number else {
+            self[key] = .null
+            return
+        }
+        self[key] = .number(number)
+    }
+    
+    mutating func setMissableNumber(_ number: Decimal?, for key: String) {
+        guard let number = number else {
+            self[key] = nil
+            return
+        }
+        self[key] = .number(number)
+    }
+    
+    // MARK: Object
+    
+    func object(_ key: String) throws -> JsonObject {
         let value = self[key]
         guard case .object(let object) = value else {
             if value == nil {
-                let error = JsonErrorValueMissing(object: self, key: key)
+                let error = JsonObjectValueIsMissingError(object: self, key: key)
                 throw error
             } else {
-                let error = JsonValueIsNotObjectError(value: value!)
+                let error = JsonAnyValueIsNotObjectError(value: value!)
                 throw error
             }
         }
         return object
     }
-    
-    public mutating func setObject(_ object: JsonObject, for key: String) {
-        self[key] = .object(object)
-    }
 
-    public func optionalObject(_ key: String) throws -> JsonObject? {
+    func optionalObject(_ key: String) throws -> JsonObject? {
         let value = self[key]
         if case .object(let object) = value {
             return object
         } else if case .null = value {
             return nil
         } else if value == nil {
-            let error = JsonErrorValueMissing(object: self, key: key)
+            let error = JsonObjectValueIsMissingError(object: self, key: key)
             throw error
         }
-        let error = JsonValueIsNotObjectError(value: value!)
+        let error = JsonAnyValueIsNotObjectError(value: value!)
         throw error
     }
     
-    public func array(_ key: String) throws -> JsonArray {
+    mutating func setObject(_ object: JsonObject, for key: String) {
+        self[key] = .object(object)
+    }
+    
+    // MARK: Array
+    
+    func array(_ key: String) throws -> JsonArray {
         let value = self[key]
         guard case .array(let array) = value else {
             if value == nil {
-                let error = JsonErrorValueMissing(object: self, key: key)
+                let error = JsonObjectValueIsMissingError(object: self, key: key)
                 throw error
             } else {
-                let error = JsonValueIsNotArrayError(value: value!)
+                let error = JsonAnyValueIsNotArrayError(value: value!)
                 throw error
             }
         }
         return array
     }
 
-    public func optionalArray(_ key: String) throws -> JsonArray? {
+    func optionalArray(_ key: String) throws -> JsonArray? {
         let value = self[key]
         if case .array(let array) = value {
             return array
         } else if case .null = value {
             return nil
         } else if value == nil {
-            let error = JsonErrorValueMissing(object: self, key: key)
+            let error = JsonObjectValueIsMissingError(object: self, key: key)
             throw error
         }
-        let error = JsonValueIsNotArrayError(value: value!)
+        let error = JsonAnyValueIsNotArrayError(value: value!)
         throw error
     }
     
-    public func boolean(_ key: String) throws -> Bool {
+    mutating func setArray(_ array: JsonArray, for key: String) {
+        self[key] = .array(array)
+    }
+    
+    // MARK: Boolean
+    
+    func boolean(_ key: String) throws -> Bool {
         let value = self[key]
         guard case .boolean(let bool) = value else {
             if value == nil {
-                let error = JsonErrorValueMissing(object: self, key: key)
+                let error = JsonObjectValueIsMissingError(object: self, key: key)
                 throw error
             } else {
-                let error = JsonValueIsNotBooleanError(value: value!)
+                let error = JsonAnyValueIsNotBooleanError(value: value!)
                 throw error
             }
         }
         return bool
     }
 
-    public func optionalBoolean(_ key: String) throws -> Bool? {
+    func optionalBoolean(_ key: String) throws -> Bool? {
         let value = self[key]
         if case .boolean(let bool) = value {
             return bool
         } else if case .null = value {
             return nil
         } else if value == nil {
-            let error = JsonErrorValueMissing(object: self, key: key)
+            let error = JsonObjectValueIsMissingError(object: self, key: key)
             throw error
         }
-        let error = JsonValueIsNotBooleanError(value: value!)
+        let error = JsonAnyValueIsNotBooleanError(value: value!)
         throw error
     }
     
-    public mutating func setBoolean(_ boolean: Bool, for key: String) {
+    mutating func setBoolean(_ boolean: Bool, for key: String) {
+        self[key] = .boolean(boolean)
+    }
+    
+    mutating func setNullableBoolean(_ boolean: Bool?, for key: String) {
+        guard let boolean = boolean else {
+            self[key] = .null
+            return
+        }
+        self[key] = .boolean(boolean)
+    }
+    
+    mutating func setMissableBoolean(_ boolean: Bool?, for key: String) {
+        guard let boolean = boolean else {
+            self[key] = nil
+            return
+        }
         self[key] = .boolean(boolean)
     }
 }
 
-public struct JsonErrorValueMissing: LocalizedError {
+public struct JsonObjectValueIsMissingError: LocalizedError {
     
     let object: JsonObject
     let key: String
@@ -186,6 +268,67 @@ public struct JsonErrorValueMissing: LocalizedError {
     init(object: JsonObject, key: String) {
         self.object = object
         self.key = key
+    }
+    
+}
+
+
+public struct JsonAnyValueIsNotStringError: Error {
+    
+    private let value: JsonAnyValue
+    
+    init(value: JsonAnyValue) {
+        self.value = value
+    }
+    
+}
+
+public struct JsonAnyValueIsNotNullableStringError: Error {
+    
+    private let value: JsonAnyValue
+    
+    init(value: JsonAnyValue) {
+        self.value = value
+    }
+    
+}
+
+public struct JsonAnyValueIsNotNumberError: LocalizedError {
+    
+    private let value: JsonAnyValue
+    
+    init(value: JsonAnyValue) {
+        self.value = value
+    }
+    
+}
+
+public struct JsonAnyValueIsNotObjectError: LocalizedError {
+    
+    private let value: JsonAnyValue
+    
+    init(value: JsonAnyValue) {
+        self.value = value
+    }
+    
+}
+
+public struct JsonAnyValueIsNotArrayError: LocalizedError {
+    
+    private let value: JsonAnyValue
+    
+    init(value: JsonAnyValue) {
+        self.value = value
+    }
+    
+}
+
+public struct JsonAnyValueIsNotBooleanError: LocalizedError {
+    
+    private let value: JsonAnyValue
+    
+    init(value: JsonAnyValue) {
+        self.value = value
     }
     
 }

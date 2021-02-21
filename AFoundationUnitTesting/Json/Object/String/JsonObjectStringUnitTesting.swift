@@ -53,8 +53,8 @@ class JsonObjectStringUnitTesting: XCTestCase {
 //        do {
 //            let actualValue = try object.string("anotherKey")
 //            
-//            XCTFail("Error \(JsonErrorValueMissing.self) has to be thrown, but string \"\(String(describing: actualValue))\" is returned")
-//        } catch _ as JsonErrorValueMissing {
+//            XCTFail("Error \(JsonObjectValueIsMissingError.self) has to be thrown, but string \"\(String(describing: actualValue))\" is returned")
+//        } catch _ as JsonObjectValueIsMissingError {
 //            
 //        } catch {
 //            XCTFail("Unexpected error \(error.self) is thrown")

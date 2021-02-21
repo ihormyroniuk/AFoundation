@@ -36,8 +36,8 @@ class JsonObjectBooleanUnitTesting: XCTestCase {
         do {
             let actualValue = try object.boolean(key)
             
-            XCTFail("Error \(JsonValueIsNotBooleanError.self) has to be thrown, but boolean \"\(String(describing: actualValue))\" is returned")
-        } catch _ as JsonValueIsNotBooleanError {
+            XCTFail("Error \(JsonAnyValueIsNotBooleanError.self) has to be thrown, but boolean \"\(String(describing: actualValue))\" is returned")
+        } catch _ as JsonAnyValueIsNotBooleanError {
             
         } catch {
             XCTFail("Unexpected error \(error.self) is thrown")
@@ -53,8 +53,8 @@ class JsonObjectBooleanUnitTesting: XCTestCase {
         do {
             let actualValue = try object.boolean("anotherKey")
             
-            XCTFail("Error \(JsonErrorValueMissing.self) has to be thrown, but boolean \"\(String(describing: actualValue))\" is returned")
-        } catch _ as JsonErrorValueMissing {
+            XCTFail("Error \(JsonObjectValueIsMissingError.self) has to be thrown, but boolean \"\(String(describing: actualValue))\" is returned")
+        } catch _ as JsonObjectValueIsMissingError {
             
         } catch {
             XCTFail("Unexpected error \(error.self) is thrown")

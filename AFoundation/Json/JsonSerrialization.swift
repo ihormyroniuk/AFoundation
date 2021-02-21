@@ -20,13 +20,13 @@ public struct DataIsNotJsonError: LocalizedError {
 
 public enum JsonSerialization {
     
-    public static func jsonValue(data: Data) throws -> JsonValue {
+    public static func jsonValue(data: Data) throws -> JsonAnyValue {
         let any: Any
         do { any  = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed]) } catch {
             let error = DataIsNotJsonError(data: data)
             throw error
         }
-        func json(_ any: Any) -> JsonValue? {
+        func json(_ any: Any) -> JsonAnyValue? {
             if let string = any as? String {
                 return .string(string)
             }
@@ -42,7 +42,7 @@ public enum JsonSerialization {
                 return .number(decimal)
             }
             if let dictionaryStringAny = any as? [String: Any] {
-                var dictionaryStringJsonValue: [String: JsonValue] = [:]
+                var dictionaryStringJsonValue: [String: JsonAnyValue] = [:]
                 for (string, any) in dictionaryStringAny {
                     guard let jsonValue = json(any) else {
                         return nil
@@ -52,7 +52,7 @@ public enum JsonSerialization {
                 return .object(dictionaryStringJsonValue)
             }
             if let arrayAny = any as? [Any] {
-                var arrayJsonValue: [JsonValue] = []
+                var arrayJsonValue: [JsonAnyValue] = []
                 for any in arrayAny {
                     guard let jsonValue = json(any) else {
                         return nil
@@ -76,8 +76,8 @@ public enum JsonSerialization {
         return jsonValue
     }
     
-    public static func data(jsonValue: JsonValue) throws -> Data {
-        func any(_ jsonValue: JsonValue) -> Any {
+    public static func data(jsonValue: JsonAnyValue) throws -> Data {
+        func any(_ jsonValue: JsonAnyValue) -> Any {
             switch jsonValue {
             case let .string(string):
                 return string

@@ -13,7 +13,7 @@ class DecimalUnitTesting: XCTestCase {
 
     func testNumber() {
         let valueNumber = Decimal(1)
-        let value: JsonValue = Decimal(decimal: valueNumber)
+        let value: JsonAnyValue = Decimal(decimal: valueNumber)
         
         do {
             let number = try value.number().decimal
@@ -26,13 +26,13 @@ class DecimalUnitTesting: XCTestCase {
     
     func testNotNumber() {
         let valueString = "string"
-        let value: JsonValue = String(string: valueString)
+        let value: JsonAnyValue = String(string: valueString)
         
         do {
             let string = try value.number()
             
-            XCTFail("Unexpected number \"\(String(describing: string))\" is found while error \(JsonValueIsNotNumberError.self) has to be thrown")
-        } catch _ as JsonValueIsNotNumberError {
+            XCTFail("Unexpected number \"\(String(describing: string))\" is found while error \(JsonAnyValueIsNotNumberError.self) has to be thrown")
+        } catch _ as JsonAnyValueIsNotNumberError {
         
         } catch {
             XCTFail("Unexpected error \(error) is thrown")
