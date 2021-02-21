@@ -12,24 +12,48 @@ public typealias JsonObject = [String: JsonAnyValue]
 
 public extension JsonObject {
     
-    func value(_ key: String) throws -> JsonAnyValue {
+    // MARK: AnyValue
+    
+    struct MissingValueError: Error {
+        private let object: JsonObject
+        private let key: String
+        
+        init(object: JsonObject, key: String) {
+            self.object = object
+            self.key = key
+        }
+    }
+    
+    private func value(_ key: String) throws -> JsonAnyValue {
         let optionalValue = self[key]
         guard let value = optionalValue else {
-            let error = JsonObjectValueIsMissingError(object: self, key: key)
-            throw error
+            throw MissingValueError(object: self, key: key)
         }
         return value
     }
 
     // MARK: String
     
-    func string(_ key: String) throws -> String {
-        let value = try self.value(key)
-        guard case .string(let string) = value else {
-            let error = JsonAnyValueIsNotStringError(value: value)
-            throw error
+    struct NotStringError: Error {
+        private let object: JsonObject
+        private let key: String
+        private let error: Error
+        
+        init(object: JsonObject, key: String, error: Error) {
+            self.object = object
+            self.key = key
+            self.error = error
         }
-        return string
+    }
+    
+    func string(_ key: String) throws -> String {
+        do {
+            let value = try self.value(key)
+            let string = try value.string()
+            return string
+        } catch {
+            throw NotStringError(object: self, key: key, error: error)
+        }
     }
 
     func nullableString(_ key: String) throws -> String? {
@@ -46,14 +70,9 @@ public extension JsonObject {
     }
     
     func missableString(_ key: String) throws -> String? {
-        guard let value = self[key] else {
-            return nil
-        }
-        guard case .string(let string) = value else {
-            let error = JsonAnyValueIsNotStringError(value: value)
-            throw error
-        }
-        return string
+        guard let value = self[key] else { return nil }
+        if case .string(let string) = value { return string }
+        throw JsonAnyValueIsNotStringError(value: value)
     }
     
     func missableNullableString(_ key: String) throws -> String? {

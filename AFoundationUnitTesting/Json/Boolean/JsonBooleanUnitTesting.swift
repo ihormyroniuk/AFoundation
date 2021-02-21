@@ -25,19 +25,19 @@ class JsonBooleanUnitTesting: XCTestCase {
         }
     }
     
-    func testNotBoolean() {
-        let valueString: String = "string"
-        let value: JsonAnyValue = .string(valueString)
-        
-        do {
-            let string = try value.boolean()
-            
-            XCTFail("Unexpected boolean \"\(String(describing: string))\" is found while error \(JsonAnyValueIsNotBooleanError.self) has to be thrown")
-        } catch _ as JsonAnyValueIsNotBooleanError {
-        
-        } catch {
-            XCTFail("Unexpected error \(error) is thrown")
-        }
-    }
+//    func testNotBoolean() {
+//        let valueString: String = "string"
+//        let value: JsonAnyValue = .string(valueString)
+//        
+//        do {
+//            let string = try value.boolean()
+//            
+//            XCTFail("Unexpected boolean \"\(String(describing: string))\" is found while error \(JsonAnyValueIsNotBooleanError.self) has to be thrown")
+//        } catch _ as JsonAnyValueIsNotBooleanError {
+//        
+//        } catch {
+//            XCTFail("Unexpected error \(error) is thrown")
+//        }
+//    }
 
 }

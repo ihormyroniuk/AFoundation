@@ -11,21 +11,25 @@ import Foundation
 /**
     Implemented based on https://www.json.org/json-en.html
  */
-public enum JsonAnyValue: Equatable, Hashable {
+public enum JsonAnyValue: Equatable, Hashable, CustomDebugStringConvertible {
     
     // MARK: String
     
     case string(String)
     
-    init(_ string: String) {
+    public init(_ string: String) {
         self = .string(string)
     }
     
-    public struct NotStringError: Error {
+    public struct NotStringError: Error, CustomDebugStringConvertible {
         private let value: JsonAnyValue
         
         init(value: JsonAnyValue) {
             self.value = value
+        }
+        
+        public var debugDescription: String {
+            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not string"
         }
     }
     
@@ -34,11 +38,15 @@ public enum JsonAnyValue: Equatable, Hashable {
         throw NotStringError(value: self)
     }
     
-    public struct NotNullableStringError: Error {
+    public struct NotNullableStringError: Error, CustomDebugStringConvertible {
         private let value: JsonAnyValue
         
         init(value: JsonAnyValue) {
             self.value = value
+        }
+        
+        public var debugDescription: String {
+            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not string or null"
         }
     }
     
@@ -52,15 +60,19 @@ public enum JsonAnyValue: Equatable, Hashable {
     
     case number(Decimal)
     
-    init(_ number: Decimal) {
+    public init(_ number: Decimal) {
         self = .number(number)
     }
     
-    public struct NotNumberError: LocalizedError {
+    public struct NotNumberError: Error, CustomDebugStringConvertible {
         private let value: JsonAnyValue
         
         init(value: JsonAnyValue) {
             self.value = value
+        }
+        
+        public var debugDescription: String {
+            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not number"
         }
     }
     
@@ -69,11 +81,15 @@ public enum JsonAnyValue: Equatable, Hashable {
         throw NotNumberError(value: self)
     }
     
-    public struct NotNullableNumberError: LocalizedError {
+    public struct NotNullableNumberError: Error, CustomDebugStringConvertible {
         private let value: JsonAnyValue
         
         init(value: JsonAnyValue) {
             self.value = value
+        }
+        
+        public var debugDescription: String {
+            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not number or null"
         }
     }
     
@@ -87,15 +103,19 @@ public enum JsonAnyValue: Equatable, Hashable {
     
     case object(JsonObject)
     
-    init(_ object: JsonObject) {
+    public init(_ object: JsonObject) {
         self = .object(object)
     }
     
-    public struct NotObjectError: LocalizedError {
+    public struct NotObjectError: Error, CustomDebugStringConvertible {
         private let value: JsonAnyValue
         
         init(value: JsonAnyValue) {
             self.value = value
+        }
+        
+        public var debugDescription: String {
+            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not object"
         }
     }
     
@@ -104,11 +124,15 @@ public enum JsonAnyValue: Equatable, Hashable {
         throw NotObjectError(value: self)
     }
     
-    public struct NotNullableObjectError: LocalizedError {
+    public struct NotNullableObjectError: Error, CustomDebugStringConvertible {
         private let value: JsonAnyValue
         
         init(value: JsonAnyValue) {
             self.value = value
+        }
+        
+        public var debugDescription: String {
+            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not object or null"
         }
     }
     
@@ -122,15 +146,19 @@ public enum JsonAnyValue: Equatable, Hashable {
     
     case array(JsonArray)
     
-    init(_ array: JsonArray) {
+    public init(_ array: JsonArray) {
         self = .array(array)
     }
     
-    public struct NotArrayError: LocalizedError {
+    public struct NotArrayError: Error, CustomDebugStringConvertible {
         private let value: JsonAnyValue
         
         init(value: JsonAnyValue) {
             self.value = value
+        }
+        
+        public var debugDescription: String {
+            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not array"
         }
     }
     
@@ -139,11 +167,15 @@ public enum JsonAnyValue: Equatable, Hashable {
         throw NotArrayError(value: self)
     }
     
-    public struct NotNullableArrayError: LocalizedError {
+    public struct NotNullableArrayError: Error, CustomDebugStringConvertible {
         private let value: JsonAnyValue
         
         init(value: JsonAnyValue) {
             self.value = value
+        }
+        
+        public var debugDescription: String {
+            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not array or null"
         }
     }
     
@@ -157,15 +189,19 @@ public enum JsonAnyValue: Equatable, Hashable {
     
     case boolean(Bool)
     
-    init(_ boolean: Bool) {
+    public init(_ boolean: Bool) {
         self = .boolean(boolean)
     }
     
-    public struct NotBooleanError: LocalizedError {
+    public struct NotBooleanError: Error, CustomDebugStringConvertible {
         private let value: JsonAnyValue
         
         init(value: JsonAnyValue) {
             self.value = value
+        }
+        
+        public var debugDescription: String {
+            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not boolean"
         }
     }
     
@@ -174,11 +210,15 @@ public enum JsonAnyValue: Equatable, Hashable {
         throw NotBooleanError(value: self)
     }
     
-    public struct NotNullableBooleanError: LocalizedError {
+    public struct NotNullableBooleanError: Error, CustomDebugStringConvertible {
         private let value: JsonAnyValue
         
         init(value: JsonAnyValue) {
             self.value = value
+        }
+        
+        public var debugDescription: String {
+            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not boolean or null"
         }
     }
     
@@ -191,6 +231,10 @@ public enum JsonAnyValue: Equatable, Hashable {
     // MARK: Null
     
     case null
+    
+    public init() {
+        self = .null
+    }
     
     // MARK: Equatable
     
@@ -228,8 +272,26 @@ public enum JsonAnyValue: Equatable, Hashable {
         case let .boolean(bool):
             hasher.combine(bool)
         case .null:
-            let hashValue = 0
-            hasher.combine(hashValue)
+            hasher.combine(0)
+        }
+    }
+    
+    // MARK: CustomDebugStringConvertible
+    
+    public var debugDescription: String {
+        switch self {
+        case let .string(string):
+            return "\(String(reflecting: Self.self))(.string(\(String(reflecting: string))))"
+        case let .number(number):
+            return "\(String(reflecting: Self.self))(.number(\(String(reflecting: number))))"
+        case let .object(object):
+            return "\(String(reflecting: Self.self))(.object(\(String(reflecting: object))))"
+        case let .array(array):
+            return "\(String(reflecting: Self.self))(.array(\(String(reflecting: array))))"
+        case let .boolean(bool):
+            return "\(String(reflecting: Self.self))(.boolean(\(String(reflecting: bool))))"
+        case .null:
+            return "\(String(reflecting: Self.self))(.null)"
         }
     }
 }

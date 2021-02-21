@@ -12,53 +12,53 @@ import Foundation
 
 class JsonObjectBooleanUnitTesting: XCTestCase {
 
-    func testBooleanValue() {
-        let key: String = "key"
-        let value: JsonBoolean = JsonBoolean(bool: true)
-        let object = JsonObject()
-        object[key] = value;
-        
-        do {
-            let actualValue = try object.boolean(key)
-            
-            XCTAssert(actualValue == value, "Object returned unexpected boolean \"\(String(describing: actualValue))\" while boolean \"(\(String(describing: value))\" is expected)")
-        } catch {
-            XCTFail("Unexpected error \(error) is thrown")
-        }
-    }
-    
-    func testNotBooleanValue() {
-        let key: String = "key"
-        let value: String = "string"
-        let object = JsonObject()
-        object[key] = value;
-        
-        do {
-            let actualValue = try object.boolean(key)
-            
-            XCTFail("Error \(JsonAnyValueIsNotBooleanError.self) has to be thrown, but boolean \"\(String(describing: actualValue))\" is returned")
-        } catch _ as JsonAnyValueIsNotBooleanError {
-            
-        } catch {
-            XCTFail("Unexpected error \(error.self) is thrown")
-        }
-    }
-    
-    func testMissingBooleanValue() {
-        let key: String = "key"
-        let value: JsonBoolean = JsonBoolean(bool: false)
-        let object = JsonObject()
-        object[key] = value;
-        
-        do {
-            let actualValue = try object.boolean("anotherKey")
-            
-            XCTFail("Error \(JsonObjectValueIsMissingError.self) has to be thrown, but boolean \"\(String(describing: actualValue))\" is returned")
-        } catch _ as JsonObjectValueIsMissingError {
-            
-        } catch {
-            XCTFail("Unexpected error \(error.self) is thrown")
-        }
-    }
+//    func testBooleanValue() {
+//        let key: String = "key"
+//        let value: JsonBoolean = JsonBoolean(bool: true)
+//        let object = JsonObject()
+//        object[key] = value;
+//        
+//        do {
+//            let actualValue = try object.boolean(key)
+//            
+//            XCTAssert(actualValue == value, "Object returned unexpected boolean \"\(String(describing: actualValue))\" while boolean \"(\(String(describing: value))\" is expected)")
+//        } catch {
+//            XCTFail("Unexpected error \(error) is thrown")
+//        }
+//    }
+//    
+//    func testNotBooleanValue() {
+//        let key: String = "key"
+//        let value: String = "string"
+//        let object = JsonObject()
+//        object[key] = value;
+//        
+//        do {
+//            let actualValue = try object.boolean(key)
+//            
+//            XCTFail("Error \(JsonAnyValueIsNotBooleanError.self) has to be thrown, but boolean \"\(String(describing: actualValue))\" is returned")
+//        } catch _ as JsonAnyValueIsNotBooleanError {
+//            
+//        } catch {
+//            XCTFail("Unexpected error \(error.self) is thrown")
+//        }
+//    }
+//    
+//    func testMissingBooleanValue() {
+//        let key: String = "key"
+//        let value: JsonBoolean = JsonBoolean(bool: false)
+//        let object = JsonObject()
+//        object[key] = value;
+//        
+//        do {
+//            let actualValue = try object.boolean("anotherKey")
+//            
+//            XCTFail("Error \(JsonObjectValueIsMissingError.self) has to be thrown, but boolean \"\(String(describing: actualValue))\" is returned")
+//        } catch _ as JsonObjectValueIsMissingError {
+//            
+//        } catch {
+//            XCTFail("Unexpected error \(error.self) is thrown")
+//        }
+//    }
     
 }

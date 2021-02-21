@@ -66,19 +66,6 @@ class JsonJSONSerrializationUnitTesting: XCTestCase {
         }
     }
     
-    func testNullData() {
-        let data = Data([0x6e, 0x75, 0x6c, 0x6c])
-
-        do {
-            let null = try JsonSerialization.jsonValue(data: data).null()
-            
-            let expectedNull = NSNull()
-            XCTAssert(null == expectedNull, "Object returned unexpected null \"\(String(describing: null))\" while null \"(\(String(describing: expectedNull))\" is expected)")
-        } catch {
-            XCTFail("Unexpected error \(error) is thrown")
-        }
-    }
-    
     func testBooleanData() {
         let data = Data([0x74, 0x72, 0x75, 0x65])
 
