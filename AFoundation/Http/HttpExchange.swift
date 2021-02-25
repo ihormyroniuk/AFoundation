@@ -8,20 +8,19 @@
 
 import Foundation
 
-extension Http {
-open class Exchange<ParsedResponse> {
+open class HttpExchange<ParsedResponse> {
     
-    open func constructRequest() throws -> Http.Request {
+    open func constructRequest() throws -> HttpRequest {
         fatalError()
     }
     
-    open func parseResponse(_ response: Http.Response) throws -> ParsedResponse {
+    open func parseResponse(_ response: HttpResponse) throws -> ParsedResponse {
         fatalError()
     }
     
 }
 
-open class RequestDataExchange<RequestData, ParsedResponse>: Http.Exchange<ParsedResponse> {
+open class RequestDataHttpExchange<RequestData, ParsedResponse>: HttpExchange<ParsedResponse> {
     
     public let requestData: RequestData
     
@@ -31,7 +30,7 @@ open class RequestDataExchange<RequestData, ParsedResponse>: Http.Exchange<Parse
     
 }
 
-open class SchemeHostExchange<RequestData, ParsedResponse>: Http.RequestDataExchange<RequestData, ParsedResponse> {
+open class SchemeHostHttpExchange<RequestData, ParsedResponse>: RequestDataHttpExchange<RequestData, ParsedResponse> {
     
     public let scheme: String
     public let host: String
@@ -42,5 +41,4 @@ open class SchemeHostExchange<RequestData, ParsedResponse>: Http.RequestDataExch
         super.init(requestData: requestData)
     }
     
-}
 }

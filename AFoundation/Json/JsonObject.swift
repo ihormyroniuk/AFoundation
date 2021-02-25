@@ -14,7 +14,7 @@ public extension JsonObject {
     
     // MARK: AnyValue
     
-    struct MissingValueError: Error {
+    struct MissingValueError: Error, CustomDebugStringConvertible {
         private let object: JsonObject
         private let key: String
         
@@ -22,9 +22,13 @@ public extension JsonObject {
             self.object = object
             self.key = key
         }
+        
+        public var debugDescription: String {
+            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not string"
+        }
     }
     
-    private func value(_ key: String) throws -> JsonAnyValue {
+    func value(_ key: String) throws -> JsonAnyValue {
         let optionalValue = self[key]
         guard let value = optionalValue else {
             throw MissingValueError(object: self, key: key)
@@ -55,39 +59,71 @@ public extension JsonObject {
             throw NotStringError(object: self, key: key, error: error)
         }
     }
+    
+    struct NotNullableStringError: Error {
+        private let object: JsonObject
+        private let key: String
+        private let error: Error
+        
+        init(object: JsonObject, key: String, error: Error) {
+            self.object = object
+            self.key = key
+            self.error = error
+        }
+    }
 
     func nullableString(_ key: String) throws -> String? {
-        let value = try self.value(key)
-        guard case .string(let string) = value else {
-            if case .null = value {
-                return nil
-            } else {
-                let error = JsonAnyValueIsNotStringError(value: value)
-                throw error
-            }
+        do {
+            let value = try self.value(key)
+            let string = try value.nullableString()
+            return string
+        } catch {
+            throw NotNullableStringError(object: self, key: key, error: error)
         }
-        return string
+    }
+    
+    struct NotMissableStringError: Error {
+        private let object: JsonObject
+        private let key: String
+        private let error: Error
+        
+        init(object: JsonObject, key: String, error: Error) {
+            self.object = object
+            self.key = key
+            self.error = error
+        }
     }
     
     func missableString(_ key: String) throws -> String? {
         guard let value = self[key] else { return nil }
-        if case .string(let string) = value { return string }
-        throw JsonAnyValueIsNotStringError(value: value)
+        do {
+            let string = try value.string()
+            return string
+        } catch {
+            throw NotMissableStringError(object: self, key: key, error: error)
+        }
+    }
+    
+    struct NotMissableNullableStringError: Error {
+        private let object: JsonObject
+        private let key: String
+        private let error: Error
+        
+        init(object: JsonObject, key: String, error: Error) {
+            self.object = object
+            self.key = key
+            self.error = error
+        }
     }
     
     func missableNullableString(_ key: String) throws -> String? {
-        guard let value = self[key] else {
-            return nil
+        guard let value = self[key] else { return nil }
+        do {
+            let string = try value.nullableString()
+            return string
+        } catch {
+            throw NotMissableNullableStringError(object: self, key: key, error: error)
         }
-        guard case .string(let string) = value else {
-            if case .null = value {
-                return nil
-            } else {
-                let error = JsonAnyValueIsNotStringError(value: value)
-                throw error
-            }
-        }
-        return string
     }
     
     mutating func setString(_ string: String, for key: String) {

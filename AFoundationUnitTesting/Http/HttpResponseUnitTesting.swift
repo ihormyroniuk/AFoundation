@@ -17,7 +17,7 @@ class HttpResponseUnitTesting: XCTestCase {
         let headers: [String: String] = ["headerField1": "headerField1"]
         let data: Data? = Data([0x01])
         
-        let httpResponse = Http.Response(version: version, code: code, phrase: "OK", headers: headers, body: data)
+        let httpResponse = HttpResponse(version: version, code: code, phrase: "OK", headers: headers, body: data)
         
         let description = httpResponse.description
         

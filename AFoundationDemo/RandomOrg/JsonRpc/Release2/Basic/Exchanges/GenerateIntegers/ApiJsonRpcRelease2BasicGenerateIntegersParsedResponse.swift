@@ -12,7 +12,13 @@ extension Api.JsonRpc.Release2.Basic {
 struct GenerateIntegersParsedResponse {
     
     let id: JsonAnyValue
-    let data: [Int]
+    enum Data {
+        case binary([String])
+        case octal([String])
+        case decimal([Int])
+        case hexadecimal([String])
+    }
+    let data: Data
     let completionTime: Date
     let bitsUsed: UInt
     let bitsLeft: UInt

@@ -1,5 +1,5 @@
 //
-//  HTTP.swift
+//  Httpswift
 //  AFoundation
 //
 //  Created by Ihor Myroniuk on 02.11.2020.
@@ -16,13 +16,21 @@ public enum Http {
     /**
         Implemented based on https://tools.ietf.org/html/rfc2616#section-3.1
      */
-    public enum Version {
+    public enum HttpVersion {
         public static let http1dot1 = "HTTP/1.1"
     }
     
-    public enum HeaderField {
+    public enum HttpHeaderField {
         public static let authorization = "Authorization"
         public static let contentType = "Content-Type"
     }
     
+}
+public enum HttpVersion {
+    public static let http1dot1 = "HTTP/1.1"
+}
+
+public enum HttpHeaderField {
+    public static let authorization = "Authorization"
+    public static let contentType = "Content-Type"
 }

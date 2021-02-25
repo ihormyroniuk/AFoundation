@@ -11,8 +11,7 @@ import Foundation
 /**
     Implemented based on https://tools.ietf.org/html/rfc2616#section-6
  */
-extension Http {
-public struct Response: CustomStringConvertible, Equatable {
+public struct HttpResponse: CustomStringConvertible, Equatable {
 
     public let version: String
     /**
@@ -83,5 +82,4 @@ public struct Response: CustomStringConvertible, Equatable {
         return description
     }
     
-}
 }

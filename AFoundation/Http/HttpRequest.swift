@@ -11,8 +11,7 @@ import Foundation
 /**
     Implemented based on https://tools.ietf.org/html/rfc2616#section-5
  */
-extension Http {
-public struct Request: CustomStringConvertible, Equatable {
+public struct HttpRequest: CustomStringConvertible, Equatable {
     
     /**
         Implemented based on https://tools.ietf.org/html/rfc2616#section-9
@@ -51,5 +50,4 @@ public struct Request: CustomStringConvertible, Equatable {
         return description
     }
     
-}
 }

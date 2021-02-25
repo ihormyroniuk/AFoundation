@@ -22,7 +22,7 @@ class HTTPURLResponseHttpResponseDataUnitTesting: XCTestCase {
         
         let httpUrlResponseHttpResponse = httpUrlResponse.httpResponse(data: data)
         
-        let httpResponse = Http.Response(version: version, code: code, phrase: phrase, headers: headers, body: data)
+        let httpResponse = HttpResponse(version: version, code: code, phrase: phrase, headers: headers, body: data)
         XCTAssertTrue(httpUrlResponseHttpResponse == httpResponse, "Unexpected HTTPResponse \"\(httpResponse)\" is found while \"(\(httpUrlResponse.statusCode)\" is expected)")
     }
     

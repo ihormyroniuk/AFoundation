@@ -9,7 +9,7 @@
 import AFoundation
 
 extension Api.JsonRpc.Release2.Basic {
-class HttpExchange<RequestData, ParsedResponse>: Http.RequestDataExchange<RequestData, ParsedResponse> {
+class HttpExchange<RequestData, ParsedResponse>: RequestDataHttpExchange<RequestData, ParsedResponse> {
     
     let scheme = Api.JsonRpc.Release2.scheme
     let host = "api.random.org"
@@ -24,7 +24,7 @@ class HttpExchange<RequestData, ParsedResponse>: Http.RequestDataExchange<Reques
         return uri
     }
     
-    var headers: [String: String] = [Http.HeaderField.contentType: MediaType.Application.Json.template]
+    var headers: [String: String] = [HttpHeaderField.contentType: MediaType.Application.Json.template]
     
     func constructRequestObject(method: String, params: JsonObject, id: JsonAnyValue) -> JsonObject {
         var jsonObject = JsonObject()

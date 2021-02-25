@@ -18,18 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-//        let requestData = Ggg.Basic.GenerateIntegersRequestData(id: 1, apiKey: "3b887b17-2315-49ae-aa27-ddcddc5ad778", n: 5, min: -10, max: 10, replacement: true, base: .binary)
-//        let httpExchange = Ggg.Basic().generateIntegers(requestData: requestData)
-//        let dataTask = try! urlSession.httpExchangeDataTask(httpExchange) { (result) in
-//
-//        }
-        let requestData = Ggg.Basic.GenerateStringsRequestData(id: .number(Decimal(1)), apiKey: "3b887b17-2315-49ae-aa27-ddcddc5ad778", n: 20, lenght: 3, characters: "abcde", replacement: false)
-        let httpExchange = Ggg.Basic().generateStrings(requestData: requestData)
+        let requestData = Ggg.Basic.GenerateIntegersRequestData(id: 1, apiKey: "3b887b17-2315-49ae-aa27-ddcddc5ad778", n: 15, min: -1000000, max: 1000000, replacement: true, base: .hexadecimal)
+        let httpExchange = Ggg.Basic().generateIntegers(requestData: requestData)
         let dataTask = try! urlSession.httpExchangeDataTask(httpExchange) { (result) in
             print(result)
         }
-        
         dataTask.resume()
+//        let requestData = Ggg.Basic.GenerateStringsRequestData(id: .number(Decimal(1)), apiKey: "3b887b17-2315-49ae-aa27-ddcddc5ad778", n: 20, lenght: 3, characters: "abcde", replacement: false)
+//        let httpExchange = Ggg.Basic().generateStrings(requestData: requestData)
+//        let dataTask = try! urlSession.httpExchangeDataTask(httpExchange) { (result) in
+//            print(result)
+//        }
+//
+//        dataTask.resume()
         
 //        let jsonValue1 = String(string: "string1")
 //        let jsonValue2 = String(string: "string2")

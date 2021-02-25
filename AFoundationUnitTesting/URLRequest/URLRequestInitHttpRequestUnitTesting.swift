@@ -17,7 +17,7 @@ class URLRequestInitHttpRequestUnitTesting: XCTestCase {
         let version = "HTTP/1.0"
         let headers: [String: String]? = nil
         let body: Data? = nil
-        let httpRequest = Http.Request(method: method, uri: uri, version: version, headers: headers, body: body)
+        let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: headers, body: body)
         
         let httpRequestUrlRequest = URLRequest(httpRequest: httpRequest)
         
@@ -34,7 +34,7 @@ class URLRequestInitHttpRequestUnitTesting: XCTestCase {
         let version = "HTTP/1.0"
         let headers: [String: String] = ["headerField1": "headerField1", "headerField2": "headerField2"]
         let body: Data? = nil
-        let httpRequest = Http.Request(method: method, uri: uri, version: version, headers: headers, body: body)
+        let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: headers, body: body)
         
         let httpRequestUrlRequest = URLRequest(httpRequest: httpRequest)
         
@@ -51,7 +51,7 @@ class URLRequestInitHttpRequestUnitTesting: XCTestCase {
         let version = "HTTP/1.0"
         let headers: [String: String]? = nil
         let body: Data = Data([0x00])
-        let httpRequest = Http.Request(method: method, uri: uri, version: version, headers: headers, body: body)
+        let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: headers, body: body)
         
         let httpRequestUrlRequest = URLRequest(httpRequest: httpRequest)
         
@@ -68,7 +68,7 @@ class URLRequestInitHttpRequestUnitTesting: XCTestCase {
         let version = "HTTP/1.0"
         let headers: [String: String] = ["headerField1": "headerField1", "headerField2": "headerField2"]
         let body: Data = Data([0x00])
-        let httpRequest = Http.Request(method: method, uri: uri, version: version, headers: headers, body: body)
+        let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: headers, body: body)
         
         let httpRequestUrlRequest = URLRequest(httpRequest: httpRequest)
         

@@ -10,11 +10,11 @@ import Foundation
 
 public struct UnexpectedHttpExchangeError: Error {
     
-    public let httpRequest: Http.Request
-    public let httpResponse: Http.Response
+    public let httpRequest: HttpRequest
+    public let httpResponse: HttpResponse
     public let error: Error
     
-    public init(httpRequest: Http.Request, httpResponse: Http.Response, error: Error) {
+    public init(httpRequest: HttpRequest, httpResponse: HttpResponse, error: Error) {
         self.httpRequest = httpRequest
         self.httpResponse = httpResponse
         self.error = error
