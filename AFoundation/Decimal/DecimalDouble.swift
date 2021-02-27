@@ -14,25 +14,18 @@ public extension Decimal {
     static let doubleMin = Decimal(-Double.greatestFiniteMagnitude)
   
     func double() throws -> Double {
+        struct NotDoubleConvertibleError: Error, LocalizedError {
+            let decimal: Decimal
+            
+            var errorDescription: String? {
+                return "Could not convert \(Decimal.self) \(decimal) to \(Double.self)"
+            }
+        }
         guard self >= Decimal.doubleMin && self <= Decimal.doubleMax else {
-            let error = DecimalIsNotDoubleConvertibleError(decimal: self)
+            let error = NotDoubleConvertibleError(decimal: self)
             throw error
         }
         return (self as NSDecimalNumber).doubleValue
     }
   
-}
-
-public struct DecimalIsNotDoubleConvertibleError: Error, CustomStringConvertible {
-    
-    public let decimal: Decimal
-    
-    init(decimal: Decimal) {
-        self.decimal = decimal
-    }
-    
-    public var description: String {
-        return "Could not convert \(Decimal.self) \(decimal) to \(Double.self)"
-    }
-    
 }

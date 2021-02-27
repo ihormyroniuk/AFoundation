@@ -10,7 +10,7 @@ import XCTest
 @testable import AFoundation
 
 class DecimalIntUnitTesting: XCTestCase {
-
+    
     func testIntDecimal() {
         let int = Int(1234567890)
         let decimal = Decimal(int)
@@ -30,15 +30,13 @@ class DecimalIntUnitTesting: XCTestCase {
         
         let decimalInt: Int
         do { decimalInt = try decimal.int() } catch {
-            if error is DecimalIsNotIntConvertibleError {
-                return
-            } else {
-                XCTFail("Unexpected error \(error.self) is thrown")
-                return
-            }
+            let errorLocalizedString = error.localizedDescription
+            let descriptionString = "Could not convert \(Decimal.self) \(decimal) to \(Int.self)"
+            XCTAssertTrue(errorLocalizedString == descriptionString, "Unexpected description \(errorLocalizedString)) is found but description \(descriptionString) is expected")
+            return
         }
         
-        XCTFail("Unexpected int \(decimalInt) is returned, but error \(DecimalIsNotIntConvertibleError.self) has to be thrown")
+        XCTFail("Unexpected int \(decimalInt) is returned, but error has to be thrown")
     }
     
     func testDecimalLessThanIntMin() {
@@ -47,27 +45,12 @@ class DecimalIntUnitTesting: XCTestCase {
         
         let decimalInt: Int
         do { decimalInt = try decimal.int() } catch {
-            if error is DecimalIsNotIntConvertibleError {
-                return
-            } else {
-                XCTFail("Unexpected error \(error.self) is thrown")
-                return
-            }
+            let errorLocalizedString = error.localizedDescription
+            let descriptionString = "Could not convert \(Decimal.self) \(decimal) to \(Int.self)"
+            XCTAssertTrue(errorLocalizedString == descriptionString, "Unexpected description \(errorLocalizedString)) is found but description \(descriptionString) is expected")
+            return
         }
         
-        XCTFail("Unexpected int \(decimalInt) is returned, but error \(DecimalIsNotIntConvertibleError.self) has to be thrown")
+        XCTFail("Unexpected int \(decimalInt) is returned, but error has to be thrown")
     }
-    
-    // MARK: DecimalIsNotIntConvertibleError
-    
-    func testDecimalIsNotIntConvertibleErrorDescription() {
-        let decimal = Decimal(1234567890)
-        let error = DecimalIsNotIntConvertibleError(decimal: decimal)
-        
-        let errorDescriptionString = "\(error)"
-        
-        let descriptionString = "Could not convert \(Decimal.self) \(decimal) to \(Int.self)"
-        XCTAssertTrue(errorDescriptionString == descriptionString, "Unexpected description \(errorDescriptionString)) is found but description \(descriptionString) is expected")
-    }
-    
 }
