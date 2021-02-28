@@ -10,7 +10,7 @@ import XCTest
 import Foundation
 @testable import AFoundation
 
-class JsonAnyValueUnitTesting: XCTestCase {
+class JsonValueUnitTesting: XCTestCase {
     
 //    // MARK: String
 //

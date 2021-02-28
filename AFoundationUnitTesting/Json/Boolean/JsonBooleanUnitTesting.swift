@@ -14,7 +14,7 @@ class JsonBooleanUnitTesting: XCTestCase {
 
     func testBoolean() {
         let valueBoolean = false
-        let value: JsonAnyValue = .boolean(valueBoolean)
+        let value: JsonValue = .boolean(valueBoolean)
         
         do {
             let string = try value.boolean()

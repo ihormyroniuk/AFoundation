@@ -8,25 +8,15 @@
 
 import Foundation
 
-public struct DataIsNotJsonError: LocalizedError {
-    
-    private let data: Data
-    
-    init(data: Data) {
-        self.data = data
-    }
-    
-}
-
 public enum JsonSerialization {
     
-    public static func jsonValue(data: Data) throws -> JsonAnyValue {
+    public static func jsonValue(data: Data) throws -> JsonValue {
         let any: Any
         do { any  = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed]) } catch {
             let error = DataIsNotJsonError(data: data)
             throw error
         }
-        func json(_ any: Any) -> JsonAnyValue? {
+        func json(_ any: Any) throws -> JsonValue {
             if let string = any as? String {
                 return .string(string)
             }
@@ -42,42 +32,34 @@ public enum JsonSerialization {
                 return .number(decimal)
             }
             if let dictionaryStringAny = any as? [String: Any] {
-                var dictionaryStringJsonValue: [String: JsonAnyValue] = [:]
+                var dictionaryStringJsonValue: [String: JsonValue] = [:]
                 for (string, any) in dictionaryStringAny {
-                    guard let jsonValue = json(any) else {
-                        return nil
-                    }
+                    let jsonValue = try json(any)
                     dictionaryStringJsonValue[String( string)] = jsonValue
                 }
                 return .object(dictionaryStringJsonValue)
             }
             if let arrayAny = any as? [Any] {
-                var arrayJsonValue: [JsonAnyValue] = []
+                var arrayJsonValue: [JsonValue] = []
                 for any in arrayAny {
-                    guard let jsonValue = json(any) else {
-                        return nil
-                    }
+                    let jsonValue = try json(any)
                     arrayJsonValue.append(jsonValue)
                 }
                 return .array(arrayJsonValue)
             }
-            if let bool = any as? Bool {
-                return .boolean(bool)
-            }
-            if any is NSNull {
-                return .null
-            }
-            return nil
+            if let bool = any as? Bool { return .boolean(bool) }
+            if any is NSNull { return .null }
+            throw DataIsNotJsonError(data: data)
         }
-        guard let jsonValue = json(any) else {
-            let error = DataIsNotJsonError(data: data)
-            throw error
-        }
+        let jsonValue = try json(any)
         return jsonValue
     }
+    private struct DataIsNotJsonError: LocalizedError {
+        let data: Data
+    }
     
-    public static func data(jsonValue: JsonAnyValue) throws -> Data {
-        func any(_ jsonValue: JsonAnyValue) -> Any {
+    public static func data(jsonValue: JsonValue) throws -> Data {
+        func any(_ jsonValue: JsonValue) -> Any {
             switch jsonValue {
             case let .string(string):
                 return string

@@ -11,7 +11,7 @@ import AFoundation
 extension Api.JsonRpc.Release2.Basic {
 struct GenerateIntegersParsedResponse {
     
-    let id: JsonAnyValue
+    let id: JsonValue
     enum Data {
         case binary([String])
         case octal([String])
