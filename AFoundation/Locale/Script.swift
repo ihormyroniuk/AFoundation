@@ -11,8 +11,9 @@ import Foundation
 private let arabicCode = "Arab"
 
 public enum Script {
-    
     case arabic
+    
+    // MARK: Initializer
     
     init(code: String) throws {
         switch code {

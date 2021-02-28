@@ -52,6 +52,10 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
         self = .number(number)
     }
     
+    public init(_ int: Int) {
+        self = .number(Decimal(int))
+    }
+    
     public func number() throws -> Decimal {
         if case .number(let number) = self { return number }
         throw NotNumberError(value: self)

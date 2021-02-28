@@ -90,7 +90,7 @@ class LanguageUnitTesting: XCTestCase {
         
         let language: Language
         do { language = try Language(code: code) } catch {
-            if error is LanguageUnknownCodeError {
+            if error is Language.UnknownCodeError {
                 return
             } else {
                 XCTFail("Unexpected error \(error.self) is thrown")
@@ -98,14 +98,14 @@ class LanguageUnitTesting: XCTestCase {
             }
         }
         
-        XCTFail("Unexpected language \"\(language))\" is found while error \(LanguageUnknownCodeError.self) has to be thrown")
+        XCTFail("Unexpected language \"\(language))\" is found while error \(Language.UnknownCodeError.self) has to be thrown")
     }
     
     // MARK: RegionUnknownCodeError
     
     func testLanguageUnknownCodeErrorDescriptionString() {
         let code = "UNKNOWNCODE"
-        let error = LanguageUnknownCodeError(code: code)
+        let error = Language.UnknownCodeError(code: code)
         
         let errorDescriptionString = "\(error)"
         

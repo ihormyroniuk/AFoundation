@@ -10,7 +10,6 @@ import AFoundation
 
 extension Api.JsonRpc.Release2.Basic {
 struct GenerateStringsParsedResponse {
-    
     let id: JsonValue
     let data: [String]
     let completionTime: Date
@@ -18,6 +17,5 @@ struct GenerateStringsParsedResponse {
     let bitsLeft: UInt
     let requestsLeft: UInt
     let advisoryDelay: UInt
-    
 }
 }

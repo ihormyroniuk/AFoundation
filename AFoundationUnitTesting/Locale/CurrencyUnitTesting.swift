@@ -98,7 +98,7 @@ class CurrencyUnitTesting: XCTestCase {
             }
         }
         
-        XCTFail("Unexpected currency \"\(currency))\" is found while error \(LanguageUnknownCodeError.self) has to be thrown")
+        XCTFail("Unexpected currency \"\(currency))\" is found while error \(Language.UnknownCodeError.self) has to be thrown")
     }
     
     // MARK: CurrencyUnknownCodeError

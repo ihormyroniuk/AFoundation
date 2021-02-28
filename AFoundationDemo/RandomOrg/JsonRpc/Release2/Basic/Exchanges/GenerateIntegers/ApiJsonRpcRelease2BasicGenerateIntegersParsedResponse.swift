@@ -10,7 +10,6 @@ import AFoundation
 
 extension Api.JsonRpc.Release2.Basic {
 struct GenerateIntegersParsedResponse {
-    
     let id: JsonValue
     enum Data {
         case binary([String])
@@ -24,6 +23,5 @@ struct GenerateIntegersParsedResponse {
     let bitsLeft: UInt
     let requestsLeft: UInt
     let advisoryDelay: UInt
-    
 }
 }

@@ -22,7 +22,6 @@ private let russianCode = "ru"
 private let ukrainianCode = "uk"
 
 public enum PreferredLanguage {
-    
     case english
     case englishAustralia
     case englishCanada
@@ -35,6 +34,8 @@ public enum PreferredLanguage {
     case englishUS
     case russian
     case ukrainian
+    
+    // MARK: Initializer
     
     init(code: String) throws {
         switch code {

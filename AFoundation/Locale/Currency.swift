@@ -13,10 +13,11 @@ private let ukrainianHryvniaCode = "UAH"
 private let russianRubleCode = "RUB"
 
 public enum Currency {
-    
     case unitedStatesDollar
     case ukrainianHryvnia
     case russianRuble
+    
+    // MARK: Initializer
     
     init(code: String) throws {
         switch code {

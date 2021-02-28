@@ -13,10 +13,11 @@ private let russianCode = "ru"
 private let ukrainianCode = "uk"
 
 public enum Language {
-    
     case english
     case russian
     case ukrainian
+    
+    // MARK: Initializer
     
     init(code: String) throws {
         switch code {
