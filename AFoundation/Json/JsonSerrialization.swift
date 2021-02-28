@@ -10,23 +10,19 @@ import Foundation
 
 public enum JsonSerialization {
     
-    public static func jsonValue(data: Data) throws -> JsonValue {
+    public static func jsonValue(_ data: Data) throws -> JsonValue {
         let any: Any
         do { any  = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed]) } catch {
             let error = NotJsonValueError(data: data)
             throw error
         }
         func json(_ any: Any) throws -> JsonValue {
-            if let string = any as? String {
-                return .string(string)
-            }
+            if let string = any as? String { return .string(string) }
             if let nsString = any as? NSString {
                 let string = nsString as String
                 return .string(string)
             }
-            if let decimal = any as? Decimal {
-                return .number(decimal)
-            }
+            if let decimal = any as? Decimal { return .number(decimal) }
             if let nsNumber = any as? NSNumber, nsNumber !== kCFBooleanTrue, nsNumber !== kCFBooleanFalse {
                 let decimal = nsNumber.decimalValue
                 return .number(decimal)
@@ -50,7 +46,7 @@ public enum JsonSerialization {
         let data: Data
     }
     
-    public static func data(jsonValue: JsonValue) throws -> Data {
+    public static func data(_ jsonValue: JsonValue) throws -> Data {
         func any(_ jsonValue: JsonValue) -> Any {
             switch jsonValue {
             case let .string(string): return string
@@ -66,7 +62,7 @@ public enum JsonSerialization {
     }
     
     public static func data(_ jsonValue: JsonObject) throws -> Data {
-        let data = try JsonSerialization.data(jsonValue: .object(jsonValue))
+        let data = try JsonSerialization.data(jsonValue)
         return data
     }
     

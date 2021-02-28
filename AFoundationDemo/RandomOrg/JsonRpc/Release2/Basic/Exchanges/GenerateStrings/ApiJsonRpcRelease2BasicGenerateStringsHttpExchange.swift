@@ -36,7 +36,7 @@ class GenerateStringsHttpExchange: HttpExchange<GenerateStringsRequestData, Gene
             throw error
         }
         let body = httpResponse.body ?? Data()
-        let jsonValue = try JsonSerialization.jsonValue(data: body)
+        let jsonValue = try JsonSerialization.jsonValue(body)
         let response = try jsonValue.object()
         let resultJsonObject = try response.object("result")
         let random = try resultJsonObject.object("random")

@@ -45,7 +45,7 @@ class GenerateIntegersHttpExchange: HttpExchange<GenerateIntegersRequestData, Ge
             throw error
         }
         let body = httpResponse.body ?? Data()
-        let jsonValue = try JsonSerialization.jsonValue(data: body)
+        let jsonValue = try JsonSerialization.jsonValue(body)
         let response = try jsonValue.object()
         
         let resultJsonObject = try response.object("result")

@@ -15,17 +15,16 @@ public extension Decimal {
   
     func uint() throws -> UInt {
         guard self >= Decimal.uintMin && self <= Decimal.uintMax else {
-            struct NotUIntConvertibleError: Error, LocalizedError {
-                let decimal: Decimal
-                
-                var errorDescription: String? {
-                    return "Could not convert \(Decimal.self) \(decimal) to \(UInt.self)"
-                }
-            }
             let error = NotUIntConvertibleError(decimal: self)
             throw error
         }
         return (self as NSDecimalNumber).uintValue
     }
-  
+    private struct NotUIntConvertibleError: Error, LocalizedError {
+        let decimal: Decimal
+        
+        var errorDescription: String? {
+            return "Could not convert \(Decimal.self) \(decimal) to \(UInt.self)"
+        }
+    }
 }

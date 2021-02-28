@@ -19,17 +19,17 @@ public extension Decimal {
   
     func float() throws -> Float {
         guard self >= Decimal.floatMin && self <= Decimal.floatMax else {
-            struct NotFloatConvertibleError: Error, LocalizedError {
-                let decimal: Decimal
-                
-                var errorDescription: String? {
-                    return "Could not convert \(Decimal.self) \(decimal) to \(Float.self)"
-                }
-            }
             let error = NotFloatConvertibleError(decimal: self)
             throw error
         }
         return (self as NSDecimalNumber).floatValue
+    }
+    private struct NotFloatConvertibleError: Error, LocalizedError {
+        let decimal: Decimal
+        
+        var errorDescription: String? {
+            return "Could not convert \(Decimal.self) \(decimal) to \(Float.self)"
+        }
     }
   
 }

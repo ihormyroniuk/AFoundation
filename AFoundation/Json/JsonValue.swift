@@ -9,7 +9,7 @@
 import Foundation
 
 /**
-    Implemented based on https://www.json.org/json-en.html
+    Implemented based on https://tools.ietf.org/html/rfc7159
  */
 public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
     
