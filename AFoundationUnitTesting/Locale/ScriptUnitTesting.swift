@@ -42,7 +42,7 @@ class ScriptUnitTesting: XCTestCase {
         
         let script: Script
         do { script = try Script(code: code) } catch {
-            if error is ScriptUnknownCodeError {
+            if error is Script.UnknownCodeError {
                 return
             } else {
                 XCTFail("Unexpected error \(error.self) is thrown")
@@ -50,14 +50,14 @@ class ScriptUnitTesting: XCTestCase {
             }
         }
         
-        XCTFail("Unexpected script \"\(script))\" is found while error \(ScriptUnknownCodeError.self) has to be thrown")
+        XCTFail("Unexpected script \"\(script))\" is found while error \(Script.UnknownCodeError.self) has to be thrown")
     }
     
     // MARK: RegionUnknownCodeError
     
     func testLanguageUnknownCodeErrorDescriptionString() {
         let code = "UNKNOWNCODE"
-        let error = ScriptUnknownCodeError(code: code)
+        let error = Script.UnknownCodeError(code: code)
         
         let errorDescriptionString = "\(error)"
         

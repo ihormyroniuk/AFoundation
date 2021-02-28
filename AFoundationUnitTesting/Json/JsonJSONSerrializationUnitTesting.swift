@@ -16,7 +16,7 @@ class JsonJSONSerrializationUnitTesting: XCTestCase {
         let data = Data([0x7b, 0x22, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x22, 0x3a, 0x38, 0x7d])
 
         do {
-            let object = try JsonSerialization.jsonValue(data: data).object()
+            let object = try JsonSerialization.jsonValue(data).object()
             
             var expectedObject = JsonObject()
             expectedObject.setNumber(Decimal(8), for: "number")
@@ -44,7 +44,7 @@ class JsonJSONSerrializationUnitTesting: XCTestCase {
         let data = Data([0x22, 0x73, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x22])
 
         do {
-            let string = try JsonSerialization.jsonValue(data: data).string()
+            let string = try JsonSerialization.jsonValue(data).string()
             
             let expectedString = "string"
             XCTAssert(string == expectedString, "Object returned unexpected string \"\(String(describing: string))\" while string \"(\(String(describing: expectedString))\" is expected)")
@@ -57,7 +57,7 @@ class JsonJSONSerrializationUnitTesting: XCTestCase {
         let data = Data([0x37])
 
         do {
-            let number = try JsonSerialization.jsonValue(data: data).number()
+            let number = try JsonSerialization.jsonValue(data).number()
             
             let expectedNumber: Decimal = 7
             XCTAssert(number == expectedNumber, "Object returned unexpected number \"\(String(describing: number))\" while number \"(\(String(describing: expectedNumber))\" is expected)")
@@ -70,7 +70,7 @@ class JsonJSONSerrializationUnitTesting: XCTestCase {
         let data = Data([0x74, 0x72, 0x75, 0x65])
 
         do {
-            let boolean = try JsonSerialization.jsonValue(data: data).boolean()
+            let boolean = try JsonSerialization.jsonValue(data).boolean()
             
             let expectedBoolean = true
             XCTAssert(boolean == expectedBoolean, "Object returned unexpected boolean \"\(String(describing: boolean))\" while boolean \"(\(String(describing: expectedBoolean))\" is expected)")

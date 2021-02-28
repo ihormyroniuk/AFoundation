@@ -20,11 +20,22 @@ public extension Decimal {
         }
         return (self as NSDecimalNumber).doubleValue
     }
-    private struct NotDoubleConvertibleError: Error, LocalizedError {
+    struct NotDoubleConvertibleError: Error, LocalizedError, CustomDebugStringConvertible {
         let decimal: Decimal
-        
-        var errorDescription: String? {
-            return "Could not convert \(Decimal.self) \(decimal) to \(Double.self)"
+        public var debugDescription: String {
+            return
+                """
+                \(String(reflecting: Self.self))
+                decimal =
+                \(String(reflecting: decimal))
+                """
+        }
+        public var errorDescription: String? {
+            return
+                """
+                Cannot convert \(String(reflecting: Decimal.self))(\(String(reflecting: decimal)) to \(String(reflecting: Double.self))
+                \(String(reflecting: self))
+                """
         }
     }
 }

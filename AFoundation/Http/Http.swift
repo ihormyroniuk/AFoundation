@@ -11,21 +11,10 @@ import Foundation
 /**
     Implemented based on https://tools.ietf.org/html/rfc2616
  */
-public enum Http {
-    
-    /**
-        Implemented based on https://tools.ietf.org/html/rfc2616#section-3.1
-     */
-    public enum HttpVersion {
-        public static let http1dot1 = "HTTP/1.1"
-    }
-    
-    public enum HttpHeaderField {
-        public static let authorization = "Authorization"
-        public static let contentType = "Content-Type"
-    }
-    
-}
+
+/**
+    Implemented based on https://tools.ietf.org/html/rfc2616#section-3.1
+ */
 public enum HttpVersion {
     public static let http1dot1 = "HTTP/1.1"
 }

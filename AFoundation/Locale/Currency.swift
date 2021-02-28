@@ -20,15 +20,16 @@ public enum Currency {
     
     init(code: String) throws {
         switch code {
-        case unitedStatesDollarCode:
-            self = .unitedStatesDollar
-        case ukrainianHryvniaCode:
-            self = .ukrainianHryvnia
-        case russianRubleCode:
-            self = .russianRuble
-        default:
-            let error = CurrencyUnknownCodeError(code: code)
-            throw error
+        case unitedStatesDollarCode: self = .unitedStatesDollar
+        case ukrainianHryvniaCode: self = .ukrainianHryvnia
+        case russianRubleCode: self = .russianRuble
+        default: throw UnknownCodeError(code: code)
+        }
+    }
+    struct UnknownCodeError: Error, CustomStringConvertible {
+        let code: String
+        public var description: String {
+            return "Could not initialize \(Currency.self) with code \(String.self) \"\(code)\""
         }
     }
     
@@ -36,29 +37,9 @@ public enum Currency {
     
     var code: String {
         switch self {
-        case .unitedStatesDollar:
-            return unitedStatesDollarCode
-        case .ukrainianHryvnia:
-            return ukrainianHryvniaCode
-        case .russianRuble:
-            return russianRubleCode
+        case .unitedStatesDollar: return unitedStatesDollarCode
+        case .ukrainianHryvnia: return ukrainianHryvniaCode
+        case .russianRuble: return russianRubleCode
         }
     }
-    
-}
-
-public struct CurrencyUnknownCodeError: Error, CustomStringConvertible {
-    
-    public let code: String
-    
-    init(code: String) {
-        self.code = code
-    }
-    
-    // MARK: CustomStringConvertible
-    
-    public var description: String {
-        return "Could not initialize \(Currency.self) with code \(String.self) \"\(code)\""
-    }
-    
 }

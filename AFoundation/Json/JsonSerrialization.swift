@@ -62,7 +62,7 @@ public enum JsonSerialization {
     }
     
     public static func data(_ jsonValue: JsonObject) throws -> Data {
-        let data = try JsonSerialization.data(jsonValue)
+        let data = try JsonSerialization.data(.object(jsonValue))
         return data
     }
     

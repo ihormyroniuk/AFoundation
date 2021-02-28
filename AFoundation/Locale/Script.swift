@@ -16,11 +16,14 @@ public enum Script {
     
     init(code: String) throws {
         switch code {
-        case arabicCode:
-            self = .arabic
-        default:
-            let error = ScriptUnknownCodeError(code: code)
-            throw error
+        case arabicCode: self = .arabic
+        default: throw UnknownCodeError(code: code)
+        }
+    }
+    struct UnknownCodeError: Error, CustomStringConvertible {
+        let code: String
+        var description: String {
+            return "Could not initialize \(Script.self) with code \(String.self) \"\(code)\""
         }
     }
     
@@ -32,21 +35,4 @@ public enum Script {
             return arabicCode
         }
     }
-    
-}
-
-public struct ScriptUnknownCodeError: Error, CustomStringConvertible {
-    
-    public let code: String
-    
-    init(code: String) {
-        self.code = code
-    }
-    
-    // MARK: CustomStringConvertible
-    
-    public var description: String {
-        return "Could not initialize \(Script.self) with code \(String.self) \"\(code)\""
-    }
-    
 }

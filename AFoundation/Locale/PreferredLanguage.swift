@@ -38,33 +38,25 @@ public enum PreferredLanguage {
     
     init(code: String) throws {
         switch code {
-        case englishAustraliaCode:
-            self = .englishAustralia
-        case englishCanadaCode:
-            self = .englishCanada
-        case englishIndiaCode:
-            self = .englishIndia
-        case englishIrelandCode:
-            self = .englishIreland
-        case englishNewZealandCode:
-            self = .englishNewZealand
-        case englishSingaporeCode:
-            self = .englishSingapore
-        case englishSouthAfricaCode:
-            self = .englishSouthAfrica
-        case englishUKCode:
-            self = .englishUK
-        case englishUSCode:
-            self = .englishUS
-        case englishCode:
-            self = .english
-        case russianCode:
-            self = .russian
-        case ukrainianCode:
-            self = .ukrainian
-        default:
-            let error = PreferredLanguageUnknownCodeError(code: code)
-            throw error
+        case englishAustraliaCode: self = .englishAustralia
+        case englishCanadaCode: self = .englishCanada
+        case englishIndiaCode: self = .englishIndia
+        case englishIrelandCode: self = .englishIreland
+        case englishNewZealandCode: self = .englishNewZealand
+        case englishSingaporeCode: self = .englishSingapore
+        case englishSouthAfricaCode: self = .englishSouthAfrica
+        case englishUKCode: self = .englishUK
+        case englishUSCode: self = .englishUS
+        case englishCode: self = .english
+        case russianCode: self = .russian
+        case ukrainianCode: self = .ukrainian
+        default: throw UnknownCodeError(code: code)
+        }
+    }
+    struct UnknownCodeError: Error, CustomStringConvertible {
+        let code: String
+        public var description: String {
+            return "Could not initialize \(PreferredLanguage.self) with code \(String.self) \"\(code)\""
         }
     }
     
@@ -72,47 +64,18 @@ public enum PreferredLanguage {
     
     var code: String {
         switch self {
-        case .englishAustralia:
-            return englishAustraliaCode
-        case .englishCanada:
-            return englishCanadaCode
-        case .englishIndia:
-            return englishIndiaCode
-        case .englishIreland:
-            return englishIrelandCode
-        case .englishNewZealand:
-            return englishNewZealandCode
-        case .englishSingapore:
-            return englishSingaporeCode
-        case .englishSouthAfrica:
-            return englishSouthAfricaCode
-        case .englishUK:
-            return englishUKCode
-        case .englishUS:
-            return englishUSCode
-        case .english:
-            return englishCode
-        case .russian:
-            return russianCode
-        case .ukrainian:
-            return ukrainianCode
+        case .englishAustralia: return englishAustraliaCode
+        case .englishCanada: return englishCanadaCode
+        case .englishIndia: return englishIndiaCode
+        case .englishIreland: return englishIrelandCode
+        case .englishNewZealand: return englishNewZealandCode
+        case .englishSingapore: return englishSingaporeCode
+        case .englishSouthAfrica: return englishSouthAfricaCode
+        case .englishUK: return englishUKCode
+        case .englishUS: return englishUSCode
+        case .english: return englishCode
+        case .russian: return russianCode
+        case .ukrainian: return ukrainianCode
         }
     }
-    
-}
-
-public struct PreferredLanguageUnknownCodeError: Error, CustomStringConvertible {
-    
-    public let code: String
-    
-    init(code: String) {
-        self.code = code
-    }
-    
-    // MARK: CustomStringConvertible
-    
-    public var description: String {
-        return "Could not initialize \(PreferredLanguage.self) with code \(String.self) \"\(code)\""
-    }
-    
 }

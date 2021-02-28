@@ -90,7 +90,7 @@ class CurrencyUnitTesting: XCTestCase {
         
         let currency: Currency
         do { currency = try Currency(code: code) } catch {
-            if error is CurrencyUnknownCodeError {
+            if error is Currency.UnknownCodeError {
                 return
             } else {
                 XCTFail("Unexpected error \(error.self) is thrown")
@@ -105,7 +105,7 @@ class CurrencyUnitTesting: XCTestCase {
     
     func testCurrencyUnknownCodeErrorDescriptionString() {
         let code = "UNKNOWNCODE"
-        let error = CurrencyUnknownCodeError(code: code)
+        let error = Currency.UnknownCodeError(code: code)
         
         let errorDescriptionString = "\(error)"
         

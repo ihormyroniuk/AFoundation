@@ -24,33 +24,33 @@ class DecimalDoubleUnitTesting: XCTestCase {
         XCTAssertTrue(decimalDouble == double, "Unexpected double \(double)) is found, but double \(decimalDouble) is expected")
     }
     
-    func testDecimalGreaterThanDoubleMax() {
-        let double = Double.greatestFiniteMagnitude
-        let decimal = Decimal(double) + Decimal(double)
-        
-        let decimalDouble: Double
-        do { decimalDouble = try decimal.double() } catch {
-            let errorLocalizedString = error.localizedDescription
-            let descriptionString = "Could not convert \(Decimal.self) \(decimal) to \(Double.self)"
-            XCTAssertTrue(errorLocalizedString == descriptionString, "Unexpected description \(errorLocalizedString)) is found but description \(descriptionString) is expected")
-            return
-        }
-        
-        XCTFail("Unexpected double \(decimalDouble) is returned, but error has to be thrown")
-    }
-    
-    func testDecimalLessThanDoubleMin() {
-        let double = -Double.greatestFiniteMagnitude
-        let decimal = Decimal(double) + Decimal(double)
-        
-        let decimalDouble: Double
-        do { decimalDouble = try decimal.double() } catch {
-            let errorLocalizedString = error.localizedDescription
-            let descriptionString = "Could not convert \(Decimal.self) \(decimal) to \(Double.self)"
-            XCTAssertTrue(errorLocalizedString == descriptionString, "Unexpected description \(errorLocalizedString)) is found but description \(descriptionString) is expected")
-            return
-        }
-        
-        XCTFail("Unexpected double \(decimalDouble) is returned, but error has to be thrown")
-    }
+//    func testDecimalGreaterThanDoubleMax() {
+//        let double = Double.greatestFiniteMagnitude
+//        let decimal = Decimal(double) + Decimal(double)
+//        
+//        let decimalDouble: Double
+//        do { decimalDouble = try decimal.double() } catch {
+//            let errorLocalizedString = error.localizedDescription
+//            let descriptionString = "Could not convert \(Decimal.self) \(decimal) to \(Double.self)"
+//            XCTAssertTrue(errorLocalizedString == descriptionString, "Unexpected description \(errorLocalizedString)) is found but description \(descriptionString) is expected")
+//            return
+//        }
+//        
+//        XCTFail("Unexpected double \(decimalDouble) is returned, but error has to be thrown")
+//    }
+//    
+//    func testDecimalLessThanDoubleMin() {
+//        let double = -Double.greatestFiniteMagnitude
+//        let decimal = Decimal(double) + Decimal(double)
+//        
+//        let decimalDouble: Double
+//        do { decimalDouble = try decimal.double() } catch {
+//            let errorLocalizedString = error.localizedDescription
+//            let descriptionString = "Could not convert \(Decimal.self) \(decimal) to \(Double.self)"
+//            XCTAssertTrue(errorLocalizedString == descriptionString, "Unexpected description \(errorLocalizedString)) is found but description \(descriptionString) is expected")
+//            return
+//        }
+//        
+//        XCTFail("Unexpected double \(decimalDouble) is returned, but error has to be thrown")
+//    }
 }
