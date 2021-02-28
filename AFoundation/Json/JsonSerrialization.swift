@@ -13,7 +13,7 @@ public enum JsonSerialization {
     public static func jsonValue(data: Data) throws -> JsonValue {
         let any: Any
         do { any  = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed]) } catch {
-            let error = DataIsNotJsonError(data: data)
+            let error = NotJsonValueError(data: data)
             throw error
         }
         func json(_ any: Any) throws -> JsonValue {
@@ -32,55 +32,33 @@ public enum JsonSerialization {
                 return .number(decimal)
             }
             if let dictionaryStringAny = any as? [String: Any] {
-                var dictionaryStringJsonValue: [String: JsonValue] = [:]
-                for (string, any) in dictionaryStringAny {
-                    let jsonValue = try json(any)
-                    dictionaryStringJsonValue[String( string)] = jsonValue
-                }
+                let dictionaryStringJsonValue = try dictionaryStringAny.mapValues({ try json($0) })
                 return .object(dictionaryStringJsonValue)
             }
             if let arrayAny = any as? [Any] {
-                var arrayJsonValue: [JsonValue] = []
-                for any in arrayAny {
-                    let jsonValue = try json(any)
-                    arrayJsonValue.append(jsonValue)
-                }
+                let arrayJsonValue = try arrayAny.map({ try json($0) })
                 return .array(arrayJsonValue)
             }
             if let bool = any as? Bool { return .boolean(bool) }
             if any is NSNull { return .null }
-            throw DataIsNotJsonError(data: data)
+            throw NotJsonValueError(data: data)
         }
         let jsonValue = try json(any)
         return jsonValue
     }
-    private struct DataIsNotJsonError: LocalizedError {
+    private struct NotJsonValueError: LocalizedError {
         let data: Data
     }
     
     public static func data(jsonValue: JsonValue) throws -> Data {
         func any(_ jsonValue: JsonValue) -> Any {
             switch jsonValue {
-            case let .string(string):
-                return string
-            case let .number(decimal):
-                return decimal
-            case let .object(object):
-                var dictionaryStringAny: [String: Any] = [:]
-                for (string, jsonValue) in object {
-                    dictionaryStringAny[string] = any(jsonValue)
-                }
-                return dictionaryStringAny
-            case let .array(array):
-                var arrayAny: [Any] = []
-                for jsonValue in array {
-                    arrayAny.append(any(jsonValue))
-                }
-                return arrayAny
-            case let .boolean(bool):
-                return bool
-            case .null:
-                return NSNull.null
+            case let .string(string): return string
+            case let .number(decimal): return decimal
+            case let .object(object): return object.mapValues({ any($0) })
+            case let .array(array): return array.map({ any($0) })
+            case let .boolean(bool): return bool
+            case .null: return NSNull.null
             }
         }
         let data = try JSONSerialization.data(withJSONObject: any(jsonValue), options: [.fragmentsAllowed])
