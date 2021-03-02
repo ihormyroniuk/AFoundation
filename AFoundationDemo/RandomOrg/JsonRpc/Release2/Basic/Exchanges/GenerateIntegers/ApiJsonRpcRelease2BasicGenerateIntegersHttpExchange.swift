@@ -12,7 +12,7 @@ extension Api.JsonRpc.Release2.Basic {
 class GenerateIntegersHttpExchange: HttpExchange<GenerateIntegersRequestData, GenerateIntegersParsedResponse> {
     
     override func constructRequest() throws -> HttpRequest {
-        let method = HttpRequest.Method.post
+        let method = HttpRequestMethod.post
         let uri = try constructUri()
         let version = HttpVersion.http1dot1
         let headers = self.headers
@@ -40,7 +40,7 @@ class GenerateIntegersHttpExchange: HttpExchange<GenerateIntegersRequestData, Ge
     
     override func parseResponse(_ httpResponse: HttpResponse) throws -> GenerateIntegersParsedResponse {
         let code = httpResponse.code
-        guard code == HttpResponse.Code.ok else {
+        guard code == HttpResponseCode.ok else {
             let error = UnexpectedHttpResponseCodeError(code: code)
             throw error
         }

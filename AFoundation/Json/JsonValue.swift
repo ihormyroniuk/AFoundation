@@ -216,7 +216,7 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
         case let .boolean(bool):
             hasher.combine(bool)
         case .null:
-            hasher.combine(NSNull.null)
+            hasher.combine(0)
         }
     }
     
@@ -225,17 +225,17 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
     public var debugDescription: String {
         switch self {
         case let .string(string):
-            return "\(String(reflecting: Self.self))(.string(\(String(reflecting: string))))"
+            return "\(String(reflecting: Self.self)).string(\(String(reflecting: string)))"
         case let .number(number):
-            return "\(String(reflecting: Self.self))(.number(\(String(reflecting: number))))"
+            return "\(String(reflecting: Self.self)).number(\(String(reflecting: number)))"
         case let .object(object):
-            return "\(String(reflecting: Self.self))(.object(\(String(reflecting: object))))"
+            return "\(String(reflecting: Self.self)).object(\(String(reflecting: object)))"
         case let .array(array):
-            return "\(String(reflecting: Self.self))(.array(\(String(reflecting: array))))"
+            return "\(String(reflecting: Self.self)).array(\(String(reflecting: array)))"
         case let .boolean(bool):
-            return "\(String(reflecting: Self.self))(.boolean(\(String(reflecting: bool))))"
+            return "\(String(reflecting: Self.self)).boolean(\(String(reflecting: bool)))"
         case .null:
-            return "\(String(reflecting: Self.self))(.null)"
+            return "\(String(reflecting: Self.self)).null"
         }
     }
 }

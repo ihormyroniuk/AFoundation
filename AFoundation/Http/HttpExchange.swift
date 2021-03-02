@@ -17,6 +17,34 @@ open class HttpExchange<ParsedResponse> {
     open func parseResponse(_ response: HttpResponse) throws -> ParsedResponse {
         fatalError()
     }
+}
+
+public struct UnexpectedHttpExchangeError: Error {
+    
+    public let httpRequest: HttpRequest
+    public let httpResponse: HttpResponse
+    public let error: Error
+    
+    public init(httpRequest: HttpRequest, httpResponse: HttpResponse, error: Error) {
+        self.httpRequest = httpRequest
+        self.httpResponse = httpResponse
+        self.error = error
+    }
+    
+}
+public struct UnexpectedHttpResponseCodeError: Error, CustomStringConvertible {
+
+    public let code: Int
+    
+    public init(code: Int) {
+        self.code = code
+    }
+    
+    // MARK: CustomStringConvertible
+    
+    public var description: String {
+        return ""
+    }
     
 }
 

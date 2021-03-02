@@ -10,14 +10,16 @@ import XCTest
 import Foundation
 @testable import AFoundation
 
+
+
 class JsonValueUnitTesting: XCTestCase {
     
 //    // MARK: String
 //
 //    func testString_String() {
 //        let string = "string"
-//        let jsonAnyValue = JsonAnyValue(string)
-//        
+//        let jsonAnyValue = JsonValue(string)
+//
 //        let jsonAnyValueString: String
 //        do { jsonAnyValueString = try jsonAnyValue.string() }
 //        catch {
@@ -26,26 +28,26 @@ class JsonValueUnitTesting: XCTestCase {
 //        }
 //        XCTAssert(jsonAnyValueString == string, "Unexpected string \(String(reflecting: jsonAnyValueString)) is found, while string \(String(reflecting: string)) is expected")
 //    }
-//    
+//
 //    func testString_Number() {
 //        let decimal = Decimal(8)
-//        let jsonAnyValue = JsonAnyValue(decimal)
-//        
+//        let jsonAnyValue = JsonValue(decimal)
+//
 //        let jsonAnyValueString: String
 //        do { jsonAnyValueString = try jsonAnyValue.string()
-//        } catch _ as JsonAnyValue.NotStringError {
+//        } catch _ as JsonValue.NotStringError {
 //            return
 //        } catch {
 //            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
 //            return
 //        }
-//        XCTFail("Unexpected string \"\(String(reflecting: jsonAnyValueString))\" is found, while error \(String(reflecting: JsonAnyValue.NotStringError.self)) has to be thrown")
+//        XCTFail("Unexpected string \"\(String(reflecting: jsonAnyValueString))\" is found, while error \(String(reflecting: JsonValue.NotStringError.self)) has to be thrown")
 //    }
-//    
+//
 //    func testNullableString_String() {
 //        let string = "string"
-//        let jsonAnyValue = JsonAnyValue(string)
-//        
+//        let jsonAnyValue = JsonValue(string)
+//
 //        let jsonAnyValueString: String?
 //        do { jsonAnyValueString = try jsonAnyValue.nullableString() }
 //        catch {
@@ -54,32 +56,41 @@ class JsonValueUnitTesting: XCTestCase {
 //        }
 //        XCTAssert(jsonAnyValueString == string, "Unexpected string \(String(reflecting: jsonAnyValueString)) is found, while string \(string) is expected")
 //    }
-//    
+//
 //    func testNullableString_Null() {
-//        let jsonAnyValue = JsonAnyValue()
-//        
+//        let jsonAnyValue = JsonValue()
+//
 //        do {
 //            let jsonAnyValueString = try jsonAnyValue.nullableString()
-//            
+//
 //            XCTAssert(nil == jsonAnyValueString, "Unexpected string \"\" is found, while string \"(\(String(describing: jsonAnyValueString))\" is expected")
 //        } catch {
 //            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
 //        }
 //    }
-//    
+//
 //    func testNullableString_Boolean() {
 //        let boolean = true
-//        let jsonAnyValue = JsonAnyValue(boolean)
-//        
+//        let jsonAnyValue = JsonValue(boolean)
+//
 //        do {
 //            let jsonAnyValueString = try jsonAnyValue.nullableString()
-//            
-//            XCTFail("Unexpected string \"\(String(reflecting: jsonAnyValueString))\" is found, while error \(JsonAnyValue.NotNullableStringError.self) has to be thrown")
-//        } catch let error as JsonAnyValue.NotNullableStringError {
+//
+//            XCTFail("Unexpected string \"\(String(reflecting: jsonAnyValueString))\" is found, while error \(JsonValue.NotNullableStringError.self) has to be thrown")
+//        } catch let error as JsonValue.NotNullableStringError {
 //            print(error)
 //        } catch {
 //            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
 //        }
 //    }
+    
+    func test() {
+        var jsonObject = JsonObject()
+        jsonObject.setString("someString", for: "stringKey")
+        jsonObject.setNumber(Decimal(10), for: "numberKey")
+        let jsonValue = JsonValue(jsonObject)
+        let debugDescription = jsonValue.debugDescription
+        print(debugDescription)
+    }
 
 }
