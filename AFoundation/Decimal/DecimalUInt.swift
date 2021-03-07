@@ -14,7 +14,7 @@ public extension Decimal {
     static let uintMin = Decimal(UInt.min)
   
     func uint() throws -> UInt {
-        guard self >= Decimal.uintMin && self <= Decimal.uintMax else {
+        guard exponent >= 0 && self >= Decimal.uintMin && self <= Decimal.uintMax else {
             let error = NotUIntConvertibleError(decimal: self)
             throw error
         }
@@ -27,4 +27,5 @@ public extension Decimal {
             return "Could not convert \(Decimal.self) \(decimal) to \(UInt.self)"
         }
     }
+    
 }

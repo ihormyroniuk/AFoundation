@@ -22,6 +22,12 @@ class DecimalDoubleUnitTesting: XCTestCase {
         }
         
         XCTAssertTrue(decimalDouble == double, "Unexpected double \(double)) is found, but double \(decimalDouble) is expected")
+        
+        print("!!!!!!!!")
+        print(Decimal.pi)
+        print(Double.pi)
+        print(Float.Exponent.max)
+        print("!!!!!!!!")
     }
     
 //    func testDecimalGreaterThanDoubleMax() {

@@ -10,11 +10,12 @@ import Foundation
 
 public enum JsonSerialization {
     
+    // MARK: Serialization
+    
     public static func jsonValue(_ data: Data) throws -> JsonValue {
         let any: Any
         do { any  = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed]) } catch {
-            let error = NotJsonValueError(data: data)
-            throw error
+            throw NotJsonValueError(data: data)
         }
         func json(_ any: Any) throws -> JsonValue {
             if let string = any as? String { return .string(string) }
@@ -46,6 +47,8 @@ public enum JsonSerialization {
         let data: Data
     }
     
+    // MARK: Deserialization
+    
     public static func data(_ jsonValue: JsonValue) throws -> Data {
         func any(_ jsonValue: JsonValue) -> Any {
             switch jsonValue {
@@ -57,8 +60,14 @@ public enum JsonSerialization {
             case .null: return NSNull.null
             }
         }
-        let data = try JSONSerialization.data(withJSONObject: any(jsonValue), options: [.fragmentsAllowed])
+        let data: Data
+        do { data = try JSONSerialization.data(withJSONObject: any(jsonValue), options: [.fragmentsAllowed]) } catch {
+            throw NotDataError(jsonValue: jsonValue)
+        }
         return data
+    }
+    private struct NotDataError: LocalizedError {
+        let jsonValue: JsonValue
     }
     
     public static func data(_ jsonValue: JsonObject) throws -> Data {

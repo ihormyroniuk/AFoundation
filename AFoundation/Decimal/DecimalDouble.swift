@@ -33,8 +33,8 @@ public extension Decimal {
         public var errorDescription: String? {
             return
                 """
-                Cannot convert \(String(reflecting: Decimal.self))(\(String(reflecting: decimal)) to \(String(reflecting: Double.self))
                 \(String(reflecting: self))
+                Cannot convert \(String(reflecting: Decimal.self))(\(String(reflecting: decimal)) to \(String(reflecting: Double.self))
                 """
         }
     }

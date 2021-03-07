@@ -238,4 +238,5 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
             return "\(String(reflecting: Self.self)).null"
         }
     }
+    
 }

@@ -9,11 +9,12 @@
 import Foundation
 
 public extension Decimal {
+    
     static let intMax = Decimal(Int.max)
     static let intMin = Decimal(Int.min)
 
     func int() throws -> Int {
-        guard self >= Decimal.intMin && self <= Decimal.intMax else {
+        guard exponent >= 0 && self >= Decimal.intMin && self <= Decimal.intMax else {
             let error = NotIntConvertibleError(decimal: self)
             throw error
         }
@@ -25,4 +26,5 @@ public extension Decimal {
             return "Could not convert \(Decimal.self) \(decimal) to \(Int.self)"
         }
     }
+    
 }
