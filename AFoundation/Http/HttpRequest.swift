@@ -12,6 +12,7 @@ import Foundation
     Implemented based on https://tools.ietf.org/html/rfc2616#section-5
  */
 public struct HttpRequest: CustomStringConvertible, Equatable {
+    
     public let method: String
     public let uri: URL
     public let version: String
@@ -35,4 +36,5 @@ public struct HttpRequest: CustomStringConvertible, Equatable {
         }
         return description
     }
+    
 }

@@ -15,36 +15,41 @@ public enum JsonSerialization {
     public static func jsonValue(_ data: Data) throws -> JsonValue {
         let any: Any
         do { any  = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed]) } catch {
-            throw NotJsonValueError(data: data)
+            throw NotJsonValueError(data: data, error: error)
         }
         func json(_ any: Any) throws -> JsonValue {
-            if let string = any as? String { return .string(string) }
             if let nsString = any as? NSString {
                 let string = nsString as String
                 return .string(string)
             }
-            if let decimal = any as? Decimal { return .number(decimal) }
             if let nsNumber = any as? NSNumber, nsNumber !== kCFBooleanTrue, nsNumber !== kCFBooleanFalse {
                 let decimal = nsNumber.decimalValue
                 return .number(decimal)
             }
             if let dictionaryStringAny = any as? [String: Any] {
-                let dictionaryStringJsonValue = try dictionaryStringAny.mapValues({ try json($0) })
+                let dictionaryStringJsonValue: JsonObject
+                do { dictionaryStringJsonValue = try dictionaryStringAny.mapValues({ try json($0) }) } catch {
+                    throw NotJsonValueError(data: data, error: error)
+                }
                 return .object(dictionaryStringJsonValue)
             }
             if let arrayAny = any as? [Any] {
-                let arrayJsonValue = try arrayAny.map({ try json($0) })
+                let arrayJsonValue: JsonArray
+                do { arrayJsonValue = try arrayAny.map({ try json($0) }) } catch {
+                    throw NotJsonValueError(data: data, error: error)
+                }
                 return .array(arrayJsonValue)
             }
             if let bool = any as? Bool { return .boolean(bool) }
             if any is NSNull { return .null }
-            throw NotJsonValueError(data: data)
+            throw NotJsonValueError(data: data, error: nil)
         }
         let jsonValue = try json(any)
         return jsonValue
     }
     private struct NotJsonValueError: LocalizedError {
         let data: Data
+        let error: Error?
     }
     
     // MARK: Deserialization
@@ -62,16 +67,22 @@ public enum JsonSerialization {
         }
         let data: Data
         do { data = try JSONSerialization.data(withJSONObject: any(jsonValue), options: [.fragmentsAllowed]) } catch {
-            throw NotDataError(jsonValue: jsonValue)
+            throw NotDataError(jsonValue: jsonValue, error: error)
         }
         return data
     }
     private struct NotDataError: LocalizedError {
         let jsonValue: JsonValue
+        let error: Error?
     }
     
     public static func data(_ jsonValue: JsonObject) throws -> Data {
         let data = try JsonSerialization.data(.object(jsonValue))
+        return data
+    }
+    
+    public static func data(_ jsonArray: JsonArray) throws -> Data {
+        let data = try JsonSerialization.data(.array(jsonArray))
         return data
     }
     

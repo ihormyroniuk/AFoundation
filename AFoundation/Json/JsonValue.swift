@@ -21,6 +21,11 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
         self = .string(string)
     }
     
+    public init(_ nsString: NSString) {
+        let string = nsString as String
+        self = .string(string)
+    }
+    
     public func string() throws -> String {
         if case .string(let string) = self { return string }
         throw NotStringError(value: self)
@@ -53,7 +58,13 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
     }
     
     public init(_ int: Int) {
-        self = .number(Decimal(int))
+        let decimal = Decimal(int)
+        self = .number(decimal)
+    }
+    
+    public init(_ double: Double) {
+        let decimal = Decimal(double)
+        self = .number(decimal)
     }
     
     public func number() throws -> Decimal {
