@@ -47,9 +47,14 @@ public enum JsonSerialization {
         let jsonValue = try json(any)
         return jsonValue
     }
-    private struct NotJsonValueError: LocalizedError {
+    private struct NotJsonValueError: Error, CustomDebugStringConvertible {
         let data: Data
         let error: Error?
+        var debugDescription: String {
+            var debugDescription = "\(String(reflecting: data)) is not JSON value"
+            if let error = error { debugDescription.append("\n\(String(reflecting: error))") }
+            return debugDescription
+        }
     }
     
     // MARK: Deserialization
@@ -71,9 +76,12 @@ public enum JsonSerialization {
         }
         return data
     }
-    private struct NotDataError: LocalizedError {
+    private struct NotDataError: Error, CustomDebugStringConvertible {
         let jsonValue: JsonValue
-        let error: Error?
+        let error: Error
+        var debugDescription: String {
+            return "Cannot get data from \(String(reflecting: jsonValue))\n\(String(reflecting: error))"
+        }
     }
     
     public static func data(_ jsonValue: JsonObject) throws -> Data {

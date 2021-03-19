@@ -21,12 +21,11 @@ public extension JsonArray {
         }
         return strings
     }
-    private struct NotStringsError: Error, LocalizedError {
+    private struct NotStringsError: Error, CustomDebugStringConvertible {
         let array: JsonArray
         let error: Error
-        
-        var errorDescription: String? {
-            return "\(String(reflecting: Self.self))\n\(String(reflecting: array)) is not strings array\nError: \(String(reflecting: error))"
+        var debugDescription: String {
+            return "\(String(reflecting: array)) is not strings array\n\(String(reflecting: error))"
         }
     }
     
@@ -37,13 +36,25 @@ public extension JsonArray {
         }
         return strings
     }
-    private struct NotNullableStringsError: Error, LocalizedError {
+    private struct NotNullableStringsError: Error, CustomDebugStringConvertible {
         let array: JsonArray
         let error: Error
-        
-        var errorDescription: String? {
-            return "\(String(reflecting: Self.self))\n\(String(reflecting: array)) is not nullable strings array\nError: \(String(reflecting: error))"
+        var debugDescription: String {
+            return "\(String(reflecting: array)) is not nullable strings array\n\(String(reflecting: error))"
         }
+    }
+    
+    mutating func insertString(_ newString: String, at i: Int) {
+        insert(.string(newString), at: i)
+    }
+    
+    mutating func insertNullableString(_ newString: String?, at i: Int) {
+        if let newString = newString { insert(.string(newString), at: i) }
+        else { insert(.null, at: i) }
+    }
+    
+    mutating func insertMissableString(_ newString: String?, at i: Int) {
+        if let newString = newString { insert(.string(newString), at: i) }
     }
     
     mutating func appendString(_ string: String) {
@@ -51,18 +62,12 @@ public extension JsonArray {
     }
     
     mutating func appendNullableString(_ string: String?) {
-        guard let string = string else {
-            append(JsonValue.null)
-            return
-        }
-        append(.string(string))
+        if let string = string { append(.string(string)) }
+        else { append(.null) }
     }
     
-    mutating func setMissableString(_ string: String?) {
-        guard let string = string else {
-            return
-        }
-        append(.string(string))
+    mutating func appendMissableString(_ string: String?) {
+        if let string = string { append(.string(string)) }
     }
     
     // MARK: Numbers
@@ -74,12 +79,11 @@ public extension JsonArray {
         }
         return numbers
     }
-    private struct NotNumbersError: Error, LocalizedError {
+    private struct NotNumbersError: Error, CustomDebugStringConvertible {
         let array: JsonArray
         let error: Error
-        
-        var errorDescription: String? {
-            return "\(String(reflecting: Self.self))\n\(String(reflecting: array)) is not strings array\nError: \(String(reflecting: error))"
+        var debugDescription: String {
+            return "\(String(reflecting: array)) is not numbers array\n\(String(reflecting: error))"
         }
     }
     
@@ -90,13 +94,38 @@ public extension JsonArray {
         }
         return numbers
     }
-    private struct NotNullableNumbersError: Error, LocalizedError {
+    private struct NotNullableNumbersError: Error, CustomDebugStringConvertible {
         let array: JsonArray
         let error: Error
-        
-        var errorDescription: String? {
-            return "\(String(reflecting: Self.self))\n\(String(reflecting: array)) is not nullable strings array\nError: \(String(reflecting: error))"
+        var debugDescription: String {
+            return "\(String(reflecting: array)) is not nullable numbers array\n\(String(reflecting: error))"
         }
+    }
+    
+    mutating func insertNumber(_ newNumber: Decimal, at i: Int) {
+        insert(.number(newNumber), at: i)
+    }
+    
+    mutating func insertNullableNumber(_ newNumber: Decimal?, at i: Int) {
+        if let newNumber = newNumber { insert(.number(newNumber), at: i) }
+        else { insert(.null, at: i) }
+    }
+    
+    mutating func insertMissableNumber(_ newNumber: Decimal?, at i: Int) {
+        if let newNumber = newNumber { insert(.number(newNumber), at: i) }
+    }
+    
+    mutating func appendNumber(_ number: Decimal) {
+        append(.number(number))
+    }
+    
+    mutating func appendNullableNumber(_ number: Decimal?) {
+        if let number = number { append(.number(number)) }
+        else { append(.null) }
+    }
+    
+    mutating func appendMissableNumber(_ number: Decimal?) {
+        if let number = number { append(.number(number)) }
     }
     
     // MARK: Objects
@@ -133,6 +162,32 @@ public extension JsonArray {
         }
     }
     
+    mutating func insertObject(_ newObject: JsonObject, at i: Int) {
+        insert(.object(newObject), at: i)
+    }
+    
+    mutating func insertNullableObject(_ newObject: JsonObject?, at i: Int) {
+        if let newObject = newObject { insert(.object(newObject), at: i) }
+        else { insert(.null, at: i) }
+    }
+    
+    mutating func insertMissableObject(_ newObject: JsonObject?, at i: Int) {
+        if let newObject = newObject { insert(.object(newObject), at: i) }
+    }
+    
+    mutating func appendObject(_ object: JsonObject) {
+        append(.object(object))
+    }
+    
+    mutating func appendNullableObject(_ object: JsonObject?) {
+        if let object = object { append(.object(object)) }
+        else { append(.null) }
+    }
+    
+    mutating func appendMissableObject(_ object: JsonObject?) {
+        if let object = object { append(.object(object)) }
+    }
+    
     // MARK: Arrays
     
     func arrays() throws -> [JsonArray] {
@@ -165,6 +220,32 @@ public extension JsonArray {
         var errorDescription: String? {
             return "\(String(reflecting: Self.self))\n\(String(reflecting: array)) is not nullable strings array\nError: \(String(reflecting: error))"
         }
+    }
+    
+    mutating func insertArray(_ newArray: JsonArray, at i: Int) {
+        insert(.array(newArray), at: i)
+    }
+    
+    mutating func insertNullableArray(_ newArray: JsonArray?, at i: Int) {
+        if let newArray = newArray { insert(.array(newArray), at: i) }
+        else { insert(.null, at: i) }
+    }
+    
+    mutating func insertMissableArray(_ newArray: JsonArray?, at i: Int) {
+        if let newArray = newArray { insert(.array(newArray), at: i) }
+    }
+    
+    mutating func appendArray(_ array: JsonArray) {
+        append(.array(array))
+    }
+    
+    mutating func appendNullableArray(_ array: JsonArray?) {
+        if let array = array { append(.array(array)) }
+        else { append(.null) }
+    }
+    
+    mutating func appendMissableArray(_ array: JsonArray?) {
+        if let array = array { append(.array(array)) }
     }
     
     // MARK: Booleans
@@ -201,5 +282,30 @@ public extension JsonArray {
         }
     }
     
+    mutating func insertBoolean(_ newBoolean: Bool, at i: Int) {
+        insert(.boolean(newBoolean), at: i)
+    }
+    
+    mutating func insertNullableBoolean(_ newBoolean: Bool?, at i: Int) {
+        if let newBoolean = newBoolean { insert(.boolean(newBoolean), at: i) }
+        else { insert(.null, at: i) }
+    }
+    
+    mutating func insertMissableBoolean(_ newBoolean: Bool?, at i: Int) {
+        if let newBoolean = newBoolean { insert(.boolean(newBoolean), at: i) }
+    }
+    
+    mutating func appendBoolean(_ boolean: Bool) {
+        append(.boolean(boolean))
+    }
+    
+    mutating func appendNullableBoolean(_ boolean: Bool?) {
+        if let boolean = boolean { append(.boolean(boolean)) }
+        else { append(.null) }
+    }
+    
+    mutating func appendMissableBoolean(_ boolean: Bool?) {
+        if let boolean = boolean { append(.boolean(boolean)) }
+    }
 }
 
