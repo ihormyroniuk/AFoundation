@@ -18,6 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        var jsonObject = JsonObject()
+        jsonObject.setString("string", for: "key1")
+        jsonObject.setNumber(Decimal(10), for: "key2")
+        let jsonValue = JsonValue(jsonObject)
+        do {
+            let string = try jsonValue.string()
+        } catch {
+            print(String(reflecting: error))
+        }
+        
         let requestData = Ggg.Basic.GenerateIntegersRequestData(id: 1, apiKey: "3b887b17-2315-49ae-aa27-ddcddc5ad778", n: 15, min: -1000000, max: 1000000, replacement: true, base: .hexadecimal)
         let httpExchange = Ggg.Basic().generateIntegers(requestData: requestData)
         let dataTask = try! urlSession.httpExchangeDataTask(httpExchange) { (result) in

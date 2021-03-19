@@ -25,7 +25,7 @@ public extension JsonObject {
         let object: JsonObject
         let key: String
         var debugDescription: String {
-            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not string"
+            return "\(String(reflecting: object)) does not have value for key \(String(reflecting: key))"
         }
     }
 
@@ -40,10 +40,13 @@ public extension JsonObject {
             throw NotStringError(object: self, key: key, error: error)
         }
     }
-    private struct NotStringError: Error {
+    private struct NotStringError: Error, CustomDebugStringConvertible {
         let object: JsonObject
         let key: String
         let error: Error
+        var debugDescription: String {
+            return "\(String(reflecting: object)) does not have string for key \(String(reflecting: key))\n\(String(reflecting: error))"
+        }
     }
 
     func nullableString(_ key: String) throws -> String? {
@@ -55,10 +58,13 @@ public extension JsonObject {
             throw NotNullableStringError(object: self, key: key, error: error)
         }
     }
-    private struct NotNullableStringError: Error {
+    private struct NotNullableStringError: Error, CustomDebugStringConvertible {
         let object: JsonObject
         let key: String
         let error: Error
+        var debugDescription: String {
+            return "\(String(reflecting: object)) does not have string or null for key \(String(reflecting: key))\n\(String(reflecting: error))"
+        }
     }
     
     func missableString(_ key: String) throws -> String? {
@@ -69,10 +75,13 @@ public extension JsonObject {
         }
         return string
     }
-    private struct NotMissableStringError: Error {
+    private struct NotMissableStringError: Error, CustomDebugStringConvertible {
         let object: JsonObject
         let key: String
         let error: Error
+        var debugDescription: String {
+            return "\(String(reflecting: object)) does not have string for key \(String(reflecting: key))\n\(String(reflecting: error))"
+        }
     }
     
     func missableNullableString(_ key: String) throws -> String? {
@@ -83,10 +92,13 @@ public extension JsonObject {
         }
         return string
     }
-    private struct NotMissableNullableStringError: Error {
+    private struct NotMissableNullableStringError: Error, CustomDebugStringConvertible {
         let object: JsonObject
         let key: String
         let error: Error
+        var debugDescription: String {
+            return "\(String(reflecting: object)) does not have string or null for key \(String(reflecting: key))\n\(String(reflecting: error))"
+        }
     }
     
     mutating func setString(_ string: String, for key: String) {
@@ -120,10 +132,13 @@ public extension JsonObject {
             throw NotNumberError(object: self, key: key, error: error)
         }
     }
-    private struct NotNumberError: Error {
+    private struct NotNumberError: Error, CustomDebugStringConvertible {
         let object: JsonObject
         let key: String
         let error: Error
+        var debugDescription: String {
+            return "\(String(reflecting: object)) does not have number for key \(String(reflecting: key))\n\(String(reflecting: error))"
+        }
     }
 
     func nullableNumber(_ key: String) throws -> Decimal? {
@@ -135,10 +150,13 @@ public extension JsonObject {
             throw NotNullableNumberError(object: self, key: key, error: error)
         }
     }
-    private struct NotNullableNumberError: Error {
+    private struct NotNullableNumberError: Error, CustomDebugStringConvertible {
         let object: JsonObject
         let key: String
         let error: Error
+        var debugDescription: String {
+            return "\(String(reflecting: object)) does not have number or null for key \(String(reflecting: key))\n\(String(reflecting: error))"
+        }
     }
     
     func missableNumber(_ key: String) throws -> Decimal? {
@@ -149,10 +167,13 @@ public extension JsonObject {
         }
         return number
     }
-    private struct NotMissableNumberError: Error {
+    private struct NotMissableNumberError: Error, CustomDebugStringConvertible {
         let object: JsonObject
         let key: String
         let error: Error
+        var debugDescription: String {
+            return "\(String(reflecting: object)) does not have number for key \(String(reflecting: key))\n\(String(reflecting: error))"
+        }
     }
     
     func missableNullableNumber(_ key: String) throws -> Decimal? {
@@ -163,10 +184,13 @@ public extension JsonObject {
         }
         return number
     }
-    private struct NotMissableNullableNumberError: Error {
+    private struct NotMissableNullableNumberError: Error, CustomDebugStringConvertible {
         let object: JsonObject
         let key: String
         let error: Error
+        var debugDescription: String {
+            return "\(String(reflecting: object)) does not have number or null for key \(String(reflecting: key))\n\(String(reflecting: error))"
+        }
     }
     
     mutating func setNumber(_ decimal: Decimal, for key: String) {
@@ -200,10 +224,13 @@ public extension JsonObject {
             throw NotObjectError(object: self, key: key, error: error)
         }
     }
-    private struct NotObjectError: Error {
+    private struct NotObjectError: Error, CustomDebugStringConvertible {
         let object: JsonObject
         let key: String
         let error: Error
+        var debugDescription: String {
+            return "\(String(reflecting: object)) does not have object for key \(String(reflecting: key))\n\(String(reflecting: error))"
+        }
     }
 
     func nullableObject(_ key: String) throws -> JsonObject? {
@@ -215,10 +242,13 @@ public extension JsonObject {
             throw NotNullableObjectError(object: self, key: key, error: error)
         }
     }
-    private struct NotNullableObjectError: Error {
+    private struct NotNullableObjectError: Error, CustomDebugStringConvertible {
         let object: JsonObject
         let key: String
         let error: Error
+        var debugDescription: String {
+            return "\(String(reflecting: object)) does not have object or null for key \(String(reflecting: key))\n\(String(reflecting: error))"
+        }
     }
     
     func missableObject(_ key: String) throws -> JsonObject? {
@@ -229,10 +259,13 @@ public extension JsonObject {
         }
         return object
     }
-    private struct NotMissableObjectError: Error {
+    private struct NotMissableObjectError: Error, CustomDebugStringConvertible {
         let object: JsonObject
         let key: String
         let error: Error
+        var debugDescription: String {
+            return "\(String(reflecting: object)) does not have object for key \(String(reflecting: key))\n\(String(reflecting: error))"
+        }
     }
     
     func missableNullableObject(_ key: String) throws -> JsonObject? {
@@ -243,10 +276,13 @@ public extension JsonObject {
         }
         return object
     }
-    private struct NotMissableNullableObjectError: Error {
+    private struct NotMissableNullableObjectError: Error, CustomDebugStringConvertible {
         let object: JsonObject
         let key: String
         let error: Error
+        var debugDescription: String {
+            return "\(String(reflecting: object)) does not have object or null for key \(String(reflecting: key))\n\(String(reflecting: error))"
+        }
     }
     
     mutating func setObject(_ object: JsonObject, for key: String) {
@@ -280,10 +316,13 @@ public extension JsonObject {
             throw NotArrayError(object: self, key: key, error: error)
         }
     }
-    private struct NotArrayError: Error {
+    private struct NotArrayError: Error, CustomDebugStringConvertible {
         let object: JsonObject
         let key: String
         let error: Error
+        var debugDescription: String {
+            return "\(String(reflecting: object)) does not have array for key \(String(reflecting: key))\n\(String(reflecting: error))"
+        }
     }
 
     func nullableArray(_ key: String) throws -> JsonArray? {
@@ -295,10 +334,13 @@ public extension JsonObject {
             throw NotNullableArrayError(object: self, key: key, error: error)
         }
     }
-    private struct NotNullableArrayError: Error {
+    private struct NotNullableArrayError: Error, CustomDebugStringConvertible {
         let object: JsonObject
         let key: String
         let error: Error
+        var debugDescription: String {
+            return "\(String(reflecting: object)) does not have array or null for key \(String(reflecting: key))\n\(String(reflecting: error))"
+        }
     }
     
     func missableArray(_ key: String) throws -> JsonArray? {
@@ -309,10 +351,13 @@ public extension JsonObject {
         }
         return array
     }
-    private struct NotMissableArrayError: Error {
+    private struct NotMissableArrayError: Error, CustomDebugStringConvertible {
         let object: JsonObject
         let key: String
         let error: Error
+        var debugDescription: String {
+            return "\(String(reflecting: object)) does not have array for key \(String(reflecting: key))\n\(String(reflecting: error))"
+        }
     }
     
     func missableNullableArray(_ key: String) throws -> JsonArray? {
@@ -323,10 +368,13 @@ public extension JsonObject {
         }
         return array
     }
-    private struct NotMissableNullableArrayError: Error {
+    private struct NotMissableNullableArrayError: Error, CustomDebugStringConvertible {
         let object: JsonObject
         let key: String
         let error: Error
+        var debugDescription: String {
+            return "\(String(reflecting: object)) does not have array or null for key \(String(reflecting: key))\n\(String(reflecting: error))"
+        }
     }
     
     mutating func setArray(_ array: JsonArray, for key: String) {
@@ -360,10 +408,13 @@ public extension JsonObject {
             throw NotBooleanError(object: self, key: key, error: error)
         }
     }
-    private struct NotBooleanError: Error {
+    private struct NotBooleanError: Error, CustomDebugStringConvertible {
         let object: JsonObject
         let key: String
         let error: Error
+        var debugDescription: String {
+            return "\(String(reflecting: object)) does not have boolean for key \(String(reflecting: key))\n\(String(reflecting: error))"
+        }
     }
 
     func nullableBoolean(_ key: String) throws -> Bool? {
@@ -375,10 +426,13 @@ public extension JsonObject {
             throw NotNullableBooleanError(object: self, key: key, error: error)
         }
     }
-    private struct NotNullableBooleanError: Error {
+    private struct NotNullableBooleanError: Error, CustomDebugStringConvertible {
         let object: JsonObject
         let key: String
         let error: Error
+        var debugDescription: String {
+            return "\(String(reflecting: object)) does not have boolean or null for key \(String(reflecting: key))\n\(String(reflecting: error))"
+        }
     }
     
     func missableBoolean(_ key: String) throws -> Bool? {
@@ -389,10 +443,13 @@ public extension JsonObject {
         }
         return bool
     }
-    private struct NotMissableBooleanError: Error {
+    private struct NotMissableBooleanError: Error, CustomDebugStringConvertible {
         let object: JsonObject
         let key: String
         let error: Error
+        var debugDescription: String {
+            return "\(String(reflecting: object)) does not have boolean for key \(String(reflecting: key))\n\(String(reflecting: error))"
+        }
     }
     
     func missableNullableBoolean(_ key: String) throws -> Bool? {
@@ -403,10 +460,13 @@ public extension JsonObject {
         }
         return bool
     }
-    private struct NotMissableNullableBooleanError: Error {
+    private struct NotMissableNullableBooleanError: Error, CustomDebugStringConvertible {
         let object: JsonObject
         let key: String
         let error: Error
+        var debugDescription: String {
+            return "\(String(reflecting: object)) does not have boolean or null for key \(String(reflecting: key))\n\(String(reflecting: error))"
+        }
     }
     
     mutating func setBoolean(_ bool: Bool, for key: String) {

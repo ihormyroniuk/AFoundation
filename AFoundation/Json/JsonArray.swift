@@ -46,6 +46,25 @@ public extension JsonArray {
         }
     }
     
+    mutating func appendString(_ string: String) {
+        append(.string(string))
+    }
+    
+    mutating func appendNullableString(_ string: String?) {
+        guard let string = string else {
+            append(JsonValue.null)
+            return
+        }
+        append(.string(string))
+    }
+    
+    mutating func setMissableString(_ string: String?) {
+        guard let string = string else {
+            return
+        }
+        append(.string(string))
+    }
+    
     // MARK: Numbers
     
     func numbers() throws -> [Decimal] {

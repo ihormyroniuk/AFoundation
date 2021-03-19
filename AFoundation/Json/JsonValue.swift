@@ -30,10 +30,10 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
         if case .string(let string) = self { return string }
         throw NotStringError(value: self)
     }
-    private struct NotStringError: Error, LocalizedError {
+    private struct NotStringError: Error, CustomDebugStringConvertible {
         let value: JsonValue
-        var errorDescription: String? {
-            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not string"
+        var debugDescription: String {
+            return "\(String(reflecting: value)) is not string"
         }
     }
     
@@ -42,10 +42,10 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
         if case .null = self { return nil }
         throw NotNullableStringError(value: self)
     }
-    private struct NotNullableStringError: Error, LocalizedError {
+    private struct NotNullableStringError: Error, CustomDebugStringConvertible {
         let value: JsonValue
-        public var errorDescription: String? {
-            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not string or null"
+        var debugDescription: String {
+            return "\(String(reflecting: value)) is not string or null"
         }
     }
     
@@ -71,10 +71,10 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
         if case .number(let number) = self { return number }
         throw NotNumberError(value: self)
     }
-    private struct NotNumberError: Error, LocalizedError {
+    private struct NotNumberError: Error, CustomDebugStringConvertible {
         let value: JsonValue
-        public var errorDescription: String? {
-            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not number"
+        var debugDescription: String {
+            return "\(String(reflecting: value)) is not number"
         }
     }
     
@@ -83,10 +83,10 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
         if case .null = self { return nil }
         throw NotNullableNumberError(value: self)
     }
-    private struct NotNullableNumberError: Error, LocalizedError {
+    private struct NotNullableNumberError: Error, CustomDebugStringConvertible {
         let value: JsonValue
-        var errorDescription: String? {
-            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not number or null"
+        var debugDescription: String {
+            return "\(String(reflecting: value)) is not number or null"
         }
     }
     
@@ -102,10 +102,10 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
         if case .object(let object) = self { return object }
         throw NotObjectError(value: self)
     }
-    private struct NotObjectError: Error, LocalizedError {
+    private struct NotObjectError: Error, CustomDebugStringConvertible {
         let value: JsonValue
-        public var errorDescription: String? {
-            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not object"
+        var debugDescription: String {
+            return "\(String(reflecting: value)) is not object"
         }
     }
     
@@ -114,10 +114,10 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
         if case .null = self { return nil }
         throw NotNullableObjectError(value: self)
     }
-    private struct NotNullableObjectError: Error, LocalizedError {
+    private struct NotNullableObjectError: Error, CustomDebugStringConvertible {
         let value: JsonValue
-        var errorDescription: String? {
-            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not object or null"
+        var debugDescription: String {
+            return "\(String(reflecting: value)) is not object or null"
         }
     }
     
@@ -133,10 +133,10 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
         if case .array(let array) = self { return array }
         throw NotArrayError(value: self)
     }
-    private struct NotArrayError: Error, LocalizedError {
+    private struct NotArrayError: Error, CustomDebugStringConvertible {
         let value: JsonValue
-        var errorDescription: String? {
-            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not array"
+        var debugDescription: String {
+            return "\(String(reflecting: value)) is not array"
         }
     }
     
@@ -145,10 +145,10 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
         if case .null = self { return nil }
         throw NotNullableArrayError(value: self)
     }
-    private struct NotNullableArrayError: Error, LocalizedError {
+    private struct NotNullableArrayError: Error, CustomDebugStringConvertible {
         let value: JsonValue
-        var errorDescription: String? {
-            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not array or null"
+        var debugDescription: String {
+            return "\(String(reflecting: value)) is not array or null"
         }
     }
     
@@ -164,10 +164,10 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
         if case .boolean(let bool) = self { return bool }
         throw NotBooleanError(value: self)
     }
-    private struct NotBooleanError: Error, LocalizedError {
+    private struct NotBooleanError: Error, CustomDebugStringConvertible {
         let value: JsonValue
-        var errorDescription: String? {
-            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not boolean"
+        var debugDescription: String {
+            return "\(String(reflecting: value)) is not boolean"
         }
     }
     
@@ -176,10 +176,10 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
         if case .null = self { return nil }
         throw NotNullableBooleanError(value: self)
     }
-    private struct NotNullableBooleanError: Error, LocalizedError {
+    private struct NotNullableBooleanError: Error, CustomDebugStringConvertible {
         let value: JsonValue
-        public var errorDescription: String? {
-            return "\(String(reflecting: Self.self))\n\(String(reflecting: value)) is not boolean or null"
+        var debugDescription: String {
+            return "\(String(reflecting: value)) is not boolean or null"
         }
     }
     
@@ -249,5 +249,4 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
             return "\(String(reflecting: Self.self)).null"
         }
     }
-    
 }

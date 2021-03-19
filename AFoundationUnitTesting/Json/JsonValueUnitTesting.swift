@@ -86,11 +86,17 @@ class JsonValueUnitTesting: XCTestCase {
     
     func test() {
         var jsonObject = JsonObject()
-        jsonObject.setString("someString", for: "stringKey")
-        jsonObject.setNumber(Decimal(10), for: "numberKey")
+        jsonObject.setString("string", for: "key1")
+        jsonObject.setNumber(Decimal(10), for: "key2")
         let jsonValue = JsonValue(jsonObject)
-        let debugDescription = jsonValue.debugDescription
-        print(debugDescription)
+        do {
+            let string = try jsonValue.string()
+        } catch {
+            debugPrint(error)
+            //print(error)
+        }
+        //let debugDescription = jsonValue.debugDescription
+        //print(debugDescription)
     }
 
 }
