@@ -308,4 +308,3 @@ public extension JsonArray {
         if let boolean = boolean { append(.boolean(boolean)) }
     }
 }
-

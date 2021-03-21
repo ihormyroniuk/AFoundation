@@ -11,7 +11,7 @@ import Foundation
 /**
     Implemented based on https://tools.ietf.org/html/rfc2616#section-5
  */
-public struct HttpRequest: CustomStringConvertible, Equatable {
+public struct HttpRequest: CustomDebugStringConvertible, Equatable {
     
     public let method: String
     public let uri: URL
@@ -27,7 +27,7 @@ public struct HttpRequest: CustomStringConvertible, Equatable {
         self.body = body
     }
     
-    public var description: String {
+    public var debugDescription: String {
         var description = "\(method) \(uri) \(version)\n"
         headers?.forEach({ description += "\($0):\($1)\n" })
         if let body = body, !body.isEmpty {

@@ -10,8 +10,6 @@ import XCTest
 import Foundation
 @testable import AFoundation
 
-
-
 class JsonValueUnitTesting: XCTestCase {
     
 //    // MARK: String

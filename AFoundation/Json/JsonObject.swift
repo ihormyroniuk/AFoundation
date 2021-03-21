@@ -12,14 +12,11 @@ public typealias JsonObject = [String: JsonValue]
 
 public extension JsonObject {
     
-    // MARK: AnyValue
+    // MARK: Value
     
     func value(_ key: String) throws -> JsonValue {
-        let optionalValue = self[key]
-        guard let value = optionalValue else {
-            throw MissingValueError(object: self, key: key)
-        }
-        return value
+        if let value = self[key] { return value }
+        else { throw MissingValueError(object: self, key: key) }
     }
     private struct MissingValueError: Error, CustomDebugStringConvertible {
         let object: JsonObject
@@ -290,19 +287,13 @@ public extension JsonObject {
     }
     
     mutating func setNullableObject(_ object: JsonObject?, for key: String) {
-        guard let object = object else {
-            self[key] = .null
-            return
-        }
-        self[key] = .object(object)
+        if let object = object { self[key] = .object(object) }
+        else { self[key] = .null }
     }
     
     mutating func setMissableObject(_ object: JsonObject?, for key: String) {
-        guard let object = object else {
-            self[key] = nil
-            return
-        }
-        self[key] = .object(object)
+        if let object = object { self[key] = .object(object) }
+        else { self[key] = nil }
     }
     
     // MARK: Array
@@ -382,19 +373,13 @@ public extension JsonObject {
     }
     
     mutating func setNullableArray(_ array: JsonArray?, for key: String) {
-        guard let array = array else {
-            self[key] = .null
-            return
-        }
-        self[key] = .array(array)
+        if let array = array { self[key] = .array(array) }
+        else { self[key] = .null }
     }
     
     mutating func setMissableArray(_ array: JsonArray?, for key: String) {
-        guard let array = array else {
-            self[key] = nil
-            return
-        }
-        self[key] = .array(array)
+        if let array = array { self[key] = .array(array) }
+        else { self[key] = nil }
     }
     
     // MARK: Boolean
@@ -474,18 +459,12 @@ public extension JsonObject {
     }
     
     mutating func setNullableBoolean(_ bool: Bool?, for key: String) {
-        guard let bool = bool else {
-            self[key] = .null
-            return
-        }
-        self[key] = .boolean(bool)
+        if let bool = bool { self[key] = .boolean(bool) }
+        else { self[key] = .null }
     }
     
     mutating func setMissableBoolean(_ bool: Bool?, for key: String) {
-        guard let bool = bool else {
-            self[key] = nil
-            return
-        }
-        self[key] = .boolean(bool)
+        if let bool = bool { self[key] = .boolean(bool) }
+        else { self[key] = nil }
     }
 }
