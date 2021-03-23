@@ -18,12 +18,8 @@ public extension Locale {
     init(language: Language, script: Script?, region: Region?) {
         let languageCode = language.code
         var identifier = languageCode
-        if let scriptCode = script?.code {
-            identifier += "-\(scriptCode)"
-        }
-        if let regionCode = region?.code {
-            identifier += "_\(regionCode)"
-        }
+        if let scriptCode = script?.code { identifier += "-\(scriptCode)" }
+        if let regionCode = region?.code { identifier += "_\(regionCode)" }
         self.init(identifier: identifier)
     }
     

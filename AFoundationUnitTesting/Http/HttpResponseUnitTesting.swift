@@ -19,7 +19,7 @@ class HttpResponseUnitTesting: XCTestCase {
         
         let httpResponse = HttpResponse(version: version, code: code, phrase: "OK", headers: headers, body: data)
         
-        let description = httpResponse.description
+        let description = httpResponse.debugDescription
         
         let expectedDescription =
         """

@@ -19,10 +19,20 @@ public extension JsonObject {
         else { throw MissingValueError(object: self, key: key) }
     }
     private struct MissingValueError: Error, CustomDebugStringConvertible {
-        let object: JsonObject
-        let key: String
+        private let fileId: StaticString
+        private let line: UInt
+        private let object: JsonObject
+        private let key: String
+        
+        init(fileId: StaticString = #fileID, line: UInt = #line, object: JsonObject, key: String) {
+            self.fileId = fileId
+            self.line = line
+            self.object = object
+            self.key = key
+        }
+        
         var debugDescription: String {
-            return "\(String(reflecting: object)) does not have value for key \(String(reflecting: key))"
+            return "\(fileId):\(String(reflecting: line))\n\(String(reflecting: object)) does not have value for key \(String(reflecting: key))"
         }
     }
 
@@ -38,11 +48,22 @@ public extension JsonObject {
         }
     }
     private struct NotStringError: Error, CustomDebugStringConvertible {
-        let object: JsonObject
-        let key: String
-        let error: Error
+        private let fileId: StaticString
+        private let line: UInt
+        private let object: JsonObject
+        private let key: String
+        private let error: Error
+        
+        init(fileId: StaticString = #fileID, line: UInt = #line, object: JsonObject, key: String, error: Error) {
+            self.fileId = fileId
+            self.line = line
+            self.object = object
+            self.key = key
+            self.error = error
+        }
+        
         var debugDescription: String {
-            return "\(String(reflecting: object)) does not have string for key \(String(reflecting: key))\n\(String(reflecting: error))"
+            return "\(fileId):\(String(reflecting: line))\n\(String(reflecting: object)) does not have string for key \(String(reflecting: key))\n\(String(reflecting: error))"
         }
     }
 
@@ -56,11 +77,22 @@ public extension JsonObject {
         }
     }
     private struct NotNullableStringError: Error, CustomDebugStringConvertible {
-        let object: JsonObject
-        let key: String
-        let error: Error
+        private let fileId: StaticString
+        private let line: UInt
+        private let object: JsonObject
+        private let key: String
+        private let error: Error
+        
+        init(fileId: StaticString = #fileID, line: UInt = #line, object: JsonObject, key: String, error: Error) {
+            self.fileId = fileId
+            self.line = line
+            self.object = object
+            self.key = key
+            self.error = error
+        }
+        
         var debugDescription: String {
-            return "\(String(reflecting: object)) does not have string or null for key \(String(reflecting: key))\n\(String(reflecting: error))"
+            return "\(fileId):\(String(reflecting: line))\n\(String(reflecting: object)) does not have string or null for key \(String(reflecting: key))\n\(String(reflecting: error))"
         }
     }
     
@@ -73,11 +105,22 @@ public extension JsonObject {
         return string
     }
     private struct NotMissableStringError: Error, CustomDebugStringConvertible {
-        let object: JsonObject
-        let key: String
-        let error: Error
+        private let fileId: StaticString
+        private let line: UInt
+        private let object: JsonObject
+        private let key: String
+        private let error: Error
+        
+        init(fileId: StaticString = #fileID, line: UInt = #line, object: JsonObject, key: String, error: Error) {
+            self.fileId = fileId
+            self.line = line
+            self.object = object
+            self.key = key
+            self.error = error
+        }
+        
         var debugDescription: String {
-            return "\(String(reflecting: object)) does not have string for key \(String(reflecting: key))\n\(String(reflecting: error))"
+            return "\(fileId):\(String(reflecting: line))\n\(String(reflecting: object)) does not have string for key \(String(reflecting: key))\n\(String(reflecting: error))"
         }
     }
     
@@ -90,11 +133,22 @@ public extension JsonObject {
         return string
     }
     private struct NotMissableNullableStringError: Error, CustomDebugStringConvertible {
-        let object: JsonObject
-        let key: String
-        let error: Error
+        private let fileId: StaticString
+        private let line: UInt
+        private let object: JsonObject
+        private let key: String
+        private let error: Error
+        
+        init(fileId: StaticString = #fileID, line: UInt = #line, object: JsonObject, key: String, error: Error) {
+            self.fileId = fileId
+            self.line = line
+            self.object = object
+            self.key = key
+            self.error = error
+        }
+        
         var debugDescription: String {
-            return "\(String(reflecting: object)) does not have string or null for key \(String(reflecting: key))\n\(String(reflecting: error))"
+            return "\(fileId):\(String(reflecting: line))\n\(String(reflecting: object)) does not have string or null for key \(String(reflecting: key))\n\(String(reflecting: error))"
         }
     }
     
@@ -103,19 +157,13 @@ public extension JsonObject {
     }
     
     mutating func setNullableString(_ string: String?, for key: String) {
-        guard let string = string else {
-            self[key] = .null
-            return
-        }
-        self[key] = .string(string)
+        if let string = string { self[key] = .string(string) }
+        else { self[key] = .null }
     }
     
     mutating func setMissableString(_ string: String?, for key: String) {
-        guard let string = string else {
-            self[key] = nil
-            return
-        }
-        self[key] = .string(string)
+        if let string = string { self[key] = .string(string) }
+        else { self[key] = nil }
     }
     
     // MARK: Number

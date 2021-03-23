@@ -38,7 +38,7 @@ class HTTPURLResponseHttpResponseDataUnitTesting: XCTestCase {
         
         let httpResponse = httpUrlResponse.httpResponse(data: data)
         
-        let description = httpResponse.description
+        let description = httpResponse.debugDescription
         
         let expectedDescription = " 200 \n"
         XCTAssertTrue(description == expectedDescription, "Unexpected description \(description)) is found, but description \(expectedDescription) is expected")

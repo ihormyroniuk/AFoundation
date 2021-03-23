@@ -9,33 +9,19 @@
 import Foundation
 
 public extension Decimal {
-    
     static let doubleMax = Decimal(Double.greatestFiniteMagnitude)
     static let doubleMin = Decimal(-Double.greatestFiniteMagnitude)
   
     func double() throws -> Double {
         guard self >= Decimal.doubleMin && self <= Decimal.doubleMax else {
-            let error = NotDoubleConvertibleError(decimal: self)
-            throw error
+            throw NotDoubleConvertibleError(decimal: self)
         }
         return (self as NSDecimalNumber).doubleValue
     }
-    struct NotDoubleConvertibleError: Error, LocalizedError, CustomDebugStringConvertible {
+    struct NotDoubleConvertibleError: Error, CustomDebugStringConvertible {
         let decimal: Decimal
         public var debugDescription: String {
-            return
-                """
-                \(String(reflecting: Self.self))
-                decimal =
-                \(String(reflecting: decimal))
-                """
-        }
-        public var errorDescription: String? {
-            return
-                """
-                \(String(reflecting: self))
-                Cannot convert \(String(reflecting: Decimal.self))(\(String(reflecting: decimal)) to \(String(reflecting: Double.self))
-                """
+            return "\(String(reflecting: self))\nCannot convert \(String(reflecting: Decimal.self))(\(String(reflecting: decimal)) to \(String(reflecting: Double.self))"
         }
     }
 }

@@ -88,7 +88,7 @@ class JsonValueUnitTesting: XCTestCase {
         jsonObject.setNumber(Decimal(10), for: "key2")
         let jsonValue = JsonValue(jsonObject)
         do {
-            let string = try jsonValue.string()
+            let string = try jsonObject.string("key2")
         } catch {
             debugPrint(error)
             //print(error)

@@ -9,7 +9,6 @@
 import Foundation
 
 public extension Decimal {
-    
     static let floatMax = Decimal(Double(Float.greatestFiniteMagnitude))
     static let floatMin = Decimal(Double(-Float.greatestFiniteMagnitude))
     
@@ -19,15 +18,13 @@ public extension Decimal {
   
     func float() throws -> Float {
         guard self >= Decimal.floatMin && self <= Decimal.floatMax else {
-            let error = NotFloatConvertibleError(decimal: self)
-            throw error
+            throw NotFloatConvertibleError(decimal: self)
         }
         return (self as NSDecimalNumber).floatValue
     }
-    private struct NotFloatConvertibleError: Error, LocalizedError {
+    private struct NotFloatConvertibleError: Error, CustomDebugStringConvertible {
         let decimal: Decimal
-        
-        var errorDescription: String? {
+        var debugDescription: String {
             return "Could not convert \(Decimal.self) \(decimal) to \(Float.self)"
         }
     }

@@ -81,7 +81,7 @@ class HttpRequestUnitTesting: XCTestCase {
         
         let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: headers, body: body)
         
-        let description = httpRequest.description
+        let description = httpRequest.debugDescription
         
         let expectedDescription = "GET https://localhost HTTP/1.1\n"
         XCTAssertTrue(description == expectedDescription, "Unexpected description \(description)) is found, but description \(expectedDescription) is expected")
@@ -96,7 +96,7 @@ class HttpRequestUnitTesting: XCTestCase {
         
         let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: headers, body: body)
         
-        let description = httpRequest.description
+        let description = httpRequest.debugDescription
         
         let expectedDescription =
             """
