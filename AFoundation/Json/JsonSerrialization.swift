@@ -13,10 +13,6 @@ public enum JsonSerialization {
     // MARK: Serialization
     
     public static func jsonValue(_ data: Data) throws -> JsonValue {
-        let any: Any
-        do { any  = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed]) } catch {
-            throw NotJsonValueError(data: data, error: error)
-        }
         func json(_ any: Any) throws -> JsonValue {
             if let nsString = any as? NSString {
                 let string = nsString as String
@@ -42,26 +38,54 @@ public enum JsonSerialization {
             }
             if let bool = any as? Bool { return .boolean(bool) }
             if any is NSNull { return .null }
-            throw NotJsonValueError(data: data, error: nil)
+            throw AnyNotJsonValueError(any: any)
         }
-        let jsonValue = try json(any)
-        return jsonValue
+        do {
+            let any = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
+            let jsonValue = try json(any)
+            return jsonValue
+        } catch {
+            throw NotJsonValueError(data: data, error: error)
+        }
+    }
+    private struct AnyNotJsonValueError: Error, CustomDebugStringConvertible {
+        private let fileId: StaticString
+        private let line: UInt
+        private let any: Any
+        
+        init(fileId: StaticString = #fileID, line: UInt = #line, any: Any) {
+            self.fileId = fileId
+            self.line = line
+            self.any = any
+        }
+        
+        var debugDescription: String {
+            return "\(fileId):\(String(reflecting: line))\n\(String(reflecting: any)) is not JSON value"
+        }
     }
     private struct NotJsonValueError: Error, CustomDebugStringConvertible {
-        let data: Data
-        let error: Error?
+        private let fileId: StaticString
+        private let line: UInt
+        private let data: Data
+        private let error: Error
+        
+        init(fileId: StaticString = #fileID, line: UInt = #line, data: Data, error: Error) {
+            self.fileId = fileId
+            self.line = line
+            self.data = data
+            self.error = error
+        }
+        
         var debugDescription: String {
-            var debugDescription = "\(String(reflecting: data)) is not JSON value"
-            if let error = error { debugDescription.append("\n\(String(reflecting: error))") }
-            return debugDescription
+            return "\(fileId):\(String(reflecting: line))\n\(String(reflecting: data)) is not JSON value\n\(String(reflecting: error))"
         }
     }
     
     // MARK: Deserialization
     
-    public static func data(_ jsonValue: JsonValue) throws -> Data {
-        func any(_ jsonValue: JsonValue) -> Any {
-            switch jsonValue {
+    public static func data(_ value: JsonValue) throws -> Data {
+        func any(_ value: JsonValue) -> Any {
+            switch value {
             case let .string(string): return string
             case let .number(decimal): return decimal
             case let .object(object): return object.mapValues({ any($0) })
@@ -71,16 +95,26 @@ public enum JsonSerialization {
             }
         }
         let data: Data
-        do { data = try JSONSerialization.data(withJSONObject: any(jsonValue), options: [.fragmentsAllowed]) } catch {
-            throw NotDataError(jsonValue: jsonValue, error: error)
+        do { data = try JSONSerialization.data(withJSONObject: any(value), options: [.fragmentsAllowed]) } catch {
+            throw NotDataError(value: value, error: error)
         }
         return data
     }
     private struct NotDataError: Error, CustomDebugStringConvertible {
-        let jsonValue: JsonValue
-        let error: Error
+        private let fileId: StaticString
+        private let line: UInt
+        private let value: JsonValue
+        private let error: Error
+        
+        init(fileId: StaticString = #fileID, line: UInt = #line, value: JsonValue, error: Error) {
+            self.fileId = fileId
+            self.line = line
+            self.value = value
+            self.error = error
+        }
+        
         var debugDescription: String {
-            return "Cannot get data from \(String(reflecting: jsonValue))\n\(String(reflecting: error))"
+            return "\(fileId):\(String(reflecting: line))\nCannot get data from \(String(reflecting: value))\n\(String(reflecting: error))"
         }
     }
     
