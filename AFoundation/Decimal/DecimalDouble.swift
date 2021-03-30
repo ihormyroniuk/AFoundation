@@ -9,6 +9,7 @@
 import Foundation
 
 public extension Decimal {
+    
     static let doubleMax = Decimal(Double.greatestFiniteMagnitude)
     static let doubleMin = Decimal(-Double.greatestFiniteMagnitude)
   
@@ -24,4 +25,5 @@ public extension Decimal {
             return "\(String(reflecting: self))\nCannot convert \(String(reflecting: Decimal.self))(\(String(reflecting: decimal)) to \(String(reflecting: Double.self))"
         }
     }
+    
 }

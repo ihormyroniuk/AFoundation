@@ -23,43 +23,13 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
     
     public func string() throws -> String {
         if case .string(let string) = self { return string }
-        else { throw NotStringError(value: self) }
-    }
-    private struct NotStringError: Error, CustomDebugStringConvertible {
-        private let fileId: StaticString
-        private let line: UInt
-        private let value: JsonValue
-        
-        init(fileId: StaticString = #fileID, line: UInt = #line, value: JsonValue) {
-            self.fileId = fileId
-            self.line = line
-            self.value = value
-        }
-        
-        var debugDescription: String {
-            return "\(fileId):\(String(reflecting: line))\n\(String(reflecting: value)) is not string"
-        }
+        else { throw AFoundationError("\(String(reflecting: self)) is not string") }
     }
     
     public func nullableString() throws -> String? {
         if case .string(let string) = self { return string }
         else if case .null = self { return nil }
-        else { throw NotNullableStringError(value: self) }
-    }
-    private struct NotNullableStringError: Error, CustomDebugStringConvertible {
-        private let fileId: StaticString
-        private let line: UInt
-        private let value: JsonValue
-        
-        init(fileId: StaticString = #fileID, line: UInt = #line, value: JsonValue) {
-            self.fileId = fileId
-            self.line = line
-            self.value = value
-        }
-        
-        var debugDescription: String {
-            return "\(fileId):\(String(reflecting: line))\n\(String(reflecting: value)) is not string or null"
-        }
+        else { throw AFoundationError("\(String(reflecting: self)) is not string or null") }
     }
     
     // MARK: Number
@@ -72,43 +42,13 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
     
     public func number() throws -> Decimal {
         if case .number(let number) = self { return number }
-        else { throw NotNumberError(value: self) }
-    }
-    private struct NotNumberError: Error, CustomDebugStringConvertible {
-        private let fileId: StaticString
-        private let line: UInt
-        private let value: JsonValue
-        
-        init(fileId: StaticString = #fileID, line: UInt = #line, value: JsonValue) {
-            self.fileId = fileId
-            self.line = line
-            self.value = value
-        }
-        
-        var debugDescription: String {
-            return "\(fileId):\(String(reflecting: line))\n\(String(reflecting: value)) is not number"
-        }
+        else { throw AFoundationError("\(String(reflecting: self)) is not number") }
     }
     
     public func nullableNumber() throws -> Decimal? {
         if case .number(let decimal) = self { return decimal }
         else if case .null = self { return nil }
-        else { throw NotNullableNumberError(value: self) }
-    }
-    private struct NotNullableNumberError: Error, CustomDebugStringConvertible {
-        private let fileId: StaticString
-        private let line: UInt
-        private let value: JsonValue
-        
-        init(fileId: StaticString = #fileID, line: UInt = #line, value: JsonValue) {
-            self.fileId = fileId
-            self.line = line
-            self.value = value
-        }
-        
-        var debugDescription: String {
-            return "\(fileId):\(String(reflecting: line))\n\(String(reflecting: value)) is not number or null"
-        }
+        else { throw AFoundationError("\(String(reflecting: self)) is not number or null") }
     }
     
     // MARK: Object
@@ -121,43 +61,13 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
     
     public func object() throws -> JsonObject {
         if case .object(let object) = self { return object }
-        else { throw NotObjectError(value: self) }
-    }
-    private struct NotObjectError: Error, CustomDebugStringConvertible {
-        private let fileId: StaticString
-        private let line: UInt
-        private let value: JsonValue
-        
-        init(fileId: StaticString = #fileID, line: UInt = #line, value: JsonValue) {
-            self.fileId = fileId
-            self.line = line
-            self.value = value
-        }
-        
-        var debugDescription: String {
-            return "\(fileId):\(String(reflecting: line))\n\(String(reflecting: value)) is not object"
-        }
+        else { throw AFoundationError("\(String(reflecting: self)) is not object") }
     }
     
     public func nullableObject() throws -> JsonObject? {
         if case .object(let object) = self { return object }
         else if case .null = self { return nil }
-        else { throw NotNullableObjectError(value: self) }
-    }
-    private struct NotNullableObjectError: Error, CustomDebugStringConvertible {
-        private let fileId: StaticString
-        private let line: UInt
-        private let value: JsonValue
-        
-        init(fileId: StaticString = #fileID, line: UInt = #line, value: JsonValue) {
-            self.fileId = fileId
-            self.line = line
-            self.value = value
-        }
-        
-        var debugDescription: String {
-            return "\(fileId):\(String(reflecting: line))\n\(String(reflecting: value)) is not object or null"
-        }
+        else { throw AFoundationError("\(String(reflecting: self)) is not object or null") }
     }
     
     // MARK: Array
@@ -170,43 +80,13 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
     
     public func array() throws -> JsonArray {
         if case .array(let array) = self { return array }
-        else { throw NotArrayError(value: self) }
-    }
-    private struct NotArrayError: Error, CustomDebugStringConvertible {
-        private let fileId: StaticString
-        private let line: UInt
-        private let value: JsonValue
-        
-        init(fileId: StaticString = #fileID, line: UInt = #line, value: JsonValue) {
-            self.fileId = fileId
-            self.line = line
-            self.value = value
-        }
-        
-        var debugDescription: String {
-            return "\(fileId):\(String(reflecting: line))\n\(String(reflecting: value)) is not array"
-        }
+        else { throw AFoundationError("\(String(reflecting: self)) is not array") }
     }
     
     public func nullableArray() throws -> JsonArray? {
         if case .array(let array) = self { return array }
         else if case .null = self { return nil }
-        else { throw NotNullableArrayError(value: self) }
-    }
-    private struct NotNullableArrayError: Error, CustomDebugStringConvertible {
-        private let fileId: StaticString
-        private let line: UInt
-        private let value: JsonValue
-        
-        init(fileId: StaticString = #fileID, line: UInt = #line, value: JsonValue) {
-            self.fileId = fileId
-            self.line = line
-            self.value = value
-        }
-        
-        var debugDescription: String {
-            return "\(fileId):\(String(reflecting: line))\n\(String(reflecting: value)) is not array or null"
-        }
+        else { throw AFoundationError("\(String(reflecting: self)) is not array or null") }
     }
     
     // MARK: Boolean
@@ -219,43 +99,13 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
     
     public func boolean() throws -> Bool {
         if case .boolean(let bool) = self { return bool }
-        else { throw NotBooleanError(value: self) }
-    }
-    private struct NotBooleanError: Error, CustomDebugStringConvertible {
-        private let fileId: StaticString
-        private let line: UInt
-        private let value: JsonValue
-        
-        init(fileId: StaticString = #fileID, line: UInt = #line, value: JsonValue) {
-            self.fileId = fileId
-            self.line = line
-            self.value = value
-        }
-        
-        var debugDescription: String {
-            return "\(fileId):\(String(reflecting: line))\n\(String(reflecting: value)) is not boolean"
-        }
+        else { throw AFoundationError("\(String(reflecting: self)) is not boolean") }
     }
     
     public func nullableBoolean() throws -> Bool? {
         if case .boolean(let bool) = self { return bool }
         else if case .null = self { return nil }
-        else { throw NotNullableBooleanError(value: self) }
-    }
-    private struct NotNullableBooleanError: Error, CustomDebugStringConvertible {
-        private let fileId: StaticString
-        private let line: UInt
-        private let value: JsonValue
-        
-        init(fileId: StaticString = #fileID, line: UInt = #line, value: JsonValue) {
-            self.fileId = fileId
-            self.line = line
-            self.value = value
-        }
-        
-        var debugDescription: String {
-            return "\(fileId):\(String(reflecting: line))\n\(String(reflecting: value)) is not boolean or null"
-        }
+        else { throw AFoundationError("\(String(reflecting: self)) is not boolean or null") }
     }
     
     // MARK: Null
@@ -272,7 +122,36 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
         case (let .array(lhsArray), let .array(rhsArray)): return lhsArray == rhsArray
         case (let .boolean(lhsBool), let .boolean(rhsBool)): return lhsBool == rhsBool
         case (.null, .null): return true
-        default: return false
+        case (.null, .string(_)): return false
+        case (.null, .number(_)): return false
+        case (.null, .object(_)): return false
+        case (.null, .array(_)): return false
+        case (.null, .boolean(_)): return false
+        case (.boolean(_), .string(_)): return false
+        case (.boolean(_), .number(_)): return false
+        case (.boolean(_), .object(_)): return false
+        case (.boolean(_), .array(_)): return false
+        case (.boolean(_), .null): return false
+        case (.array(_), .string(_)): return false
+        case (.array(_), .number(_)): return false
+        case (.array(_), .object(_)): return false
+        case (.array(_), .boolean(_)): return false
+        case (.array(_), .null): return false
+        case (.object(_), .string(_)): return false
+        case (.object(_), .number(_)): return false
+        case (.object(_), .array(_)): return false
+        case (.object(_), .boolean(_)): return false
+        case (.object(_), .null): return false
+        case (.number(_), .string(_)): return false
+        case (.number(_), .object(_)): return false
+        case (.number(_), .array(_)): return false
+        case (.number(_), .boolean(_)): return false
+        case (.number(_), .null): return false
+        case (.string(_), .number(_)): return false
+        case (.string(_), .object(_)): return false
+        case (.string(_), .array(_)): return false
+        case (.string(_), .boolean(_)): return false
+        case (.string(_), .null): return false
         }
     }
     
@@ -301,4 +180,5 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
         case .null: return "\(String(reflecting: Self.self)).null"
         }
     }
+    
 }

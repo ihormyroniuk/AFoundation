@@ -23,61 +23,23 @@ public enum JsonSerialization {
                 return .number(decimal)
             }
             if let dictionaryStringAny = any as? [String: Any] {
-                let dictionaryStringJsonValue: JsonObject
-                do { dictionaryStringJsonValue = try dictionaryStringAny.mapValues({ try json($0) }) } catch {
-                    throw NotJsonValueError(data: data, error: error)
-                }
+                let dictionaryStringJsonValue = try dictionaryStringAny.mapValues({ try json($0) })
                 return .object(dictionaryStringJsonValue)
             }
             if let arrayAny = any as? [Any] {
-                let arrayJsonValue: JsonArray
-                do { arrayJsonValue = try arrayAny.map({ try json($0) }) } catch {
-                    throw NotJsonValueError(data: data, error: error)
-                }
+                let arrayJsonValue = try arrayAny.map({ try json($0) })
                 return .array(arrayJsonValue)
             }
             if let bool = any as? Bool { return .boolean(bool) }
             if any is NSNull { return .null }
-            throw AnyNotJsonValueError(any: any)
+            throw AFoundationError("\(String(reflecting: any)) is not JSON value")
         }
         do {
             let any = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
             let jsonValue = try json(any)
             return jsonValue
         } catch {
-            throw NotJsonValueError(data: data, error: error)
-        }
-    }
-    private struct AnyNotJsonValueError: Error, CustomDebugStringConvertible {
-        private let fileId: StaticString
-        private let line: UInt
-        private let any: Any
-        
-        init(fileId: StaticString = #fileID, line: UInt = #line, any: Any) {
-            self.fileId = fileId
-            self.line = line
-            self.any = any
-        }
-        
-        var debugDescription: String {
-            return "\(fileId):\(String(reflecting: line))\n\(String(reflecting: any)) is not JSON value"
-        }
-    }
-    private struct NotJsonValueError: Error, CustomDebugStringConvertible {
-        private let fileId: StaticString
-        private let line: UInt
-        private let data: Data
-        private let error: Error
-        
-        init(fileId: StaticString = #fileID, line: UInt = #line, data: Data, error: Error) {
-            self.fileId = fileId
-            self.line = line
-            self.data = data
-            self.error = error
-        }
-        
-        var debugDescription: String {
-            return "\(fileId):\(String(reflecting: line))\n\(String(reflecting: data)) is not JSON value\n\(String(reflecting: error))"
+            throw AFoundationError("\(String(reflecting: data)) is not JSON value\n\(String(reflecting: error))")
         }
     }
     
@@ -96,36 +58,38 @@ public enum JsonSerialization {
         }
         let data: Data
         do { data = try JSONSerialization.data(withJSONObject: any(value), options: [.fragmentsAllowed]) } catch {
-            throw NotDataError(value: value, error: error)
+            throw AFoundationError("Cannot get data from \(String(reflecting: value))\n\(String(reflecting: error))")
         }
         return data
     }
-    private struct NotDataError: Error, CustomDebugStringConvertible {
-        private let fileId: StaticString
-        private let line: UInt
-        private let value: JsonValue
-        private let error: Error
-        
-        init(fileId: StaticString = #fileID, line: UInt = #line, value: JsonValue, error: Error) {
-            self.fileId = fileId
-            self.line = line
-            self.value = value
-            self.error = error
-        }
-        
-        var debugDescription: String {
-            return "\(fileId):\(String(reflecting: line))\nCannot get data from \(String(reflecting: value))\n\(String(reflecting: error))"
-        }
-    }
     
-    public static func data(_ jsonValue: JsonObject) throws -> Data {
-        let data = try JsonSerialization.data(.object(jsonValue))
+    public static func data(_ string: String) throws -> Data {
+        let data = try JsonSerialization.data(.string(string))
         return data
     }
     
-    public static func data(_ jsonArray: JsonArray) throws -> Data {
-        let data = try JsonSerialization.data(.array(jsonArray))
+    public static func data(_ decimal: Decimal) throws -> Data {
+        let data = try JsonSerialization.data(.number(decimal))
         return data
     }
     
+    public static func data(_ object: JsonObject) throws -> Data {
+        let data = try JsonSerialization.data(.object(object))
+        return data
+    }
+    
+    public static func data(_ array: JsonArray) throws -> Data {
+        let data = try JsonSerialization.data(.array(array))
+        return data
+    }
+    
+    public static func data(_ bool: Bool) throws -> Data {
+        let data = try JsonSerialization.data(.boolean(bool))
+        return data
+    }
+    
+    public static func dataNull() throws -> Data {
+        let data = try JsonSerialization.data(.null)
+        return data
+    }
 }

@@ -11,46 +11,63 @@ import XCTest
 
 class DecimalIntUnitTesting: XCTestCase {
     
-    func testIntDecimal() {
+    func testIntegerDecimalPositiveInt() {
         let int = Int(1234567890)
         let decimal = Decimal(int)
         
         let decimalInt: Int
         do { decimalInt = try decimal.int() } catch {
-            XCTFail("Unexpected error \(error.self) is thrown")
+            XCTFail("Unexpected error \(error) is thrown")
             return
         }
         
         XCTAssertTrue(decimalInt == int, "Unexpected int \(int)) is found, but int \(decimalInt) is expected")
     }
     
-    func testDecimalGreaterThanIntMax() {
-        let int = Int.max
-        let decimal = Decimal(int) + Decimal(int)
+    func testIntegerDecimalGreaterThanIntMax() {
+        let decimal = Decimal.intMax + Decimal.intMax
         
         let decimalInt: Int
         do { decimalInt = try decimal.int() } catch {
-            let errorLocalizedString = error.localizedDescription
-            let descriptionString = "Could not convert \(Decimal.self) \(decimal) to \(Int.self)"
-            XCTAssertTrue(errorLocalizedString == descriptionString, "Unexpected description \(errorLocalizedString)) is found but description \(descriptionString) is expected")
             return
         }
         
         XCTFail("Unexpected int \(decimalInt) is returned, but error has to be thrown")
     }
     
-    func testDecimalLessThanIntMin() {
-        let int = Int.min
-        let decimal = Decimal(int) + Decimal(int)
+    func testIntegerDecimalLessThanIntMin() {
+        let decimal = Decimal.intMin + Decimal.intMin
         
         let decimalInt: Int
         do { decimalInt = try decimal.int() } catch {
-            let errorLocalizedString = error.localizedDescription
-            let descriptionString = "Could not convert \(Decimal.self) \(decimal) to \(Int.self)"
-            XCTAssertTrue(errorLocalizedString == descriptionString, "Unexpected description \(errorLocalizedString)) is found but description \(descriptionString) is expected")
             return
         }
         
         XCTFail("Unexpected int \(decimalInt) is returned, but error has to be thrown")
+    }
+    
+    func testRealNumberDecimalPositiveDouble() {
+        let double = Double(123.456)
+        let decimal = Decimal(double)
+        
+        let decimalInt: Int
+        do { decimalInt = try decimal.int() } catch {
+            return
+        }
+        
+        XCTFail("Unexpected int \(decimalInt) is returned, but error has to be thrown")
+    }
+    
+    func testRealNumberDecimalPositiveDouble3() {
+        let double = Double(1234567890.0000000)
+        let decimal = Decimal(double)
+        
+        let decimalInt: Int
+        do { decimalInt = try decimal.int() } catch {
+            XCTFail("Unexpected error \(error) is thrown")
+            return
+        }
+        
+        XCTAssertTrue(decimalInt == Int(double), "Unexpected int \(double)) is found, but int \(decimalInt) is expected")
     }
 }

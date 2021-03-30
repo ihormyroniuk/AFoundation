@@ -9,6 +9,7 @@
 import Foundation
 
 public extension Decimal {
+    
     static let floatMax = Decimal(Double(Float.greatestFiniteMagnitude))
     static let floatMin = Decimal(Double(-Float.greatestFiniteMagnitude))
     
@@ -30,4 +31,3 @@ public extension Decimal {
     }
   
 }
-

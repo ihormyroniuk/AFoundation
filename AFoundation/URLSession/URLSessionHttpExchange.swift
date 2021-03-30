@@ -62,9 +62,10 @@ public extension URLSession {
                 let httpResponse = httpUrlResponse.httpResponse(data: data)
                 let response: ParsedResponse
                 do { response = try httpExchange.parseResponse(httpResponse) } catch {
-                    let error = UnexpectedHttpExchangeError(httpRequest: httpRequest, httpResponse: httpResponse, error: error)
-                    completionHandler(.failure(.unexpectedError(error)))
-                    return
+//                    let error = UnexpectedHttpExchangeError(httpRequest: httpRequest, httpResponse: httpResponse, error: error)
+//                    completionHandler(.failure(.unexpectedError(error)))
+//                    return
+                    fatalError()
                 }
                 completionHandler(.success(response))
             case let .failure(error):

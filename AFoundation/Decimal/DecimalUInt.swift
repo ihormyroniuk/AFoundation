@@ -9,6 +9,7 @@
 import Foundation
 
 public extension Decimal {
+    
     static let uintMax = Decimal(UInt.max)
     static let uintMin = Decimal(UInt.min)
   

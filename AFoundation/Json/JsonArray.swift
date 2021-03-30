@@ -14,34 +14,24 @@ public extension JsonArray {
     
     // MARK: Strings
     
+    init(_ strings: [String]) {
+        self = strings.map({ .string($0) })
+    }
+    
     func strings() throws -> [String] {
         let strings: [String]
         do { strings = try map({ try $0.string() }) } catch {
-            throw NotStringsError(array: self, error: error)
+            throw AFoundationError("\(String(reflecting: self)) is not strings array\n\(String(reflecting: error))")
         }
         return strings
-    }
-    private struct NotStringsError: Error, CustomDebugStringConvertible {
-        let array: JsonArray
-        let error: Error
-        var debugDescription: String {
-            return "\(String(reflecting: array)) is not strings array\n\(String(reflecting: error))"
-        }
     }
     
     func nullableStrings() throws -> [String?] {
         let strings: [String?]
         do { strings = try map({ try $0.nullableString() }) } catch {
-            throw NotNullableStringsError(array: self, error: error)
+            throw AFoundationError("\(String(reflecting: self)) is not nullable strings array\n\(String(reflecting: error))")
         }
         return strings
-    }
-    private struct NotNullableStringsError: Error, CustomDebugStringConvertible {
-        let array: JsonArray
-        let error: Error
-        var debugDescription: String {
-            return "\(String(reflecting: array)) is not nullable strings array\n\(String(reflecting: error))"
-        }
     }
     
     mutating func insertString(_ newString: String, at i: Int) {
@@ -72,34 +62,24 @@ public extension JsonArray {
     
     // MARK: Numbers
     
+    init(_ decimals: [Decimal]) {
+        self = decimals.map({ .number($0) })
+    }
+    
     func numbers() throws -> [Decimal] {
         let numbers: [Decimal]
         do { numbers = try map({ try $0.number() }) } catch {
-            throw NotNumbersError(array: self, error: error)
+            throw AFoundationError("\(String(reflecting: self)) is not numbers array\n\(String(reflecting: error))")
         }
         return numbers
-    }
-    private struct NotNumbersError: Error, CustomDebugStringConvertible {
-        let array: JsonArray
-        let error: Error
-        var debugDescription: String {
-            return "\(String(reflecting: array)) is not numbers array\n\(String(reflecting: error))"
-        }
     }
     
     func nullableNumbers() throws -> [Decimal?] {
         let numbers: [Decimal?]
         do { numbers = try map({ try $0.nullableNumber() }) } catch {
-            throw NotNullableNumbersError(array: self, error: error)
+            throw AFoundationError("\(String(reflecting: self)) is not nullable numbers array\n\(String(reflecting: error))")
         }
         return numbers
-    }
-    private struct NotNullableNumbersError: Error, CustomDebugStringConvertible {
-        let array: JsonArray
-        let error: Error
-        var debugDescription: String {
-            return "\(String(reflecting: array)) is not nullable numbers array\n\(String(reflecting: error))"
-        }
     }
     
     mutating func insertNumber(_ newNumber: Decimal, at i: Int) {
@@ -133,33 +113,17 @@ public extension JsonArray {
     func objects() throws -> [JsonObject] {
         let objects: [JsonObject]
         do { objects = try map({ try $0.object() }) } catch {
-            throw NotObjectsError(array: self, error: error)
+            throw AFoundationError("\(String(reflecting: self)) is not strings array\nError: \(String(reflecting: error))")
         }
         return objects
-    }
-    private struct NotObjectsError: Error, LocalizedError {
-        let array: JsonArray
-        let error: Error
-        
-        var errorDescription: String? {
-            return "\(String(reflecting: Self.self))\n\(String(reflecting: array)) is not strings array\nError: \(String(reflecting: error))"
-        }
     }
     
     func nullableObjects() throws -> [JsonObject?] {
         let objects: [JsonObject?]
         do { objects = try map({ try $0.nullableObject() }) } catch {
-            throw NotNullableObjectsError(array: self, error: error)
+            throw AFoundationError("\(String(reflecting: self)) is not nullable strings array\nError: \(String(reflecting: error))")
         }
         return objects
-    }
-    private struct NotNullableObjectsError: Error, LocalizedError {
-        let array: JsonArray
-        let error: Error
-        
-        var errorDescription: String? {
-            return "\(String(reflecting: Self.self))\n\(String(reflecting: array)) is not nullable strings array\nError: \(String(reflecting: error))"
-        }
     }
     
     mutating func insertObject(_ newObject: JsonObject, at i: Int) {
@@ -193,33 +157,17 @@ public extension JsonArray {
     func arrays() throws -> [JsonArray] {
         let arrays: [JsonArray]
         do { arrays = try map({ try $0.array() }) } catch {
-            throw NotArraysError(array: self, error: error)
+            throw AFoundationError("\(String(reflecting: self)) is not strings array\nError: \(String(reflecting: error))")
         }
         return arrays
-    }
-    private struct NotArraysError: Error, LocalizedError {
-        let array: JsonArray
-        let error: Error
-        
-        var errorDescription: String? {
-            return "\(String(reflecting: Self.self))\n\(String(reflecting: array)) is not strings array\nError: \(String(reflecting: error))"
-        }
     }
     
     func nullableArrays() throws -> [JsonArray?] {
         let arrays: [JsonArray?]
         do { arrays = try map({ try $0.nullableArray() }) } catch {
-            throw NotNullableArraysError(array: self, error: error)
+            throw AFoundationError("\(String(reflecting: self)) is not nullable strings array\nError: \(String(reflecting: error))")
         }
         return arrays
-    }
-    private struct NotNullableArraysError: Error, LocalizedError {
-        let array: JsonArray
-        let error: Error
-        
-        var errorDescription: String? {
-            return "\(String(reflecting: Self.self))\n\(String(reflecting: array)) is not nullable strings array\nError: \(String(reflecting: error))"
-        }
     }
     
     mutating func insertArray(_ newArray: JsonArray, at i: Int) {
@@ -253,33 +201,17 @@ public extension JsonArray {
     func booleans() throws -> [Bool] {
         let booleans: [Bool]
         do { booleans = try map({ try $0.boolean() }) } catch {
-            throw NotBooleansError(array: self, error: error)
+            throw AFoundationError("\(String(reflecting: self)) is not strings array\nError: \(String(reflecting: error))")
         }
         return booleans
-    }
-    private struct NotBooleansError: Error, LocalizedError {
-        let array: JsonArray
-        let error: Error
-        
-        var errorDescription: String? {
-            return "\(String(reflecting: Self.self))\n\(String(reflecting: array)) is not strings array\nError: \(String(reflecting: error))"
-        }
     }
     
     func nullableBooleans() throws -> [Bool?] {
         let booleans: [Bool?]
         do { booleans = try map({ try $0.nullableBoolean() }) } catch {
-            throw NotNullableBooleansError(array: self, error: error)
+            throw AFoundationError("\(String(reflecting: self)) is not nullable strings array\nError: \(String(reflecting: error))")
         }
         return booleans
-    }
-    private struct NotNullableBooleansError: Error, LocalizedError {
-        let array: JsonArray
-        let error: Error
-        
-        var errorDescription: String? {
-            return "\(String(reflecting: Self.self))\n\(String(reflecting: array)) is not nullable strings array\nError: \(String(reflecting: error))"
-        }
     }
     
     mutating func insertBoolean(_ newBoolean: Bool, at i: Int) {
