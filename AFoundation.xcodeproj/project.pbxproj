@@ -31,7 +31,6 @@
 		C531973D25559622004495D6 /* JsonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C531973C25559622004495D6 /* JsonObject.swift */; };
 		C53197422555969F004495D6 /* JsonObjectUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53197412555969F004495D6 /* JsonObjectUnitTesting.swift */; };
 		C531975425559A73004495D6 /* JsonNullUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C531975325559A73004495D6 /* JsonNullUnitTesting.swift */; };
-		C5332DC925CC6591005FF4BF /* URLSessionTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5332DC825CC6591005FF4BF /* URLSessionTask.swift */; };
 		C533C97625CDEFB10073D11E /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = C533C97525CDEFB10073D11E /* Api.swift */; };
 		C533C97D25CDF0280073D11E /* ApiJsonRpcRelease2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C533C97C25CDF0280073D11E /* ApiJsonRpcRelease2.swift */; };
 		C533C98125CDF3FA0073D11E /* ApiJsonRpcRelease2BasicGenerateIntegersRequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C533C98025CDF3FA0073D11E /* ApiJsonRpcRelease2BasicGenerateIntegersRequestData.swift */; };
@@ -166,7 +165,6 @@
 		C531973C25559622004495D6 /* JsonObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonObject.swift; sourceTree = "<group>"; };
 		C53197412555969F004495D6 /* JsonObjectUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonObjectUnitTesting.swift; sourceTree = "<group>"; };
 		C531975325559A73004495D6 /* JsonNullUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonNullUnitTesting.swift; sourceTree = "<group>"; };
-		C5332DC825CC6591005FF4BF /* URLSessionTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionTask.swift; sourceTree = "<group>"; };
 		C533C97525CDEFB10073D11E /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		C533C97C25CDF0280073D11E /* ApiJsonRpcRelease2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiJsonRpcRelease2.swift; sourceTree = "<group>"; };
 		C533C98025CDF3FA0073D11E /* ApiJsonRpcRelease2BasicGenerateIntegersRequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiJsonRpcRelease2BasicGenerateIntegersRequestData.swift; sourceTree = "<group>"; };
@@ -752,7 +750,6 @@
 			isa = PBXGroup;
 			children = (
 				C5EA878F25CAEE1E00D5F75C /* URLSessionHttpExchange.swift */,
-				C5332DC825CC6591005FF4BF /* URLSessionTask.swift */,
 			);
 			path = URLSession;
 			sourceTree = "<group>";
@@ -981,7 +978,6 @@
 				C516C6AA25EDB6AD00628D77 /* HttpHeaderField.swift in Sources */,
 				330B4224238EB7E40083FCEC /* TextLocalizer.swift in Sources */,
 				C56ECDE62557E7E600969CBC /* URLComponentsConstructURL.swift in Sources */,
-				C5332DC925CC6591005FF4BF /* URLSessionTask.swift in Sources */,
 				3310125923994C09006B0E03 /* MultipleTextLocalizer.swift in Sources */,
 				C563842A25D9752C004361C7 /* NSNull.swift in Sources */,
 				330B4226238EBDC00083FCEC /* Localizer.swift in Sources */,

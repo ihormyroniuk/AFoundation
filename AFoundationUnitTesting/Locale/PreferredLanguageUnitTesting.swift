@@ -306,27 +306,10 @@ class PreferredLanguageUnitTesting: XCTestCase {
         
         let language: PreferredLanguage
         do { language = try PreferredLanguage(code: code) } catch {
-            if error is PreferredLanguage.UnknownCodeError {
-                return
-            } else {
-                XCTFail("Unexpected error \(error.self) is thrown")
-                return
-            }
+            return
         }
         
-        XCTFail("Unexpected language \"\(language))\" is found while error \(PreferredLanguage.UnknownCodeError.self) has to be thrown")
-    }
-    
-    // MARK: PreferredLanguageUnknownCodeError
-    
-    func testPreferredLanguageUnknownCodeErrorDescriptionString() {
-        let code = "UNKNOWNCODE"
-        let error = PreferredLanguage.UnknownCodeError(code: code)
-        
-        let errorDescriptionString = "\(error)"
-        
-        let descriptionString = "Could not initialize \(PreferredLanguage.self) with code \(String.self) \"\(code)\""
-        XCTAssertTrue(errorDescriptionString == descriptionString, "Unexpected description string \(errorDescriptionString)) is found but description string \(descriptionString) is expected")
+        XCTFail("Unexpected language \"\(language))\" is found while error has to be thrown")
     }
     
 }

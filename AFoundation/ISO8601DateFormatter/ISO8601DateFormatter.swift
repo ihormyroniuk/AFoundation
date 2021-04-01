@@ -8,6 +8,6 @@
 
 import Foundation
 
-extension ISO8601DateFormatter {
+public extension ISO8601DateFormatter {
     
 }

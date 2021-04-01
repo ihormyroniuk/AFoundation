@@ -90,26 +90,10 @@ class RegionUnitTesting: XCTestCase {
         
         let region: Region
         do { region = try Region(code: code) } catch {
-            if error is Region.UnknownCodeError {
-                return
-            } else {
-                XCTFail("Unexpected error \(error.self) is thrown")
-                return
-            }
+            return
         }
         
-        XCTFail("Unexpected currency \"\(region))\" is found while error \(Region.UnknownCodeError.self) has to be thrown")
+        XCTFail("Unexpected region \"\(region))\" is found while error has to be thrown")
     }
     
-    // MARK: RegionUnknownCodeError
-    
-    func testRegionUnknownCodeErrorDescriptionString() {
-        let code = "UNKNOWNCODE"
-        let error = Region.UnknownCodeError(code: code)
-        
-        let errorDescriptionString = "\(error)"
-        
-        let descriptionString = "Could not initialize \(Region.self) with code \(String.self) \"\(code)\""
-        XCTAssertTrue(errorDescriptionString == descriptionString, "Unexpected description string \(errorDescriptionString)) is found but description string \(descriptionString) is expected")
-    }
 }

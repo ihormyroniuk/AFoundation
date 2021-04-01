@@ -90,27 +90,10 @@ class LanguageUnitTesting: XCTestCase {
         
         let language: Language
         do { language = try Language(code: code) } catch {
-            if error is Language.UnknownCodeError {
-                return
-            } else {
-                XCTFail("Unexpected error \(error.self) is thrown")
-                return
-            }
+            return
         }
         
-        XCTFail("Unexpected language \"\(language))\" is found while error \(Language.UnknownCodeError.self) has to be thrown")
-    }
-    
-    // MARK: RegionUnknownCodeError
-    
-    func testLanguageUnknownCodeErrorDescriptionString() {
-        let code = "UNKNOWNCODE"
-        let error = Language.UnknownCodeError(code: code)
-        
-        let errorDescriptionString = "\(error)"
-        
-        let descriptionString = "Could not initialize \(Language.self) with code \(String.self) \"\(code)\""
-        XCTAssertTrue(errorDescriptionString == descriptionString, "Unexpected description string \(errorDescriptionString)) is found but description string \(descriptionString) is expected")
+        XCTFail("Unexpected language \"\(language))\" is found while error has to be thrown")
     }
     
 }

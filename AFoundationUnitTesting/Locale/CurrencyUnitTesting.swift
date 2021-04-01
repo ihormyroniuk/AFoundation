@@ -90,27 +90,10 @@ class CurrencyUnitTesting: XCTestCase {
         
         let currency: Currency
         do { currency = try Currency(code: code) } catch {
-            if error is Currency.UnknownCodeError {
-                return
-            } else {
-                XCTFail("Unexpected error \(error.self) is thrown")
-                return
-            }
+            return
         }
         
-        XCTFail("Unexpected currency \"\(currency))\" is found while error \(Language.UnknownCodeError.self) has to be thrown")
-    }
-    
-    // MARK: CurrencyUnknownCodeError
-    
-    func testCurrencyUnknownCodeErrorDescriptionString() {
-        let code = "UNKNOWNCODE"
-        let error = Currency.UnknownCodeError(code: code)
-        
-        let errorDescriptionString = "\(error)"
-        
-        let descriptionString = "Could not initialize \(Currency.self) with code \(String.self) \"\(code)\""
-        XCTAssertTrue(errorDescriptionString == descriptionString, "Unexpected description string \(errorDescriptionString)) is found but description string \(descriptionString) is expected")
+        XCTFail("Unexpected currency \"\(currency))\" is found while error has to be thrown")
     }
     
 }
