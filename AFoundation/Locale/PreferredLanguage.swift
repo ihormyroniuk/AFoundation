@@ -51,13 +51,7 @@ public enum PreferredLanguage {
         case englishCode: self = .english
         case russianCode: self = .russian
         case ukrainianCode: self = .ukrainian
-        default: throw UnknownCodeError(code: code)
-        }
-    }
-    struct UnknownCodeError: Error, CustomStringConvertible {
-        let code: String
-        public var description: String {
-            return "Could not initialize \(PreferredLanguage.self) with code \(String.self) \"\(code)\""
+        default: throw AFoundationError("Could not initialize \(PreferredLanguage.self) with code \(String.self) \"\(code)\"")
         }
     }
     

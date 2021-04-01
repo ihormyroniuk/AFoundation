@@ -10,15 +10,9 @@ import Foundation
 
 public extension URLComponents {
     
-    func constructUrl() throws -> URL {
+    func url() throws -> URL {
         if let url = self.url { return url }
-        else { throw CannotConstructUrlError(urlComponents: self) }
-    }
-    private struct CannotConstructUrlError: Error, CustomStringConvertible {
-        let urlComponents: URLComponents
-        public var description: String {
-            return "\(String(reflecting: urlComponents)) cannot construct \(String(reflecting: URL.self))"
-        }
+        else { throw AFoundationError("\(String(reflecting: self)) cannot construct \(String(reflecting: URL.self))") }
     }
     
 }

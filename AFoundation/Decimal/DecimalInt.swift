@@ -15,15 +15,9 @@ public extension Decimal {
 
     func int() throws -> Int {
         guard exponent >= 0 && self >= Decimal.intMin && self <= Decimal.intMax else {
-            throw NotIntConvertibleError(decimal: self)
+            throw AFoundationError("Could not convert \(Decimal.self) \(self) to \(Int.self)")
         }
         return (self as NSDecimalNumber).intValue
-    }
-    private struct NotIntConvertibleError: Error, CustomDebugStringConvertible {
-        let decimal: Decimal
-        var debugDescription: String {
-            return "Could not convert \(Decimal.self) \(decimal) to \(Int.self)"
-        }
     }
     
 }

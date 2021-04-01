@@ -51,7 +51,7 @@ public extension Locale {
   
     func currency() throws -> Currency? {
         guard let code = currencyCode else { return nil }
-        let currency = try? Currency(code: code)
+        let currency = try Currency(code: code)
         return currency
     }
     

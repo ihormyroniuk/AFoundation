@@ -20,7 +20,7 @@ class HttpExchange<RequestData, ParsedResponse>: RequestDataHttpExchange<Request
         urlComponents.scheme = scheme
         urlComponents.host = host
         urlComponents.path = path
-        let uri = try urlComponents.constructUrl()
+        let uri = try urlComponents.url()
         return uri
     }
     

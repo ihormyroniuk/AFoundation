@@ -15,15 +15,9 @@ public extension Decimal {
   
     func double() throws -> Double {
         guard self >= Decimal.doubleMin && self <= Decimal.doubleMax else {
-            throw NotDoubleConvertibleError(decimal: self)
+            throw AFoundationError("Could not convert \(Decimal.self) \(self) to \(Double.self)")
         }
         return (self as NSDecimalNumber).doubleValue
-    }
-    struct NotDoubleConvertibleError: Error, CustomDebugStringConvertible {
-        let decimal: Decimal
-        public var debugDescription: String {
-            return "\(String(reflecting: self))\nCannot convert \(String(reflecting: Decimal.self))(\(String(reflecting: decimal)) to \(String(reflecting: Double.self))"
-        }
     }
     
 }
