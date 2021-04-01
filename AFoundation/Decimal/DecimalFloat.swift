@@ -10,8 +10,8 @@ import Foundation
 
 public extension Decimal {
     
-    static let floatMax = Decimal(Double(Float.greatestFiniteMagnitude))
-    static let floatMin = Decimal(Double(-Float.greatestFiniteMagnitude))
+    static let floatMax = Decimal(Float.greatestFiniteMagnitude)
+    static let floatMin = Decimal(-Float.greatestFiniteMagnitude)
     
     init(_ float: Float) {
         self.init(Double(float))
