@@ -12,22 +12,29 @@ import XCTest
 class DecimalDoubleUnitTesting: XCTestCase {
 
     func testDoubleDecimal() {
-        let double = Double(1234567890) + Double(66886)
-        let decimal = Decimal(double)
+//        let double = Double(1234567890) + Double(66886)
+//        let decimal = Decimal(double)
+//        
+//        let decimalDouble: Double
+//        do { decimalDouble = try decimal.double() } catch {
+//            XCTFail("Unexpected error \(error.self) is thrown")
+//            return
+//        }
+//        
+//        XCTAssertTrue(decimalDouble == double, "Unexpected double \(double)) is found, but double \(decimalDouble) is expected")
+//        
+//        print("!!!!!!!!")
+//        print(Decimal.pi)
+//        print(Double.pi)
+//        print(Float.Exponent.max)
+//        print("!!!!!!!!")
         
-        let decimalDouble: Double
-        do { decimalDouble = try decimal.double() } catch {
-            XCTFail("Unexpected error \(error.self) is thrown")
-            return
+        do {
+            let locale = Locale(identifier: "fr")
+            let language = try locale.language()
+        } catch {
+            print(error)
         }
-        
-        XCTAssertTrue(decimalDouble == double, "Unexpected double \(double)) is found, but double \(decimalDouble) is expected")
-        
-        print("!!!!!!!!")
-        print(Decimal.pi)
-        print(Double.pi)
-        print(Float.Exponent.max)
-        print("!!!!!!!!")
     }
     
 //    func testDecimalGreaterThanDoubleMax() {

@@ -24,7 +24,7 @@ public enum Region {
         case armeniaCode: self = .armenia
         case russiaCode: self = .russia
         case ukraineCode: self = .ukraine
-        default: throw AFoundationError("Could not initialize \(Region.self) with code \(String.self) \"\(code)\"")
+        default: throw AFoundationError("Cannot initialize \(String(reflecting: Region.self)) with code \(String(reflecting: code))")
         }
     }
     

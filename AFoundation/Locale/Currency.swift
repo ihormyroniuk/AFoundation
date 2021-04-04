@@ -24,7 +24,7 @@ public enum Currency {
         case unitedStatesDollarCode: self = .unitedStatesDollar
         case ukrainianHryvniaCode: self = .ukrainianHryvnia
         case russianRubleCode: self = .russianRuble
-        default: throw AFoundationError("Could not initialize \(Currency.self) with code \(String.self) \"\(code)\"")
+        default: throw AFoundationError("Cannot initialize \(String(reflecting: Currency.self)) with code \(String(reflecting: code))")
         }
     }
     

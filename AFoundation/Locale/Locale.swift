@@ -26,45 +26,65 @@ public extension Locale {
     // MARK: Language
   
     func language() throws -> Language? {
-        guard let code = languageCode else { return nil }
-        let language = try Language(code: code)
-        return language
+        do {
+            guard let code = languageCode else { return nil }
+            let language = try Language(code: code)
+            return language
+        } catch {
+            throw AFoundationError("Cannot get \(String(reflecting: Language.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))")
+        }
     }
     
     // MARK: Script
   
     func script() throws -> Script? {
-        guard let code = scriptCode else { return nil }
-        let script = try Script(code: code)
-        return script
+        do {
+            guard let code = scriptCode else { return nil }
+            let script = try Script(code: code)
+            return script
+        } catch {
+            throw AFoundationError("Cannot get \(String(reflecting: Script.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))")
+        }
     }
   
     // MARK: Region
   
     func region() throws -> Region? {
-        guard let code = regionCode else { return nil }
-        let region = try Region(code: code)
-        return region
+        do {
+            guard let code = regionCode else { return nil }
+            let region = try Region(code: code)
+            return region
+        } catch {
+            throw AFoundationError("Cannot get \(String(reflecting: Region.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))")
+        }
     }
     
     // MARK: Currency
   
     func currency() throws -> Currency? {
-        guard let code = currencyCode else { return nil }
-        let currency = try Currency(code: code)
-        return currency
+        do {
+            guard let code = currencyCode else { return nil }
+            let currency = try Currency(code: code)
+            return currency
+        } catch {
+            throw AFoundationError("Cannot get \(String(reflecting: Currency.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))")
+        }
     }
     
     // MARK: PreferredLanguages
     
     static func preferredLanguages() throws -> [PreferredLanguage] {
-        var preferredLanguages: [PreferredLanguage] = []
-        let preferredLanguagesCodes: [String] = Locale.preferredLanguages
-        for preferredLanguageCode in preferredLanguagesCodes {
-            let preferredLanguage = try PreferredLanguage(code: preferredLanguageCode)
-            preferredLanguages.append(preferredLanguage)
+        do {
+            var preferredLanguages: [PreferredLanguage] = []
+            let preferredLanguagesCodes: [String] = Locale.preferredLanguages
+            for preferredLanguageCode in preferredLanguagesCodes {
+                let preferredLanguage = try PreferredLanguage(code: preferredLanguageCode)
+                preferredLanguages.append(preferredLanguage)
+            }
+            return preferredLanguages
+        } catch {
+            throw AFoundationError("Cannot get \(String(reflecting: PreferredLanguage.self)) for \(String(reflecting: Locale.self))\n\(String(reflecting: error))")
         }
-        return preferredLanguages
     }
     
 }

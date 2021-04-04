@@ -15,7 +15,7 @@ public extension Decimal {
 
     func int() throws -> Int {
         guard exponent >= 0 && self >= Decimal.intMin && self <= Decimal.intMax else {
-            throw AFoundationError("Could not convert \(String(reflecting: self)) to \(String(reflecting: Int.self))")
+            throw AFoundationError("Cannot convert \(String(reflecting: Decimal.self))(\(String(reflecting: self))) to \(String(reflecting: Int.self))")
         }
         return (self as NSDecimalNumber).intValue
     }

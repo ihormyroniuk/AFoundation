@@ -22,6 +22,6 @@ struct AFoundationError: Error, CustomDebugStringConvertible {
     // MARK: CustomDebugStringConvertible
     
     var debugDescription: String {
-        return "\(fileId):\(String(reflecting: line))\n\(description)"
+        return "\(fileId):\(String(reflecting: line)) \(description)"
     }
 }

@@ -15,7 +15,7 @@ public extension Decimal {
   
     func double() throws -> Double {
         guard self >= Decimal.doubleMin && self <= Decimal.doubleMax else {
-            throw AFoundationError("Could not convert \(Decimal.self) \(self) to \(Double.self)")
+            throw AFoundationError("Cannot convert \(String(reflecting: Decimal.self))(\(String(reflecting: self))) to \(String(reflecting: Double.self))")
         }
         return (self as NSDecimalNumber).doubleValue
     }
