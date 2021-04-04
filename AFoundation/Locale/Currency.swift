@@ -37,4 +37,5 @@ public enum Currency {
         case .russianRuble: return russianRubleCode
         }
     }
+    
 }

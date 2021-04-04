@@ -29,4 +29,5 @@ public enum Script {
         case .arabic: return arabicCode
         }
     }
+    
 }

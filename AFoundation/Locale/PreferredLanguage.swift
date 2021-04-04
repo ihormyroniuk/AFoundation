@@ -51,26 +51,14 @@ public enum PreferredLanguage {
         case englishCode: self = .english
         case russianCode: self = .russian
         case ukrainianCode: self = .ukrainian
-        default: throw AFoundationError("Cannot initialize \(String(reflecting: PreferredLanguage.self)) with code \(String(reflecting: code))")
+        default:
+            let codeFirstPart = code.split(separator: "-").first
+            switch codeFirstPart {
+            case .some(russianCode): self = .russian
+            case .some(ukrainianCode): self = .ukrainian
+            default: throw AFoundationError("Cannot initialize \(String(reflecting: PreferredLanguage.self)) with code \(String(reflecting: code))")
+            }
         }
     }
     
-    // MARK: Code
-    
-    var code: String {
-        switch self {
-        case .englishAustralia: return englishAustraliaCode
-        case .englishCanada: return englishCanadaCode
-        case .englishIndia: return englishIndiaCode
-        case .englishIreland: return englishIrelandCode
-        case .englishNewZealand: return englishNewZealandCode
-        case .englishSingapore: return englishSingaporeCode
-        case .englishSouthAfrica: return englishSouthAfricaCode
-        case .englishUK: return englishUKCode
-        case .englishUS: return englishUSCode
-        case .english: return englishCode
-        case .russian: return russianCode
-        case .ukrainian: return ukrainianCode
-        }
-    }
 }
