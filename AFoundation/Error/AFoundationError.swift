@@ -9,19 +9,21 @@
 import Foundation
 
 struct AFoundationError: Error, CustomDebugStringConvertible {
+    
     private let fileId: StaticString
     private let line: UInt
-    private let description: String
+    private let message: String
     
-    init(fileId: StaticString = #fileID, line: UInt = #line, _ description: String) {
+    init(fileId: StaticString = #fileID, line: UInt = #line, _ message: String) {
         self.fileId = fileId
         self.line = line
-        self.description = description
+        self.message = message
     }
     
     // MARK: CustomDebugStringConvertible
     
     var debugDescription: String {
-        return "\(fileId):\(String(reflecting: line)) \(description)"
+        return "\(fileId):\(String(reflecting: line)) \(message)"
     }
+    
 }

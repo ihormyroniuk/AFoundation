@@ -58,11 +58,11 @@ public extension URLSession {
         return dataTask
     }
     
-    enum HttpExchangeDataTask<ParsedResponse> {
+    enum HttpExchangeDataTaskResponse<ParsedResponse> {
         case parsedResponse(ParsedResponse)
         case notConnectedToInternet(Error)
     }
-    func httpExchangeDataTask<ParsedResponse>(_ httpExchange: HttpExchange<ParsedResponse>, completionHandler: @escaping (Result<HttpExchangeDataTask<ParsedResponse>, Error>) -> ()) throws -> URLSessionDataTask {
+    func httpExchangeDataTask<ParsedResponse>(_ httpExchange: HttpExchange<ParsedResponse>, completionHandler: @escaping (Result<HttpExchangeDataTaskResponse<ParsedResponse>, Error>) -> ()) throws -> URLSessionDataTask {
         let httpRequest: HttpRequest
         do { httpRequest = try httpExchange.constructRequest() } catch {
             throw AFoundationError("\(error)")
@@ -78,7 +78,7 @@ public extension URLSession {
                     let httpResponse = httpUrlResponse.httpResponse(data: data)
                     let parsedResponse: ParsedResponse
                     do { parsedResponse = try httpExchange.parseResponse(httpResponse) } catch {
-                        completionHandler(.failure(AFoundationError("")))
+                        completionHandler(.failure(AFoundationError("\(String(reflecting: error))")))
                         return
                     }
                     completionHandler(.success(.parsedResponse(parsedResponse)))
