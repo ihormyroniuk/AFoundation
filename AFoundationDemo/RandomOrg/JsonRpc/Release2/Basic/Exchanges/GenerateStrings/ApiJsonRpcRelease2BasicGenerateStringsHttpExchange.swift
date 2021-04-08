@@ -32,7 +32,7 @@ class GenerateStringsHttpExchange: HttpExchange<GenerateStringsRequestData, Gene
     override func parseResponse(_ httpResponse: HttpResponse) throws -> GenerateStringsParsedResponse {
         let code = httpResponse.code
         guard code == HttpResponseCode.ok else {
-            let error = UnexpectedHttpResponseCodeError(code: code)
+            let error = AFoundationError("Unexpected code \(code)")
             throw error
         }
         let body = httpResponse.body ?? Data()

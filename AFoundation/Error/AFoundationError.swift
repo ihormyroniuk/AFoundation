@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct AFoundationError: Error, CustomDebugStringConvertible {
+public struct AFoundationError: Error, CustomDebugStringConvertible {
     
     private let fileId: StaticString
     private let line: UInt
     private let message: String
     
-    init(fileId: StaticString = #fileID, line: UInt = #line, _ message: String) {
+    public init(fileId: StaticString = #fileID, line: UInt = #line, _ message: String) {
         self.fileId = fileId
         self.line = line
         self.message = message
@@ -22,7 +22,7 @@ struct AFoundationError: Error, CustomDebugStringConvertible {
     
     // MARK: CustomDebugStringConvertible
     
-    var debugDescription: String {
+    public var debugDescription: String {
         return "\(fileId):\(String(reflecting: line)) \(message)"
     }
     
