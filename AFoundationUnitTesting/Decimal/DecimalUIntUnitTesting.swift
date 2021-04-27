@@ -30,9 +30,6 @@ class DecimalUIntUnitTesting: XCTestCase {
         
         let decimalUInt: UInt
         do { decimalUInt = try decimal.uint() } catch {
-            let errorLocalizedString = error.localizedDescription
-            let descriptionString = "Could not convert \(Decimal.self) \(decimal) to \(UInt.self)"
-            XCTAssertTrue(errorLocalizedString == descriptionString, "Unexpected description \(errorLocalizedString)) is found but description \(descriptionString) is expected")
             return
         }
         
@@ -44,9 +41,6 @@ class DecimalUIntUnitTesting: XCTestCase {
         
         let decimalUInt: UInt
         do { decimalUInt = try decimal.uint() } catch {
-            let errorLocalizedString = error.localizedDescription
-            let descriptionString = "Could not convert \(Decimal.self) \(decimal) to \(UInt.self)"
-            XCTAssertTrue(errorLocalizedString == descriptionString, "Unexpected description \(errorLocalizedString)) is found but description \(descriptionString) is expected")
             return
         }
         

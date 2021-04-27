@@ -27,14 +27,6 @@ class PreferredLanguageUnitTesting: XCTestCase {
         XCTAssertTrue(language == .english, "Unexpected language \"\(language))\" is found while language \"(\(PreferredLanguage.english))\" is expected")
     }
     
-    func testEnglishCode() {
-        let language = PreferredLanguage.english
-        
-        let code = language.code
-        
-        XCTAssertTrue(code == englishCode, "Unexpected code \"\(code))\" is found while code \"(\(englishCode))\" is expected")
-    }
-    
     // MARK: English Australia
     
     private let englishAustraliaCode = "en-AU"
@@ -49,14 +41,6 @@ class PreferredLanguageUnitTesting: XCTestCase {
         }
         
         XCTAssertTrue(language == .englishAustralia, "Unexpected language \"\(language))\" is found while language \"(\(PreferredLanguage.englishAustralia))\" is expected")
-    }
-    
-    func testEnglishAustraliaCode() {
-        let language = PreferredLanguage.englishAustralia
-        
-        let code = language.code
-        
-        XCTAssertTrue(code == englishAustraliaCode, "Unexpected code \"\(code))\" is found while code \"(\(englishAustraliaCode))\" is expected")
     }
     
     // MARK: English Canada
@@ -75,14 +59,6 @@ class PreferredLanguageUnitTesting: XCTestCase {
         XCTAssertTrue(language == .englishCanada, "Unexpected language \"\(language))\" is found while language \"(\(PreferredLanguage.englishCanada))\" is expected")
     }
     
-    func testEnglishCanadaCode() {
-        let language = PreferredLanguage.englishCanada
-        
-        let code = language.code
-        
-        XCTAssertTrue(code == englishCanadaCode, "Unexpected code \"\(code))\" is found while code \"(\(englishCanadaCode))\" is expected")
-    }
-    
     // MARK: English India
     
     private let englishIndiaCode = "en-IN"
@@ -97,14 +73,6 @@ class PreferredLanguageUnitTesting: XCTestCase {
         }
         
         XCTAssertTrue(language == .englishIndia, "Unexpected language \"\(language))\" is found while language \"(\(PreferredLanguage.englishIndia))\" is expected")
-    }
-    
-    func testEnglishIndiaCode() {
-        let language = PreferredLanguage.englishIndia
-        
-        let code = language.code
-        
-        XCTAssertTrue(code == englishIndiaCode, "Unexpected code \"\(code))\" is found while code \"(\(englishIndiaCode))\" is expected")
     }
     
     // MARK: English Ireland
@@ -123,14 +91,6 @@ class PreferredLanguageUnitTesting: XCTestCase {
         XCTAssertTrue(language == .englishIreland, "Unexpected language \"\(language))\" is found while language \"(\(PreferredLanguage.englishIreland))\" is expected")
     }
     
-    func testEnglishIrelandCode() {
-        let language = PreferredLanguage.englishIreland
-        
-        let code = language.code
-        
-        XCTAssertTrue(code == englishIrelandCode, "Unexpected code \"\(code))\" is found while code \"(\(englishIrelandCode))\" is expected")
-    }
-    
     // MARK: English New Zealand
     
     private let englishNewZealandCode = "en-NZ"
@@ -145,14 +105,6 @@ class PreferredLanguageUnitTesting: XCTestCase {
         }
         
         XCTAssertTrue(language == .englishNewZealand, "Unexpected language \"\(language))\" is found while language \"(\(PreferredLanguage.englishNewZealand))\" is expected")
-    }
-    
-    func testEnglishNewZealandCode() {
-        let language = PreferredLanguage.englishNewZealand
-        
-        let code = language.code
-        
-        XCTAssertTrue(code == englishNewZealandCode, "Unexpected code \"\(code))\" is found while code \"(\(englishNewZealandCode))\" is expected")
     }
     
     // MARK: English Singapore
@@ -171,14 +123,6 @@ class PreferredLanguageUnitTesting: XCTestCase {
         XCTAssertTrue(language == .englishSingapore, "Unexpected language \"\(language))\" is found while language \"(\(PreferredLanguage.englishSingapore))\" is expected")
     }
     
-    func testEnglishSingaporeCode() {
-        let language = PreferredLanguage.englishSingapore
-        
-        let code = language.code
-        
-        XCTAssertTrue(code == englishSingaporeCode, "Unexpected code \"\(code))\" is found while code \"(\(englishSingaporeCode))\" is expected")
-    }
-    
     // MARK: English Singapore
     
     private let englishSouthAfricaCode = "en-ZA"
@@ -193,14 +137,6 @@ class PreferredLanguageUnitTesting: XCTestCase {
         }
         
         XCTAssertTrue(language == .englishSouthAfrica, "Unexpected language \"\(language))\" is found while language \"(\(PreferredLanguage.englishSouthAfrica))\" is expected")
-    }
-    
-    func testEnglishSouthAfricaCode() {
-        let language = PreferredLanguage.englishSouthAfrica
-        
-        let code = language.code
-        
-        XCTAssertTrue(code == englishSouthAfricaCode, "Unexpected code \"\(code))\" is found while code \"(\(englishSouthAfricaCode))\" is expected")
     }
     
     // MARK: English UK
@@ -219,14 +155,6 @@ class PreferredLanguageUnitTesting: XCTestCase {
         XCTAssertTrue(language == .englishUK, "Unexpected language \"\(language))\" is found while language \"(\(PreferredLanguage.englishUK))\" is expected")
     }
     
-    func testEnglishUKCode() {
-        let language = PreferredLanguage.englishUK
-        
-        let code = language.code
-        
-        XCTAssertTrue(code == englishUKCode, "Unexpected code \"\(code))\" is found while code \"(\(englishUKCode))\" is expected")
-    }
-    
     // MARK: English US
     
     private let englishUSCode = "en-US"
@@ -241,14 +169,6 @@ class PreferredLanguageUnitTesting: XCTestCase {
         }
         
         XCTAssertTrue(language == .englishUS, "Unexpected language \"\(language))\" is found while language \"(\(PreferredLanguage.englishUS))\" is expected")
-    }
-    
-    func testEnglishUSCode() {
-        let language = PreferredLanguage.englishUS
-        
-        let code = language.code
-        
-        XCTAssertTrue(code == englishUSCode, "Unexpected code \"\(code))\" is found while code \"(\(englishUSCode))\" is expected")
     }
     
     // MARK: Russian
@@ -267,14 +187,6 @@ class PreferredLanguageUnitTesting: XCTestCase {
         XCTAssertTrue(language == .russian, "Unexpected language \"\(language))\" is found while language \"(\(PreferredLanguage.russian))\" is expected")
     }
     
-    func testRussianCode() {
-        let language = PreferredLanguage.russian
-        
-        let code = language.code
-        
-        XCTAssertTrue(code == russianCode, "Unexpected code \"\(code))\" is found while code \"(\(russianCode))\" is expected")
-    }
-    
     // MARK: Ukrainian
     
     private let ukrainianCode = "uk"
@@ -289,14 +201,6 @@ class PreferredLanguageUnitTesting: XCTestCase {
         }
         
         XCTAssertTrue(language == .ukrainian, "Unexpected language \"\(language))\" is found while language \"(\(PreferredLanguage.ukrainian))\" is expected")
-    }
-    
-    func testUkrainianCode() {
-        let language = PreferredLanguage.ukrainian
-        
-        let code = language.code
-        
-        XCTAssertTrue(code == ukrainianCode, "Unexpected code \"\(code))\" is found while code \"(\(ukrainianCode))\" is expected")
     }
     
     // MARK: Unknown Code

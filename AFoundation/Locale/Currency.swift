@@ -13,6 +13,7 @@ private let ukrainianHryvniaCode = "UAH"
 private let russianRubleCode = "RUB"
 
 public enum Currency {
+    
     case unitedStatesDollar
     case ukrainianHryvnia
     case russianRuble
@@ -25,16 +26,6 @@ public enum Currency {
         case ukrainianHryvniaCode: self = .ukrainianHryvnia
         case russianRubleCode: self = .russianRuble
         default: throw AFoundationError("Cannot initialize \(String(reflecting: Currency.self)) with code \(String(reflecting: code))")
-        }
-    }
-    
-    // MARK: Code
-    
-    var code: String {
-        switch self {
-        case .unitedStatesDollar: return unitedStatesDollarCode
-        case .ukrainianHryvnia: return ukrainianHryvniaCode
-        case .russianRuble: return russianRubleCode
         }
     }
     

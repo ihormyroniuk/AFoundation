@@ -11,6 +11,7 @@ import Foundation
 private let arabicCode = "Arab"
 
 public enum Script {
+    
     case arabic
     
     // MARK: Initializer

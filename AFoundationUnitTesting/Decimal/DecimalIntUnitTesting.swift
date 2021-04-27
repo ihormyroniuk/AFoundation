@@ -58,8 +58,8 @@ class DecimalIntUnitTesting: XCTestCase {
         XCTFail("Unexpected int \(decimalInt) is returned, but error has to be thrown")
     }
     
-    func testRealNumberDecimalPositiveDoubleWithoutFraction() {
-        let double = Double(1234567890)
+    func testRealNumberDecimalDoubleWithoutFraction() {
+        let double = Double(1234567890.0000)
         let decimal = Decimal(double)
         
         let decimalInt: Int

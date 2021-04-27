@@ -30,9 +30,6 @@ class DecimalFloatUnitTesting: XCTestCase {
         
         let decimalFloat: Float
         do { decimalFloat = try decimal.float() } catch {
-            let errorLocalizedString = error.localizedDescription
-            let descriptionString = "Could not convert \(Decimal.self) \(decimal) to \(Float.self)"
-            XCTAssertTrue(errorLocalizedString == descriptionString, "Unexpected description \(errorLocalizedString)) is found but description \(descriptionString) is expected")
             return
         }
         
@@ -45,9 +42,6 @@ class DecimalFloatUnitTesting: XCTestCase {
         
         let decimalFloat: Float
         do { decimalFloat = try decimal.float() } catch {
-            let errorLocalizedString = error.localizedDescription
-            let descriptionString = "Could not convert \(Decimal.self) \(decimal) to \(Float.self)"
-            XCTAssertTrue(errorLocalizedString == descriptionString, "Unexpected description \(errorLocalizedString)) is found but description \(descriptionString) is expected")
             return
         }
         

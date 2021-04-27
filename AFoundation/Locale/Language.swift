@@ -13,6 +13,7 @@ private let russianCode = "ru"
 private let ukrainianCode = "uk"
 
 public enum Language {
+    
     case english
     case russian
     case ukrainian

@@ -13,6 +13,7 @@ private let russiaCode = "RU"
 private let ukraineCode = "UA"
 
 public enum Region {
+    
     case ukraine
     case armenia
     case russia

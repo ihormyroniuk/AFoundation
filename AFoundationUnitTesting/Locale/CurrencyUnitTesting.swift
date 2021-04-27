@@ -27,14 +27,6 @@ class CurrencyUnitTesting: XCTestCase {
         XCTAssertTrue(currency == .unitedStatesDollar, "Unexpected currency \"\(currency))\" is found while currency \"(\(Currency.unitedStatesDollar))\" is expected")
     }
     
-    func testUnitedStatesDollarCode() {
-        let currency = Currency.unitedStatesDollar
-        
-        let code = currency.code
-        
-        XCTAssertTrue(code == unitedStatesDollarCode, "Unexpected code \"\(code))\" is found while code \"(\(unitedStatesDollarCode))\" is expected")
-    }
-    
     // MARK: Ukrainian Hryvnia
     
     private let ukrainianHryvniaCode = "UAH"
@@ -51,14 +43,6 @@ class CurrencyUnitTesting: XCTestCase {
         XCTAssertTrue(currency == .ukrainianHryvnia, "Unexpected currency \"\(currency))\" is found while currency \"(\(Currency.ukrainianHryvnia))\" is expected")
     }
     
-    func testUkrainianHryvniaCode() {
-        let currency = Currency.ukrainianHryvnia
-        
-        let code = currency.code
-        
-        XCTAssertTrue(code == ukrainianHryvniaCode, "Unexpected code \"\(code))\" is found while code \"(\(ukrainianHryvniaCode))\" is expected")
-    }
-    
     // MARK: Russian Ruble
     
     private let russianRubbleCode = "RUB"
@@ -73,14 +57,6 @@ class CurrencyUnitTesting: XCTestCase {
         }
         
         XCTAssertTrue(currency == .russianRuble, "Unexpected currency \"\(currency))\" is found while currency \"(\(Currency.russianRuble))\" is expected")
-    }
-    
-    func testRussianRubleCode() {
-        let currency = Currency.russianRuble
-        
-        let code = currency.code
-        
-        XCTAssertTrue(code == russianRubbleCode, "Unexpected code \"\(code))\" is found while code \"(\(russianRubbleCode))\" is expected")
     }
     
     // MARK: Unknown Code
