@@ -12,7 +12,7 @@ public extension URLComponents {
     
     func url() throws -> URL {
         if let url = self.url { return url }
-        else { throw AFoundationError("Cannot construct \(String(reflecting: URL.self)) using \(String(reflecting: self))") }
+        else { throw AFoundationError("\(String(reflecting: self)) cannot construct \(String(reflecting: URL.self))") }
     }
     
 }

@@ -24,7 +24,7 @@ class HttpExchange<RequestData, ParsedResponse>: RequestDataHttpExchange<Request
         return uri
     }
     
-    var headers: [String: String] = [HttpHeaderField.contentType: MediaType.Application.Json.template]
+    var headers: [String: String] = [HttpHeaderField.contentType: MediaType.json]
     
     func constructRequestObject(method: String, params: JsonObject, id: JsonValue) -> JsonObject {
         var jsonObject = JsonObject()

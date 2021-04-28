@@ -29,12 +29,12 @@ class DecimalDoubleUnitTesting: XCTestCase {
 //        print(Float.Exponent.max)
 //        print("!!!!!!!!")
         
-        do {
-            let locale = Locale(identifier: "fr")
-            let language = try locale.language()
-        } catch {
-            print(error)
-        }
+//        do {
+//            let locale = Locale(identifier: "fr")
+//            let language = try locale.language()
+//        } catch {
+//            print(error)
+//        }
     }
     
 //    func testDecimalGreaterThanDoubleMax() {

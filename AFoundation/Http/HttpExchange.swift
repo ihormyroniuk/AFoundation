@@ -38,7 +38,7 @@ open class SchemeHostHttpExchange<ParsedResponse>: HttpExchange<ParsedResponse> 
     // MARK: CustomDebugStringConvertible
     
     public override var debugDescription: String {
-        return "\(String(reflecting: Self.self))(scheme: \(String(reflecting: scheme)), hos: \(String(reflecting: host)))"
+        return "\(String(reflecting: Self.self))(scheme: \(String(reflecting: scheme)), host: \(String(reflecting: host)))"
     }
 }
 
@@ -72,6 +72,6 @@ open class SchemeHostRequestDataHttpExchange<RequestData, ParsedResponse>: HttpE
     // MARK: CustomDebugStringConvertible
     
     public override var debugDescription: String {
-        return "\(String(reflecting: Self.self))(requestData: \(String(reflecting: requestData)), scheme: \(String(reflecting: scheme)), host: \(String(reflecting: host)))"
+        return "\(String(reflecting: Self.self))(scheme: \(String(reflecting: scheme)), host: \(String(reflecting: host)), requestData: \(String(reflecting: requestData)))"
     }
 }

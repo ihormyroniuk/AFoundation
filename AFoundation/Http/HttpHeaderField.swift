@@ -9,6 +9,8 @@
 import Foundation
 
 public enum HttpHeaderField {
+    
     public static let authorization = "Authorization"
     public static let contentType = "Content-Type"
+    
 }

@@ -12,6 +12,7 @@ import Foundation
     Implemented based on https://tools.ietf.org/html/rfc2616#section-10
  */
 public enum HttpResponseCode {
+    
     public static let `continue` = 100
     public static let switchingProtocols = 101
     public static let ok = 200
@@ -52,4 +53,5 @@ public enum HttpResponseCode {
     public static let serviceUnavailable = 503
     public static let gatewayTimeOut = 504
     public static let httpVersionNotSupported = 505
+    
 }
