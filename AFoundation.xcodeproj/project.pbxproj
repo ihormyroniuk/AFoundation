@@ -69,7 +69,7 @@
 		C55CF5002551DCF500E61A03 /* DecimalIntUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CF4FF2551DCF500E61A03 /* DecimalIntUnitTesting.swift */; };
 		C55CF5082551DD8C00E61A03 /* DecimalFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CF5072551DD8C00E61A03 /* DecimalFloat.swift */; };
 		C55CF50D2551DDC200E61A03 /* DecimalFloatUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CF50C2551DDC200E61A03 /* DecimalFloatUnitTesting.swift */; };
-		C55CF548255209EF00E61A03 /* UrlScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CF547255209EF00E61A03 /* UrlScheme.swift */; };
+		C55CF548255209EF00E61A03 /* UriScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CF547255209EF00E61A03 /* UriScheme.swift */; };
 		C55E1DD125D2FB7A005D164A /* ApiJsonRpcRelease2BasicGenerateStringsRequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55E1DD025D2FB7A005D164A /* ApiJsonRpcRelease2BasicGenerateStringsRequestData.swift */; };
 		C55E1DD925D32F2F005D164A /* ApiJsonRpcRelease2BasicGenerateStringsHttpExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55E1DD825D32F2F005D164A /* ApiJsonRpcRelease2BasicGenerateStringsHttpExchange.swift */; };
 		C55E1DDD25D32F49005D164A /* ApiJsonRpcRelease2BasicGenerateStringsParsedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55E1DDC25D32F49005D164A /* ApiJsonRpcRelease2BasicGenerateStringsParsedResponse.swift */; };
@@ -205,7 +205,7 @@
 		C55CF4FF2551DCF500E61A03 /* DecimalIntUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalIntUnitTesting.swift; sourceTree = "<group>"; };
 		C55CF5072551DD8C00E61A03 /* DecimalFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFloat.swift; sourceTree = "<group>"; };
 		C55CF50C2551DDC200E61A03 /* DecimalFloatUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFloatUnitTesting.swift; sourceTree = "<group>"; };
-		C55CF547255209EF00E61A03 /* UrlScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlScheme.swift; sourceTree = "<group>"; };
+		C55CF547255209EF00E61A03 /* UriScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UriScheme.swift; sourceTree = "<group>"; };
 		C55E1DD025D2FB7A005D164A /* ApiJsonRpcRelease2BasicGenerateStringsRequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiJsonRpcRelease2BasicGenerateStringsRequestData.swift; sourceTree = "<group>"; };
 		C55E1DD825D32F2F005D164A /* ApiJsonRpcRelease2BasicGenerateStringsHttpExchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiJsonRpcRelease2BasicGenerateStringsHttpExchange.swift; sourceTree = "<group>"; };
 		C55E1DDC25D32F49005D164A /* ApiJsonRpcRelease2BasicGenerateStringsParsedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiJsonRpcRelease2BasicGenerateStringsParsedResponse.swift; sourceTree = "<group>"; };
@@ -610,7 +610,7 @@
 		C55CF546255209DD00E61A03 /* UrlScheme */ = {
 			isa = PBXGroup;
 			children = (
-				C55CF547255209EF00E61A03 /* UrlScheme.swift */,
+				C55CF547255209EF00E61A03 /* UriScheme.swift */,
 			);
 			path = UrlScheme;
 			sourceTree = "<group>";
@@ -967,7 +967,7 @@
 				C587DC1525A0DF1700DF1BF9 /* PreferredLanguage.swift in Sources */,
 				33107F54239134B400789467 /* TableNameBundleTextLocalizer.swift in Sources */,
 				C54D46EA25154357004B1467 /* JsonArray.swift in Sources */,
-				C55CF548255209EF00E61A03 /* UrlScheme.swift in Sources */,
+				C55CF548255209EF00E61A03 /* UriScheme.swift in Sources */,
 				C59F969326135F5E0026220A /* AFoundationError.swift in Sources */,
 				C54D708124EC61AC00C46616 /* JsonValue.swift in Sources */,
 				C54ADD1C25532BFB00132564 /* MediaType.swift in Sources */,
