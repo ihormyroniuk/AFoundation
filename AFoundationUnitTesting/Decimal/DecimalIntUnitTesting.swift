@@ -11,7 +11,7 @@ import XCTest
 
 class DecimalIntUnitTesting: XCTestCase {
     
-    func testIntegerDecimalPositiveInt() {
+    func testInt() {
         let int = Int(1234567890)
         let decimal = Decimal(int)
         
@@ -21,10 +21,10 @@ class DecimalIntUnitTesting: XCTestCase {
             return
         }
         
-        XCTAssertTrue(decimalInt == int, "Unexpected int \(int)) is found, but int \(decimalInt) is expected")
+        XCTAssertTrue(decimalInt == int, "Unexpected int \(decimalInt)) is found, but int \(int) is expected")
     }
     
-    func testIntegerDecimalGreaterThanIntMax() {
+    func testIntGreaterThanIntMax() {
         let decimal = Decimal.intMax + Decimal.intMax
         
         let decimalInt: Int
@@ -35,7 +35,7 @@ class DecimalIntUnitTesting: XCTestCase {
         XCTFail("Unexpected int \(decimalInt) is returned, but error has to be thrown")
     }
     
-    func testIntegerDecimalLessThanIntMin() {
+    func testIntLessThanIntMin() {
         let decimal = Decimal.intMin + Decimal.intMin
         
         let decimalInt: Int
@@ -46,7 +46,7 @@ class DecimalIntUnitTesting: XCTestCase {
         XCTFail("Unexpected int \(decimalInt) is returned, but error has to be thrown")
     }
     
-    func testRealNumberDecimalNegativeDoubleWithFraction() {
+    func testDoubleWithFraction() {
         let double = Double(-123.456)
         let decimal = Decimal(double)
         
@@ -58,7 +58,7 @@ class DecimalIntUnitTesting: XCTestCase {
         XCTFail("Unexpected int \(decimalInt) is returned, but error has to be thrown")
     }
     
-    func testRealNumberDecimalDoubleWithoutFraction() {
+    func testDoubleWithoutFraction() {
         let double = Double(1234567890.0000)
         let decimal = Decimal(double)
         
@@ -68,6 +68,7 @@ class DecimalIntUnitTesting: XCTestCase {
             return
         }
         
-        XCTAssertTrue(decimalInt == Int(double), "Unexpected int \(double)) is found, but int \(decimalInt) is expected")
+        XCTAssertTrue(decimalInt == Int(double), "Unexpected int \(decimalInt)) is found, but int \(double) is expected")
     }
+    
 }

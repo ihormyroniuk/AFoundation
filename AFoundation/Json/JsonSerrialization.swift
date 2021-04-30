@@ -10,7 +10,7 @@ import Foundation
 
 public enum JsonSerialization {
     
-    // MARK: Serialization
+    // MARK: JsonValue
     
     public static func jsonValue(_ data: Data) throws -> JsonValue {
         func json(_ any: Any) throws -> JsonValue {
@@ -43,7 +43,7 @@ public enum JsonSerialization {
         }
     }
     
-    // MARK: Deserialization
+    // MARK: Data
     
     public static func data(_ value: JsonValue) throws -> Data {
         func any(_ value: JsonValue) -> Any {

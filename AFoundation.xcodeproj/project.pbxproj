@@ -588,13 +588,14 @@
 			isa = PBXGroup;
 			children = (
 				C567CF2B25E326DF007B08B3 /* JsonValueUnitTesting.swift */,
+				C5636FD225C7090A00F95194 /* JsonArrayUnitTesting.swift */,
+				C54DD5BF2528AF2400F58A87 /* JsonJSONSerrializationUnitTesting.swift */,
 				C549844E2554AF0100478585 /* String */,
 				C531972425559186004495D6 /* Number */,
 				C54D46D22515361D004B1467 /* Object */,
 				C5A6ABCC252672590005233F /* Array */,
 				C5319733255593CC004495D6 /* Boolean */,
 				C531975225559A2B004495D6 /* Null */,
-				C54DD5BF2528AF2400F58A87 /* JsonJSONSerrializationUnitTesting.swift */,
 			);
 			path = Json;
 			sourceTree = "<group>";
@@ -728,7 +729,6 @@
 		C5A6ABCC252672590005233F /* Array */ = {
 			isa = PBXGroup;
 			children = (
-				C5636FD225C7090A00F95194 /* JsonArrayUnitTesting.swift */,
 				C5A6ABCD252672910005233F /* JsonArrayStringsUnitTesting.swift */,
 				C54EB72D25276F2300981380 /* JsonArrayNumbersUnitTesting.swift */,
 				C54DD5C32528B10F00F58A87 /* JsonArrayBooleansUnitTesting.swift */,

@@ -43,10 +43,6 @@ public extension JsonArray {
         else { insert(.null, at: i) }
     }
     
-    mutating func insertMissableString(_ newString: String?, at i: Int) {
-        if let newString = newString { insert(.string(newString), at: i) }
-    }
-    
     mutating func appendString(_ string: String) {
         append(.string(string))
     }
@@ -54,10 +50,6 @@ public extension JsonArray {
     mutating func appendNullableString(_ string: String?) {
         if let string = string { append(.string(string)) }
         else { append(.null) }
-    }
-    
-    mutating func appendMissableString(_ string: String?) {
-        if let string = string { append(.string(string)) }
     }
     
     // MARK: Numbers
@@ -91,10 +83,6 @@ public extension JsonArray {
         else { insert(.null, at: i) }
     }
     
-    mutating func insertMissableNumber(_ newNumber: Decimal?, at i: Int) {
-        if let newNumber = newNumber { insert(.number(newNumber), at: i) }
-    }
-    
     mutating func appendNumber(_ number: Decimal) {
         append(.number(number))
     }
@@ -104,11 +92,11 @@ public extension JsonArray {
         else { append(.null) }
     }
     
-    mutating func appendMissableNumber(_ number: Decimal?) {
-        if let number = number { append(.number(number)) }
-    }
-    
     // MARK: Objects
+    
+    init(_ jsonObjects: [JsonObject]) {
+        self = jsonObjects.map({ .object($0) })
+    }
     
     func objects() throws -> [JsonObject] {
         let objects: [JsonObject]
@@ -135,10 +123,6 @@ public extension JsonArray {
         else { insert(.null, at: i) }
     }
     
-    mutating func insertMissableObject(_ newObject: JsonObject?, at i: Int) {
-        if let newObject = newObject { insert(.object(newObject), at: i) }
-    }
-    
     mutating func appendObject(_ object: JsonObject) {
         append(.object(object))
     }
@@ -148,11 +132,11 @@ public extension JsonArray {
         else { append(.null) }
     }
     
-    mutating func appendMissableObject(_ object: JsonObject?) {
-        if let object = object { append(.object(object)) }
-    }
-    
     // MARK: Arrays
+    
+    init(_ jsonArrays: [JsonArray]) {
+        self = jsonArrays.map({ .array($0) })
+    }
     
     func arrays() throws -> [JsonArray] {
         let arrays: [JsonArray]
@@ -179,10 +163,6 @@ public extension JsonArray {
         else { insert(.null, at: i) }
     }
     
-    mutating func insertMissableArray(_ newArray: JsonArray?, at i: Int) {
-        if let newArray = newArray { insert(.array(newArray), at: i) }
-    }
-    
     mutating func appendArray(_ array: JsonArray) {
         append(.array(array))
     }
@@ -192,11 +172,11 @@ public extension JsonArray {
         else { append(.null) }
     }
     
-    mutating func appendMissableArray(_ array: JsonArray?) {
-        if let array = array { append(.array(array)) }
-    }
-    
     // MARK: Booleans
+    
+    init(_ bools: [Bool]) {
+        self = bools.map({ .boolean($0) })
+    }
     
     func booleans() throws -> [Bool] {
         let booleans: [Bool]
@@ -223,10 +203,6 @@ public extension JsonArray {
         else { insert(.null, at: i) }
     }
     
-    mutating func insertMissableBoolean(_ newBoolean: Bool?, at i: Int) {
-        if let newBoolean = newBoolean { insert(.boolean(newBoolean), at: i) }
-    }
-    
     mutating func appendBoolean(_ boolean: Bool) {
         append(.boolean(boolean))
     }
@@ -236,7 +212,4 @@ public extension JsonArray {
         else { append(.null) }
     }
     
-    mutating func appendMissableBoolean(_ boolean: Bool?) {
-        if let boolean = boolean { append(.boolean(boolean)) }
-    }
 }

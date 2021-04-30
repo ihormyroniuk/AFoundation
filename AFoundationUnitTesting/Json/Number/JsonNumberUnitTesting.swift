@@ -11,32 +11,30 @@ import XCTest
 
 class DecimalUnitTesting: XCTestCase {
 
-//    func testNumber() {
-//        let valueNumber = Decimal(1)
-//        let value: JsonAnyValue = Decimal(decimal: valueNumber)
-//        
-//        do {
-//            let number = try value.number().decimal
-//            
-//            XCTAssert(number == valueNumber, "Unexpected number \"\(String(describing: number))\" is found while number \"(\(String(describing: valueNumber))\" is expected")
-//        } catch {
-//            XCTFail("Unexpected error \(error) is thrown")
-//        }
-//    }
-//    
-//    func testNotNumber() {
-//        let valueString = "string"
-//        let value: JsonAnyValue = String(string: valueString)
-//        
-//        do {
-//            let string = try value.number()
-//            
-//            XCTFail("Unexpected number \"\(String(describing: string))\" is found while error \(JsonAnyValueIsNotNumberError.self) has to be thrown")
-//        } catch _ as JsonAnyValueIsNotNumberError {
-//        
-//        } catch {
-//            XCTFail("Unexpected error \(error) is thrown")
-//        }
-//    }
+    func testNumber() {
+        let valueNumber = Decimal(1)
+        let value = JsonValue.number(valueNumber)
+        
+        do {
+            let number = try value.number()
+            
+            XCTAssert(number == valueNumber, "Unexpected number \"\(String(describing: number))\" is found while number \"(\(String(describing: valueNumber))\" is expected")
+        } catch {
+            XCTFail("Unexpected error \(error) is thrown")
+        }
+    }
+    
+    func testNotNumber() {
+        let valueString = "string"
+        let value = JsonValue.string(valueString)
+        
+        do {
+            let string = try value.number()
+            
+            XCTFail("Unexpected number \"\(String(describing: string))\" is found while error has to be thrown")
+        } catch {
+            return
+        }
+    }
 
 }

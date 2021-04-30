@@ -11,8 +11,8 @@ import XCTest
 
 class DecimalFloatUnitTesting: XCTestCase {
 
-    func testFloatDecimal() {
-        let float = Float(1234567890.87) + Float(66886.8665850087008)
+    func testFloat() {
+        let float = Float(1234567890.87) + Float(66886.96)
         let decimal = Decimal(float)
         
         let decimalFloat: Float
@@ -21,10 +21,10 @@ class DecimalFloatUnitTesting: XCTestCase {
             return
         }
         
-        XCTAssertTrue(decimalFloat == float, "Unexpected float \(float)) is found, but float \(decimalFloat) is expected")
+        XCTAssertTrue(decimalFloat == float, "Unexpected \(decimalFloat)) is returned, but \(float) is expected")
     }
     
-    func testDecimalGreaterThanFloatMax() {
+    func testFloatGreaterThanMax() {
         let float = Float.greatestFiniteMagnitude
         let decimal = Decimal(float) + Decimal(float)
         
@@ -33,10 +33,10 @@ class DecimalFloatUnitTesting: XCTestCase {
             return
         }
         
-        XCTFail("Unexpected float \(decimalFloat) is returned, but error has to be thrown")
+        XCTFail("Unexpected \(decimalFloat) is returned, but error has to be thrown")
     }
     
-    func testDecimalLessThanFloatMin() {
+    func testFloatLessThanMin() {
         let float = -Float.greatestFiniteMagnitude
         let decimal = Decimal(float) + Decimal(float)
         
@@ -45,6 +45,7 @@ class DecimalFloatUnitTesting: XCTestCase {
             return
         }
         
-        XCTFail("Unexpected float \(decimalFloat) is returned, but error has to be thrown")
+        XCTFail("Unexpected \(decimalFloat) is returned, but error has to be thrown")
     }
+    
 }
