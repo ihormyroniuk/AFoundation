@@ -13,65 +13,370 @@ import Foundation
 class JsonValueUnitTesting: XCTestCase {
     
     // MARK: String
-
-    func testString_String() {
+    
+    func testInitString() {
         let string = "string"
-        let jsonAnyValue = JsonValue(string)
-
-        let jsonAnyValueString: String
-        do { jsonAnyValueString = try jsonAnyValue.string() }
-        catch {
-            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
-            return
-        }
-        XCTAssert(jsonAnyValueString == string, "Unexpected string \(String(reflecting: jsonAnyValueString)) is found, but string \(String(reflecting: string)) is expected")
+        
+        let jsonValue = JsonValue(string)
+        
+        let expectedJsonValue = JsonValue.string("string")
+        XCTAssert(jsonValue == expectedJsonValue, "Unexpected \(String(reflecting: jsonValue)) is returned, but \(String(reflecting: expectedJsonValue)) is expected")
     }
-
-    func testString_Number() {
-        let decimal = Decimal(8)
-        let jsonAnyValue = JsonValue(decimal)
-
-        let jsonAnyValueString: String
-        do { jsonAnyValueString = try jsonAnyValue.string()
-        } catch {
-            return
-        }
-        XCTFail("Unexpected string \"\(String(reflecting: jsonAnyValueString))\" is found, but error has to be thrown")
-    }
-
-    func testNullableString_String() {
-        let string = "string"
-        let jsonAnyValue = JsonValue(string)
-
-        let jsonAnyValueString: String?
-        do { jsonAnyValueString = try jsonAnyValue.nullableString() }
-        catch {
-            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
-            return
-        }
-        XCTAssert(jsonAnyValueString == string, "Unexpected string \(String(reflecting: jsonAnyValueString)) is found, but string \(string) is expected")
-    }
-
-    func testNullableString_Null() {
-        let jsonAnyValue = JsonValue.null
-
+    
+    func testString() {
+        let jsonValue = JsonValue("string")
+        
         do {
-            let jsonAnyValueString = try jsonAnyValue.nullableString()
-
-            XCTAssert(nil == jsonAnyValueString, "Unexpected string \"\" is found, but string \"(\(String(describing: jsonAnyValueString))\" is expected")
+            let string = try jsonValue.string()
+            
+            let expectedString = "string"
+            XCTAssert(string == expectedString, "Unexpected \(String(reflecting: string)) is returned, but \(String(reflecting: expectedString)) is expected")
         } catch {
             XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
         }
     }
-
-    func testNullableString_Boolean() {
+    
+    func testStringError() {
+        let jsonValue = JsonValue(true)
+        
+        do {
+            let string = try jsonValue.string()
+            
+            XCTFail("Unexpected \(String(reflecting: string)) is returned, but error has to be thrown")
+        } catch {
+            return
+        }
+    }
+    
+    func testNullableString() {
+        let jsonValue = JsonValue("string")
+        
+        do {
+            let string = try jsonValue.nullableString()
+            
+            let expectedString = "string"
+            XCTAssert(string == expectedString, "Unexpected \(String(reflecting: string)) is returned, but \(String(reflecting: expectedString)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testNullableStringNull() {
+        let jsonValue = JsonValue.null
+        
+        do {
+            let string = try jsonValue.nullableString()
+            
+            let expectedString: String? = nil
+            XCTAssert(string == expectedString, "Unexpected \(String(reflecting: string)) is returned, but \(String(reflecting: expectedString)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testNullableStringError() {
+        let jsonValue = JsonValue(true)
+        
+        do {
+            let string = try jsonValue.nullableString()
+            
+            XCTFail("Unexpected \(String(reflecting: string)) is returned, but error has to be thrown")
+        } catch {
+            return
+        }
+    }
+    
+    // MARK: Number
+    
+    func testInitNumber() {
+        let number = Decimal(1)
+        
+        let jsonValue = JsonValue(number)
+        
+        let expectedJsonValue = JsonValue.number(number)
+        XCTAssert(jsonValue == expectedJsonValue, "Unexpected \(String(reflecting: jsonValue)) is returned, but \(String(reflecting: expectedJsonValue)) is expected")
+    }
+    
+    func testNumber() {
+        let jsonValue = JsonValue(Decimal(1))
+        
+        do {
+            let number = try jsonValue.number()
+            
+            let expectedNumber = Decimal(1)
+            XCTAssert(number == expectedNumber, "Unexpected \(String(reflecting: number)) is returned, but \(String(reflecting: expectedNumber)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testNumberError() {
+        let jsonValue = JsonValue(true)
+        
+        do {
+            let number = try jsonValue.number()
+            
+            XCTFail("Unexpected \(String(reflecting: number)) is returned, but error has to be thrown")
+        } catch {
+            return
+        }
+    }
+    
+    func testNullableNumber() {
+        let jsonValue = JsonValue(Decimal(1))
+        
+        do {
+            let number = try jsonValue.nullableNumber()
+            
+            let expectedNumber = Decimal(1)
+            XCTAssert(number == expectedNumber, "Unexpected \(String(reflecting: number)) is returned, but \(String(reflecting: expectedNumber)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testNullableNumberNull() {
+        let jsonValue = JsonValue.null
+        
+        do {
+            let number = try jsonValue.nullableNumber()
+            
+            let expectedNumber: Decimal? = nil
+            XCTAssert(number == expectedNumber, "Unexpected \(String(reflecting: number)) is returned, but \(String(reflecting: expectedNumber)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testNullableNumberError() {
+        let jsonValue = JsonValue(true)
+        
+        do {
+            let number = try jsonValue.nullableNumber()
+            
+            XCTFail("Unexpected \(String(reflecting: number)) is returned, but error has to be thrown")
+        } catch {
+            return
+        }
+    }
+    
+    // MARK: Object
+    
+    private let object = ["boolean": JsonValue(true), "string": JsonValue("string")]
+    
+    func testInitObject() {
+        let jsonValue = JsonValue(object)
+        
+        let expectedJsonValue = JsonValue.object(object)
+        XCTAssert(jsonValue == expectedJsonValue, "Unexpected \(String(reflecting: jsonValue)) is returned, but \(String(reflecting: expectedJsonValue)) is expected")
+    }
+    
+    func testObject() {
+        let jsonValue = JsonValue(self.object)
+        
+        do {
+            let object = try jsonValue.object()
+            
+            let expectedObject = self.object
+            XCTAssert(object == expectedObject, "Unexpected \(String(reflecting: object)) is returned, but \(String(reflecting: expectedObject)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testObjectError() {
+        let jsonValue = JsonValue(true)
+        
+        do {
+            let object = try jsonValue.object()
+            
+            XCTFail("Unexpected \(String(reflecting: object)) is returned, but error has to be thrown")
+        } catch {
+            return
+        }
+    }
+    
+    func testNullableObject() {
+        let jsonValue = JsonValue(self.object)
+        
+        do {
+            let object = try jsonValue.nullableObject()
+            
+            let expectedObject = self.object
+            XCTAssert(object == expectedObject, "Unexpected \(String(reflecting: object)) is returned, but \(String(reflecting: expectedObject)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testNullableObjectNull() {
+        let jsonValue = JsonValue.null
+        
+        do {
+            let object = try jsonValue.nullableObject()
+            
+            let expectedObject: JsonObject? = nil
+            XCTAssert(object == expectedObject, "Unexpected \(String(reflecting: object)) is returned, but \(String(reflecting: expectedObject)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testNullableObjectError() {
+        let jsonValue = JsonValue(true)
+        
+        do {
+            let object = try jsonValue.nullableObject()
+            
+            XCTFail("Unexpected \(String(reflecting: object)) is returned, but error has to be thrown")
+        } catch {
+            return
+        }
+    }
+    
+    // MARK: Array
+    
+    private let array = [JsonValue(true), JsonValue("string")]
+    
+    func testInitArray() {
+        let jsonValue = JsonValue(array)
+        
+        let expectedJsonValue = JsonValue.array(array)
+        XCTAssert(jsonValue == expectedJsonValue, "Unexpected \(String(reflecting: jsonValue)) is returned, but \(String(reflecting: expectedJsonValue)) is expected")
+    }
+    
+    func testArray() {
+        let jsonValue = JsonValue(self.array)
+        
+        do {
+            let array = try jsonValue.array()
+            
+            let expectedArray = self.array
+            XCTAssert(array == expectedArray, "Unexpected \(String(reflecting: array)) is returned, but \(String(reflecting: expectedArray)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testArrayError() {
+        let jsonValue = JsonValue(true)
+        
+        do {
+            let array = try jsonValue.array()
+            
+            XCTFail("Unexpected \(String(reflecting: array)) is returned, but error has to be thrown")
+        } catch {
+            return
+        }
+    }
+    
+    func testNullableArray() {
+        let jsonValue = JsonValue(self.array)
+        
+        do {
+            let array = try jsonValue.nullableArray()
+            
+            let expectedArray = self.array
+            XCTAssert(array == expectedArray, "Unexpected \(String(reflecting: array)) is returned, but \(String(reflecting: expectedArray)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testNullableArrayNull() {
+        let jsonValue = JsonValue.null
+        
+        do {
+            let array = try jsonValue.nullableArray()
+            
+            let expectedArray: JsonArray? = nil
+            XCTAssert(array == expectedArray, "Unexpected \(String(reflecting: array)) is returned, but \(String(reflecting: expectedArray)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testNullableArrayError() {
+        let jsonValue = JsonValue(true)
+        
+        do {
+            let array = try jsonValue.nullableArray()
+            
+            XCTFail("Unexpected \(String(reflecting: array)) is returned, but error has to be thrown")
+        } catch {
+            return
+        }
+    }
+    
+    // MARK: Boolean
+    
+    func testInitBoolean() {
         let boolean = true
-        let jsonAnyValue = JsonValue(boolean)
-
+        
+        let jsonValue = JsonValue(boolean)
+        
+        let expectedJsonValue = JsonValue.boolean(boolean)
+        XCTAssert(jsonValue == expectedJsonValue, "Unexpected \(String(reflecting: jsonValue)) is returned, but \(String(reflecting: expectedJsonValue)) is expected")
+    }
+    
+    func testBoolean() {
+        let jsonValue = JsonValue(true)
+        
         do {
-            let jsonAnyValueString = try jsonAnyValue.nullableString()
-
-            XCTFail("Unexpected string \"\(String(reflecting: jsonAnyValueString))\" is found, but error has to be thrown")
+            let boolean = try jsonValue.boolean()
+            
+            let expectedBoolean = true
+            XCTAssert(boolean == expectedBoolean, "Unexpected \(String(reflecting: boolean)) is returned, but \(String(reflecting: expectedBoolean)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testBooleanError() {
+        let jsonValue = JsonValue("string")
+        
+        do {
+            let boolean = try jsonValue.boolean()
+            
+            XCTFail("Unexpected \(String(reflecting: boolean)) is returned, but error has to be thrown")
+        } catch {
+            return
+        }
+    }
+    
+    func testNullableBoolean() {
+        let jsonValue = JsonValue(true)
+        
+        do {
+            let boolean = try jsonValue.nullableBoolean()
+            
+            let expectedBoolean = true
+            XCTAssert(boolean == expectedBoolean, "Unexpected \(String(reflecting: boolean)) is returned, but \(String(reflecting: expectedBoolean)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testNullableBooleanNull() {
+        let jsonValue = JsonValue.null
+        
+        do {
+            let boolean = try jsonValue.nullableBoolean()
+            
+            let expectedBoolean: Bool? = nil
+            XCTAssert(boolean == expectedBoolean, "Unexpected \(String(reflecting: boolean)) is returned, but \(String(reflecting: expectedBoolean)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testNullableBooleanError() {
+        let jsonValue = JsonValue("string")
+        
+        do {
+            let boolean = try jsonValue.nullableBoolean()
+            
+            XCTFail("Unexpected \(String(reflecting: boolean)) is returned, but error has to be thrown")
         } catch {
             return
         }

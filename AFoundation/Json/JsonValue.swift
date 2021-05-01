@@ -122,36 +122,7 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
         case (let .array(lhsArray), let .array(rhsArray)): return lhsArray == rhsArray
         case (let .boolean(lhsBool), let .boolean(rhsBool)): return lhsBool == rhsBool
         case (.null, .null): return true
-        case (.null, .string(_)): return false
-        case (.null, .number(_)): return false
-        case (.null, .object(_)): return false
-        case (.null, .array(_)): return false
-        case (.null, .boolean(_)): return false
-        case (.boolean(_), .string(_)): return false
-        case (.boolean(_), .number(_)): return false
-        case (.boolean(_), .object(_)): return false
-        case (.boolean(_), .array(_)): return false
-        case (.boolean(_), .null): return false
-        case (.array(_), .string(_)): return false
-        case (.array(_), .number(_)): return false
-        case (.array(_), .object(_)): return false
-        case (.array(_), .boolean(_)): return false
-        case (.array(_), .null): return false
-        case (.object(_), .string(_)): return false
-        case (.object(_), .number(_)): return false
-        case (.object(_), .array(_)): return false
-        case (.object(_), .boolean(_)): return false
-        case (.object(_), .null): return false
-        case (.number(_), .string(_)): return false
-        case (.number(_), .object(_)): return false
-        case (.number(_), .array(_)): return false
-        case (.number(_), .boolean(_)): return false
-        case (.number(_), .null): return false
-        case (.string(_), .number(_)): return false
-        case (.string(_), .object(_)): return false
-        case (.string(_), .array(_)): return false
-        case (.string(_), .boolean(_)): return false
-        case (.string(_), .null): return false
+        default: return false
         }
     }
     
