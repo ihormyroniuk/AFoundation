@@ -14,7 +14,7 @@ public extension JsonObject {
     
     // MARK: Value
     
-    func value(_ key: String) throws -> JsonValue {
+    private func value(_ key: String) throws -> JsonValue {
         if let value = self[key] { return value }
         else { throw AFoundationError("\(String(reflecting: self)) does not have value for key \(String(reflecting: key))") }
     }

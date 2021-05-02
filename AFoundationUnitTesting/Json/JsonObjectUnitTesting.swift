@@ -10,7 +10,7 @@ import XCTest
 import Foundation
 @testable import AFoundation
 
-class JsonAnyValueStringUnitTesting: XCTestCase {
+class JsonObjectUnitTesting: XCTestCase {
 
     func testString() {
         let string = "string"

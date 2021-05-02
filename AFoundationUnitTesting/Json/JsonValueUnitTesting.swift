@@ -381,5 +381,91 @@ class JsonValueUnitTesting: XCTestCase {
             return
         }
     }
+    
+    // MARK: Equatable
+    
+    func testEquatableStringsEqual() {
+        let jsonValue1 = JsonValue("string")
+        let jsonValue2 = JsonValue("string")
+        
+        XCTAssert(jsonValue1 == jsonValue2, "\(String(reflecting: jsonValue1)) has to be equal to \(String(reflecting: jsonValue2))")
+    }
+    
+    func testEquatableStringsNotEqual() {
+        let jsonValue1 = JsonValue("string1")
+        let jsonValue2 = JsonValue("string2")
+        
+        XCTAssert(jsonValue1 != jsonValue2, "\(String(reflecting: jsonValue1)) has not to be equal to \(String(reflecting: jsonValue2))")
+    }
+    
+    func testEquatableNumbersEqual() {
+        let jsonValue1 = JsonValue(Decimal(1))
+        let jsonValue2 = JsonValue(Decimal(1))
+        
+        XCTAssert(jsonValue1 == jsonValue2, "\(String(reflecting: jsonValue1)) has to be equal to \(String(reflecting: jsonValue2))")
+    }
+    
+    func testEquatableNumbersNotEqual() {
+        let jsonValue1 = JsonValue(Decimal(1))
+        let jsonValue2 = JsonValue(Decimal(2))
+        
+        XCTAssert(jsonValue1 != jsonValue2, "\(String(reflecting: jsonValue1)) has not to be equal to \(String(reflecting: jsonValue2))")
+    }
+    
+    func testEquatableObjectsEqual() {
+        let jsonValue1 = JsonValue(["boolean": JsonValue(true), "string": JsonValue("string")])
+        let jsonValue2 = JsonValue(["boolean": JsonValue(true), "string": JsonValue("string")])
+        
+        XCTAssert(jsonValue1 == jsonValue2, "\(String(reflecting: jsonValue1)) has to be equal to \(String(reflecting: jsonValue2))")
+    }
+    
+    func testEquatableObjectsNotEqual() {
+        let jsonValue1 = JsonValue(["boolean": JsonValue(true), "string": JsonValue("string")])
+        let jsonValue2 = JsonValue(["boolean": JsonValue(true), "number": JsonValue(Decimal(1))])
+        
+        XCTAssert(jsonValue1 != jsonValue2, "\(String(reflecting: jsonValue1)) has not to be equal to \(String(reflecting: jsonValue2))")
+    }
+    
+    func testEquatableArraysEqual() {
+        let jsonValue1 = JsonValue([JsonValue(true), JsonValue("string")])
+        let jsonValue2 = JsonValue([JsonValue(true), JsonValue("string")])
+        
+        XCTAssert(jsonValue1 == jsonValue2, "\(String(reflecting: jsonValue1)) has to be equal to \(String(reflecting: jsonValue2))")
+    }
+    
+    func testEquatableArraysNotEqual() {
+        let jsonValue1 = JsonValue([JsonValue(true), JsonValue("string")])
+        let jsonValue2 = JsonValue([JsonValue(true), JsonValue(Decimal(1))])
+        
+        XCTAssert(jsonValue1 != jsonValue2, "\(String(reflecting: jsonValue1)) has not to be equal to \(String(reflecting: jsonValue2))")
+    }
+    
+    func testEquatableBooleansEqual() {
+        let jsonValue1 = JsonValue(true)
+        let jsonValue2 = JsonValue(true)
+        
+        XCTAssert(jsonValue1 == jsonValue2, "\(String(reflecting: jsonValue1)) has to be equal to \(String(reflecting: jsonValue2))")
+    }
+    
+    func testEquatableBooleansNotEqual() {
+        let jsonValue1 = JsonValue(true)
+        let jsonValue2 = JsonValue(false)
+        
+        XCTAssert(jsonValue1 != jsonValue2, "\(String(reflecting: jsonValue1)) has not to be equal to \(String(reflecting: jsonValue2))")
+    }
+    
+    func testEquatableNullsEqual() {
+        let jsonValue1 = JsonValue.null
+        let jsonValue2 = JsonValue.null
+        
+        XCTAssert(jsonValue1 == jsonValue2, "\(String(reflecting: jsonValue1)) has to be equal to \(String(reflecting: jsonValue2))")
+    }
+    
+    func testEquatableStringNumbrt() {
+        let jsonValue1 = JsonValue("string")
+        let jsonValue2 = JsonValue(Decimal(1))
+        
+        XCTAssert(jsonValue1 != jsonValue2, "\(String(reflecting: jsonValue1)) has to be equal to \(String(reflecting: jsonValue2))")
+    }
 
 }
