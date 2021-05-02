@@ -14,7 +14,7 @@ public extension JsonObject {
     
     // MARK: Value
     
-    private func value(_ key: String) throws -> JsonValue {
+    func value(_ key: String) throws -> JsonValue {
         if let value = self[key] { return value }
         else { throw AFoundationError("\(String(reflecting: self)) does not have value for key \(String(reflecting: key))") }
     }
@@ -68,11 +68,6 @@ public extension JsonObject {
         else { self[key] = .null }
     }
     
-    mutating func setMissableString(_ string: String?, for key: String) {
-        if let string = string { self[key] = .string(string) }
-        else { self[key] = nil }
-    }
-    
     // MARK: Number
     
     func number(_ key: String) throws -> Decimal {
@@ -120,11 +115,6 @@ public extension JsonObject {
     mutating func setNullableNumber(_ decimal: Decimal?, for key: String) {
         if let decimal = decimal { self[key] = .number(decimal) }
         else { self[key] = .null }
-    }
-    
-    mutating func setMissableNumber(_ decimal: Decimal?, for key: String) {
-        if let decimal = decimal { self[key] = .number(decimal) }
-        else { self[key] = nil }
     }
     
     // MARK: Object
@@ -176,11 +166,6 @@ public extension JsonObject {
         else { self[key] = .null }
     }
     
-    mutating func setMissableObject(_ object: JsonObject?, for key: String) {
-        if let object = object { self[key] = .object(object) }
-        else { self[key] = nil }
-    }
-    
     // MARK: Array
     
     func array(_ key: String) throws -> JsonArray {
@@ -230,11 +215,6 @@ public extension JsonObject {
         else { self[key] = .null }
     }
     
-    mutating func setMissableArray(_ array: JsonArray?, for key: String) {
-        if let array = array { self[key] = .array(array) }
-        else { self[key] = nil }
-    }
-    
     // MARK: Boolean
     
     func boolean(_ key: String) throws -> Bool {
@@ -282,11 +262,6 @@ public extension JsonObject {
     mutating func setNullableBoolean(_ bool: Bool?, for key: String) {
         if let bool = bool { self[key] = .boolean(bool) }
         else { self[key] = .null }
-    }
-    
-    mutating func setMissableBoolean(_ bool: Bool?, for key: String) {
-        if let bool = bool { self[key] = .boolean(bool) }
-        else { self[key] = nil }
     }
     
 }

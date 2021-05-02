@@ -32,7 +32,7 @@ class URLSessionHttpExchangeUnitTesting: XCTestCase {
             
         }
         
-        override func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> MockURLSessionDataTask {
+        override func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
             let urLSessionDataTask = MockURLSessionDataTask(completionHandler: completionHandler)
             return urLSessionDataTask
         }
@@ -45,10 +45,10 @@ class URLSessionHttpExchangeUnitTesting: XCTestCase {
         let url = URL(string: "localhost")!
         let request = URLRequest(url: url)
         
-        var dataTask = urlSession.dataTask(with: request) { (data, urlResponse, error) in
+        var dataTask = urlSession.dataTask(with: request) { (result) in
             
         }
-        dataTask.data = Data()
+        //dataTask.data = Data()
         dataTask.resume()
     }
 

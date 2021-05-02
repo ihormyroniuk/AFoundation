@@ -64,6 +64,7 @@
 		C563FBD02528611200BA1E99 /* CurrencyUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C563FBCF2528611200BA1E99 /* CurrencyUnitTesting.swift */; };
 		C563FBD82528658B00BA1E99 /* RegionUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C563FBD72528658B00BA1E99 /* RegionUnitTesting.swift */; };
 		C563FBEB252868C700BA1E99 /* LanguageUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C563FBEA252868C700BA1E99 /* LanguageUnitTesting.swift */; };
+		C564D69D263F4D1E0081FFB4 /* HttpExchangeUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C564D69C263F4D1E0081FFB4 /* HttpExchangeUnitTesting.swift */; };
 		C567CF2C25E326DF007B08B3 /* JsonValueUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C567CF2B25E326DF007B08B3 /* JsonValueUnitTesting.swift */; };
 		C56ECDE62557E7E600969CBC /* URLComponentsUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ECDE52557E7E600969CBC /* URLComponentsUrl.swift */; };
 		C57C9AB72582D0BC0032AED7 /* AFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C50134A6230C196A0018D950 /* AFoundation.framework */; };
@@ -182,6 +183,7 @@
 		C563FBCF2528611200BA1E99 /* CurrencyUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyUnitTesting.swift; sourceTree = "<group>"; };
 		C563FBD72528658B00BA1E99 /* RegionUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionUnitTesting.swift; sourceTree = "<group>"; };
 		C563FBEA252868C700BA1E99 /* LanguageUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageUnitTesting.swift; sourceTree = "<group>"; };
+		C564D69C263F4D1E0081FFB4 /* HttpExchangeUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpExchangeUnitTesting.swift; sourceTree = "<group>"; };
 		C567CF2B25E326DF007B08B3 /* JsonValueUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonValueUnitTesting.swift; sourceTree = "<group>"; };
 		C56ECDE52557E7E600969CBC /* URLComponentsUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponentsUrl.swift; sourceTree = "<group>"; };
 		C57F42BD25D09B6200037AE1 /* JsonRpc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonRpc.swift; sourceTree = "<group>"; };
@@ -322,7 +324,7 @@
 			children = (
 				C59F969126135F270026220A /* Error */,
 				C54ADD1A25532BE500132564 /* MediaType */,
-				C55CF546255209DD00E61A03 /* UrlScheme */,
+				C55CF546255209DD00E61A03 /* UriScheme */,
 				C56ECDE42557E7B400969CBC /* URLComponents */,
 				C598CF2724EEF2B800EA0C8F /* Http */,
 				C51C675025882A1100401F79 /* URLRequest */,
@@ -431,6 +433,7 @@
 			children = (
 				C54D46FF2516415D004B1467 /* HttpRequestUnitTesting.swift */,
 				C54D470325164F84004B1467 /* HttpResponseUnitTesting.swift */,
+				C564D69C263F4D1E0081FFB4 /* HttpExchangeUnitTesting.swift */,
 			);
 			path = Http;
 			sourceTree = "<group>";
@@ -486,12 +489,12 @@
 			path = ISO8601DateFormatter;
 			sourceTree = "<group>";
 		};
-		C55CF546255209DD00E61A03 /* UrlScheme */ = {
+		C55CF546255209DD00E61A03 /* UriScheme */ = {
 			isa = PBXGroup;
 			children = (
 				C55CF547255209EF00E61A03 /* UriScheme.swift */,
 			);
-			path = UrlScheme;
+			path = UriScheme;
 			sourceTree = "<group>";
 		};
 		C55E1DCF25D2FB4F005D164A /* GenerateStrings */ = {
@@ -792,6 +795,7 @@
 				338BA772239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift in Sources */,
 				C563FBD02528611200BA1E99 /* CurrencyUnitTesting.swift in Sources */,
 				C5636FC425C6FCCC00F95194 /* HTTPURLResponseHttpResponseDataUnitTesting.swift in Sources */,
+				C564D69D263F4D1E0081FFB4 /* HttpExchangeUnitTesting.swift in Sources */,
 				C54DD5AC2528A39100F58A87 /* CompositeLocalizerUnitTesting.swift in Sources */,
 				C5636FD325C7090A00F95194 /* JsonArrayUnitTesting.swift in Sources */,
 				C567CF2C25E326DF007B08B3 /* JsonValueUnitTesting.swift in Sources */,
@@ -909,8 +913,10 @@
 		332459062361F24C00DC2051 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M4U9YFW795;
+				DEVELOPMENT_TEAM = 9R8XNB4KQ9;
 				INFOPLIST_FILE = AFoundationUnitTesting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -920,6 +926,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.ihormyroniuk.AFoundationUnitTesting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -928,8 +936,9 @@
 		332459072361F24C00DC2051 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M4U9YFW795;
+				DEVELOPMENT_TEAM = 9R8XNB4KQ9;
 				INFOPLIST_FILE = AFoundationUnitTesting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1134,8 +1143,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9R8XNB4KQ9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AFoundationDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1144,6 +1154,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.ihormyroniuk.AFoundationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1154,8 +1165,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9R8XNB4KQ9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AFoundationDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1164,6 +1176,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.ihormyroniuk.AFoundationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
