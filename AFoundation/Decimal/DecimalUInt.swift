@@ -15,7 +15,7 @@ public extension Decimal {
   
     func uint() throws -> UInt {
         guard exponent >= 0 && self >= Decimal.uintMin && self <= Decimal.uintMax else {
-            throw AFoundationError("Cannot convert \(String(reflecting: Decimal.self))(\(String(reflecting: self))) to \(String(reflecting: UInt.self))")
+            throw MessageError("Cannot convert \(String(reflecting: Decimal.self))(\(String(reflecting: self))) to \(String(reflecting: UInt.self))")
         }
         return (self as NSDecimalNumber).uintValue
     }

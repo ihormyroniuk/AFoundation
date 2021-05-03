@@ -26,7 +26,7 @@ public extension URLSession {
             } else if let urlResponse = urlResponse {
                 completionHandler(.success(.urlResponseWithData(urlResponse, data)))
             } else {
-                let error = AFoundationError("")
+                let error = MessageError("")
                 completionHandler(.failure(error))
             }
         }
@@ -48,7 +48,7 @@ public extension URLSession {
                     if let httpUrlResponse = urlResponse as? HTTPURLResponse {
                         completionHandler(.success(.httpUrlResponseWithData(httpUrlResponse, data)))
                     } else {
-                        completionHandler(.failure(AFoundationError("")))
+                        completionHandler(.failure(MessageError("")))
                     }
                 }
             case let .failure(error):
@@ -65,7 +65,7 @@ public extension URLSession {
     func httpExchangeDataTask<ParsedResponse>(_ httpExchange: HttpExchange<ParsedResponse>, completionHandler: @escaping (Result<HttpExchangeDataTaskResponse<ParsedResponse>, Error>) -> ()) throws -> URLSessionDataTask {
         let httpRequest: HttpRequest
         do { httpRequest = try httpExchange.constructRequest() } catch {
-            throw AFoundationError("\(error)")
+            throw MessageError("\(error)")
         }
         let urlRequest = URLRequest(httpRequest: httpRequest)
         let dataTask = self.httpDataTask(with: urlRequest) { (result) in
@@ -78,7 +78,7 @@ public extension URLSession {
                     let httpResponse = httpUrlResponse.httpResponse(data: data)
                     let parsedResponse: ParsedResponse
                     do { parsedResponse = try httpExchange.parseResponse(httpResponse) } catch {
-                        completionHandler(.failure(AFoundationError("\(String(reflecting: error))")))
+                        completionHandler(.failure(MessageError("\(String(reflecting: error))")))
                         return
                     }
                     completionHandler(.success(.parsedResponse(parsedResponse)))

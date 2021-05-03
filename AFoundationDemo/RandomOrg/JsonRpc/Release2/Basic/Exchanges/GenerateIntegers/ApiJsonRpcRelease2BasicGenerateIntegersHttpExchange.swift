@@ -21,7 +21,9 @@ class GenerateIntegersHttpExchange: HttpExchange<GenerateIntegersRequestData, Ge
         params.setNumber(Decimal(requestData.n), for: "n")
         params.setNumber(Decimal(integerLiteral: requestData.min), for: "min")
         params.setNumber(Decimal(integerLiteral: requestData.max), for: "max")
-        params.setMissableBoolean(requestData.replacement, for: "replacement")
+        if let replacement = requestData.replacement {
+            params.setBoolean(replacement, for: "replacement")
+        }
         let base: Decimal?
         switch requestData.base {
         case .none: base = nil
@@ -30,7 +32,9 @@ class GenerateIntegersHttpExchange: HttpExchange<GenerateIntegersRequestData, Ge
         case .some(.decimal): base = 10
         case .some(.hexadecimal): base = 16
         }
-        params.setMissableNumber(base, for: "base")
+        if let base = base {
+            params.setNumber(base, for: "base")
+        }
         let id = requestData.id
         let requestObject = constructRequestObject(method: "generateIntegers", params: params, id: id)
         let body = try JsonSerialization.data(requestObject)
@@ -41,7 +45,7 @@ class GenerateIntegersHttpExchange: HttpExchange<GenerateIntegersRequestData, Ge
     override func parseResponse(_ httpResponse: HttpResponse) throws -> GenerateIntegersParsedResponse {
         let code = httpResponse.code
         guard code == HttpResponseCode.ok else {
-            let error = AFoundationError("Unexpected code \(code)")
+            let error = MessageError("Unexpected code \(code)")
             throw error
         }
         let body = httpResponse.body ?? Data()

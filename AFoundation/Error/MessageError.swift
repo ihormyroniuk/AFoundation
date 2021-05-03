@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct AFoundationError: Error, CustomDebugStringConvertible {
+public struct MessageError: Error, CustomDebugStringConvertible {
     
     private let fileId: StaticString
     private let line: UInt

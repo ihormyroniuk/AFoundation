@@ -82,7 +82,7 @@
 		C58A618425D0414000FE4606 /* HttpExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A618325D0414000FE4606 /* HttpExchange.swift */; };
 		C59BEE0025CED67F003EF9AA /* ApiJsonRpcRelease2BasicGenerateIntegersParsedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59BEDFF25CED67F003EF9AA /* ApiJsonRpcRelease2BasicGenerateIntegersParsedResponse.swift */; };
 		C59BEE0C25CF3A8F003EF9AA /* DecimalUInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59BEE0B25CF3A8F003EF9AA /* DecimalUInt.swift */; };
-		C59F969326135F5E0026220A /* AFoundationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59F969226135F5E0026220A /* AFoundationError.swift */; };
+		C59F969326135F5E0026220A /* MessageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59F969226135F5E0026220A /* MessageError.swift */; };
 		C5BC0A33255F06F40066E85F /* URLComponentsConstructUrlUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC0A32255F06F40066E85F /* URLComponentsConstructUrlUnitTesting.swift */; };
 		C5EA879025CAEE1E00D5F75C /* URLSessionHttpExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EA878F25CAEE1E00D5F75C /* URLSessionHttpExchange.swift */; };
 		C5EE87A025F422B500021712 /* ISO8601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE879F25F422B500021712 /* ISO8601DateFormatter.swift */; };
@@ -199,7 +199,7 @@
 		C58A618325D0414000FE4606 /* HttpExchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpExchange.swift; sourceTree = "<group>"; };
 		C59BEDFF25CED67F003EF9AA /* ApiJsonRpcRelease2BasicGenerateIntegersParsedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiJsonRpcRelease2BasicGenerateIntegersParsedResponse.swift; sourceTree = "<group>"; };
 		C59BEE0B25CF3A8F003EF9AA /* DecimalUInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalUInt.swift; sourceTree = "<group>"; };
-		C59F969226135F5E0026220A /* AFoundationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFoundationError.swift; sourceTree = "<group>"; };
+		C59F969226135F5E0026220A /* MessageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageError.swift; sourceTree = "<group>"; };
 		C5BC0A32255F06F40066E85F /* URLComponentsConstructUrlUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponentsConstructUrlUnitTesting.swift; sourceTree = "<group>"; };
 		C5EA878F25CAEE1E00D5F75C /* URLSessionHttpExchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHttpExchange.swift; sourceTree = "<group>"; };
 		C5EE879F25F422B500021712 /* ISO8601DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601DateFormatter.swift; sourceTree = "<group>"; };
@@ -602,7 +602,7 @@
 		C59F969126135F270026220A /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				C59F969226135F5E0026220A /* AFoundationError.swift */,
+				C59F969226135F5E0026220A /* MessageError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -820,7 +820,7 @@
 				33107F54239134B400789467 /* TableNameBundleTextLocalizer.swift in Sources */,
 				C54D46EA25154357004B1467 /* JsonArray.swift in Sources */,
 				C55CF548255209EF00E61A03 /* UriScheme.swift in Sources */,
-				C59F969326135F5E0026220A /* AFoundationError.swift in Sources */,
+				C59F969326135F5E0026220A /* MessageError.swift in Sources */,
 				C54D708124EC61AC00C46616 /* JsonValue.swift in Sources */,
 				C54ADD1C25532BFB00132564 /* MediaType.swift in Sources */,
 				C5EA879025CAEE1E00D5F75C /* URLSessionHttpExchange.swift in Sources */,

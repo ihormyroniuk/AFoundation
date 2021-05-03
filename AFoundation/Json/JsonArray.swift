@@ -21,7 +21,7 @@ public extension JsonArray {
     func strings() throws -> [String] {
         let strings: [String]
         do { strings = try map({ try $0.string() }) } catch {
-            throw AFoundationError("\(String(reflecting: self)) is not strings array\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) is not strings array\n\(String(reflecting: error))")
         }
         return strings
     }
@@ -29,7 +29,7 @@ public extension JsonArray {
     func nullableStrings() throws -> [String?] {
         let strings: [String?]
         do { strings = try map({ try $0.nullableString() }) } catch {
-            throw AFoundationError("\(String(reflecting: self)) is not nullable strings array\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) is not nullable strings array\n\(String(reflecting: error))")
         }
         return strings
     }
@@ -61,7 +61,7 @@ public extension JsonArray {
     func numbers() throws -> [Decimal] {
         let numbers: [Decimal]
         do { numbers = try map({ try $0.number() }) } catch {
-            throw AFoundationError("\(String(reflecting: self)) is not numbers array\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) is not numbers array\n\(String(reflecting: error))")
         }
         return numbers
     }
@@ -69,7 +69,7 @@ public extension JsonArray {
     func nullableNumbers() throws -> [Decimal?] {
         let numbers: [Decimal?]
         do { numbers = try map({ try $0.nullableNumber() }) } catch {
-            throw AFoundationError("\(String(reflecting: self)) is not nullable numbers array\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) is not nullable numbers array\n\(String(reflecting: error))")
         }
         return numbers
     }
@@ -101,7 +101,7 @@ public extension JsonArray {
     func objects() throws -> [JsonObject] {
         let objects: [JsonObject]
         do { objects = try map({ try $0.object() }) } catch {
-            throw AFoundationError("\(String(reflecting: self)) is not strings array\nError: \(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) is not strings array\nError: \(String(reflecting: error))")
         }
         return objects
     }
@@ -109,7 +109,7 @@ public extension JsonArray {
     func nullableObjects() throws -> [JsonObject?] {
         let objects: [JsonObject?]
         do { objects = try map({ try $0.nullableObject() }) } catch {
-            throw AFoundationError("\(String(reflecting: self)) is not nullable strings array\nError: \(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) is not nullable strings array\nError: \(String(reflecting: error))")
         }
         return objects
     }
@@ -141,7 +141,7 @@ public extension JsonArray {
     func arrays() throws -> [JsonArray] {
         let arrays: [JsonArray]
         do { arrays = try map({ try $0.array() }) } catch {
-            throw AFoundationError("\(String(reflecting: self)) is not strings array\nError: \(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) is not strings array\nError: \(String(reflecting: error))")
         }
         return arrays
     }
@@ -149,7 +149,7 @@ public extension JsonArray {
     func nullableArrays() throws -> [JsonArray?] {
         let arrays: [JsonArray?]
         do { arrays = try map({ try $0.nullableArray() }) } catch {
-            throw AFoundationError("\(String(reflecting: self)) is not nullable strings array\nError: \(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) is not nullable strings array\nError: \(String(reflecting: error))")
         }
         return arrays
     }
@@ -181,7 +181,7 @@ public extension JsonArray {
     func booleans() throws -> [Bool] {
         let booleans: [Bool]
         do { booleans = try map({ try $0.boolean() }) } catch {
-            throw AFoundationError("\(String(reflecting: self)) is not strings array\nError: \(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) is not strings array\nError: \(String(reflecting: error))")
         }
         return booleans
     }
@@ -189,7 +189,7 @@ public extension JsonArray {
     func nullableBooleans() throws -> [Bool?] {
         let booleans: [Bool?]
         do { booleans = try map({ try $0.nullableBoolean() }) } catch {
-            throw AFoundationError("\(String(reflecting: self)) is not nullable strings array\nError: \(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) is not nullable strings array\nError: \(String(reflecting: error))")
         }
         return booleans
     }

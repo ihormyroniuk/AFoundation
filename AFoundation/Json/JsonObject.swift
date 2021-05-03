@@ -16,7 +16,7 @@ public extension JsonObject {
     
     func value(_ key: String) throws -> JsonValue {
         if let value = self[key] { return value }
-        else { throw AFoundationError("\(String(reflecting: self)) does not have value for key \(String(reflecting: key))") }
+        else { throw MessageError("\(String(reflecting: self)) does not have value for key \(String(reflecting: key))") }
     }
 
     // MARK: String
@@ -27,7 +27,7 @@ public extension JsonObject {
             let string = try value.string()
             return string
         } catch {
-            throw AFoundationError("\(String(reflecting: self)) does not have string for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) does not have string for key \(String(reflecting: key))\n\(String(reflecting: error))")
         }
     }
 
@@ -37,7 +37,7 @@ public extension JsonObject {
             let string = try value.nullableString()
             return string
         } catch {
-            throw AFoundationError("\(String(reflecting: self)) does not have string or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) does not have string or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
         }
     }
     
@@ -45,7 +45,7 @@ public extension JsonObject {
         guard let value = self[key] else { return nil }
         let string: String
         do { string = try value.string() } catch {
-            throw AFoundationError("\(String(reflecting: self)) does not have string for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) does not have string for key \(String(reflecting: key))\n\(String(reflecting: error))")
         }
         return string
     }
@@ -54,7 +54,7 @@ public extension JsonObject {
         guard let value = self[key] else { return nil }
         let string: String?
         do { string = try value.nullableString() } catch {
-            throw AFoundationError("\(String(reflecting: self)) does not have string or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) does not have string or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
         }
         return string
     }
@@ -76,7 +76,7 @@ public extension JsonObject {
             let number = try value.number()
             return number
         } catch {
-            throw AFoundationError("\(String(reflecting: self)) does not have number for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) does not have number for key \(String(reflecting: key))\n\(String(reflecting: error))")
         }
     }
 
@@ -86,7 +86,7 @@ public extension JsonObject {
             let number = try value.nullableNumber()
             return number
         } catch {
-            throw AFoundationError("\(String(reflecting: self)) does not have number or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) does not have number or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
         }
     }
     
@@ -94,7 +94,7 @@ public extension JsonObject {
         guard let value = self[key] else { return nil }
         let number: Decimal
         do { number = try value.number() } catch {
-            throw AFoundationError("\(String(reflecting: self)) does not have number for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) does not have number for key \(String(reflecting: key))\n\(String(reflecting: error))")
         }
         return number
     }
@@ -103,7 +103,7 @@ public extension JsonObject {
         guard let value = self[key] else { return nil }
         let number: Decimal?
         do { number = try value.nullableNumber() } catch {
-            throw AFoundationError("\(String(reflecting: self)) does not have number or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) does not have number or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
         }
         return number
     }
@@ -125,7 +125,7 @@ public extension JsonObject {
             let object = try value.object()
             return object
         } catch {
-            throw AFoundationError("\(String(reflecting: self)) does not have object for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) does not have object for key \(String(reflecting: key))\n\(String(reflecting: error))")
         }
     }
 
@@ -135,7 +135,7 @@ public extension JsonObject {
             let object = try value.nullableObject()
             return object
         } catch {
-            throw AFoundationError("\(String(reflecting: self)) does not have object or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) does not have object or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
         }
     }
     
@@ -143,7 +143,7 @@ public extension JsonObject {
         guard let value = self[key] else { return nil }
         let object: JsonObject
         do { object = try value.object() } catch {
-            throw AFoundationError("\(String(reflecting: self)) does not have object for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) does not have object for key \(String(reflecting: key))\n\(String(reflecting: error))")
         }
         return object
     }
@@ -152,7 +152,7 @@ public extension JsonObject {
         guard let value = self[key] else { return nil }
         let object: JsonObject?
         do { object = try value.nullableObject() } catch {
-            throw AFoundationError("\(String(reflecting: self)) does not have object or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) does not have object or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
         }
         return object
     }
@@ -174,7 +174,7 @@ public extension JsonObject {
             let array = try value.array()
             return array
         } catch {
-            throw AFoundationError("\(String(reflecting: self)) does not have array for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) does not have array for key \(String(reflecting: key))\n\(String(reflecting: error))")
         }
     }
 
@@ -184,7 +184,7 @@ public extension JsonObject {
             let array = try value.nullableArray()
             return array
         } catch {
-            throw AFoundationError("\(String(reflecting: self)) does not have array or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) does not have array or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
         }
     }
     
@@ -192,7 +192,7 @@ public extension JsonObject {
         guard let value = self[key] else { return nil }
         let array: JsonArray
         do { array = try value.array() } catch {
-            throw AFoundationError("\(String(reflecting: self)) does not have array for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) does not have array for key \(String(reflecting: key))\n\(String(reflecting: error))")
         }
         return array
     }
@@ -201,7 +201,7 @@ public extension JsonObject {
         guard let value = self[key] else { return nil }
         let array: JsonArray?
         do { array = try value.nullableArray() } catch {
-            throw AFoundationError("\(String(reflecting: self)) does not have array or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: self)) does not have array or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
         }
         return array
     }
@@ -223,7 +223,7 @@ public extension JsonObject {
             let bool = try value.boolean()
             return bool
         } catch {
-            throw AFoundationError("\(String(reflecting: object)) does not have boolean for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: object)) does not have boolean for key \(String(reflecting: key))\n\(String(reflecting: error))")
         }
     }
 
@@ -233,7 +233,7 @@ public extension JsonObject {
             let bool = try value.nullableBoolean()
             return bool
         } catch {
-            throw AFoundationError("\(String(reflecting: object)) does not have boolean or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: object)) does not have boolean or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
         }
     }
     
@@ -241,7 +241,7 @@ public extension JsonObject {
         guard let value = self[key] else { return nil }
         let bool: Bool
         do { bool = try value.boolean() } catch {
-            throw AFoundationError("\(String(reflecting: object)) does not have boolean for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: object)) does not have boolean for key \(String(reflecting: key))\n\(String(reflecting: error))")
         }
         return bool
     }
@@ -250,7 +250,7 @@ public extension JsonObject {
         guard let value = self[key] else { return nil }
         let bool: Bool?
         do { bool = try value.nullableBoolean() } catch {
-            throw AFoundationError("\(String(reflecting: object)) does not have boolean or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: object)) does not have boolean or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
         }
         return bool
     }

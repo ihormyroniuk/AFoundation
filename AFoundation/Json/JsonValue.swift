@@ -23,13 +23,13 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
     
     public func string() throws -> String {
         if case .string(let string) = self { return string }
-        else { throw AFoundationError("\(String(reflecting: self)) is not string") }
+        else { throw MessageError("\(String(reflecting: self)) is not string") }
     }
     
     public func nullableString() throws -> String? {
         if case .string(let string) = self { return string }
         else if case .null = self { return nil }
-        else { throw AFoundationError("\(String(reflecting: self)) is not string or null") }
+        else { throw MessageError("\(String(reflecting: self)) is not string or null") }
     }
     
     // MARK: Number
@@ -42,13 +42,13 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
     
     public func number() throws -> Decimal {
         if case .number(let number) = self { return number }
-        else { throw AFoundationError("\(String(reflecting: self)) is not number") }
+        else { throw MessageError("\(String(reflecting: self)) is not number") }
     }
     
     public func nullableNumber() throws -> Decimal? {
         if case .number(let decimal) = self { return decimal }
         else if case .null = self { return nil }
-        else { throw AFoundationError("\(String(reflecting: self)) is not number or null") }
+        else { throw MessageError("\(String(reflecting: self)) is not number or null") }
     }
     
     // MARK: Object
@@ -61,13 +61,13 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
     
     public func object() throws -> JsonObject {
         if case .object(let object) = self { return object }
-        else { throw AFoundationError("\(String(reflecting: self)) is not object") }
+        else { throw MessageError("\(String(reflecting: self)) is not object") }
     }
     
     public func nullableObject() throws -> JsonObject? {
         if case .object(let object) = self { return object }
         else if case .null = self { return nil }
-        else { throw AFoundationError("\(String(reflecting: self)) is not object or null") }
+        else { throw MessageError("\(String(reflecting: self)) is not object or null") }
     }
     
     // MARK: Array
@@ -80,13 +80,13 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
     
     public func array() throws -> JsonArray {
         if case .array(let array) = self { return array }
-        else { throw AFoundationError("\(String(reflecting: self)) is not array") }
+        else { throw MessageError("\(String(reflecting: self)) is not array") }
     }
     
     public func nullableArray() throws -> JsonArray? {
         if case .array(let array) = self { return array }
         else if case .null = self { return nil }
-        else { throw AFoundationError("\(String(reflecting: self)) is not array or null") }
+        else { throw MessageError("\(String(reflecting: self)) is not array or null") }
     }
     
     // MARK: Boolean
@@ -99,13 +99,13 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
     
     public func boolean() throws -> Bool {
         if case .boolean(let bool) = self { return bool }
-        else { throw AFoundationError("\(String(reflecting: self)) is not boolean") }
+        else { throw MessageError("\(String(reflecting: self)) is not boolean") }
     }
     
     public func nullableBoolean() throws -> Bool? {
         if case .boolean(let bool) = self { return bool }
         else if case .null = self { return nil }
-        else { throw AFoundationError("\(String(reflecting: self)) is not boolean or null") }
+        else { throw MessageError("\(String(reflecting: self)) is not boolean or null") }
     }
     
     // MARK: Null

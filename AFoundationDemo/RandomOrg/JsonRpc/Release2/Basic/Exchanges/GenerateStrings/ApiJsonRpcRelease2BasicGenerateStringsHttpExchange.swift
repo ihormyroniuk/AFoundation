@@ -21,7 +21,9 @@ class GenerateStringsHttpExchange: HttpExchange<GenerateStringsRequestData, Gene
         params.setNumber(Decimal(requestData.n), for: "n")
         params.setNumber(Decimal(requestData.lenght), for: "length")
         params.setString(requestData.characters, for: "characters")
-        params.setMissableBoolean(requestData.replacement, for: "replacement")
+        if let replacement = requestData.replacement {
+            params.setBoolean(replacement, for: "replacement")
+        }
         let id = requestData.id
         let requestObject = constructRequestObject(method: "generateStrings", params: params, id: id)
         let body = try JsonSerialization.data(requestObject)
@@ -32,7 +34,7 @@ class GenerateStringsHttpExchange: HttpExchange<GenerateStringsRequestData, Gene
     override func parseResponse(_ httpResponse: HttpResponse) throws -> GenerateStringsParsedResponse {
         let code = httpResponse.code
         guard code == HttpResponseCode.ok else {
-            let error = AFoundationError("Unexpected code \(code)")
+            let error = MessageError("Unexpected code \(code)")
             throw error
         }
         let body = httpResponse.body ?? Data()

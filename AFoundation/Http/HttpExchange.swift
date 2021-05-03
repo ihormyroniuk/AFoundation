@@ -11,11 +11,11 @@ import Foundation
 open class HttpExchange<ParsedResponse>: CustomDebugStringConvertible {
     
     open func constructRequest() throws -> HttpRequest {
-        throw AFoundationError("\(#function) is not implemented")
+        throw MessageError("\(#function) is not implemented")
     }
     
     open func parseResponse(_ response: HttpResponse) throws -> ParsedResponse {
-        throw AFoundationError("\(#function) is not implemented")
+        throw MessageError("\(#function) is not implemented")
     }
     
     // MARK: CustomDebugStringConvertible

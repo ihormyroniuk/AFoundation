@@ -25,7 +25,7 @@ public enum Language {
         case englishCode: self = .english
         case russianCode: self = .russian
         case ukrainianCode: self = .ukrainian
-        default: throw AFoundationError("Cannot initialize \(String(reflecting: Language.self)) with code \(String(reflecting: code))")
+        default: throw MessageError("Cannot initialize \(String(reflecting: Language.self)) with code \(String(reflecting: code))")
         }
     }
     

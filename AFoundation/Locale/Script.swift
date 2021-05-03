@@ -19,7 +19,7 @@ public enum Script {
     init(code: String) throws {
         switch code {
         case arabicCode: self = .arabic
-        default: throw AFoundationError("Cannot initialize \(String(reflecting: Script.self)) with code \(String(reflecting: code))")
+        default: throw MessageError("Cannot initialize \(String(reflecting: Script.self)) with code \(String(reflecting: code))")
         }
     }
     

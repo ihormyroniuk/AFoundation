@@ -32,14 +32,14 @@ public enum JsonSerialization {
             }
             if let bool = any as? Bool { return .boolean(bool) }
             if any is NSNull { return .null }
-            throw AFoundationError("\(String(reflecting: any)) is not JSON value")
+            throw MessageError("\(String(reflecting: any)) is not JSON value")
         }
         do {
             let any = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
             let jsonValue = try json(any)
             return jsonValue
         } catch {
-            throw AFoundationError("\(String(reflecting: data)) is not JSON value\n\(String(reflecting: error))")
+            throw MessageError("\(String(reflecting: data)) is not JSON value\n\(String(reflecting: error))")
         }
     }
     
@@ -58,7 +58,7 @@ public enum JsonSerialization {
         }
         let data: Data
         do { data = try JSONSerialization.data(withJSONObject: any(value), options: [.fragmentsAllowed]) } catch {
-            throw AFoundationError("Cannot get data from \(String(reflecting: value))\n\(String(reflecting: error))")
+            throw MessageError("Cannot get data from \(String(reflecting: value))\n\(String(reflecting: error))")
         }
         return data
     }
