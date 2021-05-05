@@ -10,7 +10,7 @@ import Foundation
 
 public extension HTTPURLResponse {
     
-    func httpResponse(data: Data?) -> HttpResponse {
+    func httpResponse(_ data: Data?) -> HttpResponse {
         let version = ""
         let code = statusCode
         let phrase = ""

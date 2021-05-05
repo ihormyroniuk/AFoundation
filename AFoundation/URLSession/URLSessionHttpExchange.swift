@@ -67,7 +67,7 @@ public extension URLSession {
         do { httpRequest = try httpExchange.constructRequest() } catch {
             throw MessageError("\(error)")
         }
-        let urlRequest = URLRequest(httpRequest: httpRequest)
+        let urlRequest = URLRequest(httpRequest)
         let dataTask = self.httpDataTask(with: urlRequest) { (result) in
             switch result {
             case let .success(response):
@@ -75,7 +75,7 @@ public extension URLSession {
                 case let .notConnectedToInternet(error):
                     completionHandler(.success(.notConnectedToInternet(error)))
                 case let .httpUrlResponseWithData(httpUrlResponse, data):
-                    let httpResponse = httpUrlResponse.httpResponse(data: data)
+                    let httpResponse = httpUrlResponse.httpResponse(data)
                     let parsedResponse: ParsedResponse
                     do { parsedResponse = try httpExchange.parseResponse(httpResponse) } catch {
                         completionHandler(.failure(MessageError("\(String(reflecting: error))")))

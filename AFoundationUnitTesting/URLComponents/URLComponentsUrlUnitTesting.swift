@@ -7,10 +7,9 @@
 //
 
 import XCTest
-import Foundation
 @testable import AFoundation
 
-class URLComponentsConstructUrlUnitTesting: XCTestCase {
+class URLComponentsUrlUnitTesting: XCTestCase {
     
     func testSchemeHost() {
         var urlComponents = URLComponents()

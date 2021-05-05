@@ -19,7 +19,7 @@ class URLRequestInitHttpRequestUnitTesting: XCTestCase {
         let body: Data? = nil
         let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: headers, body: body)
         
-        let httpRequestUrlRequest = URLRequest(httpRequest: httpRequest)
+        let httpRequestUrlRequest = URLRequest(httpRequest)
         
         var urlRequest = URLRequest(url: uri)
         urlRequest.httpMethod = method
@@ -36,7 +36,7 @@ class URLRequestInitHttpRequestUnitTesting: XCTestCase {
         let body: Data? = nil
         let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: headers, body: body)
         
-        let httpRequestUrlRequest = URLRequest(httpRequest: httpRequest)
+        let httpRequestUrlRequest = URLRequest(httpRequest)
         
         var urlRequest = URLRequest(url: uri)
         urlRequest.httpMethod = method
@@ -53,7 +53,7 @@ class URLRequestInitHttpRequestUnitTesting: XCTestCase {
         let body: Data = Data([0x00])
         let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: headers, body: body)
         
-        let httpRequestUrlRequest = URLRequest(httpRequest: httpRequest)
+        let httpRequestUrlRequest = URLRequest(httpRequest)
         
         var urlRequest = URLRequest(url: uri)
         urlRequest.httpMethod = method
@@ -70,7 +70,7 @@ class URLRequestInitHttpRequestUnitTesting: XCTestCase {
         let body: Data = Data([0x00])
         let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: headers, body: body)
         
-        let httpRequestUrlRequest = URLRequest(httpRequest: httpRequest)
+        let httpRequestUrlRequest = URLRequest(httpRequest)
         
         var urlRequest = URLRequest(url: uri)
         urlRequest.httpMethod = method

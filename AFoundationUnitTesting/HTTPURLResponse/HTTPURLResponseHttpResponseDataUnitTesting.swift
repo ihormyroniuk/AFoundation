@@ -20,7 +20,7 @@ class HTTPURLResponseHttpResponseDataUnitTesting: XCTestCase {
         let httpUrlResponse = HTTPURLResponse(url: url, statusCode: code, httpVersion: version, headerFields: headers)!
         let data = Data([0x00])
         
-        let httpUrlResponseHttpResponse = httpUrlResponse.httpResponse(data: data)
+        let httpUrlResponseHttpResponse = httpUrlResponse.httpResponse(data)
         
         let httpResponse = HttpResponse(version: version, code: code, phrase: phrase, headers: headers, body: data)
         XCTAssertTrue(httpUrlResponseHttpResponse == httpResponse, "Unexpected HTTPResponse \"\(httpResponse)\" is found while \"(\(httpUrlResponse.statusCode)\" is expected)")
@@ -36,7 +36,7 @@ class HTTPURLResponseHttpResponseDataUnitTesting: XCTestCase {
         let httpUrlResponse = HTTPURLResponse(url: url, statusCode: code, httpVersion: version, headerFields: headers)!
         let data: Data? = nil
         
-        let httpResponse = httpUrlResponse.httpResponse(data: data)
+        let httpResponse = httpUrlResponse.httpResponse(data)
         
         let description = httpResponse.debugDescription
         

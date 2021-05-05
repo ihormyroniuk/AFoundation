@@ -10,7 +10,7 @@ import Foundation
 
 public extension URLRequest {
     
-    init(httpRequest: HttpRequest) {
+    init(_ httpRequest: HttpRequest) {
         let uri = httpRequest.uri
         self.init(url: uri)
         httpMethod = httpRequest.method
