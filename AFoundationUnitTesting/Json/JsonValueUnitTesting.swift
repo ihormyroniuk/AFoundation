@@ -467,5 +467,117 @@ class JsonValueUnitTesting: XCTestCase {
         
         XCTAssert(jsonValue1 != jsonValue2, "\(String(reflecting: jsonValue1)) has to be equal to \(String(reflecting: jsonValue2))")
     }
+    
+    // MARK: CustomDebugStringConvertible
+    
+    func testDebugDescriptionString() {
+        let jsonValue = JsonValue.string("someString")
+        
+        let debugDescription = String(reflecting: jsonValue)
+        
+        let expectedDebugDescription = "AFoundation.JsonValue.string(\"someString\")"
+        XCTAssert(debugDescription == expectedDebugDescription, "Unexpected \(String(reflecting: debugDescription)) is returned, but \(String(reflecting: expectedDebugDescription)) is expected")
+    }
+    
+    func testDebugDescriptionNumber() {
+        let jsonValue = JsonValue.number(Decimal(1))
+        
+        let debugDescription = String(reflecting: jsonValue)
+        
+        let expectedDebugDescription = "AFoundation.JsonValue.number(1)"
+        XCTAssert(debugDescription == expectedDebugDescription, "Unexpected \(String(reflecting: debugDescription)) is returned, but \(String(reflecting: expectedDebugDescription)) is expected")
+    }
+    
+    func testDebugDescriptionObject() {
+        let jsonValue = JsonValue.object([:])
+        
+        let debugDescription = String(reflecting: jsonValue)
+        
+        let expectedDebugDescription = "AFoundation.JsonValue.object([:])"
+        XCTAssert(debugDescription == expectedDebugDescription, "Unexpected \(String(reflecting: debugDescription)) is returned, but \(String(reflecting: expectedDebugDescription)) is expected")
+    }
+    
+    func testDebugDescriptionArray() {
+        let jsonValue = JsonValue.array([])
+        
+        let debugDescription = String(reflecting: jsonValue)
+        
+        let expectedDebugDescription = "AFoundation.JsonValue.array([])"
+        XCTAssert(debugDescription == expectedDebugDescription, "Unexpected \(String(reflecting: debugDescription)) is returned, but \(String(reflecting: expectedDebugDescription)) is expected")
+    }
+    
+    func testDebugDescriptionBoolean() {
+        let jsonValue = JsonValue.boolean(true)
+        
+        let debugDescription = String(reflecting: jsonValue)
+        
+        let expectedDebugDescription = "AFoundation.JsonValue.boolean(true)"
+        XCTAssert(debugDescription == expectedDebugDescription, "Unexpected \(String(reflecting: debugDescription)) is returned, but \(String(reflecting: expectedDebugDescription)) is expected")
+    }
+    
+    func testDebugDescriptionNull() {
+        let jsonValue = JsonValue.null
+        
+        let debugDescription = String(reflecting: jsonValue)
+        
+        let expectedDebugDescription = "AFoundation.JsonValue.null"
+        XCTAssert(debugDescription == expectedDebugDescription, "Unexpected \(String(reflecting: debugDescription)) is returned, but \(String(reflecting: expectedDebugDescription)) is expected")
+    }
+    
+    // MARK: Hashable
 
+    func testHashValueString() {
+        let jsonValue = JsonValue.string("someString")
+        
+        let hashValue = jsonValue.hashValue
+        
+        let expectedHashValue = "someString".hashValue
+        XCTAssert(hashValue == expectedHashValue, "Unexpected \(String(reflecting: hashValue)) is returned, but \(String(reflecting: expectedHashValue)) is expected")
+    }
+    
+    func testHashValueNumber() {
+        let jsonValue = JsonValue.number(Decimal(1))
+        
+        let hashValue = jsonValue.hashValue
+        
+        let expectedHashValue = Decimal(1).hashValue
+        XCTAssert(hashValue == expectedHashValue, "Unexpected \(String(reflecting: hashValue)) is returned, but \(String(reflecting: expectedHashValue)) is expected")
+    }
+    
+    func testHashValueObject() {
+        let jsonValue = JsonValue.object(object)
+        
+        let hashValue = jsonValue.hashValue
+        
+        let expectedHashValue = object.hashValue
+        XCTAssert(hashValue == expectedHashValue, "Unexpected \(String(reflecting: hashValue)) is returned, but \(String(reflecting: expectedHashValue)) is expected")
+    }
+    
+    func testHashValueArray() {
+        let jsonValue = JsonValue.array(array)
+        
+        let hashValue = jsonValue.hashValue
+        
+        let expectedHashValue = array.hashValue
+        XCTAssert(hashValue == expectedHashValue, "Unexpected \(String(reflecting: hashValue)) is returned, but \(String(reflecting: expectedHashValue)) is expected")
+    }
+    
+    func testHashValueBoolean() {
+        let jsonValue = JsonValue.boolean(true)
+        
+        let hashValue = jsonValue.hashValue
+        
+        let expectedHashValue = true.hashValue
+        XCTAssert(hashValue == expectedHashValue, "Unexpected \(String(reflecting: hashValue)) is returned, but \(String(reflecting: expectedHashValue)) is expected")
+    }
+    
+    func testHashValueNull() {
+        let jsonValue = JsonValue.null
+        
+        let hashValue = jsonValue.hashValue
+        
+        let expectedHashValue = NSNull.null.hashValue
+        XCTAssert(hashValue == expectedHashValue, "Unexpected \(String(reflecting: hashValue)) is returned, but \(String(reflecting: expectedHashValue)) is expected")
+    }
+    
 }
