@@ -92,19 +92,13 @@ class HttpRequestUnitTesting: XCTestCase {
         let uri = URL(string: "https://localhost")!
         let version = "HTTP/1.1"
         let headers: [String: String] = ["headerField1": "headerField1"]
-        let body: Data? = Data([0x01])
+        let body: Data? = Data([0x01, 0x02, 0x23])
         
         let httpRequest = HttpRequest(method: method, uri: uri, version: version, headers: headers, body: body)
         
         let description = httpRequest.debugDescription
         
-        let expectedDescription =
-            """
-            GET https://localhost HTTP/1.1
-            headerField1:headerField1
-            
-            00000001
-            """
+        let expectedDescription = "AFoundation.HttpRequest(method: \"GET\", uri: https://localhost, version: \"HTTP/1.1\", headers: Optional([\"headerField1\": \"headerField1\"]), body: Optional(\"010223\")))"
         XCTAssertTrue(description == expectedDescription, "Unexpected description \(description)) is found, but description \(expectedDescription) is expected")
     }
     

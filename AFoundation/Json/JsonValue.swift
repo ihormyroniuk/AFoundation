@@ -135,7 +135,7 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
         case let .object(object): hasher.combine(object)
         case let .array(array): hasher.combine(array)
         case let .boolean(bool): hasher.combine(bool)
-        case .null: hasher.combine(0)
+        case .null: hasher.combine(NSNull.null)
         }
     }
     

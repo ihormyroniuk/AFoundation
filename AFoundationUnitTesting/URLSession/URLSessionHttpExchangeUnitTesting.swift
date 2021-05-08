@@ -45,7 +45,7 @@ class URLSessionHttpExchangeUnitTesting: XCTestCase {
         let url = URL(string: "localhost")!
         let request = URLRequest(url: url)
         
-        var dataTask = urlSession.dataTask(with: request) { (result) in
+        var dataTask = urlSession.urlDataTask(with: request) { (result) in
             
         }
         //dataTask.data = Data()

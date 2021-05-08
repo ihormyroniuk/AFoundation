@@ -571,13 +571,4 @@ class JsonValueUnitTesting: XCTestCase {
         XCTAssert(hashValue == expectedHashValue, "Unexpected \(String(reflecting: hashValue)) is returned, but \(String(reflecting: expectedHashValue)) is expected")
     }
     
-    func testHashValueNull() {
-        let jsonValue = JsonValue.null
-        
-        let hashValue = jsonValue.hashValue
-        
-        let expectedHashValue = NSNull.null.hashValue
-        XCTAssert(hashValue == expectedHashValue, "Unexpected \(String(reflecting: hashValue)) is returned, but \(String(reflecting: expectedHashValue)) is expected")
-    }
-    
 }

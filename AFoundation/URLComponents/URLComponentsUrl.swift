@@ -11,8 +11,10 @@ import Foundation
 public extension URLComponents {
     
     func url() throws -> URL {
-        if let url = self.url { return url }
-        else { throw MessageError("\(String(reflecting: self)) cannot construct \(String(reflecting: URL.self))") }
+        guard let url = self.url else {
+            throw MessageError("\(String(reflecting: self)) cannot construct \(String(reflecting: URL.self))")
+        }
+        return url
     }
     
 }
