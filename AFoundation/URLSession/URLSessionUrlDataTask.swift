@@ -29,7 +29,7 @@ public extension URLSession {
             } else if let urlResponse = urlResponse {
                 completionHandler(.success(.urlResponseWithData(urlResponse, data)))
             } else {
-                let error = MessageError("")
+                let error = MessageError("\(urlRequest)")
                 completionHandler(.failure(error))
             }
         }

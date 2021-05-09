@@ -30,7 +30,22 @@ public struct HttpRequest: Equatable, CustomDebugStringConvertible {
     // MARK: CustomDebugStringConvertible
     
     public var debugDescription: String {
-        return "\(String(reflecting: Self.self))(method: \(String(reflecting: method)), uri: \(String(reflecting: uri)), version: \(String(reflecting: version)), headers: \(String(reflecting: headers)), body: \(String(reflecting: body?.map { String(format: "%02x", $0) }.joined())))"
+        let methodDebugDescription = String(reflecting: method)
+        let uriDebugDescription = "\(String(reflecting: URL.self))(\(String(reflecting: uri)))"
+        let versionDebugDescription = String(reflecting: version)
+        let headersDebugDescription: String
+        if let headers = headers {
+            headersDebugDescription = String(reflecting: headers)
+        } else {
+            headersDebugDescription = "nil"
+        }
+        let bodyDebugDescription: String
+        if let body = body {
+            bodyDebugDescription = String(reflecting: body.map { $0 })
+        } else {
+            bodyDebugDescription = "nil"
+        }
+        return "\(String(reflecting: Self.self))(method: \(methodDebugDescription), uri: \(uriDebugDescription), version: \(versionDebugDescription), headers: \(headersDebugDescription), body: \(bodyDebugDescription)"
     }
     
 }

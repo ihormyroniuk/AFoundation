@@ -30,13 +30,22 @@ public struct HttpResponse: Equatable, CustomDebugStringConvertible {
     // MARK: CustomDebugStringConvertible
     
     public var debugDescription: String {
-        var description = "\(version) \(code) \(phrase)\n"
-        headers?.forEach({ description += "\($0):\($1)\n" })
-        if let body = body, !body.isEmpty {
-            description += "\n"
-            body.forEach({ description += String(repeating: "0", count: $0.leadingZeroBitCount) + String($0, radix: 2) })
+        let versionDebugDescription = String(reflecting: version)
+        let codeDebugDescription = String(reflecting: code)
+        let phraseDebugDescription = String(reflecting: phrase)
+        let headersDebugDescription: String
+        if let headers = headers {
+            headersDebugDescription = String(reflecting: headers)
+        } else {
+            headersDebugDescription = "nil"
         }
-        return description
+        let bodyDebugDescription: String
+        if let body = body {
+            bodyDebugDescription = String(reflecting: body.map { $0 })
+        } else {
+            bodyDebugDescription = "nil"
+        }
+        return "\(String(reflecting: Self.self))(version: \(versionDebugDescription), code: \(codeDebugDescription), phrase: \(phraseDebugDescription), headers: \(headersDebugDescription), body: \(bodyDebugDescription))"
     }
     
 }

@@ -21,7 +21,7 @@ open class HttpExchange<ParsedResponse>: CustomDebugStringConvertible {
     // MARK: CustomDebugStringConvertible
     
     public var debugDescription: String {
-        return "\(String(reflecting: Self.self))"
+        return "\(String(reflecting: Self.self))()"
     }
 }
 
@@ -38,7 +38,9 @@ open class SchemeHostHttpExchange<ParsedResponse>: HttpExchange<ParsedResponse> 
     // MARK: CustomDebugStringConvertible
     
     public override var debugDescription: String {
-        return "\(String(reflecting: Self.self))(scheme: \(String(reflecting: scheme)), host: \(String(reflecting: host)))"
+        let shemeDebugDescription = String(reflecting: scheme)
+        let hostDebugDescription = String(reflecting: host)
+        return "\(String(reflecting: Self.self))(scheme: \(shemeDebugDescription), host: \(hostDebugDescription))"
     }
 }
 
@@ -53,7 +55,8 @@ open class RequestDataHttpExchange<RequestData, ParsedResponse>: HttpExchange<Pa
     // MARK: CustomDebugStringConvertible
     
     public override var debugDescription: String {
-        return "\(String(reflecting: Self.self))(requestData: \(String(reflecting: requestData)))"
+        let requestDataDebugDescription = String(reflecting: requestData)
+        return "\(String(reflecting: Self.self))(requestData: \(requestDataDebugDescription))"
     }
 }
 
@@ -72,6 +75,9 @@ open class SchemeHostRequestDataHttpExchange<RequestData, ParsedResponse>: HttpE
     // MARK: CustomDebugStringConvertible
     
     public override var debugDescription: String {
-        return "\(String(reflecting: Self.self))(scheme: \(String(reflecting: scheme)), host: \(String(reflecting: host)), requestData: \(String(reflecting: requestData)))"
+        let shemeDebugDescription = String(reflecting: scheme)
+        let hostDebugDescription = String(reflecting: host)
+        let requestDataDebugDescription = String(reflecting: requestData)
+        return "\(String(reflecting: Self.self))(scheme: \(shemeDebugDescription), host: \(hostDebugDescription), requestData: \(requestDataDebugDescription))"
     }
 }
