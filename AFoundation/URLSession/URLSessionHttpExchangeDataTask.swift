@@ -36,7 +36,7 @@ public extension URLSession {
                     let httpResponse = httpUrlResponse.httpResponse(data)
                     let parsedResponse: ParsedResponse
                     do { parsedResponse = try httpExchange.parseResponse(httpResponse) } catch {
-                        completionHandler(.failure(MessageError("\(String(reflecting: error))")))
+                        completionHandler(.failure(MessageError("Cannot parse HTTP response \(httpResponse) for HTTP request \(httpRequest) \n\(String(reflecting: error))")))
                         return
                     }
                     completionHandler(.success(.parsedResponse(parsedResponse)))
