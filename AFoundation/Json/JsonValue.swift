@@ -23,13 +23,13 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
     
     public func string() throws -> String {
         if case .string(let string) = self { return string }
-        else { throw MessageError("\(String(reflecting: self)) is not string") }
+        else { throw MessageError("Cannot get \(String(reflecting: String.self)) for \(String(reflecting: self))") }
     }
     
     public func nullableString() throws -> String? {
         if case .string(let string) = self { return string }
         else if case .null = self { return nil }
-        else { throw MessageError("\(String(reflecting: self)) is not string or null") }
+        else { throw MessageError("Cannot get \(String(reflecting: String?.self)) for \(String(reflecting: self))") }
     }
     
     // MARK: Number
@@ -42,13 +42,13 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
     
     public func number() throws -> Decimal {
         if case .number(let number) = self { return number }
-        else { throw MessageError("\(String(reflecting: self)) is not number") }
+        else { throw MessageError("Cannot get \(String(reflecting: Decimal.self)) for \(String(reflecting: self))") }
     }
     
     public func nullableNumber() throws -> Decimal? {
         if case .number(let decimal) = self { return decimal }
         else if case .null = self { return nil }
-        else { throw MessageError("\(String(reflecting: self)) is not number or null") }
+        else { throw MessageError("Cannot get \(String(reflecting: Decimal?.self)) for \(String(reflecting: self))") }
     }
     
     // MARK: Object
@@ -61,13 +61,13 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
     
     public func object() throws -> JsonObject {
         if case .object(let object) = self { return object }
-        else { throw MessageError("\(String(reflecting: self)) is not object") }
+        else { throw MessageError("Cannot get \(String(reflecting: JsonObject.self)) for \(String(reflecting: self))") }
     }
     
     public func nullableObject() throws -> JsonObject? {
         if case .object(let object) = self { return object }
         else if case .null = self { return nil }
-        else { throw MessageError("\(String(reflecting: self)) is not object or null") }
+        else { throw MessageError("Cannot get \(String(reflecting: JsonObject?.self)) for \(String(reflecting: self))") }
     }
     
     // MARK: Array
@@ -80,13 +80,13 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
     
     public func array() throws -> JsonArray {
         if case .array(let array) = self { return array }
-        else { throw MessageError("\(String(reflecting: self)) is not array") }
+        else { throw MessageError("Cannot get \(String(reflecting: JsonArray.self)) for \(String(reflecting: self))") }
     }
     
     public func nullableArray() throws -> JsonArray? {
         if case .array(let array) = self { return array }
         else if case .null = self { return nil }
-        else { throw MessageError("\(String(reflecting: self)) is not array or null") }
+        else { throw MessageError("Cannot get \(String(reflecting: JsonArray?.self)) for \(String(reflecting: self))") }
     }
     
     // MARK: Boolean
@@ -99,13 +99,13 @@ public enum JsonValue: Equatable, Hashable, CustomDebugStringConvertible {
     
     public func boolean() throws -> Bool {
         if case .boolean(let bool) = self { return bool }
-        else { throw MessageError("\(String(reflecting: self)) is not boolean") }
+        else { throw MessageError("Cannot get \(String(reflecting: Bool.self)) for \(String(reflecting: self))") }
     }
     
     public func nullableBoolean() throws -> Bool? {
         if case .boolean(let bool) = self { return bool }
         else if case .null = self { return nil }
-        else { throw MessageError("\(String(reflecting: self)) is not boolean or null") }
+        else { throw MessageError("Cannot get \(String(reflecting: Bool?.self)) for \(String(reflecting: self))") }
     }
     
     // MARK: Null

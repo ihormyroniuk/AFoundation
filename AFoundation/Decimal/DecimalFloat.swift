@@ -19,7 +19,7 @@ public extension Decimal {
   
     func float() throws -> Float {
         guard self >= Decimal.floatMin && self <= Decimal.floatMax else {
-            throw MessageError("Cannot convert \(String(reflecting: Decimal.self))(\(String(reflecting: self))) to \(String(reflecting: Float.self))")
+            throw MessageError("Cannot get \(String(reflecting: Float.self)) for \(String(reflecting: Decimal.self))(\(String(reflecting: self)))")
         }
         return (self as NSDecimalNumber).floatValue
     }

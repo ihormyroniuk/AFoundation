@@ -16,7 +16,7 @@ public extension JsonObject {
     
     func value(_ key: String) throws -> JsonValue {
         if let value = self[key] { return value }
-        else { throw MessageError("\(String(reflecting: self)) does not have value for key \(String(reflecting: key))") }
+        else { throw MessageError("Cannot get \(String(reflecting: JsonValue.self)) for key \(String(reflecting: key)) in \(String(reflecting: self))") }
     }
 
     // MARK: String
@@ -27,7 +27,7 @@ public extension JsonObject {
             let string = try value.string()
             return string
         } catch {
-            throw MessageError("\(String(reflecting: self)) does not have string for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("Cannot get \(String(reflecting: String.self)) for key \(String(reflecting: key)) in \(String(reflecting: self))\n\(String(reflecting: error))")
         }
     }
 
@@ -37,7 +37,7 @@ public extension JsonObject {
             let string = try value.nullableString()
             return string
         } catch {
-            throw MessageError("\(String(reflecting: self)) does not have string or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("Cannot get \(String(reflecting: String?.self)) for key \(String(reflecting: key)) in \(String(reflecting: self))\n\(String(reflecting: error))")
         }
     }
     
@@ -45,7 +45,7 @@ public extension JsonObject {
         guard let value = self[key] else { return nil }
         let string: String
         do { string = try value.string() } catch {
-            throw MessageError("\(String(reflecting: self)) does not have string for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("Cannot get \(String(reflecting: String?.self)) for key \(String(reflecting: key)) in \(String(reflecting: self))\n\(String(reflecting: error))")
         }
         return string
     }
@@ -54,7 +54,7 @@ public extension JsonObject {
         guard let value = self[key] else { return nil }
         let string: String?
         do { string = try value.nullableString() } catch {
-            throw MessageError("\(String(reflecting: self)) does not have string or null for key \(String(reflecting: key))\n\(String(reflecting: error))")
+            throw MessageError("Cannot get \(String(reflecting: String?.self)) for key \(String(reflecting: key)) in \(String(reflecting: self))\n\(String(reflecting: error))")
         }
         return string
     }
