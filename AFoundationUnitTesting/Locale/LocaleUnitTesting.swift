@@ -11,6 +11,58 @@ import XCTest
 
 class LocaleUnitTesting: XCTestCase {
     
+    // MARK: Init
+    
+    func testInitLanguage() {
+        do {
+            let language = Language.english
+            
+            let locale = Locale(language: .english, script: nil, region: nil)
+            let localeLanguage = try locale.language()
+            
+            XCTAssertTrue(localeLanguage == language, "Unexpected \"\(String(reflecting: localeLanguage)))\" is found but \"(\(String(reflecting: language)))\" is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testInitLanguageScript() {
+        do {
+            let language = Language.english
+            let script = Script.arabic
+            
+            let locale = Locale(language: .english, script: script, region: nil)
+            let localeLanguage = try locale.language()
+            let localeScript = try locale.script()
+            
+            XCTAssertTrue(localeLanguage == language, "Unexpected \"\(String(reflecting: localeLanguage)))\" is found but \"(\(String(reflecting: language)))\" is expected")
+            XCTAssertTrue(localeScript == script, "Unexpected \"\(String(reflecting: localeScript)))\" is found but \"(\(String(reflecting: script)))\" is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testInitLanguageScriptRegion() {
+        do {
+            let language = Language.english
+            let script = Script.arabic
+            let region = Region.russia
+            
+            let locale = Locale(language: .english, script: script, region: region)
+            let localeLanguage = try locale.language()
+            let localeScript = try locale.script()
+            let localeRegion = try locale.region()
+            
+            XCTAssertTrue(localeLanguage == language, "Unexpected \"\(String(reflecting: localeLanguage)))\" is found but \"(\(String(reflecting: language)))\" is expected")
+            XCTAssertTrue(localeScript == script, "Unexpected \"\(String(reflecting: localeScript)))\" is found but \"(\(String(reflecting: script)))\" is expected")
+            XCTAssertTrue(localeRegion == region, "Unexpected \"\(String(reflecting: localeRegion)))\" is found but \"(\(String(reflecting: region)))\" is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    // MARK: Language
+    
     func testLanguage() {
         let locale = Locale(identifier: "en")
 
@@ -46,6 +98,8 @@ class LocaleUnitTesting: XCTestCase {
         
         XCTAssertTrue(language == nil, "Unexpected \"\(String(reflecting: language)))\" is found but nil is expected")
     }
+    
+    // MARK: Script
 
     func testScript() {
         let locale = Locale(identifier: "en-Arab")
@@ -83,6 +137,8 @@ class LocaleUnitTesting: XCTestCase {
         XCTAssertTrue(script == nil, "Unexpected \"\(String(reflecting: script)))\" is found but nil is expected")
     }
     
+    // MARK: Region
+    
     func testRegion() {
         let locale = Locale(identifier: "en_RU")
 
@@ -118,6 +174,8 @@ class LocaleUnitTesting: XCTestCase {
         
         XCTAssertTrue(region == nil, "Unexpected \"\(String(reflecting: region)))\" is found but nil is expected")
     }
+    
+    // MARK: Currency
     
     func testCurrency() {
         let locale = Locale(identifier: "en_RU")

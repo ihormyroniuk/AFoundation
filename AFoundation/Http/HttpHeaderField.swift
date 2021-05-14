@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+    Implemented based on https://tools.ietf.org/html/rfc2616#section-14
+ */
 public enum HttpHeaderField {
     
     public static let authorization = "Authorization"

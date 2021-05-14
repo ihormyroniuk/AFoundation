@@ -87,7 +87,6 @@
 		C59F969326135F5E0026220A /* MessageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59F969226135F5E0026220A /* MessageError.swift */; };
 		C5BC0A33255F06F40066E85F /* URLComponentsUrlUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC0A32255F06F40066E85F /* URLComponentsUrlUnitTesting.swift */; };
 		C5EA879025CAEE1E00D5F75C /* URLSessionHttpExchangeDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EA878F25CAEE1E00D5F75C /* URLSessionHttpExchangeDataTask.swift */; };
-		C5EE87A025F422B500021712 /* ISO8601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE879F25F422B500021712 /* ISO8601DateFormatter.swift */; };
 		C5F503AF2343998400CE5DB9 /* DecimalDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F503AE2343998400CE5DB9 /* DecimalDouble.swift */; };
 /* End PBXBuildFile section */
 
@@ -206,7 +205,6 @@
 		C59F969226135F5E0026220A /* MessageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageError.swift; sourceTree = "<group>"; };
 		C5BC0A32255F06F40066E85F /* URLComponentsUrlUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponentsUrlUnitTesting.swift; sourceTree = "<group>"; };
 		C5EA878F25CAEE1E00D5F75C /* URLSessionHttpExchangeDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHttpExchangeDataTask.swift; sourceTree = "<group>"; };
-		C5EE879F25F422B500021712 /* ISO8601DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601DateFormatter.swift; sourceTree = "<group>"; };
 		C5F503AE2343998400CE5DB9 /* DecimalDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalDouble.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -339,7 +337,6 @@
 				C5096BBB234F7B3200EA793A /* Locale */,
 				C563842825D97506004361C7 /* NSNull */,
 				C5F503AD2343994D00CE5DB9 /* Decimal */,
-				C556D97725EEFD800061573F /* ISO8601DateFormatter */,
 				C50134A9230C196A0018D950 /* AFoundation.h */,
 				C50134AA230C196A0018D950 /* Info.plist */,
 			);
@@ -483,14 +480,6 @@
 				C54DD5BF2528AF2400F58A87 /* JsonJSONSerrializationUnitTesting.swift */,
 			);
 			path = Json;
-			sourceTree = "<group>";
-		};
-		C556D97725EEFD800061573F /* ISO8601DateFormatter */ = {
-			isa = PBXGroup;
-			children = (
-				C5EE879F25F422B500021712 /* ISO8601DateFormatter.swift */,
-			);
-			path = ISO8601DateFormatter;
 			sourceTree = "<group>";
 		};
 		C55CF546255209DD00E61A03 /* UriScheme */ = {
@@ -834,7 +823,6 @@
 				C5EA879025CAEE1E00D5F75C /* URLSessionHttpExchangeDataTask.swift in Sources */,
 				C54D46FD2515FAA4004B1467 /* URLRequestInitHttpRequest.swift in Sources */,
 				C58A617825D03E9E00FE4606 /* HttpRequest.swift in Sources */,
-				C5EE87A025F422B500021712 /* ISO8601DateFormatter.swift in Sources */,
 				C516C6AA25EDB6AD00628D77 /* HttpHeaderField.swift in Sources */,
 				330B4224238EB7E40083FCEC /* TextLocalizer.swift in Sources */,
 				C56ECDE62557E7E600969CBC /* URLComponentsUrl.swift in Sources */,

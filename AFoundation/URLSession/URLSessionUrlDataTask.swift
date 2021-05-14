@@ -29,7 +29,7 @@ public extension URLSession {
             } else if let urlResponse = urlResponse {
                 completionHandler(.success(.urlResponseWithData(urlResponse, data)))
             } else {
-                let error = MessageError("\(urlRequest)")
+                let error = MessageError("Unexpected \(String(reflecting: URLSessionDataTask.self)) completionHandler for \(String(reflecting: urlRequest))")
                 completionHandler(.failure(error))
             }
         }
