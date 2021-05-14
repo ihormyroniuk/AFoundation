@@ -30,10 +30,11 @@ public extension URLSession {
                 if let httpUrlResponse = urlResponse as? HTTPURLResponse {
                     completionHandler(.success(.httpUrlResponseWithData(httpUrlResponse, data)))
                 } else {
-                    completionHandler(.failure(MessageError("")))
+                    let error = MessageError("Unexpected \(String(reflecting: urlResponse)) for \(String(reflecting: urlRequest))")
+                    completionHandler(.failure(error))
                 }
             } else {
-                let error = MessageError("")
+                let error = MessageError("Unexpected \(String(reflecting: URLSessionDataTask.self)) completionHandler call for \(String(reflecting: urlRequest))")
                 completionHandler(.failure(error))
             }
         }

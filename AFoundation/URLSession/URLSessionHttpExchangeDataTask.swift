@@ -18,7 +18,7 @@ public extension URLSession {
     func httpExchangeDataTask<ParsedResponse>(_ httpExchange: HttpExchange<ParsedResponse>, completionHandler: @escaping (Result<HttpExchangeDataTaskResponse<ParsedResponse>, Error>) -> ()) throws -> URLSessionDataTask {
         let httpRequest: HttpRequest
         do { httpRequest = try httpExchange.constructRequest() } catch {
-            throw MessageError("\(error)")
+            throw MessageError("Cannot not get \(String(reflecting: URLSessionDataTask.self)) for \(String(reflecting: httpExchange))\n\(error)")
         }
         let urlRequest = URLRequest(httpRequest)
         let dataTask = self.dataTask(with: urlRequest) { (data, urlResponse, error) in
@@ -41,10 +41,11 @@ public extension URLSession {
                     }
                     completionHandler(.success(.parsedResponse(parsedResponse)))
                 } else {
-                    completionHandler(.failure(MessageError("")))
+                    let error = MessageError("Unexpected \(String(reflecting: urlResponse)) for \(String(reflecting: urlRequest))")
+                    completionHandler(.failure(error))
                 }
             } else {
-                let error = MessageError("Unexpected \(String(reflecting: URLSessionDataTask.self)) completionHandler nil")
+                let error = MessageError("Unexpected \(String(reflecting: URLSessionDataTask.self)) completionHandler call for \(String(reflecting: urlRequest))")
                 completionHandler(.failure(error))
             }
         }
