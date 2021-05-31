@@ -42,12 +42,13 @@ public extension JsonObject {
     }
     
     func missableString(_ key: String) throws -> String? {
-        guard let value = self[key] else { return nil }
-        let string: String
-        do { string = try value.string() } catch {
+        do {
+            guard let value = self[key] else { return nil }
+            let string: String = try value.string()
+            return string
+        } catch {
             throw MessageError("Cannot get \(String(reflecting: String?.self)) for key \(String(reflecting: key)) in \(String(reflecting: self))\n\(String(reflecting: error))")
         }
-        return string
     }
     
     func missableNullableString(_ key: String) throws -> String? {
