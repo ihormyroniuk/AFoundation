@@ -10,7 +10,7 @@ import XCTest
 import Foundation
 @testable import AFoundation
 
-class JsonJSONSerrializationUnitTesting: XCTestCase {
+class JsonSerrializationUnitTesting: XCTestCase {
 
     func testObjectData() {
         let data = Data([0x7b, 0x22, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x22, 0x3a, 0x38, 0x7d])

@@ -219,6 +219,26 @@ class JsonObjectUnitTesting: XCTestCase {
         let expextedJsonObject = JsonValue.null
         XCTAssert(jsonValue == expextedJsonObject, "Unexpected \(String(reflecting: jsonValue)) is returned, but \(String(reflecting: expextedJsonObject)) is expected")
     }
+    
+    func testSetMissableString() {
+        var object = JsonObject()
+        
+        object.setMissableString("string", for: "key")
+        let jsonValue = object["key"]
+        
+        let expextedJsonObject = JsonValue("string")
+        XCTAssert(jsonValue == expextedJsonObject, "Unexpected \(String(reflecting: jsonValue)) is returned, but \(String(reflecting: expextedJsonObject)) is expected")
+    }
+    
+    func testSetMissableStringNull() {
+        var object = JsonObject()
+        
+        object.setMissableString(nil, for: "key")
+        let jsonValue = object["key"]
+        
+        let expextedJsonObject: JsonValue? = nil
+        XCTAssert(jsonValue == expextedJsonObject, "Unexpected \(String(reflecting: jsonValue)) is returned, but \(String(reflecting: expextedJsonObject)) is expected")
+    }
 
     // MARK: Number
 

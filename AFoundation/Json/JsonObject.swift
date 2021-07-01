@@ -69,6 +69,10 @@ public extension JsonObject {
         else { self[key] = .null }
     }
     
+    mutating func setMissableString(_ string: String?, for key: String) {
+        if let string = string { self[key] = .string(string) }
+    }
+    
     // MARK: Number
     
     func number(_ key: String) throws -> Decimal {
