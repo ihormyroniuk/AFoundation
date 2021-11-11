@@ -11,12 +11,14 @@ import Foundation
 private let englishCode = "en"
 private let russianCode = "ru"
 private let ukrainianCode = "uk"
+private let azerbaijaniCode = "az"
 
 public enum Language {
     
     case english
     case russian
     case ukrainian
+    case azerbaijani
     
     // MARK: Initializer
     
@@ -25,6 +27,7 @@ public enum Language {
         case englishCode: self = .english
         case russianCode: self = .russian
         case ukrainianCode: self = .ukrainian
+        case azerbaijaniCode: self = .azerbaijani
         default: throw MessageError("Cannot initialize \(String(reflecting: Language.self)) with code \(String(reflecting: code))")
         }
     }
@@ -36,6 +39,7 @@ public enum Language {
         case .english: return englishCode
         case .russian: return russianCode
         case .ukrainian: return ukrainianCode
+        case .azerbaijani: return azerbaijaniCode
         }
     }
     

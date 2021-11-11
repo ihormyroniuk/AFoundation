@@ -40,8 +40,8 @@ class HTTPURLResponseHttpResponseDataUnitTesting: XCTestCase {
         
         let description = httpResponse.debugDescription
         
-        let expectedDescription = " 200 \n"
-        XCTAssertTrue(description == expectedDescription, "Unexpected description \(description)) is found, but description \(expectedDescription) is expected")
+        let expectedDescription = "AFoundation.HttpResponse(version: \"\", code: 200, phrase: \"\", headers: [:], body: nil)"
+        XCTAssertTrue(description == expectedDescription, "Unexpected description \(description) is found, but description \(expectedDescription) is expected")
     }
     
 }

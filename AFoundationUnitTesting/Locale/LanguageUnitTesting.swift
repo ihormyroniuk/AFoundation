@@ -83,6 +83,30 @@ class LanguageUnitTesting: XCTestCase {
         XCTAssertTrue(code == ukrainianCode, "Unexpected code \"\(code))\" is found while code \"(\(ukrainianCode))\" is expected")
     }
     
+    // MARK: Azerbaijani
+    
+    private let azerbaijaniCode = "az"
+
+    func testInitAzerbaijaniCode() {
+        let code = azerbaijaniCode
+        
+        let language: Language
+        do { language = try Language(code: code) } catch {
+            XCTFail("Unexpected error \(error.self) is thrown")
+            return
+        }
+        
+        XCTAssertTrue(language == .azerbaijani, "Unexpected language \"\(language))\" is found while language \"(\(Language.azerbaijani))\" is expected")
+    }
+    
+    func testAzerbaijaniCode() {
+        let language = Language.azerbaijani
+        
+        let code = language.code
+        
+        XCTAssertTrue(code == azerbaijaniCode, "Unexpected code \"\(code))\" is found while code \"(\(azerbaijaniCode))\" is expected")
+    }
+    
     // MARK: Unknown Code
     
     func testInitUnknownCode() {

@@ -21,14 +21,8 @@ class HttpResponseUnitTesting: XCTestCase {
         
         let description = httpResponse.debugDescription
         
-        let expectedDescription =
-        """
-        HTTP/1.0 200 OK
-        headerField1:headerField1
-        
-        00000001
-        """
-        XCTAssertTrue(description == expectedDescription, "Unexpected description \(description)) is found, but description \(expectedDescription) is expected")
+        let expectedDescription = "AFoundation.HttpResponse(version: \"HTTP/1.0\", code: 200, phrase: \"OK\", headers: [\"headerField1\": \"headerField1\"], body: [1])"
+        XCTAssertTrue(description == expectedDescription, "Unexpected description \(description) is found, but description \(expectedDescription) is expected")
     }
     
 }
