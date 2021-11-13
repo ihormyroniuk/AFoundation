@@ -12,13 +12,13 @@ public extension URLSession {
     
     enum HttpExchangeDataTaskResponse<ParsedResponse> {
         case parsedResponse(ParsedResponse)
-        case notConnectedToInternet(Error)
-        case networkConnectionLost(Error)
+        case notConnectedToInternet(Swift.Error)
+        case networkConnectionLost(Swift.Error)
     }
-    func httpExchangeDataTask<ParsedResponse>(_ httpExchange: HttpExchange<ParsedResponse>, completionHandler: @escaping (Result<HttpExchangeDataTaskResponse<ParsedResponse>, Error>) -> ()) throws -> URLSessionDataTask {
+    func httpExchangeDataTask<ParsedResponse>(_ httpExchange: HttpExchange<ParsedResponse>, completionHandler: @escaping (Result<HttpExchangeDataTaskResponse<ParsedResponse>, Swift.Error>) -> ()) throws -> URLSessionDataTask {
         let httpRequest: HttpRequest
         do { httpRequest = try httpExchange.constructRequest() } catch {
-            throw MessageError("Cannot not get \(String(reflecting: URLSessionDataTask.self)) for \(String(reflecting: httpExchange))\n\(error)")
+            throw Error("Cannot not get \(String(reflecting: URLSessionDataTask.self)) for \(String(reflecting: httpExchange))\n\(error)")
         }
         let urlRequest = URLRequest(httpRequest)
         let dataTask = self.dataTask(with: urlRequest) { (data, urlResponse, error) in
@@ -36,16 +36,16 @@ public extension URLSession {
                     let httpResponse = httpUrlResponse.httpResponse(data)
                     let parsedResponse: ParsedResponse
                     do { parsedResponse = try httpExchange.parseResponse(httpResponse) } catch {
-                        completionHandler(.failure(MessageError("Cannot parse \(httpResponse) for \(httpRequest) \n\(String(reflecting: error))")))
+                        completionHandler(.failure(Error("Cannot parse \(httpResponse) for \(httpRequest) \n\(String(reflecting: error))")))
                         return
                     }
                     completionHandler(.success(.parsedResponse(parsedResponse)))
                 } else {
-                    let error = MessageError("Unexpected \(String(reflecting: urlResponse)) for \(String(reflecting: urlRequest))")
+                    let error = Error("Unexpected \(String(reflecting: urlResponse)) for \(String(reflecting: urlRequest))")
                     completionHandler(.failure(error))
                 }
             } else {
-                let error = MessageError("Unexpected \(String(reflecting: URLSessionDataTask.self)) completionHandler call for \(String(reflecting: urlRequest))")
+                let error = Error("Unexpected \(String(reflecting: URLSessionDataTask.self)) completionHandler call for \(String(reflecting: urlRequest))")
                 completionHandler(.failure(error))
             }
         }

@@ -66,6 +66,9 @@ class CurrencyUnitTesting: XCTestCase {
         
         let currency: Currency
         do { currency = try Currency(code: code) } catch {
+            let errorDebugDescription = String(reflecting: error)
+            let expectedErrorDebugDescription = "AFoundation/Currency.swift:28 Cannot initialize AFoundation.Currency with code \"UNKNOWNCODE\""
+            XCTAssertTrue(errorDebugDescription == expectedErrorDebugDescription, "Unexpected error debug description \"\(errorDebugDescription))\" is found while error debug description \"(\(expectedErrorDebugDescription))\" is expected")
             return
         }
         

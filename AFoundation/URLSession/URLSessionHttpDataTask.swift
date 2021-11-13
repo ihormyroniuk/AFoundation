@@ -12,10 +12,10 @@ public extension URLSession {
     
     enum HttpDataTaskResponse {
         case httpUrlResponseWithData(HTTPURLResponse, Data?)
-        case notConnectedToInternet(Error)
-        case networkConnectionLost(Error)
+        case notConnectedToInternet(Swift.Error)
+        case networkConnectionLost(Swift.Error)
     }
-    func httpDataTask(with urlRequest: URLRequest, completionHandler: @escaping (Result<HttpDataTaskResponse, Error>) -> Void) -> URLSessionDataTask {
+    func httpDataTask(with urlRequest: URLRequest, completionHandler: @escaping (Result<HttpDataTaskResponse, Swift.Error>) -> Void) -> URLSessionDataTask {
         let dataTask = self.dataTask(with: urlRequest) { (data, urlResponse, error) in
             if let error = error {
                 let nsError = error as NSError
@@ -30,11 +30,11 @@ public extension URLSession {
                 if let httpUrlResponse = urlResponse as? HTTPURLResponse {
                     completionHandler(.success(.httpUrlResponseWithData(httpUrlResponse, data)))
                 } else {
-                    let error = MessageError("Unexpected \(String(reflecting: urlResponse)) for \(String(reflecting: urlRequest))")
+                    let error = Error("Unexpected \(String(reflecting: urlResponse)) for \(String(reflecting: urlRequest))")
                     completionHandler(.failure(error))
                 }
             } else {
-                let error = MessageError("Unexpected \(String(reflecting: URLSessionDataTask.self)) completionHandler call for \(String(reflecting: urlRequest))")
+                let error = Error("Unexpected \(String(reflecting: URLSessionDataTask.self)) completionHandler call for \(String(reflecting: urlRequest))")
                 completionHandler(.failure(error))
             }
         }

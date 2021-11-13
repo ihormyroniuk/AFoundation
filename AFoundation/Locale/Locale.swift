@@ -31,7 +31,7 @@ public extension Locale {
             let language = try Language(code: code)
             return language
         } catch {
-            throw MessageError("Cannot get \(String(reflecting: Language.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))")
+            throw Error("Cannot get \(String(reflecting: Language.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))")
         }
     }
     
@@ -43,7 +43,7 @@ public extension Locale {
             let script = try Script(code: code)
             return script
         } catch {
-            throw MessageError("Cannot get \(String(reflecting: Script.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))")
+            throw Error("Cannot get \(String(reflecting: Script.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))")
         }
     }
   
@@ -55,7 +55,7 @@ public extension Locale {
             let region = try Region(code: code)
             return region
         } catch {
-            throw MessageError("Cannot get \(String(reflecting: Region.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))")
+            throw Error("Cannot get \(String(reflecting: Region.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))")
         }
     }
     
@@ -67,7 +67,7 @@ public extension Locale {
             let currency = try Currency(code: code)
             return currency
         } catch {
-            throw MessageError("Cannot get \(String(reflecting: Currency.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))")
+            throw Error("Cannot get \(String(reflecting: Currency.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))")
         }
     }
     
@@ -83,7 +83,7 @@ public extension Locale {
             }
             return preferredLanguages
         } catch {
-            throw MessageError("Cannot get \(String(reflecting: PreferredLanguage.self)) for \(String(reflecting: Locale.self))\n\(String(reflecting: error))")
+            throw Error("Cannot get \(String(reflecting: PreferredLanguage.self)) for \(String(reflecting: Locale.self))\n\(String(reflecting: error))")
         }
     }
     

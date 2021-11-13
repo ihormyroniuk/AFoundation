@@ -19,9 +19,9 @@ class URLSessionHttpExchangeUnitTesting: XCTestCase {
         class MockURLSessionDataTask: URLSessionDataTask {
             
             var data: Data?
-            let completionHandler: (Data?, URLResponse?, Error?) -> Void
+            let completionHandler: (Data?, URLResponse?, Swift.Error?) -> Void
             
-            init(completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
+            init(completionHandler: @escaping (Data?, URLResponse?, Swift.Error?) -> Void) {
                 self.completionHandler = completionHandler
                 super.init()
             }
@@ -32,7 +32,7 @@ class URLSessionHttpExchangeUnitTesting: XCTestCase {
             
         }
         
-        override func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        override func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Swift.Error?) -> Void) -> URLSessionDataTask {
             let urLSessionDataTask = MockURLSessionDataTask(completionHandler: completionHandler)
             return urLSessionDataTask
         }
@@ -41,15 +41,14 @@ class URLSessionHttpExchangeUnitTesting: XCTestCase {
     // MARK: String
     
     func testInitString() {
-        let urlSession = MockURLSession()
-        let url = URL(string: "localhost")!
-        let request = URLRequest(url: url)
-        
-        var dataTask = urlSession.urlDataTask(with: request) { (result) in
-            
-        }
-        //dataTask.data = Data()
-        dataTask.resume()
+//        let urlSession = MockURLSession()
+//        let url = URL(string: "localhost")!
+//        let request = URLRequest(url: url)
+//
+//        var dataTask = urlSession.urlDataTask(with: request) { (result) in
+//        }
+//        dataTask.data = Data()
+//        dataTask.resume()
     }
 
 }
