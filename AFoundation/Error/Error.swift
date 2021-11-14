@@ -27,25 +27,3 @@ public struct Error: Swift.Error, CustomDebugStringConvertible {
     }
     
 }
-
-public struct RethrownError: Swift.Error, CustomDebugStringConvertible {
-    
-    private let fileId: StaticString
-    private let line: UInt
-    private let rethrownError: Swift.Error
-    private let message: String
-    
-    public init(fileId: StaticString = #fileID, line: UInt = #line, _ rethrownError: Swift.Error, _ message: String) {
-        self.fileId = fileId
-        self.line = line
-        self.rethrownError = rethrownError
-        self.message = message
-    }
-    
-    // MARK: CustomDebugStringConvertible
-    
-    public var debugDescription: String {
-        return "\(fileId):\(String(reflecting: line)) \(message)\(String(reflecting: rethrownError))"
-    }
-    
-}
