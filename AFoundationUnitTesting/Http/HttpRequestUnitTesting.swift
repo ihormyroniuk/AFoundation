@@ -84,7 +84,7 @@ class HttpRequestUnitTesting: XCTestCase {
         let description = String(reflecting: httpRequest)
         
         let expectedDescription = "AFoundation.HttpRequest(method: \"GET\", uri: Foundation.URL(localhost), version: \"HTTP/1.1\", headers: nil, body: nil)"
-        //XCTAssertTrue(description == expectedDescription, "Unexpected description \(description)) is found, but description \(expectedDescription) is expected")
+        XCTAssertTrue(description == expectedDescription, "Unexpected description \(description)) is found, but description \(expectedDescription) is expected")
     }
     
     func testDescription() {
@@ -98,8 +98,8 @@ class HttpRequestUnitTesting: XCTestCase {
         
         let description = httpRequest.debugDescription
         
-        let expectedDescription = "AFoundation.HttpRequest(method: \"GET\", uri: https://localhost, version: \"HTTP/1.1\", headers: Optional([\"headerField1\": \"headerField1\"]), body: Optional([1, 2, 35]))"
-        //XCTAssertTrue(description == expectedDescription, "Unexpected description \(description)) is found, but description \(expectedDescription) is expected")
+        let descriptios = "AFoundation.HttpRequest(method: \"GET\", uri: Foundation.URL(https://localhost), version: \"HTTP/1.1\", headers: [\"headerField1\": \"headerField1\"], body: [1, 2, 35])"
+        XCTAssertTrue(description == descriptios, "Unexpected description \(description)) is found, but description \(descriptios) is expected")
     }
     
 }

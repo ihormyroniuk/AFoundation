@@ -45,7 +45,7 @@ public struct HttpRequest: Equatable, CustomDebugStringConvertible {
         } else {
             bodyDebugDescription = "nil"
         }
-        return "\(String(reflecting: Self.self))(method: \(methodDebugDescription), uri: \(uriDebugDescription), version: \(versionDebugDescription), headers: \(headersDebugDescription), body: \(bodyDebugDescription)"
+        return "\(String(reflecting: Self.self))(method: \(methodDebugDescription), uri: \(uriDebugDescription), version: \(versionDebugDescription), headers: \(headersDebugDescription), body: \(bodyDebugDescription))"
     }
     
 }
