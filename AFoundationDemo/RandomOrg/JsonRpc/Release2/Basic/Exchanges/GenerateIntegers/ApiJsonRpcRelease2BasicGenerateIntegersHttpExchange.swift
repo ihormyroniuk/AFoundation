@@ -45,14 +45,13 @@ class GenerateIntegersHttpExchange: HttpExchange<GenerateIntegersRequestData, Ge
     override func parseResponse(_ httpResponse: HttpResponse) throws -> GenerateIntegersParsedResponse {
         let code = httpResponse.code
         guard code == HttpResponseCode.ok else {
-            let error = Error("Unexpected code \(code)")
+            let error = Error("Unexpected response code \(code)")
             throw error
         }
         let body = httpResponse.body ?? Data()
         let jsonValue = try JsonSerialization.jsonValue(body)
-        let response = try jsonValue.object()
-        
-        let resultJsonObject = try response.object("result")
+        let responseObject = try jsonValue.object()
+        let resultJsonObject = try responseObject.object("result")
         let random = try resultJsonObject.object("random")
         let data: GenerateIntegersParsedResponse.Data
         switch requestData.base {
@@ -76,7 +75,7 @@ class GenerateIntegersHttpExchange: HttpExchange<GenerateIntegersRequestData, Ge
         let iso8601DateFormatter = ISO8601DateFormatter()
         iso8601DateFormatter.formatOptions = [.withSpaceBetweenDateAndTime]
         let completionTime = iso8601DateFormatter.date(from: completionTimeString)!
-        let id = try response.value("id")
+        let id = try responseObject.value("id")
         let bitsUsed = try resultJsonObject.number("bitsUsed").uint()
         let bitsLeft = try resultJsonObject.number("bitsLeft").uint()
         let requestsLeft = try resultJsonObject.number("requestsLeft").uint()

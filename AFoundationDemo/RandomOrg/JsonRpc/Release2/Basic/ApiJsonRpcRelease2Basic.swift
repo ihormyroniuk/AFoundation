@@ -21,5 +21,10 @@ class Basic {
         return httpExchange
     }
     
+    func generateDecimalFractions(requestData: GenerateDecimalFractionsRequestData) -> GenerateDecimalFractionsHttpExchange {
+        let httpExchange = GenerateDecimalFractionsHttpExchange(requestData: requestData)
+        return httpExchange
+    }
+    
 }
 }

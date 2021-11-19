@@ -35,12 +35,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            print(String(reflecting: error))
 //        }
 //
-//        let requestData = Ggg.Basic.GenerateIntegersRequestData(id: 1, apiKey: "3b887b17-2315-49ae-aa27-ddcddc5ad778", n: 15, min: -1000000, max: 1000000, replacement: true, base: .hexadecimal)
+        
+        
+//        let requestData = Ggg.Basic.GenerateIntegersRequestData(id: .number(1), apiKey: "3b887b17-2315-49ae-aa27-ddcddc5ad778", n: 15, min: -1000000, max: 1000000, replacement: true, base: .hexadecimal)
 //        let httpExchange = Ggg.Basic().generateIntegers(requestData: requestData)
 //        let dataTask = try! urlSession.httpExchangeDataTask(httpExchange) { (result) in
-//            print(result)
+//            switch result {
+//            case .success(let httpExchangeDataTaskResponse):
+//                switch httpExchangeDataTaskResponse {
+//                case .parsedResponse(let generateIntegersParsedResponse):
+//                    print(generateIntegersParsedResponse)
+//                case .networkConnectionLost(let error):
+//                    print(error)
+//                case .notConnectedToInternet(let error):
+//                    print(error)
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
 //        }
 //        dataTask.resume()
+        
+        
+        let requestData = Ggg.Basic.GenerateDecimalFractionsRequestData(id: .number(1), apiKey: "3b887b17-2315-49ae-aa27-ddcddc5ad778", n: 10, decimalPlaces: 2, replacement: true)
+        let httpExchange = Ggg.Basic().generateDecimalFractions(requestData: requestData)
+        let dataTask = try! urlSession.httpExchangeDataTask(httpExchange) { (result) in
+            switch result {
+            case .success(let httpExchangeDataTaskResponse):
+                switch httpExchangeDataTaskResponse {
+                case .parsedResponse(let generateDecimalFractionsParsedResponse):
+                    print(generateDecimalFractionsParsedResponse)
+                case .networkConnectionLost(let error):
+                    print(error)
+                case .notConnectedToInternet(let error):
+                    print(error)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+        dataTask.resume()
+        
+        
 //        let requestData = Ggg.Basic.GenerateStringsRequestData(id: .number(Decimal(1)), apiKey: "3b887b17-2315-49ae-aa27-ddcddc5ad778", n: 20, lenght: 3, characters: "abcde", replacement: false)
 //        let httpExchange = Ggg.Basic().generateStrings(requestData: requestData)
 //        let dataTask = try! urlSession.httpExchangeDataTask(httpExchange) { (result) in

@@ -12,6 +12,11 @@ public typealias JsonObject = [String: JsonValue]
 
 public extension JsonObject {
     
+    func hasKey(_ key: String) -> Bool {
+        let hasKey = self[key] != nil
+        return hasKey
+    }
+    
     // MARK: Value
     
     func value(_ key: String) throws -> JsonValue {

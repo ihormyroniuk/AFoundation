@@ -12,8 +12,8 @@ extension Api.JsonRpc.Release2.Basic {
 class HttpExchange<RequestData, ParsedResponse>: RequestDataHttpExchange<RequestData, ParsedResponse> {
     
     let scheme = Api.JsonRpc.Release2.scheme
-    let host = "api.random.org"
-    let path = "/json-rpc/2/invoke"
+    let host = Api.JsonRpc.Release2.host
+    let path = Api.JsonRpc.Release2.path
     
     func constructUri() throws -> URL {
         var urlComponents = URLComponents()
@@ -34,5 +34,6 @@ class HttpExchange<RequestData, ParsedResponse>: RequestDataHttpExchange<Request
         jsonObject["id"] = id
         return jsonObject
     }
+    
 }
 }
