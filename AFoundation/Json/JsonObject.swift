@@ -21,7 +21,7 @@ public extension JsonObject {
     
     func value(_ key: String) throws -> JsonValue {
         if let value = self[key] { return value }
-        else { throw Error("Cannot get \(String(reflecting: JsonValue.self)) for key \(String(reflecting: key)) in \(String(reflecting: self))") }
+        throw Error("Cannot get \(String(reflecting: JsonValue.self)) for key \(String(reflecting: key)) in \(String(reflecting: self))")
     }
 
     // MARK: String

@@ -96,6 +96,7 @@
 		C5B155342745B53D00D382AF /* ApiJsonRpcRelease2BasicGenerateDecimalFractionsRequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B155332745B53D00D382AF /* ApiJsonRpcRelease2BasicGenerateDecimalFractionsRequestData.swift */; };
 		C5B155372745B5D300D382AF /* ApiJsonRpcRelease2BasicGenerateDecimalFractionsParsedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B155362745B5D300D382AF /* ApiJsonRpcRelease2BasicGenerateDecimalFractionsParsedResponse.swift */; };
 		C5B155392745B61500D382AF /* ApiJsonRpcRelease2BasicGenerateDecimalFractionsHttpExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B155382745B61500D382AF /* ApiJsonRpcRelease2BasicGenerateDecimalFractionsHttpExchange.swift */; };
+		C5B1BA972752E5EC00D4E0F8 /* UUIDInitStringUnitString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B1BA962752E5EC00D4E0F8 /* UUIDInitStringUnitString.swift */; };
 		C5BB0610274844CD00806E6D /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BB060F274844CD00806E6D /* Error.swift */; };
 		C5BC0A33255F06F40066E85F /* URLComponentsUrlUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC0A32255F06F40066E85F /* URLComponentsUrlUnitTesting.swift */; };
 		C5EA879025CAEE1E00D5F75C /* URLSessionHttpExchangeDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EA878F25CAEE1E00D5F75C /* URLSessionHttpExchangeDataTask.swift */; };
@@ -226,6 +227,7 @@
 		C5B155332745B53D00D382AF /* ApiJsonRpcRelease2BasicGenerateDecimalFractionsRequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiJsonRpcRelease2BasicGenerateDecimalFractionsRequestData.swift; sourceTree = "<group>"; };
 		C5B155362745B5D300D382AF /* ApiJsonRpcRelease2BasicGenerateDecimalFractionsParsedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiJsonRpcRelease2BasicGenerateDecimalFractionsParsedResponse.swift; sourceTree = "<group>"; };
 		C5B155382745B61500D382AF /* ApiJsonRpcRelease2BasicGenerateDecimalFractionsHttpExchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiJsonRpcRelease2BasicGenerateDecimalFractionsHttpExchange.swift; sourceTree = "<group>"; };
+		C5B1BA962752E5EC00D4E0F8 /* UUIDInitStringUnitString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUIDInitStringUnitString.swift; sourceTree = "<group>"; };
 		C5BB060F274844CD00806E6D /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		C5BC0A32255F06F40066E85F /* URLComponentsUrlUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponentsUrlUnitTesting.swift; sourceTree = "<group>"; };
 		C5EA878F25CAEE1E00D5F75C /* URLSessionHttpExchangeDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHttpExchangeDataTask.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				C5636FB425C6F2D800F95194 /* URLRequest */,
 				C5636FC225C6FCAA00F95194 /* HTTPURLResponse */,
 				C515F1DF263DE5F600D64239 /* URLSession */,
+				C5B1BA952752E5C300D4E0F8 /* UUID */,
 				C552E40624617B820031D531 /* Json */,
 				338BA76C239EA4E000CE3CCA /* Localizer */,
 				C563FBCD252860E400BA1E99 /* Locale */,
@@ -676,6 +679,14 @@
 			path = GenerateDecimalFractions;
 			sourceTree = "<group>";
 		};
+		C5B1BA952752E5C300D4E0F8 /* UUID */ = {
+			isa = PBXGroup;
+			children = (
+				C5B1BA962752E5EC00D4E0F8 /* UUIDInitStringUnitString.swift */,
+			);
+			path = UUID;
+			sourceTree = "<group>";
+		};
 		C5BB06112748451B00806E6D /* Error */ = {
 			isa = PBXGroup;
 			children = (
@@ -862,6 +873,7 @@
 				C54984502554AF2500478585 /* JsonObjectUnitTesting.swift in Sources */,
 				C54BA8FD2527C90F0069583E /* DecimalDoubleUnitTesting.swift in Sources */,
 				C5820FD425C5A0F20057D5C6 /* PreferredLanguageUnitTesting.swift in Sources */,
+				C5B1BA972752E5EC00D4E0F8 /* UUIDInitStringUnitString.swift in Sources */,
 				C563FBEB252868C700BA1E99 /* LanguageUnitTesting.swift in Sources */,
 				C54D47002516415D004B1467 /* HttpRequestUnitTesting.swift in Sources */,
 				C54D470425164F84004B1467 /* HttpResponseUnitTesting.swift in Sources */,

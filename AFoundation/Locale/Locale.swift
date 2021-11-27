@@ -26,65 +26,55 @@ public extension Locale {
     // MARK: Language
   
     func language() throws -> Language? {
-        do {
-            guard let code = languageCode else { return nil }
-            let language = try Language(code: code)
-            return language
-        } catch {
-            throw Error("Cannot get \(String(reflecting: Language.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))")
-        }
+        guard let code = languageCode else { return nil }
+        let language: Language
+        do { language = try Language(code: code) }
+        catch { throw Error("Cannot get \(String(reflecting: Language.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))") }
+        return language
     }
     
     // MARK: Script
   
     func script() throws -> Script? {
-        do {
-            guard let code = scriptCode else { return nil }
-            let script = try Script(code: code)
-            return script
-        } catch {
-            throw Error("Cannot get \(String(reflecting: Script.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))")
-        }
+        guard let code = scriptCode else { return nil }
+        let script: Script
+        do { script = try Script(code: code) }
+        catch { throw Error("Cannot get \(String(reflecting: Script.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))") }
+        return script
     }
   
     // MARK: Region
   
     func region() throws -> Region? {
-        do {
-            guard let code = regionCode else { return nil }
-            let region = try Region(code: code)
-            return region
-        } catch {
-            throw Error("Cannot get \(String(reflecting: Region.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))")
-        }
+        guard let code = regionCode else { return nil }
+        let region: Region
+        do { region = try Region(code: code) }
+        catch { throw Error("Cannot get \(String(reflecting: Region.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))") }
+        return region
     }
     
     // MARK: Currency
   
     func currency() throws -> Currency? {
-        do {
-            guard let code = currencyCode else { return nil }
-            let currency = try Currency(code: code)
-            return currency
-        } catch {
-            throw Error("Cannot get \(String(reflecting: Currency.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))")
-        }
+        guard let code = currencyCode else { return nil }
+        let currency: Currency
+        do { currency = try Currency(code: code) }
+        catch { throw Error("Cannot get \(String(reflecting: Currency.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))") }
+        return currency
     }
     
     // MARK: PreferredLanguages
     
     static func preferredLanguages() throws -> [PreferredLanguage] {
-        do {
-            var preferredLanguages: [PreferredLanguage] = []
-            let preferredLanguagesCodes: [String] = Locale.preferredLanguages
-            for preferredLanguageCode in preferredLanguagesCodes {
-                let preferredLanguage = try PreferredLanguage(code: preferredLanguageCode)
-                preferredLanguages.append(preferredLanguage)
-            }
-            return preferredLanguages
-        } catch {
-            throw Error("Cannot get \(String(reflecting: PreferredLanguage.self)) for \(String(reflecting: Locale.self))\n\(String(reflecting: error))")
+        var preferredLanguages: [PreferredLanguage] = []
+        let preferredLanguagesCodes: [String] = Locale.preferredLanguages
+        for preferredLanguageCode in preferredLanguagesCodes {
+            let preferredLanguage: PreferredLanguage
+            do { preferredLanguage = try PreferredLanguage(code: preferredLanguageCode) }
+            catch { throw Error("Cannot get \(String(reflecting: PreferredLanguage.self)) for \(String(reflecting: Locale.self))\n\(String(reflecting: error))") }
+            preferredLanguages.append(preferredLanguage)
         }
+        return preferredLanguages
     }
     
 }
