@@ -87,7 +87,7 @@ class HttpRequestUnitTesting: XCTestCase {
         XCTAssertTrue(description == expectedDescription, "Unexpected description \(description)) is found, but description \(expectedDescription) is expected")
     }
     
-    func testDescription() {
+    func testDebugDescription() {
         let method = "GET"
         let uri = URL(string: "https://localhost")!
         let version = "HTTP/1.1"

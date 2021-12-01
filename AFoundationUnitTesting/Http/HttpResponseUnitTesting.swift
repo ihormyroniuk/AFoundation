@@ -11,7 +11,7 @@ import XCTest
 
 class HttpResponseUnitTesting: XCTestCase {
     
-    func testDescription() {
+    func testDebugDescription() {
         let code = 200
         let version = "HTTP/1.0"
         let headers: [String: String] = ["headerField1": "headerField1"]

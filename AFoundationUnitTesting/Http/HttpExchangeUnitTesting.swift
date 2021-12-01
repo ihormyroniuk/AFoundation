@@ -11,6 +11,8 @@ import Foundation
 @testable import AFoundation
 
 class HttpExchangeUnitTesting: XCTestCase {
+    
+    // MARK: HttpExchange
 
     func testHttpExchangeConstructRequest() {
         let httpExchange = HttpExchange<Any>()
@@ -35,6 +37,18 @@ class HttpExchangeUnitTesting: XCTestCase {
         }
     }
     
+    func testHttpExchangeDebugDescription() {
+        let httpExchange = HttpExchange<Any>()
+        
+        let debugDescription = String(reflecting: httpExchange)
+        
+        let expectedDebugDescription = "AFoundation.HttpExchange<Any>()"
+        
+        XCTAssertTrue(debugDescription == expectedDebugDescription, "Unexpected debug description \(debugDescription) is found, but debug description \(expectedDebugDescription) is expected")
+    }
+    
+    // MARK: SchemeHostHttpExchange
+    
     func testSchemeHostHttpExchangeConstructRequest() {
         let httpExchange = SchemeHostHttpExchange<Any>(scheme: "", host: "")
         do {
@@ -57,6 +71,18 @@ class HttpExchangeUnitTesting: XCTestCase {
             return
         }
     }
+    
+    func testSchemeHostHttpExchangeDebugDescription() {
+        let httpExchange = SchemeHostHttpExchange<Any>(scheme: "scheme", host: "host")
+        
+        let debugDescription = String(reflecting: httpExchange)
+        
+        let expectedDebugDescription = "AFoundation.SchemeHostHttpExchange<Any>(scheme: \"scheme\", host: \"host\")"
+        
+        XCTAssertTrue(debugDescription == expectedDebugDescription, "Unexpected debug description \(debugDescription) is found, but debug description \(expectedDebugDescription) is expected")
+    }
+    
+    // MARK: RequestDataHttpExchange
     
     func testRequestDataHttpExchangeConstructRequest() {
         let httpExchange = RequestDataHttpExchange<Any, Any>(requestData: Void())
