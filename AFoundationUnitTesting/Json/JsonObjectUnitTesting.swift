@@ -440,4 +440,204 @@ class JsonObjectUnitTesting: XCTestCase {
         XCTAssert(jsonValue == expextedJsonObject, "Unexpected \(String(reflecting: jsonValue)) is returned, but \(String(reflecting: expextedJsonObject)) is expected")
     }
     
+    // MARK: Boolean
+
+    func testBoolean() {
+        do {
+            let boolean = try object.boolean("boolean")
+            
+            let expectedNumber = true
+            XCTAssert(boolean == expectedNumber, "Unexpected \(String(reflecting: boolean)) is returned, but \(String(reflecting: expectedNumber)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testBooleanNull() {
+        do {
+            let boolean = try object.boolean("null")
+            
+            XCTFail("Unexpected \(String(reflecting: boolean)) is returned, but error has to be thrown")
+        } catch {
+            return
+        }
+    }
+    
+    func testBooleanMissed() {
+        do {
+            let boolean = try object.boolean("missedNumber")
+            
+            XCTFail("Unexpected \(String(reflecting: boolean)) is returned, but error has to be thrown")
+        } catch {
+            return
+        }
+    }
+    
+    func testBooleanNotBoolean() {
+        do {
+            let boolean = try object.boolean("string")
+            
+            XCTFail("Unexpected \(String(reflecting: boolean)) is returned, but error has to be thrown")
+        } catch {
+            return
+        }
+    }
+    
+    func testNullableBoolean() {
+        do {
+            let boolean = try object.nullableBoolean("boolean")
+            
+            let expectedBoolean = true
+            XCTAssert(boolean == expectedBoolean, "Unexpected \(String(reflecting: boolean)) is returned, but \(String(reflecting: expectedBoolean)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testNullableBooleanNull() {
+        do {
+            let boolean = try object.nullableBoolean("null")
+            
+            let expectedBoolean: Bool? = nil
+            XCTAssert(boolean == expectedBoolean, "Unexpected \(String(reflecting: boolean)) is returned, but \(String(reflecting: expectedBoolean)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testNullableBooleanMissed() {
+        do {
+            let boolean = try object.nullableBoolean("missedNumber")
+            
+            XCTFail("Unexpected \(String(reflecting: boolean)) is returned, but error has to be thrown")
+        } catch {
+            return
+        }
+    }
+    
+    func testNullableBooleanNotNumber() {
+        do {
+            let boolean = try object.nullableBoolean("string")
+            
+            XCTFail("Unexpected \(String(reflecting: boolean)) is returned, but error has to be thrown")
+        } catch {
+            return
+        }
+    }
+    
+    func testMissableBoolean() {
+        do {
+            let boolean = try object.missableBoolean("boolean")
+            
+            let expectedBoolean = true
+            XCTAssert(boolean == expectedBoolean, "Unexpected \(String(reflecting: boolean)) is returned, but \(String(reflecting: expectedBoolean)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testMissableBooleanNull() {
+        do {
+            let boolean = try object.missableBoolean("null")
+            
+            XCTFail("Unexpected \(String(reflecting: boolean)) is returned, but error has to be thrown")
+        } catch {
+            return
+        }
+    }
+    
+    func testMissableBooleanMissed() {
+        do {
+            let boolean = try object.missableBoolean("missedBoolean")
+            
+            let expectedBoolean: Bool? = nil
+            XCTAssert(boolean == expectedBoolean, "Unexpected \(String(reflecting: boolean)) is returned, but \(String(reflecting: expectedBoolean)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testMissableBooleanNotBoolean() {
+        do {
+            let boolean = try object.missableBoolean("string")
+            
+            XCTFail("Unexpected \(String(reflecting: boolean)) is returned, but error has to be thrown")
+        } catch {
+            return
+        }
+    }
+    
+    func testMissableNullableBoolean() {
+        do {
+            let boolean = try object.missableNullableBoolean("boolean")
+            
+            let expectedBoolean = true
+            XCTAssert(boolean == expectedBoolean, "Unexpected \(String(reflecting: boolean)) is returned, but \(String(reflecting: expectedBoolean)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testMissableNullableBooleanNull() {
+        do {
+            let boolean = try object.missableNullableBoolean("null")
+            
+            let expectedBoolean: Bool? = nil
+            XCTAssert(boolean == expectedBoolean, "Unexpected \(String(reflecting: boolean)) is returned, but \(String(reflecting: expectedBoolean)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testMissableNullableBooleanMissed() {
+        do {
+            let boolean = try object.missableNullableBoolean("missedBoolean")
+            
+            let expectedBoolean: Bool? = nil
+            XCTAssert(boolean == expectedBoolean, "Unexpected \(String(reflecting: boolean)) is returned, but \(String(reflecting: expectedBoolean)) is expected")
+        } catch {
+            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+        }
+    }
+    
+    func testMissableNullableBooleanNotBoolean() {
+        do {
+            let boolean = try object.missableNullableBoolean("string")
+            
+            XCTFail("Unexpected \(String(reflecting: boolean)) is returned, but error has to be thrown")
+        } catch {
+            return
+        }
+    }
+    
+    func testSetBoolean() {
+        var object = JsonObject()
+        
+        object.setBoolean(true, for: "key")
+        let jsonValue = object["key"]
+        
+        let expextedJsonObject = JsonValue(true)
+        XCTAssert(jsonValue == expextedJsonObject, "Unexpected \(String(reflecting: jsonValue)) is returned, but \(String(reflecting: expextedJsonObject)) is expected")
+    }
+    
+    func testSetNullableBoolean() {
+        var object = JsonObject()
+        
+        object.setNullableBoolean(true, for: "key")
+        let jsonValue = object["key"]
+        
+        let expextedJsonObject = JsonValue(true)
+        XCTAssert(jsonValue == expextedJsonObject, "Unexpected \(String(reflecting: jsonValue)) is returned, but \(String(reflecting: expextedJsonObject)) is expected")
+    }
+    
+    func testSetNullableBooleanNull() {
+        var object = JsonObject()
+        
+        object.setNullableBoolean(true, for: "key")
+        let jsonValue = object["key"]
+        
+        let expextedJsonObject = JsonValue(true)
+        XCTAssert(jsonValue == expextedJsonObject, "Unexpected \(String(reflecting: jsonValue)) is returned, but \(String(reflecting: expextedJsonObject)) is expected")
+    }
+    
 }
