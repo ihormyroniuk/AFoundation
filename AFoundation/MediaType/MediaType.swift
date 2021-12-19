@@ -14,5 +14,6 @@ import Foundation
 public enum MediaType {
     
     public static let json = "application/json"
+    public static let xWwwFormUrlencoded = "x-www-form-urlencoded"
     
 }
