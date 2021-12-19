@@ -33,9 +33,8 @@ class GenerateDecimalFractionsHttpExchange: HttpExchange<GenerateDecimalFraction
     override func parseResponse(_ httpResponse: HttpResponse) throws -> GenerateDecimalFractionsParsedResponse {
         let code = httpResponse.code
         guard code == HttpResponseCode.ok else {
-            //let error = Error("Unexpected code \(code)")
-            //throw error
-            fatalError()
+            let error = Error("Unexpected code \(code)")
+            throw error
         }
         let body = httpResponse.body ?? Data()
         let jsonValue = try JsonSerialization.jsonValue(body)

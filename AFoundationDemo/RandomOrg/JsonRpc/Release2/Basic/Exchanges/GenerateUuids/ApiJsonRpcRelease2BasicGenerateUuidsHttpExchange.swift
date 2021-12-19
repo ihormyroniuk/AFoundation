@@ -29,9 +29,8 @@ class GenerateUuidsHttpExchange: HttpExchange<GenerateUuidsRequestData, Generate
     override func parseResponse(_ httpResponse: HttpResponse) throws -> GenerateUuidsParsedResponse {
         let code = httpResponse.code
         guard code == HttpResponseCode.ok else {
-//            let error = Error("Unexpected code \(code)")
-//            throw error
-            fatalError()
+            let error = Error("Unexpected code \(code)")
+            throw error
         }
         let body = httpResponse.body ?? Data()
         let jsonValue = try JsonSerialization.jsonValue(body)
