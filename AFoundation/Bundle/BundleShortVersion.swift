@@ -16,4 +16,5 @@ public extension Bundle {
         let shortVersion = infoDictionary?[Bundle.shortVersionInfoDictionaryKey] as? String
         return shortVersion
     }
+    
 }

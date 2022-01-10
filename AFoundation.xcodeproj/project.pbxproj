@@ -98,6 +98,8 @@
 		C58A618425D0414000FE4606 /* HttpExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A618325D0414000FE4606 /* HttpExchange.swift */; };
 		C590F751278B8C110084D079 /* BundleShortVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C590F750278B8C110084D079 /* BundleShortVersion.swift */; };
 		C590F754278B8E3C0084D079 /* BundleShortVersionUnitTesing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C590F753278B8E3C0084D079 /* BundleShortVersionUnitTesing.swift */; };
+		C590F756278B917A0084D079 /* BundleVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C590F755278B917A0084D079 /* BundleVersion.swift */; };
+		C590F758278B91C00084D079 /* BundleVersionUnitTesing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C590F757278B91C00084D079 /* BundleVersionUnitTesing.swift */; };
 		C59BEE0025CED67F003EF9AA /* ApiJsonRpcRelease2BasicGenerateIntegersParsedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59BEDFF25CED67F003EF9AA /* ApiJsonRpcRelease2BasicGenerateIntegersParsedResponse.swift */; };
 		C59BEE0C25CF3A8F003EF9AA /* DecimalUInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59BEE0B25CF3A8F003EF9AA /* DecimalUInt.swift */; };
 		C59F969326135F5E0026220A /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59F969226135F5E0026220A /* Error.swift */; };
@@ -239,6 +241,8 @@
 		C58A618325D0414000FE4606 /* HttpExchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpExchange.swift; sourceTree = "<group>"; };
 		C590F750278B8C110084D079 /* BundleShortVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleShortVersion.swift; sourceTree = "<group>"; };
 		C590F753278B8E3C0084D079 /* BundleShortVersionUnitTesing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleShortVersionUnitTesing.swift; sourceTree = "<group>"; };
+		C590F755278B917A0084D079 /* BundleVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleVersion.swift; sourceTree = "<group>"; };
+		C590F757278B91C00084D079 /* BundleVersionUnitTesing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleVersionUnitTesing.swift; sourceTree = "<group>"; };
 		C59BEDFF25CED67F003EF9AA /* ApiJsonRpcRelease2BasicGenerateIntegersParsedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiJsonRpcRelease2BasicGenerateIntegersParsedResponse.swift; sourceTree = "<group>"; };
 		C59BEE0B25CF3A8F003EF9AA /* DecimalUInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalUInt.swift; sourceTree = "<group>"; };
 		C59F969226135F5E0026220A /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -696,6 +700,7 @@
 			isa = PBXGroup;
 			children = (
 				C590F750278B8C110084D079 /* BundleShortVersion.swift */,
+				C590F755278B917A0084D079 /* BundleVersion.swift */,
 			);
 			path = Bundle;
 			sourceTree = "<group>";
@@ -704,6 +709,7 @@
 			isa = PBXGroup;
 			children = (
 				C590F753278B8E3C0084D079 /* BundleShortVersionUnitTesing.swift */,
+				C590F757278B91C00084D079 /* BundleVersionUnitTesing.swift */,
 			);
 			path = Bundle;
 			sourceTree = "<group>";
@@ -944,6 +950,7 @@
 				C5820FE925C603C80057D5C6 /* LocaleUnitTesting.swift in Sources */,
 				C55CF50D2551DDC200E61A03 /* DecimalFloatUnitTesting.swift in Sources */,
 				C5820FF325C60F820057D5C6 /* ScriptUnitTesting.swift in Sources */,
+				C590F758278B91C00084D079 /* BundleVersionUnitTesing.swift in Sources */,
 				C55CF5002551DCF500E61A03 /* DecimalIntUnitTesting.swift in Sources */,
 				331E9B9E23D5FE0E0094C203 /* MultipleTextLocalizerUnitTesting.swift in Sources */,
 				C54D470225164ACA004B1467 /* URLRequestInitHttpRequestUnitTesting.swift in Sources */,
@@ -977,6 +984,7 @@
 				33107F54239134B400789467 /* TableNameBundleTextLocalizer.swift in Sources */,
 				C54D46EA25154357004B1467 /* JsonArray.swift in Sources */,
 				C55CF548255209EF00E61A03 /* UriScheme.swift in Sources */,
+				C590F756278B917A0084D079 /* BundleVersion.swift in Sources */,
 				C59F969326135F5E0026220A /* Error.swift in Sources */,
 				C54D708124EC61AC00C46616 /* JsonValue.swift in Sources */,
 				C54ADD1C25532BFB00132564 /* MediaType.swift in Sources */,
