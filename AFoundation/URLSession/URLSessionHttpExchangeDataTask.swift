@@ -18,7 +18,7 @@ public extension URLSession {
     func httpExchangeDataTask<ParsedResponse>(_ httpExchange: HttpExchange<ParsedResponse>, completionHandler: @escaping (Result<HttpExchangeDataTaskResponse<ParsedResponse>, Swift.Error>) -> ()) throws -> URLSessionDataTask {
         let httpRequest: HttpRequest
         do { httpRequest = try httpExchange.constructRequest() } catch {
-            throw Error("Cannot not get \(String(reflecting: URLSessionDataTask.self)) for \(String(reflecting: httpExchange))\n\(error)")
+            throw Error("Cannot get \(String(reflecting: URLSessionDataTask.self)) for \(String(reflecting: httpExchange))\n\(error)")
         }
         let urlRequest = URLRequest(httpRequest)
         let dataTask = self.dataTask(with: urlRequest) { (data, urlResponse, error) in

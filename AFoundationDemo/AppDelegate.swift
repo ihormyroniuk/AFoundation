@@ -25,9 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(error)
         }
         
-        networking.generateStrings { result in
-            
-        }
+//        networking.generateStrings { result in
+//
+//        }
         
 //        var jsonObject = JsonObject()
 //        jsonObject.setString("string", for: "key1")
