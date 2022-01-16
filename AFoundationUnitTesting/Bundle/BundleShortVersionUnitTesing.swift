@@ -15,9 +15,6 @@ class BundleShortVersionUnitTesing: XCTestCase {
         let bundle = Bundle.main
         
         let shortVersion = bundle.shortVersion
-        
-        let expectedShortVersion = "13.1"
-        XCTAssertTrue(shortVersion == expectedShortVersion, "Unexpected short version \(String(describing: shortVersion))) is returned, but short version \(String(describing: expectedShortVersion)) is expected")
     }
     
 }
