@@ -187,12 +187,36 @@ class PreferredLanguageUnitTesting: XCTestCase {
         XCTAssertTrue(language == .russian, "Unexpected language \"\(language))\" is found while language \"(\(PreferredLanguage.russian))\" is expected")
     }
     
+    func testInitRussianCodeWithRegion() {
+        let code = "\(russianCode)-US"
+        
+        let language: PreferredLanguage
+        do { language = try PreferredLanguage(code: code) } catch {
+            XCTFail("Unexpected error \(error.self) is thrown")
+            return
+        }
+        
+        XCTAssertTrue(language == .russian, "Unexpected language \"\(language))\" is found while language \"(\(PreferredLanguage.russian))\" is expected")
+    }
+    
     // MARK: Ukrainian
     
     private let ukrainianCode = "uk"
 
     func testInitUkrainianCode() {
         let code = ukrainianCode
+        
+        let language: PreferredLanguage
+        do { language = try PreferredLanguage(code: code) } catch {
+            XCTFail("Unexpected error \(error.self) is thrown")
+            return
+        }
+        
+        XCTAssertTrue(language == .ukrainian, "Unexpected language \"\(language))\" is found while language \"(\(PreferredLanguage.ukrainian))\" is expected")
+    }
+    
+    func testInitUkrainianCodeWithRegion() {
+        let code = "\(ukrainianCode)-US"
         
         let language: PreferredLanguage
         do { language = try PreferredLanguage(code: code) } catch {

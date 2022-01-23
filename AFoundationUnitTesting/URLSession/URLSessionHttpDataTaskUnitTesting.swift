@@ -17,10 +17,10 @@ class URLSessionHttpDataTaskUnitTesting: XCTestCase {
     private class MockURLSession: URLSession {
         
         let mockData: Data?
-        let mockHttpUrlResponse: HTTPURLResponse?
+        let mockHttpUrlResponse: URLResponse?
         let mockError: Swift.Error?
         
-        init(mockData: Data?, mockHttpUrlResponse: HTTPURLResponse?, mockError: Swift.Error?) {
+        init(mockData: Data?, mockHttpUrlResponse: URLResponse?, mockError: Swift.Error?) {
             self.mockData = mockData
             self.mockHttpUrlResponse = mockHttpUrlResponse
             self.mockError = mockError
@@ -29,11 +29,11 @@ class URLSessionHttpDataTaskUnitTesting: XCTestCase {
         private class MockURLSessionDataTask: URLSessionDataTask {
             
             let mockData: Data?
-            let mockHttpUrlResponse: HTTPURLResponse?
+            let mockHttpUrlResponse: URLResponse?
             let mockError: Swift.Error?
             let completionHandler: (Data?, URLResponse?, Swift.Error?) -> Void
             
-            init(completionHandler: @escaping (Data?, URLResponse?, Swift.Error?) -> Void, mockData: Data?, mockHttpUrlResponse: HTTPURLResponse?, mockError: Swift.Error?) {
+            init(completionHandler: @escaping (Data?, URLResponse?, Swift.Error?) -> Void, mockData: Data?, mockHttpUrlResponse: URLResponse?, mockError: Swift.Error?) {
                 self.completionHandler = completionHandler
                 self.mockData = mockData
                 self.mockHttpUrlResponse = mockHttpUrlResponse
@@ -59,6 +59,27 @@ class URLSessionHttpDataTaskUnitTesting: XCTestCase {
         let data: Data? = nil
         let urlSession = MockURLSession(mockData: data, mockHttpUrlResponse: nil, mockError: nil)
         let url = URL(string: "localhost")!
+        let request = URLRequest(url: url)
+
+        let expectation = self.expectation(description: #function)
+        let dataTask = urlSession.httpDataTask(with: request) { (result) in
+            switch result {
+            case .success(let urlDataTaskResponse):
+                XCTFail("Unexpected success \(String(describing: urlDataTaskResponse)) is returned while failure has to be returned")
+            case .failure:
+                break
+            }
+            expectation.fulfill()
+        }
+        dataTask.resume()
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testFailureError2() {
+        let data: Data? = nil
+        let url = URL(string: "localhost")!
+        let httpUrlResponse = URLResponse(url: url, mimeType: nil, expectedContentLength: 0, textEncodingName: nil)
+        let urlSession = MockURLSession(mockData: data, mockHttpUrlResponse: httpUrlResponse, mockError: nil)
         let request = URLRequest(url: url)
 
         let expectation = self.expectation(description: #function)
