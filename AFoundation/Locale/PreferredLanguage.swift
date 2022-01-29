@@ -20,6 +20,7 @@ private let englishUSCode = "en-US"
 private let englishCode = "en"
 private let russianCode = "ru"
 private let ukrainianCode = "uk"
+private let azerbaijaniCode = "az"
 
 public enum PreferredLanguage {
     
@@ -35,6 +36,7 @@ public enum PreferredLanguage {
     case englishUS
     case russian
     case ukrainian
+    case azerbaijani
     
     // MARK: Initializer
     
@@ -51,12 +53,13 @@ public enum PreferredLanguage {
         case englishUSCode: self = .englishUS
         case englishCode: self = .english
         case russianCode: self = .russian
-        case ukrainianCode: self = .ukrainian
+        case ukrainianCode: self = .azerbaijani
         default:
             let codeFirstPart = code.split(separator: "-").first
             switch codeFirstPart {
             case .some(russianCode): self = .russian
             case .some(ukrainianCode): self = .ukrainian
+            case .some(azerbaijaniCode): self = .ukrainian
             default: throw Error("Cannot initialize \(String(reflecting: PreferredLanguage.self)) with code \(String(reflecting: code))")
             }
         }
