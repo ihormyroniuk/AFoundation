@@ -22,6 +22,8 @@
 		C5096BD6234F7B3200EA793A /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BC5234F7B3200EA793A /* Region.swift */; };
 		C5096BD8234F7B3200EA793A /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BC8234F7B3200EA793A /* Currency.swift */; };
 		C5096BE0234F7BD000EA793A /* Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BDF234F7BD000EA793A /* Locale.swift */; };
+		C50BAABC28429F9B0052C396 /* NumberFormatterString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAABB28429F9B0052C396 /* NumberFormatterString.swift */; };
+		C50BAABF2842A3BC0052C396 /* NumberFormatterStringUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAABE2842A3BC0052C396 /* NumberFormatterStringUnitTesting.swift */; };
 		C515F1E1263DE61300D64239 /* URLSessionDataTaskUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C515F1E0263DE61300D64239 /* URLSessionDataTaskUnitTesting.swift */; };
 		C516C69E25EDB60F00628D77 /* HttpRequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C516C69D25EDB60F00628D77 /* HttpRequestMethod.swift */; };
 		C516C6A225EDB65900628D77 /* HttpResponseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C516C6A125EDB65900628D77 /* HttpResponseCode.swift */; };
@@ -166,6 +168,8 @@
 		C5096BC5234F7B3200EA793A /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		C5096BC8234F7B3200EA793A /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		C5096BDF234F7BD000EA793A /* Locale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locale.swift; sourceTree = "<group>"; };
+		C50BAABB28429F9B0052C396 /* NumberFormatterString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterString.swift; sourceTree = "<group>"; };
+		C50BAABE2842A3BC0052C396 /* NumberFormatterStringUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterStringUnitTesting.swift; sourceTree = "<group>"; };
 		C515F1E0263DE61300D64239 /* URLSessionDataTaskUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskUnitTesting.swift; sourceTree = "<group>"; };
 		C516C69D25EDB60F00628D77 /* HttpRequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequestMethod.swift; sourceTree = "<group>"; };
 		C516C6A125EDB65900628D77 /* HttpResponseCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponseCode.swift; sourceTree = "<group>"; };
@@ -310,6 +314,7 @@
 				338BA76C239EA4E000CE3CCA /* Localizer */,
 				C563FBCD252860E400BA1E99 /* Locale */,
 				C54BA8FB2527C8CF0069583E /* Decimal */,
+				C50BAABD2842A3990052C396 /* NumberFormatter */,
 				332459022361F24C00DC2051 /* Info.plist */,
 			);
 			path = AFoundationUnitTesting;
@@ -392,6 +397,7 @@
 				C5096BBB234F7B3200EA793A /* Locale */,
 				C563842825D97506004361C7 /* NSNull */,
 				C5F503AD2343994D00CE5DB9 /* Decimal */,
+				C50BAABA28429F610052C396 /* NumberFormatter */,
 				C59F969226135F5E0026220A /* Error.swift */,
 				C50134A9230C196A0018D950 /* AFoundation.h */,
 				C50134AA230C196A0018D950 /* Info.plist */,
@@ -410,6 +416,22 @@
 				C587DC1425A0DF1700DF1BF9 /* PreferredLanguage.swift */,
 			);
 			path = Locale;
+			sourceTree = "<group>";
+		};
+		C50BAABA28429F610052C396 /* NumberFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				C50BAABB28429F9B0052C396 /* NumberFormatterString.swift */,
+			);
+			path = NumberFormatter;
+			sourceTree = "<group>";
+		};
+		C50BAABD2842A3990052C396 /* NumberFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				C50BAABE2842A3BC0052C396 /* NumberFormatterStringUnitTesting.swift */,
+			);
+			path = NumberFormatter;
 			sourceTree = "<group>";
 		};
 		C515F1DF263DE5F600D64239 /* URLSession */ = {
@@ -956,6 +978,7 @@
 				C5820FF325C60F820057D5C6 /* ScriptUnitTesting.swift in Sources */,
 				C590F758278B91C00084D079 /* BundleVersionUnitTesing.swift in Sources */,
 				C55CF5002551DCF500E61A03 /* DecimalIntUnitTesting.swift in Sources */,
+				C50BAABF2842A3BC0052C396 /* NumberFormatterStringUnitTesting.swift in Sources */,
 				331E9B9E23D5FE0E0094C203 /* MultipleTextLocalizerUnitTesting.swift in Sources */,
 				C54D470225164ACA004B1467 /* URLRequestInitHttpRequestUnitTesting.swift in Sources */,
 				338BA772239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift in Sources */,
@@ -999,6 +1022,7 @@
 				C516C6AA25EDB6AD00628D77 /* HttpHeaderField.swift in Sources */,
 				330B4224238EB7E40083FCEC /* TextLocalizer.swift in Sources */,
 				C56ECDE62557E7E600969CBC /* URLComponentsUrl.swift in Sources */,
+				C50BAABC28429F9B0052C396 /* NumberFormatterString.swift in Sources */,
 				3310125923994C09006B0E03 /* MultipleTextLocalizer.swift in Sources */,
 				C563842A25D9752C004361C7 /* NSNull.swift in Sources */,
 				C572C2F62746F9C2005795A7 /* UUIDInitString.swift in Sources */,
