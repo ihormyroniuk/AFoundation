@@ -107,6 +107,18 @@ class HttpExchangeUnitTesting: XCTestCase {
         }
     }
     
+    func testRequestDataHttpExchangeDebugDescription() {
+        let httpExchange = RequestDataHttpExchange<Any, Any>(requestData: Void())
+        
+        let debugDescription = String(reflecting: httpExchange)
+        
+        let expectedDebugDescription = "AFoundation.RequestDataHttpExchange<Any, Any>(requestData: ())"
+        
+        XCTAssertTrue(debugDescription == expectedDebugDescription, "Unexpected debug description \(debugDescription) is found, but debug description \(expectedDebugDescription) is expected")
+    }
+    
+    // MARK: SchemeHostRequestDataHttpExchange
+    
     func testSchemeHostRequestDataHttpExchangeConstructRequest() {
         let httpExchange = SchemeHostRequestDataHttpExchange<Any, Any>(scheme: "", host: "", requestData: Void())
         do {
@@ -130,5 +142,14 @@ class HttpExchangeUnitTesting: XCTestCase {
         }
     }
     
+    func testSchemeHostRequestDataHttpExchangeDebugDescription() {
+        let httpExchange = SchemeHostRequestDataHttpExchange<Any, Any>(scheme: "", host: "", requestData: Void())
+        
+        let debugDescription = String(reflecting: httpExchange)
+        
+        let expectedDebugDescription = "AFoundation.SchemeHostRequestDataHttpExchange<Any, Any>(scheme: \"\", host: \"\", requestData: ())"
+        
+        XCTAssertTrue(debugDescription == expectedDebugDescription, "Unexpected debug description \(debugDescription) is found, but debug description \(expectedDebugDescription) is expected")
+    }
+    
 }
-
