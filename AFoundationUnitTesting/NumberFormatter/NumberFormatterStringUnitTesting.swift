@@ -15,14 +15,14 @@ class NumberFormatterStringUnitTesting: XCTestCase {
         let number = NSNumber()
         let numberFormatter = NumberFormatter()
         
-        let _ = numberFormatter.string(number)
+        _ = numberFormatter.string(number)
     }
     
     func testDecimal() {
         let decimal = Decimal()
         let numberFormatter = NumberFormatter()
         
-        let _ = numberFormatter.string(decimal)
+        _ = numberFormatter.string(decimal)
     }
     
 }
