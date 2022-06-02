@@ -6,6 +6,7 @@
 //  Copyright © 2021 Ihor Myroniuk. All rights reserved.
 //
 
+import Foundation
 import AFoundation
 
 extension Api.JsonRpc.Release2.Basic {
