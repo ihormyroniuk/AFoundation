@@ -24,6 +24,7 @@
 		C5096BE0234F7BD000EA793A /* Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5096BDF234F7BD000EA793A /* Locale.swift */; };
 		C50BAABC28429F9B0052C396 /* NumberFormatterString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAABB28429F9B0052C396 /* NumberFormatterString.swift */; };
 		C50BAABF2842A3BC0052C396 /* NumberFormatterStringUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAABE2842A3BC0052C396 /* NumberFormatterStringUnitTesting.swift */; };
+		C5157C6728737EF90082A9EC /* CalendarDayUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5157C6628737EF90082A9EC /* CalendarDayUnitTesting.swift */; };
 		C515F1E1263DE61300D64239 /* URLSessionDataTaskUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C515F1E0263DE61300D64239 /* URLSessionDataTaskUnitTesting.swift */; };
 		C516C69E25EDB60F00628D77 /* HttpRequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C516C69D25EDB60F00628D77 /* HttpRequestMethod.swift */; };
 		C516C6A225EDB65900628D77 /* HttpResponseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C516C6A125EDB65900628D77 /* HttpResponseCode.swift */; };
@@ -114,6 +115,7 @@
 		C5B1BA972752E5EC00D4E0F8 /* UUIDInitStringUnitString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B1BA962752E5EC00D4E0F8 /* UUIDInitStringUnitString.swift */; };
 		C5BB0610274844CD00806E6D /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BB060F274844CD00806E6D /* Error.swift */; };
 		C5BC0A33255F06F40066E85F /* URLComponentsUrlUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC0A32255F06F40066E85F /* URLComponentsUrlUnitTesting.swift */; };
+		C5D679A2286E405E00ACAACC /* CalendarDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D679A1286E405E00ACAACC /* CalendarDay.swift */; };
 		C5EA879025CAEE1E00D5F75C /* URLSessionHttpExchangeDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EA878F25CAEE1E00D5F75C /* URLSessionHttpExchangeDataTask.swift */; };
 		C5F503AF2343998400CE5DB9 /* DecimalDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F503AE2343998400CE5DB9 /* DecimalDouble.swift */; };
 /* End PBXBuildFile section */
@@ -170,6 +172,7 @@
 		C5096BDF234F7BD000EA793A /* Locale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locale.swift; sourceTree = "<group>"; };
 		C50BAABB28429F9B0052C396 /* NumberFormatterString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterString.swift; sourceTree = "<group>"; };
 		C50BAABE2842A3BC0052C396 /* NumberFormatterStringUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterStringUnitTesting.swift; sourceTree = "<group>"; };
+		C5157C6628737EF90082A9EC /* CalendarDayUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayUnitTesting.swift; sourceTree = "<group>"; };
 		C515F1E0263DE61300D64239 /* URLSessionDataTaskUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskUnitTesting.swift; sourceTree = "<group>"; };
 		C516C69D25EDB60F00628D77 /* HttpRequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequestMethod.swift; sourceTree = "<group>"; };
 		C516C6A125EDB65900628D77 /* HttpResponseCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponseCode.swift; sourceTree = "<group>"; };
@@ -260,6 +263,7 @@
 		C5B1BA962752E5EC00D4E0F8 /* UUIDInitStringUnitString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUIDInitStringUnitString.swift; sourceTree = "<group>"; };
 		C5BB060F274844CD00806E6D /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		C5BC0A32255F06F40066E85F /* URLComponentsUrlUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponentsUrlUnitTesting.swift; sourceTree = "<group>"; };
+		C5D679A1286E405E00ACAACC /* CalendarDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDay.swift; sourceTree = "<group>"; };
 		C5EA878F25CAEE1E00D5F75C /* URLSessionHttpExchangeDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHttpExchangeDataTask.swift; sourceTree = "<group>"; };
 		C5F503AE2343998400CE5DB9 /* DecimalDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalDouble.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -303,6 +307,7 @@
 		332458FF2361F24C00DC2051 /* AFoundationUnitTesting */ = {
 			isa = PBXGroup;
 			children = (
+				C5157C6528737EDB0082A9EC /* Calendar */,
 				C590F752278B8E200084D079 /* Bundle */,
 				C5BC0A31255F06CC0066E85F /* URLComponents */,
 				C54D46FE2516412B004B1467 /* Http */,
@@ -383,6 +388,7 @@
 		C50134A8230C196A0018D950 /* AFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				C5D679A0286E403F00ACAACC /* Calendar */,
 				C590F74F278B8C060084D079 /* Bundle */,
 				C54ADD1A25532BE500132564 /* MediaType */,
 				C55CF546255209DD00E61A03 /* UriScheme */,
@@ -432,6 +438,14 @@
 				C50BAABE2842A3BC0052C396 /* NumberFormatterStringUnitTesting.swift */,
 			);
 			path = NumberFormatter;
+			sourceTree = "<group>";
+		};
+		C5157C6528737EDB0082A9EC /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				C5157C6628737EF90082A9EC /* CalendarDayUnitTesting.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 		C515F1DF263DE5F600D64239 /* URLSession */ = {
@@ -796,6 +810,14 @@
 			path = URLComponents;
 			sourceTree = "<group>";
 		};
+		C5D679A0286E403F00ACAACC /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				C5D679A1286E405E00ACAACC /* CalendarDay.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		C5EA879725CB1B5000D5F75C /* URLSession */ = {
 			isa = PBXGroup;
 			children = (
@@ -979,6 +1001,7 @@
 				C590F758278B91C00084D079 /* BundleVersionUnitTesing.swift in Sources */,
 				C55CF5002551DCF500E61A03 /* DecimalIntUnitTesting.swift in Sources */,
 				C50BAABF2842A3BC0052C396 /* NumberFormatterStringUnitTesting.swift in Sources */,
+				C5157C6728737EF90082A9EC /* CalendarDayUnitTesting.swift in Sources */,
 				331E9B9E23D5FE0E0094C203 /* MultipleTextLocalizerUnitTesting.swift in Sources */,
 				C54D470225164ACA004B1467 /* URLRequestInitHttpRequestUnitTesting.swift in Sources */,
 				338BA772239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift in Sources */,
@@ -1028,6 +1051,7 @@
 				C572C2F62746F9C2005795A7 /* UUIDInitString.swift in Sources */,
 				330B4226238EBDC00083FCEC /* Localizer.swift in Sources */,
 				C516C6A225EDB65900628D77 /* HttpResponseCode.swift in Sources */,
+				C5D679A2286E405E00ACAACC /* CalendarDay.swift in Sources */,
 				C5636FBD25C6FAA000F95194 /* HTTPURLResponseHttpResponseData.swift in Sources */,
 				C59BEE0C25CF3A8F003EF9AA /* DecimalUInt.swift in Sources */,
 				C5096BD2234F7B3200EA793A /* Language.swift in Sources */,
