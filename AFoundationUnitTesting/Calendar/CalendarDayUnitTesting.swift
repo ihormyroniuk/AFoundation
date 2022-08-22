@@ -15,7 +15,10 @@ class CalendarDayUnitTesting: XCTestCase {
         let day = Date()
         
         let endOfDay = Calendar.current.endOfDay(for: day)
-        print(endOfDay)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMM d, yyyy mm:SS.sss"
+        print(dateFormatter.string(from: day))
+        print(dateFormatter.string(from: endOfDay))
     }
     
 }
