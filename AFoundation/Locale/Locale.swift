@@ -15,7 +15,7 @@ public extension Locale {
     
     // MARK: Initializer
     
-    init(language: Language, script: Script?, region: Region?) {
+    init(language: AFoundation.Language, script: AFoundation.Script?, region: AFoundation.Region?) {
         let languageCode = language.code
         var identifier = languageCode
         if let scriptCode = script?.code { identifier += "-\(scriptCode)" }
@@ -25,41 +25,41 @@ public extension Locale {
     
     // MARK: Language
   
-    func language() throws -> Language? {
+    func language() throws -> AFoundation.Language? {
         guard let code = languageCode else { return nil }
-        let language: Language
-        do { language = try Language(code: code) }
-        catch { throw Error("Cannot get \(String(reflecting: Language.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))") }
+        let language: AFoundation.Language
+        do { language = try AFoundation.Language(code: code) }
+        catch { throw Error("Cannot get \(String(reflecting: AFoundation.Language.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))") }
         return language
     }
     
     // MARK: Script
   
-    func script() throws -> Script? {
+    func script() throws -> AFoundation.Script? {
         guard let code = scriptCode else { return nil }
-        let script: Script
-        do { script = try Script(code: code) }
-        catch { throw Error("Cannot get \(String(reflecting: Script.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))") }
+        let script: AFoundation.Script
+        do { script = try AFoundation.Script(code: code) }
+        catch { throw Error("Cannot get \(String(reflecting: AFoundation.Script.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))") }
         return script
     }
   
     // MARK: Region
   
-    func region() throws -> Region? {
+    func region() throws -> AFoundation.Region? {
         guard let code = regionCode else { return nil }
-        let region: Region
-        do { region = try Region(code: code) }
-        catch { throw Error("Cannot get \(String(reflecting: Region.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))") }
+        let region: AFoundation.Region
+        do { region = try AFoundation.Region(code: code) }
+        catch { throw Error("Cannot get \(String(reflecting: AFoundation.Region.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))") }
         return region
     }
     
     // MARK: Currency
   
-    func currency() throws -> Currency? {
+    func currency() throws -> AFoundation.Currency? {
         guard let code = currencyCode else { return nil }
-        let currency: Currency
-        do { currency = try Currency(code: code) }
-        catch { throw Error("Cannot get \(String(reflecting: Currency.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))") }
+        let currency: AFoundation.Currency
+        do { currency = try AFoundation.Currency(code: code) }
+        catch { throw Error("Cannot get \(String(reflecting: AFoundation.Currency.self)) for \(String(reflecting: Locale.self))(\(String(reflecting: self)))\n\(String(reflecting: error))") }
         return currency
     }
     
