@@ -24,6 +24,19 @@ class DecimalIntUnitTesting: XCTestCase {
         XCTAssertTrue(decimalInt == int, "Unexpected int \(decimalInt)) is found, but int \(int) is expected")
     }
     
+    func testIntZero() {
+        let int = Int(0)
+        let decimal = Decimal(int)
+        
+        let decimalInt: Int
+        do { decimalInt = try decimal.int() } catch {
+            XCTFail("Unexpected error \(error) is thrown")
+            return
+        }
+        
+        XCTAssertTrue(decimalInt == int, "Unexpected int \(decimalInt)) is found, but int \(int) is expected")
+    }
+    
     func testIntGreaterThanIntMax() {
         let decimal = Decimal.intMax + Decimal.intMax
         
@@ -58,8 +71,21 @@ class DecimalIntUnitTesting: XCTestCase {
         XCTFail("Unexpected int \(decimalInt) is returned, but error has to be thrown")
     }
     
-    func testDoubleWithoutFraction() {
+    func testDoubleWithFractionZeroes() {
         let double = Double(1234567890.0000)
+        let decimal = Decimal(double)
+        
+        let decimalInt: Int
+        do { decimalInt = try decimal.int() } catch {
+            XCTFail("Unexpected error \(error) is thrown")
+            return
+        }
+        
+        XCTAssertTrue(decimalInt == Int(double), "Unexpected int \(decimalInt)) is found, but int \(double) is expected")
+    }
+    
+    func testDoubleZero() {
+        let double = Double(0)
         let decimal = Decimal(double)
         
         let decimalInt: Int
