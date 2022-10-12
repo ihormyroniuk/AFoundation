@@ -14,7 +14,7 @@ public extension Decimal {
     static let intMin = Decimal(Int.min)
 
     func int() throws -> Int {
-        guard exponent >= 0 && self >= Decimal.intMin && self <= Decimal.intMax else {
+        guard (exponent >= 0 && self >= Decimal.intMin && self <= Decimal.intMax) || isZero else {
             throw Error("Cannot get \(String(reflecting: Int.self)) for \(String(reflecting: Decimal.self))(\(String(reflecting: self)))")
         }
         return (self as NSDecimalNumber).intValue

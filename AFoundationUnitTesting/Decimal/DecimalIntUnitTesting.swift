@@ -97,4 +97,18 @@ class DecimalIntUnitTesting: XCTestCase {
         XCTAssertTrue(decimalInt == Int(double), "Unexpected int \(decimalInt)) is found, but int \(double) is expected")
     }
     
+    func testDoubleSubtractionZero() {
+        let double = Double(1.6700000)
+        let decimal = Decimal(double) - Decimal(double)
+        
+        let decimalInt: Int
+        do { decimalInt = try decimal.int() } catch {
+            XCTFail("Unexpected error \(error) is thrown")
+            return
+        }
+        
+        let zeroInt = Int.zero
+        XCTAssertTrue(decimalInt == zeroInt, "Unexpected int \(decimalInt)) is found, but int \(zeroInt) is expected")
+    }
+    
 }
