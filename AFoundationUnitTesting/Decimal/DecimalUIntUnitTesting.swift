@@ -88,27 +88,42 @@ class DecimalUIntUnitTesting: XCTestCase {
         let double = Double(0)
         let decimal = Decimal(double)
         
-        let decimalInt: UInt
-        do { decimalInt = try decimal.uint() } catch {
+        let decimalUInt: UInt
+        do { decimalUInt = try decimal.uint() } catch {
             XCTFail("Unexpected error \(error) is thrown")
             return
         }
         
-        XCTAssertTrue(decimalInt == Int(double), "Unexpected int \(decimalInt)) is found, but int \(double) is expected")
+        XCTAssertTrue(decimalUInt == Int(double), "Unexpected int \(decimalUInt)) is found, but int \(double) is expected")
     }
     
     func testDoubleSubtractionZero() {
         let double = Double(1.6700000)
         let decimal = Decimal(double) - Decimal(double)
         
-        let decimalInt: UInt
-        do { decimalInt = try decimal.uint() } catch {
+        let decimalUInt: UInt
+        do { decimalUInt = try decimal.uint() } catch {
             XCTFail("Unexpected error \(error) is thrown")
             return
         }
         
-        let zeroInt = UInt.zero
-        XCTAssertTrue(decimalInt == zeroInt, "Unexpected int \(decimalInt)) is found, but int \(zeroInt) is expected")
+        let zeroUInt = UInt.zero
+        XCTAssertTrue(decimalUInt == zeroUInt, "Unexpected int \(decimalUInt)) is found, but int \(zeroUInt) is expected")
+    }
+    
+    func testDoubleSubtractionOne() {
+        let double1 = Double(1.6700000)
+        let double2 = Double(0.6700000)
+        let decimal = Decimal(double1) - Decimal(double2)
+        
+        let decimalUInt: UInt
+        do { decimalUInt = try decimal.uint() } catch {
+            XCTFail("Unexpected error \(error) is thrown")
+            return
+        }
+        
+        let zeroInt: Int = 1
+        XCTAssertTrue(decimalUInt == zeroInt, "Unexpected int \(decimalUInt)) is found, but int \(zeroInt) is expected")
     }
     
 }
