@@ -1,17 +1,9 @@
-//
-//  HardcodedCountriesCodesUnitTesting.swift
-//  AFoundationUnitTesting
-//
-//  Created by Ihor Myroniuk on 03.10.2020.
-//  Copyright © 2020 Ihor Myroniuk. All rights reserved.
-//
-
 import XCTest
 @testable import AFoundation
 
 class RegionUnitTesting: XCTestCase {
     
-    // MARK: Armenia
+    // MARK: - Armenia
     
     private let armeniaCode = "AM"
 
@@ -35,7 +27,7 @@ class RegionUnitTesting: XCTestCase {
         XCTAssertTrue(code == armeniaCode, "Unexpected code \"\(code))\" is found while code \"(\(armeniaCode))\" is expected")
     }
     
-    // MARK: Ukraine
+    // MARK: - Ukraine
     
     private let ukraineCode = "UA"
 
@@ -59,7 +51,7 @@ class RegionUnitTesting: XCTestCase {
         XCTAssertTrue(code == ukraineCode, "Unexpected code \"\(code))\" is found while code \"(\(ukraineCode))\" is expected")
     }
     
-    // MARK: Russian
+    // MARK: - Russian
     
     private let russiaCode = "RU"
 
@@ -83,7 +75,55 @@ class RegionUnitTesting: XCTestCase {
         XCTAssertTrue(code == russiaCode, "Unexpected code \"\(code))\" is found while code \"(\(russiaCode))\" is expected")
     }
     
-    // MARK: Unknown Code
+    // MARK: - Singapore
+    
+    private let singaporeCode = "SG"
+
+    func testInitSingaporeCode() {
+        let code = singaporeCode
+        
+        let region: Region
+        do { region = try Region(code: code) } catch {
+            XCTFail("Unexpected error \(error.self) is thrown")
+            return
+        }
+        
+        XCTAssertTrue(region == .singapore, "Unexpected region \"\(region))\" is found while region \"(\(Region.singapore))\" is expected")
+    }
+    
+    func testSingaporeCode() {
+        let region = Region.singapore
+        
+        let code = region.code
+        
+        XCTAssertTrue(code == singaporeCode, "Unexpected code \"\(code))\" is found while code \"(\(singaporeCode))\" is expected")
+    }
+    
+    // MARK: - Thailand
+    
+    private let thailandCode = "TH"
+
+    func testInitThailandCode() {
+        let code = thailandCode
+        
+        let region: Region
+        do { region = try Region(code: code) } catch {
+            XCTFail("Unexpected error \(error.self) is thrown")
+            return
+        }
+        
+        XCTAssertTrue(region == .thailand, "Unexpected region \"\(region))\" is found while region \"(\(Region.thailand))\" is expected")
+    }
+    
+    func testThailandCode() {
+        let region = Region.thailand
+        
+        let code = region.code
+        
+        XCTAssertTrue(code == thailandCode, "Unexpected code \"\(code))\" is found while code \"(\(thailandCode))\" is expected")
+    }
+    
+    // MARK: - Unknown Code
     
     func testInitUnknownCode() {
         let code = "UNKNOWNCODE"

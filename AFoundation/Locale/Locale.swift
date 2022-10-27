@@ -1,11 +1,3 @@
-//
-//  ALocale.swift
-//  AFoundation
-//
-//  Created by Ihor Myroniuk on 10/10/19.
-//  Copyright © 2019 Ihor Myroniuk. All rights reserved.
-//
-
 import Foundation
 
 /**
@@ -13,7 +5,7 @@ import Foundation
  */
 public extension Locale {
     
-    // MARK: Initializer
+    // MARK: - Initialization
     
     init(language: AFoundation.Language, script: AFoundation.Script?, region: AFoundation.Region?) {
         let languageCode = language.code
@@ -23,7 +15,7 @@ public extension Locale {
         self.init(identifier: identifier)
     }
     
-    // MARK: Language
+    // MARK: - Language
   
     func language() throws -> AFoundation.Language? {
         guard let code = languageCode else { return nil }
@@ -33,7 +25,7 @@ public extension Locale {
         return language
     }
     
-    // MARK: Script
+    // MARK: - Script
   
     func script() throws -> AFoundation.Script? {
         guard let code = scriptCode else { return nil }
@@ -43,7 +35,7 @@ public extension Locale {
         return script
     }
   
-    // MARK: Region
+    // MARK: - Region
   
     func region() throws -> AFoundation.Region? {
         guard let code = regionCode else { return nil }
@@ -53,7 +45,7 @@ public extension Locale {
         return region
     }
     
-    // MARK: Currency
+    // MARK: - Currency
   
     func currency() throws -> AFoundation.Currency? {
         guard let code = currencyCode else { return nil }
@@ -63,7 +55,7 @@ public extension Locale {
         return currency
     }
     
-    // MARK: PreferredLanguages
+    // MARK: - PreferredLanguages
     
     static func preferredLanguages() throws -> [PreferredLanguage] {
         var preferredLanguages: [PreferredLanguage] = []

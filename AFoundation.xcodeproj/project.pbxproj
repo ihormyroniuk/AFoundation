@@ -113,6 +113,7 @@
 		C5B155372745B5D300D382AF /* ApiJsonRpcRelease2BasicGenerateDecimalFractionsParsedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B155362745B5D300D382AF /* ApiJsonRpcRelease2BasicGenerateDecimalFractionsParsedResponse.swift */; };
 		C5B155392745B61500D382AF /* ApiJsonRpcRelease2BasicGenerateDecimalFractionsHttpExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B155382745B61500D382AF /* ApiJsonRpcRelease2BasicGenerateDecimalFractionsHttpExchange.swift */; };
 		C5B1BA972752E5EC00D4E0F8 /* UUIDInitStringUnitString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B1BA962752E5EC00D4E0F8 /* UUIDInitStringUnitString.swift */; };
+		C5B51529290A6D5500B8053E /* LocaleComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B51528290A6D5500B8053E /* LocaleComponents.swift */; };
 		C5BB0610274844CD00806E6D /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BB060F274844CD00806E6D /* Error.swift */; };
 		C5BC0A33255F06F40066E85F /* URLComponentsUrlUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC0A32255F06F40066E85F /* URLComponentsUrlUnitTesting.swift */; };
 		C5D679A2286E405E00ACAACC /* CalendarDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D679A1286E405E00ACAACC /* CalendarDay.swift */; };
@@ -261,6 +262,7 @@
 		C5B155362745B5D300D382AF /* ApiJsonRpcRelease2BasicGenerateDecimalFractionsParsedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiJsonRpcRelease2BasicGenerateDecimalFractionsParsedResponse.swift; sourceTree = "<group>"; };
 		C5B155382745B61500D382AF /* ApiJsonRpcRelease2BasicGenerateDecimalFractionsHttpExchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiJsonRpcRelease2BasicGenerateDecimalFractionsHttpExchange.swift; sourceTree = "<group>"; };
 		C5B1BA962752E5EC00D4E0F8 /* UUIDInitStringUnitString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUIDInitStringUnitString.swift; sourceTree = "<group>"; };
+		C5B51528290A6D5500B8053E /* LocaleComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleComponents.swift; sourceTree = "<group>"; };
 		C5BB060F274844CD00806E6D /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		C5BC0A32255F06F40066E85F /* URLComponentsUrlUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponentsUrlUnitTesting.swift; sourceTree = "<group>"; };
 		C5D679A1286E405E00ACAACC /* CalendarDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDay.swift; sourceTree = "<group>"; };
@@ -415,6 +417,7 @@
 			isa = PBXGroup;
 			children = (
 				C5096BDF234F7BD000EA793A /* Locale.swift */,
+				C5B51528290A6D5500B8053E /* LocaleComponents.swift */,
 				C5096BC0234F7B3200EA793A /* Language.swift */,
 				C5820FEE25C60E790057D5C6 /* Script.swift */,
 				C5096BC5234F7B3200EA793A /* Region.swift */,
@@ -1028,6 +1031,7 @@
 				C5096BE0234F7BD000EA793A /* Locale.swift in Sources */,
 				C531973D25559622004495D6 /* JsonObject.swift in Sources */,
 				C5612AE22645CE91003B5A5B /* URLSessionUrlDataTask.swift in Sources */,
+				C5B51529290A6D5500B8053E /* LocaleComponents.swift in Sources */,
 				C5096BD6234F7B3200EA793A /* Region.swift in Sources */,
 				C5F503AF2343998400CE5DB9 /* DecimalDouble.swift in Sources */,
 				C587DC1525A0DF1700DF1BF9 /* PreferredLanguage.swift in Sources */,

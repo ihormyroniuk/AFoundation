@@ -1,11 +1,3 @@
-//
-//  AOSLanguage.swift
-//  agroportex-ios-stage
-//
-//  Created by Ihor Myroniuk on 12/20/18.
-//  Copyright © 2018 Ihor Myroniuk. All rights reserved.
-//
-
 import Foundation
 
 private let englishCode = "en"

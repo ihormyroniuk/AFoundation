@@ -17,4 +17,9 @@ public extension NumberFormatter {
         return string
     }
     
+    func string(_ double: Double) -> String {
+        let string  = self.string(NSNumber(floatLiteral: double))
+        return string
+    }
+    
 }

@@ -24,4 +24,11 @@ class NumberFormatterStringUnitTesting: XCTestCase {
         _ = numberFormatter.string(int)
     }
     
+    func testDouble() {
+        let double = Double()
+        let numberFormatter = NumberFormatter()
+        
+        _ = numberFormatter.string(double)
+    }
+    
 }
