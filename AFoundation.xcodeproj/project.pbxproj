@@ -47,6 +47,9 @@
 		C54D708124EC61AC00C46616 /* JsonValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54D708024EC61AC00C46616 /* JsonValue.swift */; };
 		C54DD5AC2528A39100F58A87 /* CompositeLocalizerUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54DD5AB2528A39100F58A87 /* CompositeLocalizerUnitTesting.swift */; };
 		C54DD5C02528AF2400F58A87 /* JsonSerrializationUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54DD5BF2528AF2400F58A87 /* JsonSerrializationUnitTesting.swift */; };
+		C54ED6EC290FD46A00B1D1C9 /* CollectionEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54ED6EB290FD46A00B1D1C9 /* CollectionEmpty.swift */; };
+		C54ED6EF290FD5BB00B1D1C9 /* CollectionEmptyUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54ED6EE290FD5BB00B1D1C9 /* CollectionEmptyUnitTesting.swift */; };
+		C54ED6F2290FD80E00B1D1C9 /* CalendarMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54ED6F1290FD80E00B1D1C9 /* CalendarMonth.swift */; };
 		C5512F072530D85D00387B26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5512F062530D85D00387B26 /* AppDelegate.swift */; };
 		C5512F0B2530D85D00387B26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5512F0A2530D85D00387B26 /* ViewController.swift */; };
 		C5512F102530D85F00387B26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5512F0F2530D85F00387B26 /* Assets.xcassets */; };
@@ -196,6 +199,9 @@
 		C54D708024EC61AC00C46616 /* JsonValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonValue.swift; sourceTree = "<group>"; };
 		C54DD5AB2528A39100F58A87 /* CompositeLocalizerUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeLocalizerUnitTesting.swift; sourceTree = "<group>"; };
 		C54DD5BF2528AF2400F58A87 /* JsonSerrializationUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonSerrializationUnitTesting.swift; sourceTree = "<group>"; };
+		C54ED6EB290FD46A00B1D1C9 /* CollectionEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionEmpty.swift; sourceTree = "<group>"; };
+		C54ED6EE290FD5BB00B1D1C9 /* CollectionEmptyUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionEmptyUnitTesting.swift; sourceTree = "<group>"; };
+		C54ED6F1290FD80E00B1D1C9 /* CalendarMonth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonth.swift; sourceTree = "<group>"; };
 		C5512F042530D85D00387B26 /* AFoundationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AFoundationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5512F062530D85D00387B26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5512F0A2530D85D00387B26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -309,6 +315,7 @@
 		332458FF2361F24C00DC2051 /* AFoundationUnitTesting */ = {
 			isa = PBXGroup;
 			children = (
+				C54ED6ED290FD5A100B1D1C9 /* Collection */,
 				C5157C6528737EDB0082A9EC /* Calendar */,
 				C590F752278B8E200084D079 /* Bundle */,
 				C5BC0A31255F06CC0066E85F /* URLComponents */,
@@ -390,6 +397,7 @@
 		C50134A8230C196A0018D950 /* AFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				C54ED6EA290FD44B00B1D1C9 /* Collection */,
 				C5D679A0286E403F00ACAACC /* Calendar */,
 				C590F74F278B8C060084D079 /* Bundle */,
 				C54ADD1A25532BE500132564 /* MediaType */,
@@ -548,6 +556,22 @@
 				C54DD5AB2528A39100F58A87 /* CompositeLocalizerUnitTesting.swift */,
 			);
 			path = Localizer;
+			sourceTree = "<group>";
+		};
+		C54ED6EA290FD44B00B1D1C9 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				C54ED6EB290FD46A00B1D1C9 /* CollectionEmpty.swift */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		C54ED6ED290FD5A100B1D1C9 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				C54ED6EE290FD5BB00B1D1C9 /* CollectionEmptyUnitTesting.swift */,
+			);
+			path = Collection;
 			sourceTree = "<group>";
 		};
 		C5512F052530D85D00387B26 /* AFoundationDemo */ = {
@@ -817,6 +841,7 @@
 			isa = PBXGroup;
 			children = (
 				C5D679A1286E405E00ACAACC /* CalendarDay.swift */,
+				C54ED6F1290FD80E00B1D1C9 /* CalendarMonth.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -994,6 +1019,7 @@
 				C5B1BA972752E5EC00D4E0F8 /* UUIDInitStringUnitString.swift in Sources */,
 				C57E5ED62753CBE40019C8A3 /* URLSessionHttpDataTaskUnitTesting.swift in Sources */,
 				C590F754278B8E3C0084D079 /* BundleShortVersionUnitTesing.swift in Sources */,
+				C54ED6EF290FD5BB00B1D1C9 /* CollectionEmptyUnitTesting.swift in Sources */,
 				C59050CB2794C2220029F9D4 /* URLSessionHttpExchangeDataTaskUnitTesting.swift in Sources */,
 				C563FBEB252868C700BA1E99 /* LanguageUnitTesting.swift in Sources */,
 				C54D47002516415D004B1467 /* HttpRequestUnitTesting.swift in Sources */,
@@ -1064,7 +1090,9 @@
 				C55CF4FB2551DCCD00E61A03 /* DecimalInt.swift in Sources */,
 				C55CF5082551DD8C00E61A03 /* DecimalFloat.swift in Sources */,
 				33107F522391345C00789467 /* CompositeLocalizer.swift in Sources */,
+				C54ED6EC290FD46A00B1D1C9 /* CollectionEmpty.swift in Sources */,
 				C516C6A625EDB69600628D77 /* HttpVersion.swift in Sources */,
+				C54ED6F2290FD80E00B1D1C9 /* CalendarMonth.swift in Sources */,
 				C58A617E25D03F0800FE4606 /* HttpResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
