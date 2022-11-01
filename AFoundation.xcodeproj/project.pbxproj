@@ -88,6 +88,8 @@
 		C57B749A275D737500F5AE0E /* ApiJsonRpcRelease2BasicGenerateGaussiansRequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57B7499275D737500F5AE0E /* ApiJsonRpcRelease2BasicGenerateGaussiansRequestData.swift */; };
 		C57B749C275D737E00F5AE0E /* ApiJsonRpcRelease2BasicGenerateGaussiansParsedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57B749B275D737E00F5AE0E /* ApiJsonRpcRelease2BasicGenerateGaussiansParsedResponse.swift */; };
 		C57B749E275D738900F5AE0E /* ApiJsonRpcRelease2BasicGenerateGaussiansHttpExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57B749D275D738900F5AE0E /* ApiJsonRpcRelease2BasicGenerateGaussiansHttpExchange.swift */; };
+		C57BCF7B2911650D00CF10A9 /* DecimalRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57BCF7A2911650D00CF10A9 /* DecimalRound.swift */; };
+		C57BCF7D291165AF00CF10A9 /* DecimalRoundUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57BCF7C291165AF00CF10A9 /* DecimalRoundUnitTesting.swift */; };
 		C57C9AB72582D0BC0032AED7 /* AFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C50134A6230C196A0018D950 /* AFoundation.framework */; };
 		C57C9AB82582D0BC0032AED7 /* AFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C50134A6230C196A0018D950 /* AFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C57E5ED62753CBE40019C8A3 /* URLSessionHttpDataTaskUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57E5ED52753CBE40019C8A3 /* URLSessionHttpDataTaskUnitTesting.swift */; };
@@ -242,6 +244,8 @@
 		C57B7499275D737500F5AE0E /* ApiJsonRpcRelease2BasicGenerateGaussiansRequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiJsonRpcRelease2BasicGenerateGaussiansRequestData.swift; sourceTree = "<group>"; };
 		C57B749B275D737E00F5AE0E /* ApiJsonRpcRelease2BasicGenerateGaussiansParsedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiJsonRpcRelease2BasicGenerateGaussiansParsedResponse.swift; sourceTree = "<group>"; };
 		C57B749D275D738900F5AE0E /* ApiJsonRpcRelease2BasicGenerateGaussiansHttpExchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiJsonRpcRelease2BasicGenerateGaussiansHttpExchange.swift; sourceTree = "<group>"; };
+		C57BCF7A2911650D00CF10A9 /* DecimalRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalRound.swift; sourceTree = "<group>"; };
+		C57BCF7C291165AF00CF10A9 /* DecimalRoundUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalRoundUnitTesting.swift; sourceTree = "<group>"; };
 		C57E5ED52753CBE40019C8A3 /* URLSessionHttpDataTaskUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHttpDataTaskUnitTesting.swift; sourceTree = "<group>"; };
 		C57F42BD25D09B6200037AE1 /* JsonRpc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonRpc.swift; sourceTree = "<group>"; };
 		C57F42D025D0A1BF00037AE1 /* ApiJsonRpcRelease2Basic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiJsonRpcRelease2Basic.swift; sourceTree = "<group>"; };
@@ -536,6 +540,7 @@
 				C58A616F25D021A900FE4606 /* DecimalUIntUnitTesting.swift */,
 				C55CF50C2551DDC200E61A03 /* DecimalFloatUnitTesting.swift */,
 				C54BA8FC2527C90F0069583E /* DecimalDoubleUnitTesting.swift */,
+				C57BCF7C291165AF00CF10A9 /* DecimalRoundUnitTesting.swift */,
 			);
 			path = Decimal;
 			sourceTree = "<group>";
@@ -863,6 +868,7 @@
 				C59BEE0B25CF3A8F003EF9AA /* DecimalUInt.swift */,
 				C55CF5072551DD8C00E61A03 /* DecimalFloat.swift */,
 				C5F503AE2343998400CE5DB9 /* DecimalDouble.swift */,
+				C57BCF7A2911650D00CF10A9 /* DecimalRound.swift */,
 			);
 			path = Decimal;
 			sourceTree = "<group>";
@@ -1011,6 +1017,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C57BCF7D291165AF00CF10A9 /* DecimalRoundUnitTesting.swift in Sources */,
 				C563FBD82528658B00BA1E99 /* RegionUnitTesting.swift in Sources */,
 				C515F1E1263DE61300D64239 /* URLSessionDataTaskUnitTesting.swift in Sources */,
 				C54984502554AF2500478585 /* JsonObjectUnitTesting.swift in Sources */,
@@ -1062,6 +1069,7 @@
 				C5F503AF2343998400CE5DB9 /* DecimalDouble.swift in Sources */,
 				C587DC1525A0DF1700DF1BF9 /* PreferredLanguage.swift in Sources */,
 				33107F54239134B400789467 /* TableNameBundleTextLocalizer.swift in Sources */,
+				C57BCF7B2911650D00CF10A9 /* DecimalRound.swift in Sources */,
 				C54D46EA25154357004B1467 /* JsonArray.swift in Sources */,
 				C55CF548255209EF00E61A03 /* UriScheme.swift in Sources */,
 				C590F756278B917A0084D079 /* BundleVersion.swift in Sources */,
