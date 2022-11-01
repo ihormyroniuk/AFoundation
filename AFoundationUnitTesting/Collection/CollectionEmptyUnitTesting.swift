@@ -3,22 +3,21 @@ import XCTest
 
 class CollectionEmptyUnitTesting: XCTestCase {
     
-    func testEmptySetStrings() {
-        let set = Set<String>(["string1", "string2"])
+    func testArrayNil() {
+        let array = ["string1", "string2"]
         
-        let isNotEmpty = set.isNotEmpty
+        let value = array[safe: 9]
         
-        let expectedIsNotEmpty = true
-        XCTAssertTrue(isNotEmpty == expectedIsNotEmpty, "Unexpected isNotEmpty \(isNotEmpty)) is found, but isNotEmpty \(expectedIsNotEmpty) is expected")
+        XCTAssertNil(value, "Unexpected value \(String(describing: value))) is found, but nil is expected")
     }
     
-    func testNotEmptySetStrings() {
-        let set = Set<String>([])
+    func testArrayNotNil() {
+        let array = ["string1", "string2"]
         
-        let isNotEmpty = set.isNotEmpty
-        
-        let expectedIsNotEmpty = false
-        XCTAssertTrue(isNotEmpty == expectedIsNotEmpty, "Unexpected isNotEmpty \(isNotEmpty)) is found, but isNotEmpty \(expectedIsNotEmpty) is expected")
+        let value = array[safe: 1]
+                
+        let expectedValue = "string2"
+        XCTAssertTrue(value == expectedValue, "Unexpected value \(String(describing: value))) is found, but value \(expectedValue) is expected")
     }
     
 }

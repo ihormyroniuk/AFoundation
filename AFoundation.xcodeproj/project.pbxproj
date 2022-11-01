@@ -122,6 +122,7 @@
 		C5B51529290A6D5500B8053E /* LocaleComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B51528290A6D5500B8053E /* LocaleComponents.swift */; };
 		C5BB0610274844CD00806E6D /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BB060F274844CD00806E6D /* Error.swift */; };
 		C5BC0A33255F06F40066E85F /* URLComponentsUrlUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC0A32255F06F40066E85F /* URLComponentsUrlUnitTesting.swift */; };
+		C5BE2B0429117BA6003F6E02 /* CollectionSubscriptUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BE2B0329117BA6003F6E02 /* CollectionSubscriptUnitTesting.swift */; };
 		C5D679A2286E405E00ACAACC /* CalendarDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D679A1286E405E00ACAACC /* CalendarDay.swift */; };
 		C5EA879025CAEE1E00D5F75C /* URLSessionHttpExchangeDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EA878F25CAEE1E00D5F75C /* URLSessionHttpExchangeDataTask.swift */; };
 		C5F503AF2343998400CE5DB9 /* DecimalDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F503AE2343998400CE5DB9 /* DecimalDouble.swift */; };
@@ -277,6 +278,7 @@
 		C5B51528290A6D5500B8053E /* LocaleComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleComponents.swift; sourceTree = "<group>"; };
 		C5BB060F274844CD00806E6D /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		C5BC0A32255F06F40066E85F /* URLComponentsUrlUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponentsUrlUnitTesting.swift; sourceTree = "<group>"; };
+		C5BE2B0329117BA6003F6E02 /* CollectionSubscriptUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSubscriptUnitTesting.swift; sourceTree = "<group>"; };
 		C5D679A1286E405E00ACAACC /* CalendarDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDay.swift; sourceTree = "<group>"; };
 		C5EA878F25CAEE1E00D5F75C /* URLSessionHttpExchangeDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHttpExchangeDataTask.swift; sourceTree = "<group>"; };
 		C5F503AE2343998400CE5DB9 /* DecimalDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalDouble.swift; sourceTree = "<group>"; };
@@ -578,6 +580,7 @@
 			isa = PBXGroup;
 			children = (
 				C54ED6EE290FD5BB00B1D1C9 /* CollectionEmptyUnitTesting.swift */,
+				C5BE2B0329117BA6003F6E02 /* CollectionSubscriptUnitTesting.swift */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -1038,6 +1041,7 @@
 				C55CF50D2551DDC200E61A03 /* DecimalFloatUnitTesting.swift in Sources */,
 				C5820FF325C60F820057D5C6 /* ScriptUnitTesting.swift in Sources */,
 				C590F758278B91C00084D079 /* BundleVersionUnitTesing.swift in Sources */,
+				C5BE2B0429117BA6003F6E02 /* CollectionSubscriptUnitTesting.swift in Sources */,
 				C55CF5002551DCF500E61A03 /* DecimalIntUnitTesting.swift in Sources */,
 				C50BAABF2842A3BC0052C396 /* NumberFormatterStringUnitTesting.swift in Sources */,
 				C5157C6728737EF90082A9EC /* CalendarDayUnitTesting.swift in Sources */,
