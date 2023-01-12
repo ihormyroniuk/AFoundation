@@ -1,5 +1,6 @@
 import Foundation
 
+@available(macCatalyst 16, *)
 @available(macOS 13, *)
 @available(iOS 16, *)
 @available(watchOS 9, *)
