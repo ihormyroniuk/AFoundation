@@ -1,5 +1,6 @@
 import Foundation
 
+@available(macOS 13, *)
 @available(iOS 16, *)
 @available(watchOS 9, *)
 extension Locale.Components {
