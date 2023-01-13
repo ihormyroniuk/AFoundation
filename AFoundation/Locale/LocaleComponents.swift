@@ -1,7 +1,7 @@
 import Foundation
 
 @available(macOS 13, iOS 16, tvOS 16, watchOS 9, *)
-extension Locale.Components {
+public extension Locale.Components {
     
     // MARK: - Initialization
     
