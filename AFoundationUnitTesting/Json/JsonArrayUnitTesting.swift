@@ -1,11 +1,3 @@
-//
-//  JsonArrayUnitTesting.swift
-//  AFoundationUnitTesting
-//
-//  Created by Ihor Myroniuk on 31.01.2021.
-//  Copyright © 2021 Ihor Myroniuk. All rights reserved.
-//
-
 import XCTest
 @testable import AFoundation
 

@@ -1,11 +1,3 @@
-//
-//  ApiRelease2HttpExchangeGenerateIntegers.swift
-//  AFoundationDemo
-//
-//  Created by Ihor Myroniuk on 06.02.2021.
-//  Copyright © 2021 Ihor Myroniuk. All rights reserved.
-//
-
 import Foundation
 import AFoundation
 

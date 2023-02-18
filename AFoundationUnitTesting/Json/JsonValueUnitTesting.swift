@@ -1,11 +1,3 @@
-//
-//  JsonAnyValueUnitTesting.swift
-//  AFoundationUnitTesting
-//
-//  Created by Ihor Myroniuk on 22.02.2021.
-//  Copyright © 2021 Ihor Myroniuk. All rights reserved.
-//
-
 import XCTest
 import Foundation
 @testable import AFoundation

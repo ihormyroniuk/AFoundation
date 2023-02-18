@@ -1,11 +1,3 @@
-//
-//  Error.swift
-//  AFoundationDemo
-//
-//  Created by Ihor Myroniuk on 19.11.2021.
-//  Copyright © 2021 Ihor Myroniuk. All rights reserved.
-//
-
 import Foundation
 
 struct Error: Swift.Error, CustomDebugStringConvertible {

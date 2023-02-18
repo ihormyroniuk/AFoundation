@@ -1,11 +1,3 @@
-//
-//  AFoundation.h
-//  AFoundation
-//
-//  Created by Ihor Myroniuk on 8/20/19.
-//  Copyright © 2019 Ihor Myroniuk. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 
 //! Project version number for AFoundation.
