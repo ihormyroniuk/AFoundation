@@ -3,8 +3,6 @@
 
 import PackageDescription
 
-import PackageDescription
-
 let package = Package(
     name: "AFoundation",
     defaultLocalization: "en",
@@ -29,6 +27,11 @@ let package = Package(
             exclude:[
                 "Info.plist"
             ]
+        ),
+        .testTarget(
+            name: "AFoundationUnitTesting",
+            dependencies: ["AFoundation"],
+            path: "AFoundationUnitTesting"
         )
     ]
 )

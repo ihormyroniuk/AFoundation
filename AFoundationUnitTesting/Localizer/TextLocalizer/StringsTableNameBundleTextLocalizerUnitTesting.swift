@@ -1,17 +1,9 @@
-//
-//  MultipleTextLocalizerUnitTestings.swift
-//  AFoundationUnitTesting
-//
-//  Created by Ihor Myroniuk on 12/9/19.
-//  Copyright © 2019 Ihor Myroniuk. All rights reserved.
-//
-
 import XCTest
 @testable import AFoundation
 
 class StringsTableNameBundleTextLocalizerUnitTesting: XCTestCase {
 
-    private lazy var bundle = Bundle(for: self.classForCoder)
+    private lazy var bundle = Bundle.module
     private let stringsTableName = "TextLocalizerUnitTestingStrings"
     private var stringsTableNameBundleTextLocalizer: TableNameBundleTextLocalizer {
         let textLocalizer = TableNameBundleTextLocalizer(tableName: stringsTableName, bundle: bundle)
