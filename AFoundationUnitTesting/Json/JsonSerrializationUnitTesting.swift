@@ -71,6 +71,19 @@ class JsonSerrializationUnitTesting: XCTestCase {
         }
     }
     
+    func testNullData() {
+        let data = Data([0x6e, 0x75, 0x6c, 0x6c])
+
+        do {
+            let boolean = try JsonSerialization.jsonValue(data).nullableBoolean()
+            
+            let expectedBoolean: Bool? = nil
+            XCTAssert(boolean == expectedBoolean, "Object returned unexpected boolean \"\(String(describing: boolean))\" while boolean \"(\(String(describing: expectedBoolean))\" is expected)")
+        } catch {
+            XCTFail("Unexpected error \(error) is thrown")
+        }
+    }
+    
     func testEmptyData() {
         let data = Data()
 
@@ -80,6 +93,34 @@ class JsonSerrializationUnitTesting: XCTestCase {
             XCTFail("\(boolean) Unexpected error has to be thrown")
         } catch {
             return
+        }
+    }
+    
+    func testDataObject() {
+        var object = JsonObject()
+        object.setNumber(Decimal(8), for: "number")
+
+        do {
+            let data = try JsonSerialization.data(object)
+
+            let expectedData = Data([0x7b, 0x22, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x22, 0x3a, 0x38, 0x7d])
+            XCTAssert(data == expectedData, "Unexpected data \"\(String(describing: data))\" is returned while data \"(\(String(describing: expectedData))\" is expected)")
+        } catch {
+            XCTFail("Unexpected error \(error) is thrown")
+        }
+    }
+    
+    func testDataArray() {
+        let stringsArray: [JsonValue] = [JsonValue("string1"), JsonValue("string2")]
+        let array: JsonArray = stringsArray
+
+        do {
+            let data = try JsonSerialization.data(array)
+
+            let expectedData = Data([0x5b, 0x22, 0x73, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x31, 0x22, 0x2c, 0x22, 0x73, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x32, 0x22, 0x5d])
+            XCTAssert(data == expectedData, "Unexpected data \"\(String(describing: data))\" is returned while data \"(\(String(describing: expectedData))\" is expected)")
+        } catch {
+            XCTFail("Unexpected error \(error) is thrown")
         }
     }
     
@@ -114,6 +155,19 @@ class JsonSerrializationUnitTesting: XCTestCase {
             let data = try JsonSerialization.dataNull()
 
             let expectedData = Data([0x6e, 0x75, 0x6c, 0x6c])
+            XCTAssert(data == expectedData, "Unexpected data \"\(String(describing: data))\" is returned while data \"(\(String(describing: expectedData))\" is expected)")
+        } catch {
+            XCTFail("Unexpected error \(error) is thrown")
+        }
+    }
+    
+    func testDataBoolean() {
+        let boolean = true
+        
+        do {
+            let data = try JsonSerialization.data(boolean)
+
+            let expectedData = Data([0x74, 0x72, 0x75, 0x65])
             XCTAssert(data == expectedData, "Unexpected data \"\(String(describing: data))\" is returned while data \"(\(String(describing: expectedData))\" is expected)")
         } catch {
             XCTFail("Unexpected error \(error) is thrown")
