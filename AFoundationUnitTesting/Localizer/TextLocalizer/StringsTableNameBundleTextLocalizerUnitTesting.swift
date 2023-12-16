@@ -3,7 +3,11 @@ import XCTest
 
 class StringsTableNameBundleTextLocalizerUnitTesting: XCTestCase {
 
+    #if SWIFT_PACKAGE
     private lazy var bundle = Bundle.module
+    #else
+    private lazy var bundle = Bundle(for: Self.self)
+    #endif
     private let stringsTableName = "TextLocalizerUnitTestingStrings"
     private var stringsTableNameBundleTextLocalizer: TableNameBundleTextLocalizer {
         let textLocalizer = TableNameBundleTextLocalizer(tableName: stringsTableName, bundle: bundle)

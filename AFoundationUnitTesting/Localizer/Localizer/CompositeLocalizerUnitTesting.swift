@@ -4,7 +4,11 @@ import XCTest
 
 class CompositeLocalizerUnitTesting: XCTestCase {
 
+    #if SWIFT_PACKAGE
     private lazy var bundle = Bundle.module
+    #else
+    private lazy var bundle = Bundle(for: Self.self)
+    #endif
     private let stringsTableName = "TextLocalizerUnitTestingStrings"
     private let stringsdictTableName = "TextLocalizerUnitTestingStringsdict"
     private var multipleTextLocalizer: MultipleTextLocalizer {
