@@ -11,7 +11,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         do {
-            print(try? Locale.current.region())
+            let region = try Locale.current.region()
+            print(region!)
             print(Locale.preferredLanguages)
             let preferredLanguages = try Locale.preferredLanguages()
             print(preferredLanguages)

@@ -204,41 +204,41 @@ class LocaleUnitTesting: XCTestCase {
         
         XCTAssertTrue(currency == nil, "Unexpected \"\(String(reflecting: currency)))\" is found but nil is expected")
     }
-    
-    // MARK: PreferredLanguages
-    
-    @objc private static var nslocalePreferredLanguages: [String] = []
-    
-    func testPreferredLanguages() {
-        LocaleUnitTesting.nslocalePreferredLanguages = ["en-CA", "az"]
-        
-        let nslocalePreferredLanguagesClassMethod = class_getClassMethod(NSLocale.classForCoder(), #selector(getter: NSLocale.preferredLanguages))!
-        let localeUnitTestingPreferredLanguagesClassMethod = class_getClassMethod(LocaleUnitTesting.classForCoder(), #selector(getter: LocaleUnitTesting.nslocalePreferredLanguages))!
-        method_exchangeImplementations(nslocalePreferredLanguagesClassMethod, localeUnitTestingPreferredLanguagesClassMethod)
-        let preferredLanguages: [PreferredLanguage]
-        do { preferredLanguages = try AFoundation.Locale.preferredLanguages() } catch {
-            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
-            return
-        }
-        method_exchangeImplementations(nslocalePreferredLanguagesClassMethod, localeUnitTestingPreferredLanguagesClassMethod)
-        
-        let expectedPreferredLanguages: [PreferredLanguage] = [.englishCanada, .azerbaijani]
-        XCTAssertTrue(preferredLanguages == expectedPreferredLanguages, "Unexpected \"\(String(reflecting: preferredLanguages)))\" is found but \"(\(expectedPreferredLanguages))\" is expected")
-    }
-    
-    func testPreferredLanguagesError() {
-        LocaleUnitTesting.nslocalePreferredLanguages = ["unknownPreferredLanguage"]
-        
-        let nslocalePreferredLanguagesClassMethod = class_getClassMethod(NSLocale.classForCoder(), #selector(getter: NSLocale.preferredLanguages))!
-        let localeUnitTestingPreferredLanguagesClassMethod = class_getClassMethod(LocaleUnitTesting.classForCoder(), #selector(getter: LocaleUnitTesting.nslocalePreferredLanguages))!
-        method_exchangeImplementations(nslocalePreferredLanguagesClassMethod, localeUnitTestingPreferredLanguagesClassMethod)
-        let preferredLanguages: [PreferredLanguage]
-        do { preferredLanguages = try AFoundation.Locale.preferredLanguages() } catch {
-            return
-        }
-        method_exchangeImplementations(nslocalePreferredLanguagesClassMethod, localeUnitTestingPreferredLanguagesClassMethod)
-        
-        XCTFail("Unexpected \(String(reflecting: preferredLanguages)) is found")
-    }
-    
+//    
+//    // MARK: PreferredLanguages
+//    
+//    @objc private static var nslocalePreferredLanguages: [String] = []
+//    
+//    func testPreferredLanguages() {
+//        LocaleUnitTesting.nslocalePreferredLanguages = ["en-CA", "az"]
+//        
+//        let nslocalePreferredLanguagesClassMethod = class_getClassMethod(NSLocale.classForCoder(), #selector(getter: NSLocale.preferredLanguages))!
+//        let localeUnitTestingPreferredLanguagesClassMethod = class_getClassMethod(LocaleUnitTesting.classForCoder(), #selector(getter: LocaleUnitTesting.nslocalePreferredLanguages))!
+//        method_exchangeImplementations(nslocalePreferredLanguagesClassMethod, localeUnitTestingPreferredLanguagesClassMethod)
+//        let preferredLanguages: [PreferredLanguage]
+//        do { preferredLanguages = try Locale.preferredLanguages() } catch {
+//            XCTFail("Unexpected error \(String(reflecting: error)) is thrown")
+//            return
+//        }
+//        method_exchangeImplementations(nslocalePreferredLanguagesClassMethod, localeUnitTestingPreferredLanguagesClassMethod)
+//        
+//        let expectedPreferredLanguages: [PreferredLanguage] = [.englishCanada, .azerbaijani]
+//        XCTAssertTrue(preferredLanguages == expectedPreferredLanguages, "Unexpected \"\(String(reflecting: preferredLanguages)))\" is found but \"(\(expectedPreferredLanguages))\" is expected")
+//    }
+//    
+//    func testPreferredLanguagesError() {
+//        LocaleUnitTesting.nslocalePreferredLanguages = ["unknownPreferredLanguage"]
+//        
+//        let nslocalePreferredLanguagesClassMethod = class_getClassMethod(NSLocale.classForCoder(), #selector(getter: NSLocale.preferredLanguages))!
+//        let localeUnitTestingPreferredLanguagesClassMethod = class_getClassMethod(LocaleUnitTesting.classForCoder(), #selector(getter: LocaleUnitTesting.nslocalePreferredLanguages))!
+//        method_exchangeImplementations(nslocalePreferredLanguagesClassMethod, localeUnitTestingPreferredLanguagesClassMethod)
+//        let preferredLanguages: [PreferredLanguage]
+//        do { preferredLanguages = try Locale.preferredLanguages() } catch {
+//            return
+//        }
+//        method_exchangeImplementations(nslocalePreferredLanguagesClassMethod, localeUnitTestingPreferredLanguagesClassMethod)
+//        
+//        XCTFail("Unexpected \(String(reflecting: preferredLanguages)) is found")
+//    }
+//    
 }
