@@ -100,6 +100,8 @@
 		C5820FE925C603C80057D5C6 /* LocaleUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5820FE825C603C80057D5C6 /* LocaleUnitTesting.swift */; };
 		C5820FEF25C60E790057D5C6 /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5820FEE25C60E790057D5C6 /* Script.swift */; };
 		C5820FF325C60F820057D5C6 /* ScriptUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5820FF225C60F820057D5C6 /* ScriptUnitTesting.swift */; };
+		C583476F2C22D08D001165C5 /* BundleDisplayName.swift in Sources */ = {isa = PBXBuildFile; fileRef = C583476E2C22D08D001165C5 /* BundleDisplayName.swift */; };
+		C58347712C22D0F8001165C5 /* BundleDisplayNameUnitTesing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58347702C22D0F8001165C5 /* BundleDisplayNameUnitTesing.swift */; };
 		C587DC1525A0DF1700DF1BF9 /* PreferredLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C587DC1425A0DF1700DF1BF9 /* PreferredLanguage.swift */; };
 		C58A617025D021A900FE4606 /* DecimalUIntUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A616F25D021A900FE4606 /* DecimalUIntUnitTesting.swift */; };
 		C58A617825D03E9E00FE4606 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A617725D03E9E00FE4606 /* HttpRequest.swift */; };
@@ -256,6 +258,8 @@
 		C5820FE825C603C80057D5C6 /* LocaleUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleUnitTesting.swift; sourceTree = "<group>"; };
 		C5820FEE25C60E790057D5C6 /* Script.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Script.swift; sourceTree = "<group>"; };
 		C5820FF225C60F820057D5C6 /* ScriptUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptUnitTesting.swift; sourceTree = "<group>"; };
+		C583476E2C22D08D001165C5 /* BundleDisplayName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleDisplayName.swift; sourceTree = "<group>"; };
+		C58347702C22D0F8001165C5 /* BundleDisplayNameUnitTesing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleDisplayNameUnitTesing.swift; sourceTree = "<group>"; };
 		C587DC1425A0DF1700DF1BF9 /* PreferredLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredLanguage.swift; sourceTree = "<group>"; };
 		C58A616F25D021A900FE4606 /* DecimalUIntUnitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalUIntUnitTesting.swift; sourceTree = "<group>"; };
 		C58A617725D03E9E00FE4606 /* HttpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
@@ -778,6 +782,7 @@
 			children = (
 				C590F750278B8C110084D079 /* BundleShortVersion.swift */,
 				C590F755278B917A0084D079 /* BundleVersion.swift */,
+				C583476E2C22D08D001165C5 /* BundleDisplayName.swift */,
 			);
 			path = Bundle;
 			sourceTree = "<group>";
@@ -787,6 +792,7 @@
 			children = (
 				C590F753278B8E3C0084D079 /* BundleShortVersionUnitTesing.swift */,
 				C590F757278B91C00084D079 /* BundleVersionUnitTesing.swift */,
+				C58347702C22D0F8001165C5 /* BundleDisplayNameUnitTesing.swift */,
 			);
 			path = Bundle;
 			sourceTree = "<group>";
@@ -1050,6 +1056,7 @@
 				338BA772239EA58000CE3CCA /* StringsTableNameBundleTextLocalizerUnitTesting.swift in Sources */,
 				C563FBD02528611200BA1E99 /* CurrencyUnitTesting.swift in Sources */,
 				C5636FC425C6FCCC00F95194 /* HTTPURLResponseHttpResponseDataUnitTesting.swift in Sources */,
+				C58347712C22D0F8001165C5 /* BundleDisplayNameUnitTesing.swift in Sources */,
 				C564D69D263F4D1E0081FFB4 /* HttpExchangeUnitTesting.swift in Sources */,
 				C54DD5AC2528A39100F58A87 /* CompositeLocalizerUnitTesting.swift in Sources */,
 				C5636FD325C7090A00F95194 /* JsonArrayUnitTesting.swift in Sources */,
@@ -1104,6 +1111,7 @@
 				C516C69E25EDB60F00628D77 /* HttpRequestMethod.swift in Sources */,
 				C552E40E24617E230031D531 /* JsonSerrialization.swift in Sources */,
 				C55CF4FB2551DCCD00E61A03 /* DecimalInt.swift in Sources */,
+				C583476F2C22D08D001165C5 /* BundleDisplayName.swift in Sources */,
 				C55CF5082551DD8C00E61A03 /* DecimalFloat.swift in Sources */,
 				33107F522391345C00789467 /* CompositeLocalizer.swift in Sources */,
 				C54ED6EC290FD46A00B1D1C9 /* CollectionEmpty.swift in Sources */,
