@@ -1,21 +1,22 @@
 import XCTest
 @testable import AFoundation
 
-class StringsTableNameBundleTextLocalizerUnitTesting: XCTestCase {
+class StringsTableNameBundleLocaleTextLocalizerUnitTesting: XCTestCase {
 
     #if SWIFT_PACKAGE
     private lazy var bundle = Bundle.module
     #else
     private lazy var bundle = Bundle(for: Self.self)
     #endif
+    private lazy var locale = Locale(identifier: "en")
     private let stringsTableName = "TextLocalizerUnitTestingStrings"
-    private var stringsTableNameBundleTextLocalizer: TableNameBundleTextLocalizer {
-        let textLocalizer = TableNameBundleTextLocalizer(tableName: stringsTableName, bundle: bundle)
+    private var stringsTableNameBundleTextLocalizer: TableNameBundleLocaleTextLocalizer {
+        let textLocalizer = TableNameBundleLocaleTextLocalizer(tableName: stringsTableName, bundle: bundle, locale: locale)
         return textLocalizer
     }
     private let stringsdictTableName = "TextLocalizerUnitTestingStringsdict"
-    private var stringsdictTableNameBundleTextLocalizer: TableNameBundleTextLocalizer {
-        let textLocalizer = TableNameBundleTextLocalizer(tableName: stringsdictTableName, bundle: bundle)
+    private var stringsdictTableNameBundleTextLocalizer: TableNameBundleLocaleTextLocalizer {
+        let textLocalizer = TableNameBundleLocaleTextLocalizer(tableName: stringsdictTableName, bundle: bundle, locale: locale)
         return textLocalizer
     }
 

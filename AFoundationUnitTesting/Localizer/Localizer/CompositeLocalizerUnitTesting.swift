@@ -11,9 +11,10 @@ class CompositeLocalizerUnitTesting: XCTestCase {
     #endif
     private let stringsTableName = "TextLocalizerUnitTestingStrings"
     private let stringsdictTableName = "TextLocalizerUnitTestingStringsdict"
+    private let locale = Locale(identifier: "en")
     private var multipleTextLocalizer: MultipleTextLocalizer {
-        let stringsTextLocalizer = TableNameBundleTextLocalizer(tableName: stringsTableName, bundle: bundle)
-        let stringsdictTextLocalizer = TableNameBundleTextLocalizer(tableName: stringsdictTableName, bundle: bundle)
+        let stringsTextLocalizer = TableNameBundleLocaleTextLocalizer(tableName: stringsTableName, bundle: bundle, locale: locale)
+        let stringsdictTextLocalizer = TableNameBundleLocaleTextLocalizer(tableName: stringsdictTableName, bundle: bundle, locale: locale)
         let textLocalizer = MultipleTextLocalizer(textLocalizers: [stringsTextLocalizer, stringsdictTextLocalizer])
         return textLocalizer
     }
