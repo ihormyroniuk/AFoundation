@@ -5,7 +5,14 @@ import Foundation
  */
 public enum MediaType {
     
-    public static let json = "application/json"
-    public static let xWwwFormUrlencoded = "x-www-form-urlencoded"
+    public enum Application {
+        public static let json = "application/json"
+        public static let xWwwFormUrlencoded = "x-www-form-urlencoded"
+    }
+    
+    public enum Image {
+        public static let jpeg = "image/jpeg"
+        public static let png = "image/png"
+    }
     
 }
