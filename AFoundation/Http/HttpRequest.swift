@@ -3,7 +3,7 @@ import Foundation
 /**
     Implemented based on https://tools.ietf.org/html/rfc2616#section-5
  */
-public struct HttpRequest: Equatable, CustomDebugStringConvertible {
+public struct HttpRequest: Equatable, CustomDebugStringConvertible, Sendable {
     
     public let method: String
     public let uri: URL

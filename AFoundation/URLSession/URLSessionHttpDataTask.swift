@@ -33,4 +33,33 @@ public extension URLSession {
         return dataTask
     }
 
+    @available(iOS 13.0.0, *)
+    func httpDataTask(with urlRequest: URLRequest) async throws -> HttpDataTaskResponse {
+        try await withCheckedThrowingContinuation { continuation in
+            let dataTask = self.dataTask(with: urlRequest) { data, urlResponse, error in
+                if let error = error {
+                    let nsError = error as NSError
+                    if nsError.code == NSURLErrorNotConnectedToInternet {
+                        continuation.resume(returning: .notConnectedToInternet(error))
+                    } else if nsError.code == NSURLErrorNetworkConnectionLost {
+                        continuation.resume(returning: .networkConnectionLost(error))
+                    } else {
+                        continuation.resume(throwing: error)
+                    }
+                } else if let urlResponse = urlResponse {
+                    if let httpUrlResponse = urlResponse as? HTTPURLResponse {
+                        continuation.resume(returning: .httpUrlResponseWithData(httpUrlResponse, data))
+                    } else {
+                        let error = Error("Unexpected \(String(reflecting: urlResponse)) for \(String(reflecting: urlRequest))")
+                        continuation.resume(throwing: error)
+                    }
+                } else {
+                    let error = Error("Unexpected \(String(reflecting: URLSessionDataTask.self)) completionHandler call for \(String(reflecting: urlRequest))")
+                    continuation.resume(throwing: error)
+                }
+            }
+            dataTask.resume()
+        }
+    }
+    
 }
