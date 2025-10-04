@@ -6,10 +6,11 @@ public extension Decimal {
     static let doubleMin = Decimal(-Double.greatestFiniteMagnitude)
   
     func double() throws -> Double {
-        guard self >= Decimal.doubleMin && self <= Decimal.doubleMax else {
+        let doubleValue = (self as NSDecimalNumber).doubleValue
+        guard doubleValue.isFinite else {
             throw Error("Cannot get \(String(reflecting: Double.self)) for \(String(reflecting: Decimal.self))(\(String(reflecting: self)))")
         }
-        return (self as NSDecimalNumber).doubleValue
+        return doubleValue
     }
     
 }

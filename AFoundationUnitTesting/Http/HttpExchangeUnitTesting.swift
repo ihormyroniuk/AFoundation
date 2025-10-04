@@ -4,41 +4,6 @@ import Foundation
 
 class HttpExchangeUnitTesting: XCTestCase {
     
-    // MARK: HttpExchange
-
-    func testHttpExchangeConstructRequest() {
-        let httpExchange = HttpExchange<Any>()
-        do {
-            let request = try httpExchange.constructRequest()
-            
-            XCTFail("Unexpected \(String(reflecting: request)) is returned, but error has to be thrown")
-        } catch {
-            return
-        }
-    }
-    
-    func testHttpExchangeParseResponse() {
-        let httpExchange = HttpExchange<Any>()
-        let httpResponse = HttpResponse(version: "", code: 0, phrase: "", headers: nil, body: nil)
-        do {
-            let parsedResponse = try httpExchange.parseResponse(httpResponse)
-            
-            XCTFail("Unexpected \(String(reflecting: parsedResponse)) is returned, but error has to be thrown")
-        } catch {
-            return
-        }
-    }
-    
-    func testHttpExchangeDebugDescription() {
-        let httpExchange = HttpExchange<Any>()
-        
-        let debugDescription = String(reflecting: httpExchange)
-        
-        let expectedDebugDescription = "AFoundation.HttpExchange<Any>()"
-        
-        XCTAssertTrue(debugDescription == expectedDebugDescription, "Unexpected debug description \(debugDescription) is found, but debug description \(expectedDebugDescription) is expected")
-    }
-    
     // MARK: SchemeHostHttpExchange
     
     func testSchemeHostHttpExchangeConstructRequest() {

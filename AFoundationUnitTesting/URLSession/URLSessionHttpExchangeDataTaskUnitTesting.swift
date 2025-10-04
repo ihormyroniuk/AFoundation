@@ -6,7 +6,7 @@ class URLSessionHttpExchangeDataTaskUnitTesting: XCTestCase {
     
     // MARK: Mocks
     
-    private class MockURLSession: URLSession {
+    private class MockURLSession: URLSession, @unchecked Sendable {
         
         let mockData: Data?
         let mockUrlResponse: URLResponse?
@@ -18,7 +18,7 @@ class URLSessionHttpExchangeDataTaskUnitTesting: XCTestCase {
             self.mockError = mockError
         }
         
-        private class MockURLSessionDataTask: URLSessionDataTask {
+        private class MockURLSessionDataTask: URLSessionDataTask, @unchecked Sendable {
             
             let mockData: Data?
             let mockUrlResponse: URLResponse?
@@ -45,8 +45,8 @@ class URLSessionHttpExchangeDataTaskUnitTesting: XCTestCase {
         }
     }
     
-    private class MockHttpExchange: HttpExchange<Void> {
-        override func constructRequest() throws -> HttpRequest {
+    private class MockHttpExchange<ParsedResponse: Sendable>: HttpExchange {
+        func constructRequest() throws -> HttpRequest {
             let method = HttpRequestMethod.get
             let uri = URL(string: "localhost")!
             let version = HttpVersion.http1dot1
@@ -56,24 +56,24 @@ class URLSessionHttpExchangeDataTaskUnitTesting: XCTestCase {
             return httpRequest
         }
         
-        override func parseResponse(_ response: HttpResponse) throws -> Void {
+        func parseResponse(_ response: HttpResponse) throws -> Void {
             return
         }
     }
     
-    private class MockHttpExchangeErrorConstructRequest: HttpExchange<Void> {
-        override func constructRequest() throws -> HttpRequest {
+    private class MockHttpExchangeErrorConstructRequest<ParsedResponse: Sendable>: HttpExchange {
+        func constructRequest() throws -> HttpRequest {
             let error = Error("")
             throw error
         }
         
-        override func parseResponse(_ response: HttpResponse) throws -> Void {
+        func parseResponse(_ response: HttpResponse) throws -> Void {
             return
         }
     }
     
-    private class MockHttpExchangeErrorParseResponse: HttpExchange<Void> {
-        override func constructRequest() throws -> HttpRequest {
+    private class MockHttpExchangeErrorParseResponse<ParsedResponse: Sendable>: HttpExchange {
+        func constructRequest() throws -> HttpRequest {
             let method = HttpRequestMethod.get
             let uri = URL(string: "localhost")!
             let version = HttpVersion.http1dot1
@@ -83,7 +83,7 @@ class URLSessionHttpExchangeDataTaskUnitTesting: XCTestCase {
             return httpRequest
         }
         
-        override func parseResponse(_ response: HttpResponse) throws -> Void {
+        func parseResponse(_ response: HttpResponse) throws -> Void {
             let error = Error("")
             throw error
         }
@@ -94,7 +94,7 @@ class URLSessionHttpExchangeDataTaskUnitTesting: XCTestCase {
     func testFailureError() {
         let data: Data? = nil
         let urlSession = MockURLSession(mockData: data, mockHttpUrlResponse: nil, mockError: nil)
-        let httpExchange = MockHttpExchange()
+        let httpExchange = MockHttpExchange<any Sendable>()
 
         let expectation = self.expectation(description: #function)
         do {
@@ -122,7 +122,7 @@ class URLSessionHttpExchangeDataTaskUnitTesting: XCTestCase {
         let httpUrlResponse = HTTPURLResponse(url: url, statusCode: statusCode, httpVersion: nil, headerFields: nil)!
         let error: Error? = nil
         let urlSession = MockURLSession(mockData: data, mockHttpUrlResponse: httpUrlResponse, mockError: error)
-        let httpExchange = MockHttpExchangeErrorParseResponse()
+        let httpExchange = MockHttpExchangeErrorParseResponse<any Sendable>()
 
         let expectation = self.expectation(description: #function)
         do {
@@ -149,7 +149,7 @@ class URLSessionHttpExchangeDataTaskUnitTesting: XCTestCase {
         let httpUrlResponse: URLResponse? = URLResponse(url: url, mimeType: nil, expectedContentLength: 0, textEncodingName: nil)
         let error: Error? = nil
         let urlSession = MockURLSession(mockData: data, mockHttpUrlResponse: httpUrlResponse, mockError: error)
-        let httpExchange = MockHttpExchangeErrorParseResponse()
+        let httpExchange = MockHttpExchangeErrorParseResponse<any Sendable>()
 
         let expectation = self.expectation(description: #function)
         do {
@@ -175,7 +175,7 @@ class URLSessionHttpExchangeDataTaskUnitTesting: XCTestCase {
         let httpUrlResponse: HTTPURLResponse? = nil
         let nsError = NSError(domain: "", code: NSURLErrorNotConnectedToInternet, userInfo: nil)
         let urlSession = MockURLSession(mockData: data, mockHttpUrlResponse: httpUrlResponse, mockError: (nsError as Swift.Error))
-        let httpExchange = MockHttpExchange()
+        let httpExchange = MockHttpExchange<any Sendable>()
 
         let expectation = self.expectation(description: #function)
         do {
@@ -206,7 +206,7 @@ class URLSessionHttpExchangeDataTaskUnitTesting: XCTestCase {
         let httpUrlResponse: HTTPURLResponse? = nil
         let nsError = NSError(domain: "", code: NSURLErrorNetworkConnectionLost, userInfo: nil)
         let urlSession = MockURLSession(mockData: data, mockHttpUrlResponse: httpUrlResponse, mockError: (nsError as Swift.Error))
-        let httpExchange = MockHttpExchange()
+        let httpExchange = MockHttpExchange<any Sendable>()
 
         let expectation = self.expectation(description: #function)
         do {
@@ -239,7 +239,7 @@ class URLSessionHttpExchangeDataTaskUnitTesting: XCTestCase {
         let httpUrlResponse = HTTPURLResponse(url: url, statusCode: statusCode, httpVersion: nil, headerFields: nil)!
         let error: Error? = nil
         let urlSession = MockURLSession(mockData: data, mockHttpUrlResponse: httpUrlResponse, mockError: error)
-        let httpExchange = MockHttpExchange()
+        let httpExchange = MockHttpExchange<any Sendable>()
 
         let expectation = self.expectation(description: #function)
         do {
@@ -268,7 +268,7 @@ class URLSessionHttpExchangeDataTaskUnitTesting: XCTestCase {
     func testFailureConstructRequestError() {
         let data: Data? = nil
         let urlSession = MockURLSession(mockData: data, mockHttpUrlResponse: nil, mockError: nil)
-        let httpExchange = MockHttpExchangeErrorConstructRequest()
+        let httpExchange = MockHttpExchangeErrorConstructRequest<any Sendable>()
 
         let expectation = self.expectation(description: #function)
         do {
